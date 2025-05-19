@@ -1015,16 +1015,16 @@
       From retail to offices and multi-unit properties, we keep your project clean, on schedule, and professionally managed without interrupting your business.
     </p>
     <div class="cta-buttons">
-      <div id="google-booking-button"></div>
+      <div id="google-booking-button-cta"></div>
       <link href="https://calendar.google.com/calendar/scheduling-button-script.css" rel="stylesheet">
       <script src="https://calendar.google.com/calendar/scheduling-button-script.js" async></script>
       <script>
         window.addEventListener('load', function() {
           calendar.schedulingButton.load({
-            url: 'https://calendar.google.com/calendar/appointments/schedules/AcZssZ0_gfVSgAbzcwlrsjt7wXRcMWYJjNA9SXz48vSjIXIoTeCny5Hg9Rf4eoqvl4n93QG9dYoMANyb?gv=true',
+            url: 'https://calendar.google.com/calendar/appointments/AcZssZ0IkanO1Oc9HQaQH9aBxxNaKYtd5XygGBAJsKg=?gv=true',
             color: '#D50000',
-            label: '📅 Schedule a Walkthrough',
-            target: document.getElementById('google-booking-button')
+            label: '📅 Book an Appointment',
+            target: document.getElementById('google-booking-button-cta')
           });
         });
       </script>
@@ -1099,23 +1099,7 @@
       <a href="mailto:alexdimmler@dependablepaintingal.com" class="footer-link">✉️ Email</a>
       <a href="https://g.page/r/CQjqan_iFBshEAI/review"  class="footer-link">⭐ Review</a>
     </div>
-    <div id="google-footer-booking-button" style="margin-top: 1rem;"></div>
-    <link href="https://calendar.google.com/calendar/scheduling-button-script.css" rel="stylesheet">
-    <script src="https://calendar.google.com/calendar/scheduling-button-script.js" async></script>
-    <script>
-    (function() {
-      var target = document.getElementById('google-footer-booking-button');
-      window.addEventListener('load', function() {
-        calendar.schedulingButton.load({
-          url: 'https://calendar.google.com/calendar/appointments/AcZssZ0IkanO1Oc9HQaQH9aBxxNaKYtd5XygGBAJsKg=?gv=true',
-          color: '#D50000',
-          label: '📅 Book an Appointment',
-          target,
-        });
-      });
-    })();
-    </script>
-    </footer>
+  </footer>
 
   <script>
     // Initialize AOS (Animate On Scroll) library if it's loaded
