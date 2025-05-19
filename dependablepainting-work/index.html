@@ -1,0 +1,1268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-0V3600MKZB"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-0V3600MKZB');
+</script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dependable Painting</title>
+  <link rel="icon" type="image/png" href="https://imagedelivery.net/VwxTcpKX2CusqbCCDB94Nw/7881fc44-ea80-44b4-6695-c538fb466400/logo-header" sizes="512x512">
+  <link rel="mask-icon" href="https://imagedelivery.net/VwxTcpKX2CusqbCCDB94Nw/7881fc44-ea80-44b4-6695-c538fb466400/logo-header" color="#e00000">
+  <meta name="theme-color" content="#000000">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js" defer crossorigin="anonymous"></script>
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js" crossorigin="anonymous"></script>
+  <style>
+    /* Reset and base styles */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: Arial, sans-serif;
+      background: #000000; /* Background: Black */
+      color: #ffffff; /* Default Text: White */
+      line-height: 1.6;
+      padding-bottom: 120px; /* Initial padding for sticky footer, JS will adjust it. Increased slightly. */
+    }
+
+    /* Header styling */
+    header {
+      background: #000000; /* Header Background: Black */
+      padding: 1rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      z-index: 9999;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3); /* Subtle black shadow */
+      border-bottom: 1px solid #333333; 
+    }
+    .brand { display: flex; align-items: center; gap: 0.8rem; }
+    .brand img { width: 40px; height: 40px; border-radius: 50%; object-fit: cover;}
+    .brand span { font-weight: bold; font-size: 1.4rem; color: #e00000; } /* Brand Text: Red */
+    .brand a { text-decoration: none; display: flex; align-items: center; }
+
+    /* Navigation icons */
+    .nav-icons { display: flex; align-items: center; gap: 1.2rem; }
+    .nav-icons a {
+      background: #000000; 
+      padding: 0.5rem;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 2.4rem;
+      height: 2.4rem;
+      box-shadow: 0 0 6px rgba(224, 0, 0, 0.3); 
+      color: #e00000; 
+      font-size: 1.3rem;
+      transition: background 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+      text-decoration: none;
+      border: 1px solid #333333; 
+    }
+    .nav-icons a:hover { background: #e00000; color: #ffffff; border-color: #e00000; } 
+    .hours-toggle { position: relative; cursor: pointer; }
+    #hoursPopup {
+      display: none;
+      position: absolute;
+      top: 130%;
+      right: 0;
+      background: #000000; 
+      color: #ffffff; 
+      padding: 1rem;
+      border-radius: 6px;
+      box-shadow: 0 0 10px rgba(224, 0, 0, 0.5); 
+      font-size: 0.9rem;
+      white-space: nowrap;
+      z-index: 99999;
+      opacity: 0;
+      transition: opacity 0.3s ease, transform 0.3s ease;
+      transform: translateY(-10px);
+      border: 1px solid #333333; 
+    }
+    #hoursPopup strong { color: #e00000; } 
+    #hoursPopup.visible { display: block; opacity: 1; transform: translateY(0); }
+
+    /* Hamburger icon */
+    .hamburger {
+      width: 30px;
+      height: 22px;
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .hamburger span {
+      height: 3px;
+      width: 100%;
+      background: #e00000; 
+      border-radius: 2px;
+      transition: transform 0.4s ease, opacity 0.4s ease, background-color 0.4s ease;
+    }
+    .hamburger.active span:nth-child(1) { transform: translateY(9.5px) rotate(45deg); }
+    .hamburger.active span:nth-child(2) { opacity: 0; }
+    .hamburger.active span:nth-child(3) { transform: translateY(-9.5px) rotate(-45deg); }
+
+    /* Mobile menu */
+    nav.menu {
+      z-index: 10000;
+      backdrop-filter: blur(4px);
+      position: fixed;
+      top: 0;
+      left: -100%; 
+      width: 100%;
+      height: 100vh;
+      background: rgba(0, 0, 0, 0.95); 
+      color: #ffffff; 
+      padding: 4rem 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.8rem;
+      transition: left 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      overflow-y: auto;
+    }
+    nav.menu.open { left: 0; box-shadow: 5px 0 30px rgba(224, 0, 0, 0.2); } 
+    nav.menu .search-bar-container {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        margin-bottom: 1rem;
+    }
+    nav.menu .search-bar {
+      height: 2.75rem;
+      padding: 0.5rem 1rem;
+      font-size: 1rem;
+      color: #ffffff; 
+      background: #000000; 
+      border: 1px solid #333333; 
+      border-radius: 6px;
+      width: 100%;
+      outline: none;
+      transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    }
+    nav.menu .search-bar:focus { border-color: #e00000; box-shadow: 0 0 10px rgba(224, 0, 0, 0.6); } 
+    nav.menu .search-bar-container button {
+        background: none;
+        border: none;
+        color: #e00000; 
+        font-size: 1.4rem;
+        cursor: pointer;
+        padding: 0.5rem;
+        transition: color 0.3s ease;
+    }
+    nav.menu .search-bar-container button:hover { color: #ffffff; } 
+    nav.menu a {
+      color: #e00000; 
+      font-size: 1.5rem;
+      font-weight: bold;
+      text-decoration: none;
+      display: block;
+      padding: 0.5rem 0;
+      transition: color 0.3s ease, transform 0.3s ease;
+      opacity: 0; 
+      animation: menuItemFadeIn 0.5s ease forwards; 
+    }
+    nav.menu a:hover { color: #ffffff; transform: translateX(5px); } 
+    .close-btn {
+      position: absolute;
+      top: 1.5rem;
+      right: 1.5rem;
+      font-size: 2.2rem;
+      cursor: pointer;
+      color: #e00000; 
+      transition: color 0.3s ease, transform 0.3s ease;
+    }
+    .close-btn:hover { color: #ffffff; transform: rotate(90deg); } 
+    @keyframes menuItemFadeIn { 
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); } 
+    }
+
+    /* Hero Section Styles */
+    .hero-section { background: #000000 !important; box-shadow: 0 10px 30px rgba(0,0,0,0.5) !important; padding: 5rem 2rem; text-align: center; }
+    .hero-section .fade-up { 
+        transition: opacity 0.8s ease-out, transform 0.8s ease-out; 
+    }
+    .hero-section .fade-up.aos-animate { opacity: 1; transform: translateY(0); }
+
+    .hero-section .cta-button { 
+      background: #e00000 !important; 
+      color: #ffffff !important; 
+      padding: 1rem 2rem !important;
+      font-weight: bold !important;
+      border-radius: 5px !important;
+      text-decoration: none !important;
+      font-size: 1.1rem !important;
+      display: inline-block !important;
+    }
+    .hero-section .cta-button.aos-animate { animation: bounceInHero 0.8s ease forwards; } 
+    @keyframes bounceInHero { 0% { transform: scale(0.9); } 50% { transform: scale(1.05); } 100% { transform: scale(1); } }
+    .hero-section .cta-button:hover { background: #c00000 !important; box-shadow: 0 5px 15px rgba(224, 0, 0, 0.5); transform: translateY(-2px); }
+    
+
+    /* Services Section Styles */
+    #services { padding: 4rem 2rem; text-align: center; background: #000000; color: #ffffff; }
+    #services h2 { font-size: 2.5rem; margin-bottom: 2.5rem; color: #e00000; text-shadow: 0 0 8px rgba(224,0,0,0.3); }
+    .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; }
+    .service-card {
+      background: #000000; 
+      padding: 2rem;
+      border-radius: 12px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+      box-shadow: 0 6px 15px rgba(0,0,0,0.4); 
+      border: 1px solid #333333; 
+    }
+    .service-card:hover { transform: translateY(-8px); box-shadow: 0 12px 28px rgba(224, 0, 0, 0.3); border-color: rgba(224,0,0,0.5); }
+    .service-card h3 { color: #e00000; margin-bottom: 1rem; font-size: 1.6rem; }
+    .service-card p { color: #ffffff; flex-grow: 1; font-size: 1rem; line-height: 1.6; margin-bottom: 1.5rem; }
+    .cta-button { 
+      display: inline-block;
+      background: #e00000; 
+      color: #ffffff; 
+      padding: 0.8rem 1.8rem;
+      border-radius: 6px;
+      font-weight: bold;
+      text-decoration: none;
+      font-size: 1rem;
+      transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+      box-shadow: 0 4px 12px rgba(224, 0, 0, 0.25); 
+      text-align: center;
+    }
+    .cta-button:hover { background: #c00000; transform: translateY(-3px); box-shadow: 0 6px 18px rgba(224, 0, 0, 0.45); }
+
+    /* Gallery Section Styles */
+    #gallery { padding: 3rem 1.5rem; background: #000000; color: #ffffff; text-align: center; }
+    #gallery h2 { font-size: 2.25rem; margin-bottom: 1.5rem; color: #e00000; font-weight: 700; }
+    #gallery .gallery-intro-p { max-width: 700px; margin: 0 auto 2rem; color: #ffffff; font-size: 1rem; line-height: 1.6; }
+    .cabinet-gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; }
+    .gallery-item .img-container {
+        position: relative; width: 100%; aspect-ratio: 4 / 3; overflow: hidden;
+        border-radius: 12px; background: #000000; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5); 
+        transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+        border: 1px solid #333333;
+    }
+    .gallery-item:hover .img-container { transform: translateY(-5px); box-shadow: 0 8px 25px rgba(224, 0, 0, 0.3); border-color: rgba(224,0,0,0.5); }
+    .gallery-img { width: 100%; height: 100%; object-fit: cover; display: block; cursor: pointer; transition: transform 0.3s ease; }
+    .gallery-item:hover .gallery-img { transform: scale(1.05); }
+    .hover-caption {
+        position: absolute; bottom: 0; left: 0; right: 0;
+        background: rgba(0, 0, 0, 0.85); color: #ffffff; font-size: 0.9rem; padding: 0.75rem 1rem; 
+        opacity: 0; transform: translateY(100%);
+        transition: opacity 0.4s ease, transform 0.4s ease;
+        text-align: center; border-bottom-left-radius: 12px; border-bottom-right-radius: 12px;
+    }
+    .gallery-item:hover .hover-caption { opacity: 1; transform: translateY(0); }
+
+    /* Modal Styles for Gallery */
+    .modal {
+        display: none; position: fixed; z-index: 10000; left: 0; top: 0;
+        width: 100%; height: 100%; overflow: auto; background-color: rgba(0, 0, 0, 0.92); 
+        display: flex; align-items: center; justify-content: center;
+        padding: 15px; box-sizing: border-box;
+    }
+    .modal-content {
+        position: relative; background-color: #000000; padding: 0; border-radius: 8px; 
+        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.7); border: 1px solid #333333;
+        max-width: calc(100vw - 40px); max-height: calc(100vh - 40px);
+        display: flex; align-items: center; justify-content: center; overflow: hidden;
+    }
+    #modalImage { display: block; max-width: 100%; max-height: 100%; object-fit: contain; }
+    #caption {
+        position: absolute; bottom: 0; left: 0; width: 100%;
+        background-color: rgba(0, 0, 0, 0.75); color: #ffffff; padding: 12px 15px; 
+        text-align: center; font-size: 1rem; box-sizing: border-box;
+        border-bottom-left-radius: 8px; border-bottom-right-radius: 8px;
+    }
+    .close-button { 
+        position: absolute; top: 10px; right: 25px; color: #ffffff; 
+        font-size: 35px; font-weight: bold; transition: 0.3s ease;
+        cursor: pointer; line-height: 1; z-index: 10;
+    }
+    .close-button:hover, .close-button:focus { color: #e00000; text-decoration: none; }
+    .prev, .next { 
+        cursor: pointer; position: absolute; top: 50%; transform: translateY(-50%);
+        width: auto; padding: 16px; color: #ffffff; font-weight: bold; 
+        font-size: 24px; transition: 0.4s ease; border-radius: 0 3px 3px 0;
+        user-select: none; background-color: rgba(0, 0, 0, 0.4); z-index: 5;
+    }
+    .prev { left: 0; border-radius: 3px 0 0 3px; }
+    .next { right: 0; border-radius: 0 3px 3px 0; }
+    .prev:hover, .next:hover { background-color: rgba(224, 0, 0, 0.7); }
+
+    /* "What to Expect" Section Styles */
+    #what-to-expect { background: #000000; padding: 5rem 2rem; }
+    #what-to-expect h2 {
+      color: #e00000; font-size: 2.5rem; margin-bottom: 2.2rem; 
+      text-align: center; text-shadow: 0 0 10px rgba(224, 0, 0, 0.5); 
+    }
+    .detail-card-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 2rem;
+    }
+    .detail-card { 
+      background: #000000; 
+      border: 1px solid #222222; 
+      border-radius: 12px;
+      padding: 2rem;
+      transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+      box-shadow: inset 0 0 0 rgba(0, 0, 0, 0);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .detail-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 0 0 2px rgba(224,0,0,0.1), 
+                  0 12px 30px rgba(224, 0, 0, 0.25); 
+      border-color: rgba(224,0,0,0.3);
+    }
+    .detail-card h3 {
+      color: #e00000; 
+      font-size: 1.5rem;
+      margin-bottom: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.3px;
+      text-shadow: 0 0 8px rgba(224, 0, 0, 0.4); 
+    }
+    .detail-card p {
+      color: #ffffff; 
+      font-size: 1.05rem;
+      line-height: 1.6;
+    }
+
+    /* Reviews Section Styles */
+    #reviews-only { background: #000000; padding: 5rem 2rem; text-align: center; }
+    #reviews-only h2 {
+      font-size: 2.5rem; color: #e00000; margin-bottom: 3rem; 
+      text-shadow: 0 0 8px rgba(224,0,0,0.3); 
+    }
+    .reviews-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem; margin-bottom: 3rem;
+    }
+    .testimonial-card { 
+      background: #000000; 
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 8px 20px rgba(224, 0, 0, 0.15); 
+      border: 1px solid #333333; 
+      transition: border-color 0.3s ease;
+    }
+    .testimonial-card:hover { border-color: rgba(224,0,0,0.5); }
+    .stars {
+      color: #e00000; 
+      font-size: 1.4rem;
+      margin-bottom: 0.5rem;
+      letter-spacing: 1px;
+      animation: glowStars 2s infinite ease-in-out;
+    }
+    .quote { color: #ffffff; font-size: 1.1rem; margin: 1rem 0; line-height: 1.6; }
+    .name { color: #ffffff; font-style: italic; font-size: 0.95rem; opacity: 0.7; }
+    .qr-code-container {
+        display: flex; flex-direction: column; align-items: center; gap: 1rem;
+    }
+    .qr-code-container img {
+        width: 150px; height: 150px; object-fit: contain;
+        border-radius: 8px; box-shadow: 0 4px 12px rgba(224, 0, 0, 0.25); 
+    }
+    .qr-code-container p { color: #ffffff; font-size: 0.9rem; opacity: 0.7;}
+    .qr-code-container a {
+      display: inline-block; background: #e00000; color: #ffffff; 
+      padding: 0.8rem 2rem; border-radius: 6px; font-weight: bold;
+      text-decoration: none; font-size: 1.1rem; transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+    }
+    .qr-code-container a:hover {
+        background-color: #c00000; 
+        transform: translateY(-2px);
+        box-shadow: 0 6px 15px rgba(224, 0, 0, 0.4); 
+    }
+    @keyframes glowStars {
+      0%, 100% { text-shadow: 0 0 5px rgba(224,0,0,0.5); } 
+      50% { text-shadow: 0 0 15px rgba(224,0,0,0.9); } 
+    }
+
+    /* FAQ Section Styles */
+    .faq-section {
+      padding: 4rem 1.5rem;
+      background-color: #000000; 
+      color: #ffffff; 
+    }
+    .faq-container {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .faq-section h2 {
+      font-size: 2.75rem;
+      color: #e00000; 
+      text-align: center;
+      margin-bottom: 3rem;
+      text-shadow: 0 0 8px rgba(224, 0, 0, 0.25); 
+    }
+    .faq-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+    .faq-item { 
+      background: #000000; 
+      padding: 1.75rem 2rem;
+      border-left: 4px solid #e00000; 
+      border-radius: 8px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+      border-top: 1px solid rgba(224,0,0,0.2); 
+      border-right: 1px solid rgba(224,0,0,0.2); 
+      border-bottom: 1px solid rgba(224,0,0,0.2); 
+    }
+    .faq-item:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 25px rgba(224, 0, 0, 0.2); 
+      border-color: rgba(224,0,0,0.4);
+      border-left-color: #e00000;
+    }
+    .faq-item h3 { font-size: 1.4rem; color: #e00000; margin-bottom: 0.75rem; }
+    .faq-item p { font-size: 1.05rem; color: #ffffff; line-height: 1.7; }
+    .faq-item p a { color: #e00000; text-decoration: underline; transition: color 0.3s ease; }
+    .faq-item p a:hover { color: #ffffff; }
+
+    /* CTA Highlight Section Styles */
+    .cta-highlight { 
+      background-color: #000000; 
+      color: #ffffff; 
+      text-align: center;
+      padding: 4rem 1rem;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 0 20px rgba(224, 0, 0, 0.15); 
+      border-top: 1px solid rgba(224,0,0,0.3);
+      border-bottom: 1px solid rgba(224,0,0,0.3);
+    }
+    
+    .cta-headline {
+      font-size: 2.8rem;
+      margin-bottom: 1.2rem;
+      color: #e00000; 
+      text-shadow: 0 0 12px rgba(224, 0, 0, 0.4); 
+      animation: pulseText 2.5s ease-in-out infinite;
+    }
+    .cta-subtext {
+      font-size: 1.2rem;
+      max-width: 650px;
+      margin: 0 auto 2.5rem;
+      color: #ffffff; 
+      line-height: 1.6;
+    }
+    .cta-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1.2rem;
+    }
+    .cta-btn { 
+      background-color: #e00000; 
+      color: #ffffff; 
+      padding: 0.85rem 1.8rem;
+      border-radius: 6px;
+      font-weight: bold;
+      font-size: 1rem;
+      text-decoration: none;
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+      box-shadow: 0 4px 14px rgba(224, 0, 0, 0.25); 
+    }
+    .cta-btn:hover {
+      transform: translateY(-2px) scale(1.04);
+      background-color: #c00000; 
+      box-shadow: 0 6px 18px rgba(224, 0, 0, 0.35); 
+    }
+    @keyframes pulseText {
+      0%, 100% { transform: scale(1); opacity: 1; }
+      50% { transform: scale(1.03); opacity: 0.9; }
+    }
+
+    /* Contact Section Styles */
+    #contact { background:#000000; color:#ffffff; padding:5rem 2rem; text-align:center; }
+    #contact h2 { font-size:2.5rem; margin-bottom:1rem; color:#e00000; }
+    #contact .contact-intro-p {
+        color:#ffffff; max-width:600px; margin:0 auto 2.5rem; font-size:1.1rem; 
+    }
+    #contact-form { max-width:550px; margin:0 auto; }
+    #contact-form input[type="text"],
+    #contact-form input[type="email"],
+    #contact-form textarea {
+      width:100%; padding:1rem; background:#000000; 
+      border:1px solid #333333; 
+      color:#ffffff; margin-bottom:1.2rem; 
+      border-radius:6px;
+      transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    }
+    #contact-form input[type="text"]:focus,
+    #contact-form input[type="email"]:focus,
+    #contact-form textarea:focus {
+      border-color:#e00000; 
+      box-shadow: 0 0 8px rgba(224, 0, 0, 0.3); 
+      outline: none;
+    }
+    #contact-form textarea { resize: vertical; }
+    #contact-form button[type="submit"] {
+      background:#e00000; color:#ffffff; padding:1rem 2.2rem; 
+      font-weight:bold; border:none; border-radius:6px;
+      font-size:1.1rem; cursor: pointer;
+      transition:background 0.3s ease, transform 0.3s ease;
+    }
+    #contact-form button[type="submit"]:hover {
+        background: #c00000; 
+        transform: translateY(-2px);
+    }
+    #form-success { display:none; color:#00ff99; margin-top:2rem; font-weight:bold; font-size: 1.2rem; }
+
+    /* Location Map Section Styles */
+    #location-map { background: #000000; padding: 4rem 2rem; text-align: center; }
+    #location-map h2 {
+      color: #e00000; font-size: 2.4rem; margin-bottom: 1rem; 
+      text-shadow: 0 0 8px rgba(224, 0, 0, 0.3); 
+    }
+    #location-map .location-intro-p {
+      color: #ffffff; font-size: 1.1rem; margin-bottom: 2.5rem; 
+      max-width: 600px; margin-left: auto; margin-right: auto;
+    }
+    .map-container {
+      max-width: 1000px;
+      margin: 0 auto;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 8px 25px rgba(224, 0, 0, 0.2); 
+      border: 1px solid #222222; 
+    }
+    .map-container iframe {
+        display: block;
+    }
+
+    /* Sticky Footer Styles */
+    .site-footer {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      background: #000000; 
+      color: #ffffff; 
+      padding: 1rem 2rem;
+      display: flex;
+      flex-direction: column;
+      text-align: center;
+      gap: 0.8rem;
+      justify-content: center;
+      align-items: center;
+      z-index: 9998;
+      box-shadow: 0 -4px 10px rgba(224, 0, 0, 0.15); 
+      border-top: 1px solid #333333; 
+    }
+    .footer-brand {
+        display: flex;
+        align-items: center;
+        gap: 0.8rem;
+    }
+    .footer-brand img {
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        object-fit: cover;
+    }
+    .footer-brand strong {
+        color: #e00000; 
+    }
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1.2rem;
+      margin: 0 auto;
+    }
+    /* Lighten Google Calendar booking embed on dark background */
+    iframe[src*="calendar.google.com"] {
+      filter: brightness(1.2);
+    }
+
+    /* Custom Google Booking Wrapper Styles */
+    .google-booking-wrapper {
+      max-width: 1000px;
+      margin: 2rem auto;
+      border: 1px solid #333333;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 6px 20px rgba(224, 0, 0, 0.25);
+    }
+
+    .google-booking-wrapper iframe {
+      display: block;
+      width: 100%;
+      height: 600px;
+      border: none;
+      filter: brightness(1.2);
+    }
+    .footer-link {
+      color: #e00000; 
+      text-decoration: none;
+      font-weight: bold;
+      transition: color 0.3s ease, transform 0.3s ease;
+      padding: 0.3rem 0.5rem;
+    }
+    .footer-link:hover {
+      color: #ffffff; 
+      transform: translateY(-2px);
+    }
+
+
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+      header { padding: 0.8rem 1rem; }
+      .brand span { font-size: 1.1rem; }
+      .brand img { width: 32px; height: 32px; }
+      .nav-icons a { width: 2.2rem; height: 2.2rem; font-size: 1.1rem; padding: 0.4rem; }
+      .nav-icons { gap: 0.8rem; }
+      .hamburger { width: 24px; height: 18px; }
+      .hamburger span { height: 2.5px; }
+      .hamburger.active span:nth-child(1) { transform: translateY(7.75px) rotate(45deg); }
+      .hamburger.active span:nth-child(3) { transform: translateY(-7.75px) rotate(-45deg); }
+      nav.menu { padding: 3.5rem 1.5rem; gap: 1.5rem; }
+      nav.menu .search-bar { font-size: 0.95rem; padding: 0.5rem 0.8rem; }
+      nav.menu a { font-size: 1.3rem; }
+      #hoursPopup { font-size: 0.8rem; padding: 0.8rem; right: 5px; top: 120%; }
+      .close-btn { top: 1rem; right: 1rem; font-size: 2rem; }
+
+      #services h2 { font-size: 2rem; }
+      .service-card h3 { font-size: 1.4rem; }
+      .service-card p { font-size: 0.95rem; }
+      .cta-button { font-size: 0.95rem; padding: 0.7rem 1.5rem; }
+
+      #gallery h2 { font-size: 2rem; }
+      .gallery-item .img-container { border-radius: 10px; }
+      .hover-caption { font-size: 0.85rem; padding: 0.6rem 0.8rem; }
+      .modal-content { max-width: calc(100vw - 20px); max-height: calc(100vh - 20px); }
+      #caption { font-size: 0.9rem; padding: 10px; }
+      .prev, .next { font-size: 20px; padding: 12px; }
+      .close-button { font-size: 30px; top: 8px; right: 15px; }
+
+      #what-to-expect h2 { font-size: 2rem; }
+      .detail-card { padding: 1.5rem; }
+      .detail-card h3 { font-size: 1.3rem; }
+      .detail-card p { font-size: 1rem; }
+
+      #reviews-only h2 { font-size: 2rem; }
+      .testimonial-card { padding: 1.5rem; }
+      .quote { font-size: 1rem; }
+      .name { font-size: 0.9rem; }
+      .qr-code-container img { width: 120px; height: 120px;}
+      .qr-code-container a { font-size: 1rem; padding: 0.7rem 1.5rem; }
+
+      .faq-section h2 { font-size: 2.25rem; }
+      .faq-item { padding: 1.25rem 1.5rem; }
+      .faq-item h3 { font-size: 1.25rem; }
+      .faq-item p { font-size: 1rem; }
+
+      .cta-headline { font-size: 2.2rem; }
+      .cta-subtext { font-size: 1.1rem; }
+
+      #contact h2 { font-size: 2.2rem; }
+      #contact .contact-intro-p { font-size: 1rem; }
+      #contact-form input[type="text"],
+      #contact-form input[type="email"],
+      #contact-form textarea { padding: 0.9rem; }
+      #contact-form button[type="submit"] { padding: 0.9rem 1.8rem; font-size: 1rem; }
+
+      #location-map h2 { font-size: 2rem; }
+      #location-map .location-intro-p { font-size: 1rem; }
+      .map-container iframe { height: 350px; }
+
+      .site-footer {
+        flex-direction: column;
+        text-align: center;
+        gap: 0.8rem;
+        padding: 0.8rem 1rem;
+      }
+      .footer-brand, .footer-links {
+        justify-content: center;
+      }
+      .footer-links { margin-top: 0.5rem; }
+    }
+
+    @media (min-width: 768px) {
+      .faq-grid {
+        grid-template-columns: 1fr 1fr; 
+      }
+    }
+
+    @media (max-width: 600px) {
+      .service-card .cta-button { width: 100%; } 
+      .hero-section .cta-button { width: auto; } 
+      .cabinet-gallery { grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem; }
+      .detail-card-grid { grid-template-columns: 1fr; } 
+      .reviews-grid { grid-template-columns: 1fr; } 
+      .faq-grid { grid-template-columns: 1fr; } 
+      .cta-btn { width: 100%; } 
+      .cta-headline { font-size: 2rem; }
+      .cta-subtext { font-size: 1rem; }
+      #location-map h2 { font-size: 1.8rem; }
+      .map-container iframe { height: 300px; }
+    }
+
+    /* Left-edge swipe cue for mobile menu */
+    @media (max-width: 768px) {
+      body.swipe-active::before {
+        content: ""; position: fixed; top: 0; left: 0; width: 15px; height: 100vh;
+        background: radial-gradient(circle at left center, rgba(224,0,0,0.15), transparent 70%); 
+        z-index: 9998; pointer-events: none; opacity: 0.7;
+        animation: pulseEdge 2s ease-in-out infinite alternate;
+      }
+    }
+    @keyframes pulseEdge { 0% { opacity: 0.3; transform: scaleX(0.8); } 100% { opacity: 0.7; transform: scaleX(1); } }
+
+  </style>
+</head>
+<body>
+  <header>
+    <div class="brand">
+      <a href="/">
+        <img src="https://imagedelivery.net/VwxTcpKX2CusqbCCDB94Nw/e350b97a-deee-4cdb-5c98-402106072f00/public" alt="Dependable Painting Logo">
+      </a>
+      <span>Dependable Painting</span>
+    </div>
+    <div class="nav-icons">
+      <div class="hours-toggle">
+        <a href="#" title="Business Hours" aria-label="Business Hours" onclick="toggleHoursPopup(event); return false;">
+          <i class="fas fa-clock"></i>
+        </a>
+        <div id="hoursPopup" role="tooltip">
+          <strong>Hours:</strong><br>
+          Mon–Fri: 8:00am – 5:30pm<br>
+          Saturday: By Appointment<br>
+          Sunday: Closed
+        </div>
+      </div>
+      <a href="tel:2515254405" title="Call Us" aria-label="Call Us"><i class="fas fa-phone"></i></a>
+      <a href="https://g.page/r/CQjqan_iFBshEAE" target="_blank" rel="noopener noreferrer" title="Find us on Google" aria-label="Find us on Google"><i class="fab fa-google"></i></a>
+      <div class="hamburger" onclick="toggleMenu()" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+  </header>
+
+  <section class="hero-section"> <h1 class="fade-up" data-aos="fade-up" data-aos-delay="0" style="color: #e00000; font-size: 2.7rem; max-width: 800px; margin: 0 auto 1.5rem;">
+      Professional Painting Done Right! Interior, Exterior, Cabinets & More
+    </h1>
+    <p class="fade-up" data-aos="fade-up" data-aos-delay="200" style="color: #ffffff; font-size: 1.2rem; max-width: 700px; margin: 0 auto 2rem;">
+      Dependable Painting serves Baldwin and Mobile Counties with clean, consistent craftsmanship. We use premium products, proper prep, and proven processes to ensure your home or business looks its best and stays that way.
+    </p>
+    <p class="fade-up" data-aos="fade-up" data-aos-delay="400" style="color: #ffffff; font-size: 1rem; max-width: 700px; margin: 0 auto 2rem;">
+      Clear estimates. On time crews. Guaranteed satisfaction. That’s what we deliver.
+    </p>
+    <a href="#contact" class="cta-button fade-up" data-aos="fade-up" data-aos-delay="600"> Get Your Free Quote
+    </a>
+  </section>
+
+  <section id="services">
+    <h2>What We Do Best</h2>
+    <div class="services-grid">
+      <div class="service-card" data-aos="fade-up">
+        <h3>Interior Painting</h3>
+        <p>Freshen up walls, ceilings, trim, and doors with professional prep and rich, lasting finishes. Worry free color matching and surface protection included.</p>
+        <a href="/services/interior-painting" class="cta-button">Explore Interior Options</a>
+      </div>
+      <div class="service-card" data-aos="fade-up" data-aos-delay="100">
+        <h3>Exterior Painting</h3>
+        <p>Complete exterior services from power washing and surface repair to flawless coatings that stand up to Alabama heat, humidity, and storms.</p>
+        <a href="/services/exterior-painting" class="cta-button">See Exterior Solutions</a>
+      </div>
+      <div class="service-card" data-aos="fade-up" data-aos-delay="200">
+        <h3>Cabinet Painting</h3>
+        <p>Revamp outdated kitchens or bathrooms. Professional-grade prep, spraying, and sealing gives your cabinets a like-new durable finish at a fraction of replacement cost.</p>
+        <a href="/services/cabinet-painting" class="cta-button">Get Cabinet Pricing</a>
+      </div>
+      <div class="service-card" data-aos="fade-up" data-aos-delay="300">
+        <h3>Commercial Painting</h3>
+        <p>Retail, office, churches, and multifamily painting fast, clean, and on schedule with OSHA-safe practices to minimize business disruptions.</p>
+        <a href="/services/commercial-painting" class="cta-button">View Commercial Services</a>
+      </div>
+      <div class="service-card" data-aos="fade-up" data-aos-delay="400">
+        <h3>Sheetrock & Repairs</h3>
+        <p>Patching, floating, sanding, and texturing to erase signs of water damage, cracks, holes, or popcorn ceiling removal perfectly blended and prepped for new paint.</p>
+        <a href="/services/sheetrock-repair" class="cta-button">Fix My Walls</a>
+      </div>
+      <div class="service-card" data-aos="fade-up" data-aos-delay="500">
+        <h3>Epoxy Floor Coatings</h3>
+        <p>Durable, chemical-resistant floor systems for garages, patios, showrooms, and warehouses. Clean, prep, grind, and install decorative or solid color epoxy with protective clear coats.</p>
+        <a href="/services/epoxy-floor-coatings" class="cta-button">Upgrade My Floors</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="gallery">
+    <h2>Project Gallery</h2>
+    <p class="gallery-intro-p">
+        Browse our latest interior, exterior, and specialty projects. From kitchen updates and drywall repair to stunning deck transformations and whole home painting, Dependable delivers.
+    </p>
+    <div class="cabinet-gallery">
+        <div class="gallery-item" data-aos="fade-up">
+            <figure class="img-container">
+                <img src="https://imagedelivery.net/VwxTcpKX2CusqbCCDB94Nw/54cdaebb-64d1-4bfe-fe25-021a5e309f00/public"
+                     alt="Popcorn ceiling removal result" class="gallery-img expandable-image" loading="lazy" onclick="openGalleryModal(0)"
+                     onerror="this.onerror=null; this.src='https://placehold.co/400x300/000000/e00000?text=Image+Not+Found';">
+                <figcaption class="hover-caption">Popcorn Ceiling Removal</figcaption>
+            </figure>
+        </div>
+        <div class="gallery-item" data-aos="fade-up" data-aos-delay="100">
+            <figure class="img-container">
+                <img src="https://imagedelivery.net/VwxTcpKX2CusqbCCDB94Nw/0c65be1b-a4bd-440c-7a0d-08c2bfef0f00/public"
+                     alt="Interior palm theme bedroom" class="gallery-img expandable-image" loading="lazy" onclick="openGalleryModal(1)"
+                     onerror="this.onerror=null; this.src='https://placehold.co/400x300/000000/e00000?text=Image+Not+Found';">
+                <figcaption class="hover-caption">Themed Bedroom</figcaption>
+            </figure>
+        </div>
+        <div class="gallery-item" data-aos="fade-up" data-aos-delay="200">
+            <figure class="img-container">
+                <img src="https://imagedelivery.net/VwxTcpKX2CusqbCCDB94Nw/a9d37fb2-7ac2-471e-0e61-2ef8371f1a00/public"
+                     alt="House exterior front angle view" class="gallery-img expandable-image" loading="lazy" onclick="openGalleryModal(2)"
+                     onerror="this.onerror=null; this.src='https://placehold.co/400x300/000000/e00000?text=Image+Not+Found';">
+                <figcaption class="hover-caption">House Exterior - Front Angle</figcaption>
+            </figure>
+        </div>
+        <div class="gallery-item" data-aos="fade-up" data-aos-delay="300">
+            <figure class="img-container">
+                <img src="https://imagedelivery.net/VwxTcpKX2CusqbCCDB94Nw/291bf1b1-6796-4e58-ee6e-9f6497a65500/public"
+                     alt="Painted wooden deck" class="gallery-img expandable-image" loading="lazy" onclick="openGalleryModal(3)"
+                     onerror="this.onerror=null; this.src='https://placehold.co/400x300/000000/e00000?text=Image+Not+Found';">
+                <figcaption class="hover-caption">Painted Deck</figcaption>
+            </figure>
+        </div>
+        <div class="gallery-item" data-aos="fade-up" data-aos-delay="400">
+            <figure class="img-container">
+                <img src="https://imagedelivery.net/VwxTcpKX2CusqbCCDB94Nw/dc1cf8c9-afa2-4c3f-bb4a-4a92cfcce500/public"
+                     alt="Edward Jones office interior" class="gallery-img expandable-image" loading="lazy" onclick="openGalleryModal(4)"
+                     onerror="this.onerror=null; this.src='https://placehold.co/400x300/000000/e00000?text=Image+Not+Found';">
+                <figcaption class="hover-caption">Edward Jones Office Interior</figcaption>
+            </figure>
+        </div>
+        <div class="gallery-item" data-aos="fade-up" data-aos-delay="500">
+            <figure class="img-container">
+                <img src="https://imagedelivery.net/VwxTcpKX2CusqbCCDB94Nw/57cc5fba-c264-4a7a-3ea4-d766856e7300/public"
+                     alt="Kitchen cabinets before and after repaint" class="gallery-img expandable-image" loading="lazy" onclick="openGalleryModal(5)"
+                     onerror="this.onerror=null; this.src='https://placehold.co/400x300/000000/e00000?text=Image+Not+Found';">
+                <figcaption class="hover-caption">Cabinet Repaint (Before & After)</figcaption>
+            </figure>
+        </div>
+    </div>
+  </section>
+
+  <section id="what-to-expect"> <h2>What to Expect When You Hire Us</h2>
+    <div class="detail-card-grid">
+      <div class="detail-card" data-aos="fade-up">
+        <h3>Flawless Interior Painting</h3>
+        <p>Expect sharp lines, smooth walls, and professional prep every time. We protect your furniture, fix wall damage, and deliver finishes that elevate your space from kitchens to hallways to ceilings and trim.</p>
+      </div>
+      <div class="detail-card" data-aos="fade-up" data-aos-delay="100">
+        <h3>Durable, Weather-Resistant Exteriors</h3>
+        <p>Our exterior projects are built to last with power washing, surface repair, and top-tier coatings that hold up through Alabama heat, humidity, and storms. Your home will look sharp and stay protected.</p>
+      </div>
+      <div class="detail-card" data-aos="fade-up" data-aos-delay="200">
+        <h3>Expert Repairs & Surface Prep</h3>
+        <p>We don't cut corners. From patching nail holes to floating drywall seams and sealing stains, our prep work is next-level. It's the foundation of a premium finish and it shows in the results.</p>
+      </div>
+      <div class="detail-card" data-aos="fade-up" data-aos-delay="300">
+        <h3>Clean, Respectful, On-Time Crews</h3>
+        <p>No loud music. No smoke breaks. No mess. Just uniformed, skilled pros who show up on time, keep your home clean, and treat your space with care. You’ll feel the difference from day one.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="reviews-only"> <h2>5-Star Results. Real People. Local Trust.</h2>
+    <div class="reviews-grid">
+      <div class="testimonial-card" data-aos="fade-up">
+        <div class="stars">★★★★★</div>
+        <p class="quote">“Alex and his team are incredible. They knocked out our whole home interior in 2 days and it looks flawless.”</p>
+        <p class="name">— Jessica M., Spanish Fort</p>
+      </div>
+      <div class="testimonial-card" data-aos="fade-up" data-aos-delay="100">
+        <div class="stars">★★★★★</div>
+        <p class="quote">“Dependable Painting showed up on time, kept the place clean, and delivered beyond expectations. Highly recommend.”</p>
+        <p class="name">— Brandon T., Daphne</p>
+      </div>
+      <div class="testimonial-card" data-aos="fade-up" data-aos-delay="200">
+        <div class="stars">★★★★★</div>
+        <p class="quote">“They repainted our kitchen cabinets and made them look brand new. Better than factory finish.”</p>
+        <p class="name">— Rachel G., Fairhope</p>
+      </div>
+      <div class="testimonial-card" data-aos="fade-up" data-aos-delay="300">
+        <div class="stars">★★★★★</div>
+        <p class="quote">“Smooth, fast, and professional from start to finish. I won’t use anyone else again.”</p>
+        <p class="name">— Charles D., Gulf Shores</p>
+      </div>
+    </div>
+    <div class="qr-code-container" data-aos="fade-up">
+      <img src="https://imagedelivery.net/VwxTcpKX2CusqbCCDB94Nw/8be76abe-7442-4579-3195-b315af6fba00/public" alt="Google Review QR Code">
+      <p>Scan to leave a Google Review</p>
+      <a href="https://g.page/r/CQjqan_iFBshEAI/review" target="_blank" rel="noopener noreferrer">
+        ⭐ Leave Us a Review
+      </a>
+    </div>
+  </section>
+
+  <section id="faq" class="faq-section">
+    <div class="faq-container">
+      <h2>Frequently Asked Questions</h2>
+      <div class="faq-grid">
+        <div class="faq-item" data-aos="fade-up" data-aos-delay="0">
+          <h3>Do you provide free estimates?</h3>
+          <p>Yes. We offer 100% free, no-pressure estimates. We'll walk your project, review scope, and provide a clear quote within 24–48 hours.</p>
+        </div>
+        <div class="faq-item" data-aos="fade-up" data-aos-delay="100">
+          <h3>Are you licensed and insured?</h3>
+          <p>Absolutely. We're fully licensed and insured for residential and commercial work in Alabama. Certificates are available upon request.</p>
+        </div>
+        <div class="faq-item" data-aos="fade-up" data-aos-delay="200">
+          <h3>What kind of paint do you use?</h3>
+          <p>We primarily use Sherwin-Williams products unless otherwise requested. For cabinets and interiors, we use scuff-resistant and washable formulas for high traffic durability.</p>
+        </div>
+        <div class="faq-item" data-aos="fade-up" data-aos-delay="300">
+          <h3>How soon can you start?</h3>
+          <p>Most jobs can begin within 1–2 weeks of your quote approval. We also offer rush scheduling when availability allows.</p>
+        </div>
+        <div class="faq-item" data-aos="fade-up" data-aos-delay="400">
+          <h3>What’s your prep process?</h3>
+          <p>We protect all floors, furniture, and fixtures. Surfaces are cleaned, sanded, patched, and primed as needed before applying any paint. Prep is 80% of the job and we don’t cut corners.</p>
+        </div>
+        <div class="faq-item" data-aos="fade-up" data-aos-delay="500">
+          <h3>How do I book a project?</h3>
+          <p>Easy—just head to our <a href="#contact">Contact</a> page and fill out the form, or call us directly. We’ll get back to you quickly to schedule your estimate and lock in your timeline.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-highlight" data-aos="fade-in"> <h2 class="cta-headline">
+      Reliable Results. Minimal Disruption.
+    </h2>
+    <p class="cta-subtext">
+      From retail to offices and multi-unit properties, we keep your project clean, on schedule, and professionally managed without interrupting your business.
+    </p>
+    <div class="cta-buttons">
+      <div id="google-booking-button"></div>
+      <link href="https://calendar.google.com/calendar/scheduling-button-script.css" rel="stylesheet">
+      <script src="https://calendar.google.com/calendar/scheduling-button-script.js" async></script>
+      <script>
+        window.addEventListener('load', function() {
+          calendar.schedulingButton.load({
+            url: 'https://calendar.google.com/calendar/appointments/schedules/AcZssZ0_gfVSgAbzcwlrsjt7wXRcMWYJjNA9SXz48vSjIXIoTeCny5Hg9Rf4eoqvl4n93QG9dYoMANyb?gv=true',
+            color: '#D50000',
+            label: '📅 Schedule a Walkthrough',
+            target: document.getElementById('google-booking-button')
+          });
+        });
+      </script>
+      <a href="tel:2515254405" class="cta-btn primary">📞 Call Now</a>
+    </div>
+  </section>
+
+  <section id="contact"> <h2>Let’s Talk About Your Next Project</h2>
+    <p class="contact-intro-p">
+      Free estimates. Honest timelines. Guaranteed satisfaction. Fill out the form and we’ll get back to you ASAP.
+    </p>
+    <form id="contact-form" action="https://formspree.io/f/xdkebgja" method="POST"> <input type="text" name="name" placeholder="Your Name" required>
+      <input type="email" name="email" placeholder="Your Email" required>
+      <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
+      <button type="submit">📩 Send Message</button>
+    </form>
+    <p id="form-success" style="display:none;">Message sent! We’ll be in touch soon.</p>
+
+  <section id="location-map">
+    <h2>Proudly Serving the Gulf Coast</h2>
+    <p class="location-intro-p">
+      From Mobile to Baldwin County and the surrounding areas, we bring dependable results to homes and businesses across Alabama's Gulf Coast.
+    </p>
+    <div class="map-container">
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d878474.4639526487!2d-88.50364527369405!3d30.675054662867886!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x889a5d78a87e436f%3A0x211b14e27f6aea08!2sDependable%20Painting%20LLC!5e0!3m2!1sen!2sus!4v1747600478528!5m2!1sen!2sus"
+        width="100%"
+        height="450"
+        style="border:0;"
+        allowfullscreen=""
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+      ></iframe>
+    </div>
+    <p style="margin-top: 1.5rem; font-size: 1.1rem;">
+      <a href="https://g.page/r/CQjqan_iFBshEAI/review" target="_blank" rel="noopener noreferrer" style="color: #e00000; text-decoration: underline;">
+        ⭐ Leave us a review on Google
+      </a>
+    </p>
+  </section>
+
+  <div id="imageModal" class="modal" style="display: none;">
+    <span class="close-button" onclick="closeGalleryModal()">×</span>
+    <div class="modal-content">
+        <img id="modalImage" src="" alt="Enlarged project image">
+        <a class="prev" onclick="changeGalleryImage(-1)">❮</a>
+        <a class="next" onclick="changeGalleryImage(1)">❯</a>
+        <div id="caption"></div>
+    </div>
+  </div>
+
+  <nav class="menu" id="mobileMenu" aria-hidden="true">
+    <div class="close-btn" onclick="toggleMenu()" aria-label="Close menu">×</div>
+    <form action="https://www.google.com/search" method="GET" target="_blank" class="search-bar-container" onsubmit="this.q.value='site:dependablepaintingal.com ' + this.q.value.trim(); return !!this.q.value.replace('site:dependablepaintingal.com ', '').trim();">
+      <input class="search-bar" type="text" name="q" placeholder="Search Our Site..." onfocus="this.select();">
+      <button type="submit" aria-label="Search"><i class="fas fa-search"></i></button>
+    </form>
+    <a href="/">Home</a>
+    <a href="/services/">Services</a>
+    <a href="/contact/">Contact</a>
+    <a href="/gallery/">Gallery</a>
+    <a href="/privacy-page/">Privacy Policy</a>
+  </nav>
+
+  <footer class="site-footer">
+    <div class="footer-brand">
+    </div>
+    <div class="footer-links">
+      <a href="tel:2515254405" class="footer-link">📞 Call</a>
+      <a href="mailto:alexdimmler@dependablepaintingal.com" class="footer-link">✉️ Email</a>
+      <a href="https://g.page/r/CQjqan_iFBshEAI/review"  class="footer-link">⭐ Review</a>
+    </div>
+    <!-- Google Calendar Appointment Scheduling begin -->
+    <div id="google-footer-booking-button" style="margin-top: 1rem;"></div>
+    <link href="https://calendar.google.com/calendar/scheduling-button-script.css" rel="stylesheet">
+    <script src="https://calendar.google.com/calendar/scheduling-button-script.js" async></script>
+    <script>
+    (function() {
+      var target = document.getElementById('google-footer-booking-button');
+      window.addEventListener('load', function() {
+        calendar.schedulingButton.load({
+          url: 'https://calendar.google.com/calendar/appointments/AcZssZ0IkanO1Oc9HQaQH9aBxxNaKYtd5XygGBAJsKg=?gv=true',
+          color: '#D50000',
+          label: '📅 Book an Appointment',
+          target,
+        });
+      });
+    })();
+    </script>
+    <!-- end Google Calendar Appointment Scheduling -->
+  </footer>
+
+  <script>
+    // Initialize AOS (Animate On Scroll) library if it's loaded
+    // console.log('Attempting to initialize AOS...');
+    if (typeof AOS !== 'undefined') {
+        AOS.init({
+            duration: 800, 
+            once: true,     
+            offset: 80,  
+            delay: 50,       
+        });
+        // console.log('AOS initialized.');
+    } else {
+        // console.log('AOS is not defined.');
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      // console.log('DOM fully loaded and parsed');
+
+      const menu = document.getElementById('mobileMenu');
+      const hamburger = document.querySelector('.hamburger');
+      const hoursPopup = document.getElementById('hoursPopup');
+      const body = document.body;
+      const siteFooter = document.querySelector('.site-footer');
+      const imageModal = document.getElementById("imageModal");
+      const modalImg = document.getElementById("modalImage");
+      const captionText = document.getElementById("caption");
+      const contactForm = document.getElementById('contact-form');
+      const formSuccessMessage = document.getElementById('form-success');
+
+      window.toggleMenu = () => {
+        if (!menu || !hamburger || !body) {
+            return; 
+        }
+        const isOpen = menu.classList.toggle('open');
+        hamburger.classList.toggle('active', isOpen);
+        hamburger.setAttribute('aria-expanded', isOpen.toString());
+        menu.setAttribute('aria-hidden', (!isOpen).toString());
+        body.style.overflow = isOpen ? 'hidden' : ''; 
+
+        if (isOpen) {
+            if(body) body.classList.remove('swipe-active'); 
+            const links = menu.querySelectorAll('nav.menu a');
+            links.forEach((link, i) => {
+                link.style.animation = 'none'; 
+                link.offsetHeight; 
+                link.style.animation = `menuItemFadeIn 0.5s ease forwards ${i * 0.07 + 0.1}s`;
+                link.style.transform = 'translateY(10px)'; 
+            });
+        } else {
+            if (window.innerWidth <= 768 && body) {
+                body.classList.add('swipe-active');
+            }
+        }
+      };
+
+      window.toggleHoursPopup = (e) => {
+        if (!hoursPopup || !e || !e.currentTarget) return;
+        e.stopPropagation(); 
+        const isVisible = hoursPopup.classList.toggle('visible');
+        e.currentTarget.setAttribute('aria-expanded', isVisible.toString());
+      };
+
+      document.addEventListener('click', (e) => {
+        if (hoursPopup && hoursPopup.classList.contains('visible')) {
+          if (e.target && !hoursPopup.contains(e.target) && !e.target.closest('.hours-toggle')) {
+            hoursPopup.classList.remove('visible');
+            const hoursToggleAnchor = document.querySelector('.hours-toggle a');
+            if(hoursToggleAnchor) hoursToggleAnchor.setAttribute('aria-expanded', 'false');
+          }
+        }
+      });
+
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && menu && menu.classList.contains('open')) {
+          toggleMenu();
+        }
+      });
+
+      let touchStartX = 0;
+      let touchEndX = 0;
+      const SWIPE_THRESHOLD = 50; 
+      const EDGE_THRESHOLD = 60;  
+
+      document.addEventListener('touchstart', (e) => {
+        touchStartX = e.changedTouches[0].screenX;
+      }, { passive: true }); 
+
+      document.addEventListener('touchend', (e) => {
+        if (!menu) return; 
+        touchEndX = e.changedTouches[0].screenX;
+        const swipeDiff = touchEndX - touchStartX;
+
+        if (menu.classList.contains('open') && swipeDiff < -SWIPE_THRESHOLD) {
+          toggleMenu();
+        }
+        else if (!menu.classList.contains('open') && swipeDiff > SWIPE_THRESHOLD && touchStartX < EDGE_THRESHOLD) {
+          toggleMenu();
+        }
+      });
+
+      function adjustFooterPadding() {
+        if (siteFooter && body) {
+            const footerHeight = siteFooter.offsetHeight;
+            body.style.paddingBottom = `${footerHeight + 20}px`; 
+        }
+      }
+
+      if (body && menu) { 
+        if (window.innerWidth <= 768 && !menu.classList.contains('open')) {
+          body.classList.add('swipe-active');
+        }
+      }
+      adjustFooterPadding(); 
+      window.addEventListener('resize', adjustFooterPadding);
+      window.addEventListener('load', () => {
+        adjustFooterPadding();
+        if (typeof AOS !== 'undefined') {
+            // AOS.refresh(); 
+        }
+      });
+
+      let gallerySlideIndex = 0;
+      const galleryImages = [ 
+          "https://imagedelivery.net/VwxTcpKX2CusqbCCDB94Nw/54cdaebb-64d1-4bfe-fe25-021a5e309f00/public",
+          "https://imagedelivery.net/VwxTcpKX2CusqbCCDB94Nw/0c65be1b-a4bd-440c-7a0d-08c2bfef0f00/public",
+          "https://imagedelivery.net/VwxTcpKX2CusqbCCDB94Nw/a9d37fb2-7ac2-471e-0e61-2ef8371f1a00/public",
+          "https://imagedelivery.net/VwxTcpKX2CusqbCCDB94Nw/291bf1b1-6796-4e58-ee6e-9f6497a65500/public",
+          "https://imagedelivery.net/VwxTcpKX2CusqbCCDB94Nw/dc1cf8c9-afa2-4c3f-bb4a-4a92cfcce500/public",
+          "https://imagedelivery.net/VwxTcpKX2CusqbCCDB94Nw/57cc5fba-c264-4a7a-3ea4-d766856e7300/public"
+      ];
+      const galleryCaptions = [ 
+          "White Brick Home Exterior", "Palm Themed Bedroom", "House Exterior - Front Angle",
+          "Painted Deck", "Edward Jones Office Interior", "Cabinet Repaint (Before & After)"
+      ];
+      
+      window.openGalleryModal = (index) => {
+          if (!imageModal || !modalImg || !captionText) return;
+          gallerySlideIndex = index;
+          imageModal.style.display = "flex"; 
+          setTimeout(() => { 
+              modalImg.src = galleryImages[gallerySlideIndex];
+              modalImg.alt = galleryCaptions[gallerySlideIndex];
+              captionText.innerHTML = galleryCaptions[gallerySlideIndex];
+          }, 50);
+      }
+      window.closeGalleryModal = () => { if (imageModal) imageModal.style.display = "none"; }
+      window.changeGalleryImage = (n) => { 
+          if (!modalImg || !captionText) return;
+          gallerySlideIndex += n;
+          if (gallerySlideIndex >= galleryImages.length) { gallerySlideIndex = 0; } 
+          if (gallerySlideIndex < 0) { gallerySlideIndex = galleryImages.length - 1; } 
+          modalImg.src = galleryImages[gallerySlideIndex];
+          modalImg.alt = galleryCaptions[gallerySlideIndex];
+          captionText.innerHTML = galleryCaptions[gallerySlideIndex];
+      }
+      
+      if (imageModal) {
+          imageModal.addEventListener('click', (event) => {
+              if (event.target === imageModal) { closeGalleryModal(); }
+          });
+      }
+      
+      document.addEventListener('keydown', (event) => {
+          if (imageModal && imageModal.style.display === "flex") {
+              if (event.key === "ArrowLeft") { changeGalleryImage(-1); }
+              else if (event.key === "ArrowRight") { changeGalleryImage(1); }
+              else if (event.key === "Escape") { closeGalleryModal(); }
+          }
+      });
+
+      if (contactForm && formSuccessMessage) { 
+        contactForm.addEventListener('submit', async (e) => {
+          e.preventDefault(); 
+          const formData = new FormData(contactForm);
+          
+          try {
+            const response = await fetch(contactForm.action, {
+              method: 'POST',
+              body: formData,
+              headers: { 'Accept': 'application/json' }
+            });
+
+            if (response.ok) { 
+              contactForm.style.display = 'none'; 
+              formSuccessMessage.style.display = 'block'; 
+            } else { 
+              response.json().then(data => { 
+                if (data.errors && data.errors.length > 0) {
+                  alert("Error: " + data.errors.map(error => error.message).join(", "));
+                } else {
+                  alert("Something went wrong with the submission. Please try again or call us directly.");
+                }
+              }).catch(() => { 
+                alert("Something went wrong with the submission and couldn't parse the error. Please try again or call us directly.");
+              });
+            }
+          } catch (error) { 
+            console.error("Form submission error:", error);
+            alert("A network error occurred. Please check your connection and try again.");
+          }
+        });
+      }
+    });
+  </script>
+</body>
+</html>
