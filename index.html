@@ -20,6 +20,27 @@
   <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
   <script src="https://unpkg.com/aos@2.3.4/dist/aos.js" crossorigin="anonymous"></script>
   <style>
+  .consent-header {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background: #111;
+    color: #fff;
+    text-align: center;
+    padding: 1rem;
+    font-size: 0.9rem;
+    z-index: 99999;
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.3);
+  }
+
+  .consent-header a {
+    color: #e00000;
+    text-decoration: underline;
+  }
+
+  .consent-header a:hover {
+    color: #ffffff;
+  }
     /* Reset and base styles */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
@@ -731,6 +752,13 @@
   </style>
 </head>
 <body>
+  <div class="consent-header">
+    <p>
+      We use cookies to enhance your experience and analyze traffic. By using this site, you agree to our use of cookies.
+      Read more in our 
+      <a href="/privacy-policy" target="_blank" rel="noopener">Privacy Policy</a>.
+    </p>
+  </div>
   <header>
     <div class="brand">
       <a href="/">
