@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About Us | Dependable Painting</title>
+  <link rel="icon" href="https://imagedelivery.net/VwxTcpKX2CusqbCCDB94Nw/0468e61a-5565-43fa-4026-fbc5801f1100/facicon" />
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+  <style>
+    body {
+      background: #000;
+      color: #fff;
+      font-family: sans-serif;
+      line-height: 1.6;
+      margin: 0;
+      padding-bottom: 120px;
+    }
+    h1, h2 {
+      color: #ff1b0a;
+      text-align: center;
+    }
+    p {
+      font-size: 1.1rem;
+      margin-bottom: 1.5rem;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    a {
+      color: #ff1b0a;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    .face-pics {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 2.5rem;
+      margin: 3rem auto 2.5rem auto;
+      max-width: 900px;
+    }
+    .face-pics figure {
+      text-align: center;
+      color: #ccc;
+      font-weight: bold;
+      max-width: 260px;
+      margin: 0 1rem;
+    }
+    .face-pics img {
+      border-radius: 50%;
+      width: 180px;
+      height: 180px;
+      object-fit: cover;
+      box-shadow: 0 8px 24px rgba(255, 27, 10, 0.2);
+      display: block;
+      margin: 0 auto 1.1rem auto;
+      border: 3px solid #1a1a1a;
+    }
+    .face-pics figcaption {
+      color: #fff;
+      font-size: 1.15rem;
+      font-weight: bold;
+      margin-bottom: 0.4rem;
+    }
+    .face-pics .bio {
+      color: #ccc;
+      font-size: 0.99rem;
+      font-weight: normal;
+      line-height: 1.5;
+      margin: 0 0 0.7rem 0;
+      padding: 0 0.7rem;
+    }
+    header {
+      background: #000000;
+      padding: 0.7rem 2rem 0.7rem 1.1rem;
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      border-bottom: 1px solid #333;
+      position: sticky;
+      top: 0;
+      z-index: 9999;
+      min-height: 64px;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.7rem;
+      color: #ff1b0a;
+      font-weight: bold;
+      font-size: 1.4rem;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+    .brand img {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      margin-right: 0.1rem;
+    }
+    .nav-icons {
+      display: flex;
+      align-items: center;
+      gap: 1.3rem;
+      margin-right: 0.2rem;
+      margin-left: auto;
+      justify-content: flex-end;
+    }
+    .hours-toggle {
+      position: relative;
+      display: inline-block;
+    }
+    .hours-toggle > a i {
+      color: #ff1b0a;
+      font-size: 1.22rem;
+      vertical-align: middle;
+    }
+    #hoursPopup {
+      display: none;
+      position: absolute;
+      top: 2.2rem;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #181818;
+      color: #fff;
+      border: 1px solid #ff1b0a;
+      border-radius: 8px;
+      padding: 0.7rem 1.2rem 0.7rem 1.2rem;
+      font-size: 0.97rem;
+      z-index: 100;
+      min-width: 190px;
+      box-shadow: 0 6px 24px rgba(255, 27, 10, 0.12);
+      text-align: left;
+      white-space: nowrap;
+    }
+    #hoursPopup strong {
+      color: #ff1b0a;
+      font-weight: bold;
+    }
+    .nav-icons a i {
+      color: #ff1b0a;
+      font-size: 1.18rem;
+      margin: 0 0.2rem;
+      vertical-align: middle;
+    }
+    .hamburger {
+      display: inline-flex;
+      flex-direction: column;
+      justify-content: center;
+      width: 32px;
+      height: 32px;
+      cursor: pointer;
+      gap: 0.18rem;
+      margin-left: 0.5rem;
+    }
+    .hamburger span {
+      display: block;
+      height: 3px;
+      width: 100%;
+      background: #ff1b0a;
+      border-radius: 2px;
+      transition: all 0.3s;
+    }
+    section.hero {
+      padding: 5rem 2rem;
+      text-align: center;
+      background: #000;
+    }
+    section.hero h1 {
+      font-size: 2.8rem;
+      max-width: 850px;
+      margin: 0 auto 1.5rem;
+      text-shadow: 0 0 8px rgba(255, 27, 10, 0.4);
+    }
+    section.hero p:first-of-type {
+      color: #ffffff;
+      font-size: 1.15rem;
+      max-width: 700px;
+      margin: 0 auto 1.5rem;
+    }
+    section.hero p:last-of-type {
+      color: #cccccc;
+      font-size: 1rem;
+      max-width: 700px;
+      margin: 0 auto 2rem;
+    }
+    section.hero a.cta-button {
+      background: #ff1b0a;
+      color: white;
+      padding: 1rem 2.2rem;
+      font-weight: bold;
+      border-radius: 6px;
+      text-decoration: none;
+      font-size: 1.1rem;
+      box-shadow: 0 0 15px rgba(255, 27, 10, 0.3);
+      transition: background 0.3s ease, transform 0.3s ease;
+      display: inline-block;
+    }
+    section.hero a.cta-button:hover {
+      background: #e21700;
+      transform: translateY(-2px);
+    }
+    #how-we-operate {
+      background: #000000;
+      padding: 5rem 2rem;
+    }
+    #how-we-operate h2 {
+      font-size: 2.5rem;
+      margin-bottom: 2.2rem;
+      text-align: center;
+      text-shadow: 0 0 10px rgba(255, 27, 10, 0.5);
+    }
+    #how-we-operate .detail-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .detail-card {
+      background: #000000;
+      border: 1px solid #222222;
+      border-radius: 12px;
+      padding: 2rem;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      box-shadow: inset 0 0 0 rgba(0, 0, 0, 0);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .detail-card:hover {
+      transform: translateY(-6px);
+      box-shadow:
+        0 0 0 2px rgba(255, 255, 255, 0.05),
+        0 12px 30px rgba(255, 27, 10, 0.25);
+    }
+    .detail-card h3 {
+      color: #ff1b0a;
+      font-size: 1.5rem;
+      margin-bottom: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.3px;
+      text-shadow: 0 0 8px rgba(255, 27, 10, 0.4);
+    }
+    .detail-card p {
+      color: #ffffff;
+      font-size: 1.05rem;
+      line-height: 1.6;
+    }
+    @media (max-width: 600px) {
+      #how-we-operate h2 {
+        font-size: 2rem;
+      }
+      .detail-card {
+        padding: 1.5rem;
+      }
+    }
+    #reviews-only {
+      background: #000000;
+      padding: 5rem 2rem;
+      text-align: center;
+    }
+    #reviews-only h2 {
+      font-size: 2.5rem;
+      color: #ff1b0a;
+      margin-bottom: 3rem;
+      text-shadow: 0 0 8px rgba(224, 0, 0, 0.3);
+    }
+    .qr-code-container {
+      display: inline-block;
+      text-align: center;
+      color: #ffffff;
+      font-size: 0.9rem;
+      opacity: 0.7;
+    }
+    .qr-code-container img {
+      width: 150px;
+      height: 150px;
+      object-fit: contain;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(224, 0, 0, 0.25);
+      margin-bottom: 0.5rem;
+    }
+    .qr-code-container a {
+      display: inline-block;
+      background: #ff1b0a;
+      color: #ffffff;
+      padding: 0.8rem 2rem;
+      border-radius: 6px;
+      font-weight: bold;
+      text-decoration: none;
+      font-size: 1.1rem;
+      transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+    }
+    .qr-code-container a:hover {
+      background-color: #e21700;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(255, 27, 10, 0.5);
+    }
+    #location-map {
+      background: #000000;
+      padding: 4rem 2rem;
+      text-align: center;
+    }
+    #location-map h2 {
+      color: #ff1b0a;
+      font-size: 2.4rem;
+      margin-bottom: 1rem;
+      text-shadow: 0 0 8px rgba(224, 0, 0, 0.3);
+    }
+    #location-map p {
+      color: #ffffff;
+      font-size: 1.1rem;
+      margin-bottom: 2.5rem;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    #location-map iframe {
+      max-width: 1000px;
+      width: 100%;
+      height: 450px;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 8px 25px rgba(224, 0, 0, 0.2);
+      border: 1px solid #222222;
+    }
+    footer.site-footer {
+      background: #000;
+      color: #fff;
+      padding: 0.7rem 0 0.7rem 0;
+      border-top: 1px solid #333;
+      text-align: center;
+      display: block;
+      margin-top: 2.5rem;
+    }
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 1.1rem;
+      flex-wrap: wrap;
+      font-weight: bold;
+      margin: 0;
+      padding: 0;
+    }
+    .footer-links a {
+      color: #ff1b0a;
+      text-decoration: none;
+      font-size: 1.05rem;
+      padding: 0.1rem 0.25rem;
+    }
+    .footer-links a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="brand">
+      <a href="/">
+        <img src="https://imagedelivery.net/VwxTcpKX2CusqbCCDB94Nw/0468e61a-5565-43fa-4026-fbc5801f1100/Logos" alt="Dependable Painting Logo">
+      </a>
+      <span>Dependable Painting</span>
+    </div>
+    <div class="nav-icons">
+      <a href="tel:2515254405" title="Call Us" aria-label="Call Us">
+        <i class="fas fa-phone"></i>
+      </a>
+      <a href="https://g.page/r/CQjqan_iFBshEAE" target="_blank" rel="noopener noreferrer" title="Google Maps" aria-label="Google Maps">
+        <i class="fab fa-google"></i>
+      </a>
+      <div class="hours-toggle">
+        <a href="#" title="Business Hours" aria-label="Business Hours" onclick="toggleHoursPopup(event); return false;">
+          <i class="fas fa-clock"></i>
+        </a>
+        <div id="hoursPopup" role="tooltip">
+          <strong>Hours:</strong><br>
+          Mon–Fri: 8:00am – 5:30pm<br>
+          Saturday: By Appointment<br>
+          Sunday: Closed
+        </div>
+      </div>
+      <div class="hamburger" onclick="toggleMenu()" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+  </header>
+
+  <section class="hero">
+    <h1>Built on Craft. Fueled by Pride. Run by the Owners.</h1>
+    <p>We’re not a franchise. We’re not a random crew. We’re Alex and Megan — and Dependable Painting is our family-run company built on 20+ years of combined experience, discipline, and detail.</p>
+    <p>From clean lines and flawless finishes to honest timelines and on-site ownership, everything we do reflects one thing: pride. Our name is on every job — and that means something.</p>
+    <a href="index.html#contact" class="cta-button" aria-label="Get a Free Quote">🔨 Get a Free Quote</a>
+  </section>
+
+  <section id="how-we-operate">
+    <h2>How We Work (And Why It Works)</h2>
+    <div class="detail-cards">
+      <div class="detail-card" data-aos="fade-up">
+        <h3>Owner-Run, Start to Finish</h3>
+        <p>We don’t just slap our name on a van. We’re on every job — estimating, prepping, painting, delivering. Clients shake our hands, not just sign a contract.</p>
+      </div>
+      <div class="detail-card" data-aos="fade-up" data-aos-delay="100">
+        <h3>Clean Job Sites, Every Time</h3>
+        <p>We treat every home and workspace like it’s ours. Floors protected, gear organized, zero mess. Customers mention our cleanup as much as our color game.</p>
+      </div>
+      <div class="detail-card" data-aos="fade-up" data-aos-delay="200">
+        <h3>Prep Like Pros, Paint Like Artists</h3>
+        <p>From floating drywall to taping glass to finessing caulk lines — prep is our edge. And when it’s time to paint, the finish speaks for itself.</p>
+      </div>
+      <div class="detail-card" data-aos="fade-up" data-aos-delay="300">
+        <h3>No Excuses. Just Execution.</h3>
+        <p>We show up on time, every time. No loud music, no shortcuts, no weak links. When you hire Dependable, you get the job done right, without babysitting us.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="face-pics" aria-label="Owners Alex and Megan">
+    <figure>
+      <img src="https://imagedelivery.net/VwxTcpKX2CusqbCCDB94Nw/3b7f7e8c-99ea-4626-a6d8-2e843ad0e500/ThumbnailGallery" alt="Alex Dimmler" />
+      <figcaption>Alex Dimmler</figcaption>
+      <div class="bio">
+        Alex is a lifelong craftsman and the hands-on force behind every project. With 15+ years in painting and renovation, he brings discipline, precision, and a perfectionist’s eye to every job.
+      </div>
+    </figure>
+    <figure>
+      <img src="https://imagedelivery.net/VwxTcpKX2CusqbCCDB94Nw/732181ff-0d36-473a-2843-f70e83e17800/ThumbnailGallery" alt="Megan Dimmler" />
+      <figcaption>Megan Dimmler</figcaption>
+      <div class="bio">
+        Megan manages operations and customer experience. Her background in design and detail ensures every client gets clear communication, honest timelines, and a beautiful finished product.
+      </div>
+    </figure>
+  </section>
+
+  <section id="reviews-only">
+    <h2>5-Star Results. Real People. Local Trust.</h2>
+    <div class="qr-code-container" data-aos="fade-up">
+      <img src="https://imagedelivery.net/VwxTcpKX2CusqbCCDB94Nw/8be76abe-7442-4579-3195-b315af6fba00/512" alt="Google Review QR Code" />
+      <p>Scan to leave a Google Review</p>
+      <a href="https://search.google.com/local/writereview?placeid=ChIJAAAAAAAAAAARCOpqf-IUGyE" target="_blank" rel="noopener noreferrer" aria-label="Leave Us a Review on Google">⭐ Leave Us a Review</a>
+    </div>
+  </section>
+
+  <section id="location-map">
+    <h2>Proudly Serving the Gulf Coast</h2>
+    <p>From Mobile to Baldwin County and the surrounding areas, we bring dependable results to homes and businesses across Alabama’s Gulf Coast.</p>
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d878474.4639526487!2d-88.50364527369405!3d30.675054662867886!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x889a5d78a87e436f%3A0x211b14e27f6aea08!2sDependable%20Painting%20LLC!5e0!3m2!1sen!2sus!4v1747600478528!5m2!1sen!2sus" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Dependable Painting Service Area Map"></iframe>
+  </section>
+
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="tel:2515254405" class="footer-link">📞 Call</a>
+    <a href="mailto:alexdimmler@dependablepaintingal.com" class="footer-link">✉️ Email</a>
+    <a href="#contact" class="footer-link">📋 Quote</a>
+    <a href="https://search.google.com/local/writereview?placeid=ChIJAAAAAAAAAAARCOpqf-IUGyE" target="_blank" rel="noopener noreferrer" class="footer-link">⭐ Review</a>
+    <a href="/privacy.html" class="footer-link">🔒 Privacy</a>
+  </div>
+</footer>
+  <!-- Font Awesome CDN for nav icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      if (typeof AOS !== 'undefined') {
+        AOS.init({ duration: 1000, once: true });
+      }
+    });
+  </script>
+  <script>
+    function toggleMenu() {
+      const navMenu = document.querySelector('nav.menu');
+      if (navMenu) {
+        navMenu.classList.toggle('open');
+      }
+      document.querySelector('.hamburger').classList.toggle('active');
+    }
+    function toggleHoursPopup(event) {
+      event.preventDefault();
+      const popup = document.getElementById('hoursPopup');
+      if (popup) {
+        popup.style.display = (popup.style.display === 'block') ? 'none' : 'block';
+      }
+    }
+  </script>
