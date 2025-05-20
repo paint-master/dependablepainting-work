@@ -7,6 +7,170 @@
   <link rel="icon" href="https://imagedelivery.net/VwxTcpKX2CusqbCCDB94Nw/0468e61a-5565-43fa-4026-fbc5801f1100/facicon" />
   <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
   <style>
+    /* Reset and base styles */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: Arial, sans-serif;
+      background: #000000; /* Background: Black */
+      color: #ffffff; /* Default Text: White */
+      line-height: 1.6;
+      padding-bottom: 120px; /* Initial padding for sticky footer, JS will adjust it. Increased slightly. */
+    }
+
+    /* Header styling */
+    header {
+      background: #000000; /* Header Background: Black */
+      padding: 1rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      z-index: 9999;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3); /* Subtle black shadow */
+      border-bottom: 1px solid #333333;
+    }
+    .brand { display: flex; align-items: center; gap: 0.8rem; }
+    .brand img { width: 40px; height: 40px; border-radius: 50%; object-fit: cover;}
+    .brand span { font-weight: bold; font-size: 1.4rem; color: #e00000; } /* Brand Text: Red */
+    .brand a { text-decoration: none; display: flex; align-items: center; }
+
+    /* Navigation icons */
+    .nav-icons { display: flex; align-items: center; gap: 1.2rem; }
+    .nav-icons a {
+      background: #000000;
+      padding: 0.5rem;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 2.4rem;
+      height: 2.4rem;
+      box-shadow: 0 0 6px rgba(224, 0, 0, 0.3);
+      color: #e00000;
+      font-size: 1.3rem;
+      transition: background 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+      text-decoration: none;
+      border: 1px solid #333333;
+    }
+    .nav-icons a:hover { background: #e00000; color: #ffffff; border-color: #e00000; }
+    .hours-toggle { position: relative; cursor: pointer; }
+    #hoursPopup {
+      display: none;
+      position: absolute;
+      top: 130%;
+      right: 0;
+      background: #000000;
+      color: #ffffff;
+      padding: 1rem;
+      border-radius: 6px;
+      box-shadow: 0 0 10px rgba(224, 0, 0, 0.5);
+      font-size: 0.9rem;
+      white-space: nowrap;
+      z-index: 99999;
+      opacity: 0;
+      transition: opacity 0.3s ease, transform 0.3s ease;
+      transform: translateY(-10px);
+      border: 1px solid #333333;
+    }
+    #hoursPopup strong { color: #e00000; }
+    #hoursPopup.visible { display: block; opacity: 1; transform: translateY(0); }
+
+    /* Hamburger icon */
+    .hamburger {
+      width: 30px;
+      height: 22px;
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .hamburger span {
+      height: 3px;
+      width: 100%;
+      background: #e00000;
+      border-radius: 2px;
+      transition: transform 0.4s ease, opacity 0.4s ease, background-color 0.4s ease;
+    }
+    .hamburger.active span:nth-child(1) { transform: translateY(9.5px) rotate(45deg); }
+    .hamburger.active span:nth-child(2) { opacity: 0; }
+    .hamburger.active span:nth-child(3) { transform: translateY(-9.5px) rotate(-45deg); }
+
+    /* Mobile menu */
+    nav.menu {
+      z-index: 10000;
+      backdrop-filter: blur(4px);
+      position: fixed;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100vh;
+      background: rgba(0, 0, 0, 0.95);
+      color: #ffffff;
+      padding: 4rem 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.8rem;
+      transition: left 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      overflow-y: auto;
+    }
+    nav.menu.open { left: 0; box-shadow: 5px 0 30px rgba(224, 0, 0, 0.2); }
+    nav.menu .search-bar-container {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        margin-bottom: 1rem;
+    }
+    nav.menu .search-bar {
+      height: 2.75rem;
+      padding: 0.5rem 1rem;
+      font-size: 1rem;
+      color: #ffffff;
+      background: #000000;
+      border: 1px solid #333333;
+      border-radius: 6px;
+      width: 100%;
+      outline: none;
+      transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    }
+    nav.menu .search-bar:focus { border-color: #e00000; box-shadow: 0 0 10px rgba(224, 0, 0, 0.6); }
+    nav.menu .search-bar-container button {
+        background: none;
+        border: none;
+        color: #e00000;
+        font-size: 1.4rem;
+        cursor: pointer;
+        padding: 0.5rem;
+        transition: color 0.3s ease;
+    }
+    nav.menu .search-bar-container button:hover { color: #ffffff; }
+    nav.menu a {
+      color: #e00000;
+      font-size: 1.5rem;
+      font-weight: bold;
+      text-decoration: none;
+      display: block;
+      padding: 0.5rem 0;
+      transition: color 0.3s ease, transform 0.3s ease;
+      opacity: 0;
+      animation: menuItemFadeIn 0.5s ease forwards;
+    }
+    nav.menu a:hover { color: #ffffff; transform: translateX(5px); }
+    .close-btn {
+      position: absolute;
+      top: 1.5rem;
+      right: 1.5rem;
+      font-size: 2.2rem;
+      cursor: pointer;
+      color: #e00000;
+      transition: color 0.3s ease, transform 0.3s ease;
+    }
+    .close-btn:hover { color: #ffffff; transform: rotate(90deg); }
+    @keyframes menuItemFadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
     body {
       background: #000;
       color: #fff;
@@ -327,33 +491,81 @@
       box-shadow: 0 8px 25px rgba(224, 0, 0, 0.2);
       border: 1px solid #222222;
     }
-    footer.site-footer {
-      background: #000;
-      color: #fff;
-      padding: 0.7rem 0 0.7rem 0;
-      border-top: 1px solid #333;
-      text-align: center;
-      display: block;
-      margin-top: 2.5rem;
+    /* Sticky Footer Styles */
+    .site-footer {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      background: #000000;
+      color: #ffffff;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 9998;
+      box-shadow: 0 -4px 10px rgba(224, 0, 0, 0.15);
+      border-top: 1px solid #333333;
+    }
+    .footer-brand {
+        display: flex;
+        align-items: center;
+        gap: 0.8rem;
+    }
+    .footer-brand img {
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        object-fit: cover;
+    }
+    .footer-brand strong {
+        color: #e00000;
     }
     .footer-links {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 1.1rem;
-      flex-wrap: wrap;
-      font-weight: bold;
-      margin: 0;
-      padding: 0;
+        display: flex;
+        gap: 1rem;
+        flex-wrap: wrap;
+        justify-content: center;
+        margin-top: 0.5rem;
     }
-    .footer-links a {
-      color: #ff1b0a;
+    .footer-link {
+      color: #e00000;
       text-decoration: none;
-      font-size: 1.05rem;
-      padding: 0.1rem 0.25rem;
+      font-weight: bold;
+      transition: color 0.3s ease, transform 0.3s ease;
+      padding: 0.3rem 0.5rem;
     }
-    .footer-links a:hover {
-      text-decoration: underline;
+    .footer-link:hover {
+      color: #ffffff;
+      transform: translateY(-2px);
+    }
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+      header { padding: 0.8rem 1rem; }
+      .brand span { font-size: 1.1rem; }
+      .brand img { width: 32px; height: 32px; }
+      .nav-icons a { width: 2.2rem; height: 2.2rem; font-size: 1.1rem; padding: 0.4rem; }
+      .nav-icons { gap: 0.8rem; }
+      .hamburger { width: 24px; height: 18px; }
+      .hamburger span { height: 2.5px; }
+      .hamburger.active span:nth-child(1) { transform: translateY(7.75px) rotate(45deg); }
+      .hamburger.active span:nth-child(3) { transform: translateY(-7.75px) rotate(-45deg); }
+      nav.menu { padding: 3.5rem 1.5rem; gap: 1.5rem; }
+      nav.menu .search-bar { font-size: 0.95rem; padding: 0.5rem 0.8rem; }
+      nav.menu a { font-size: 1.3rem; }
+      #hoursPopup { font-size: 0.8rem; padding: 0.8rem; right: 5px; top: 120%; }
+      .close-btn { top: 1rem; right: 1rem; font-size: 2rem; }
+
+      .site-footer {
+        flex-direction: column;
+        text-align: center;
+        gap: 0.8rem;
+        padding: 0.8rem 1rem;
+      }
+      .footer-brand, .footer-links {
+        justify-content: center;
+      }
+      .footer-links { margin-top: 0.5rem; }
     }
   </style>
 </head>
@@ -366,12 +578,6 @@
       <span>Dependable Painting</span>
     </div>
     <div class="nav-icons">
-      <a href="tel:2515254405" title="Call Us" aria-label="Call Us">
-        <i class="fas fa-phone"></i>
-      </a>
-      <a href="https://g.page/r/CQjqan_iFBshEAE" target="_blank" rel="noopener noreferrer" title="Google Maps" aria-label="Google Maps">
-        <i class="fab fa-google"></i>
-      </a>
       <div class="hours-toggle">
         <a href="#" title="Business Hours" aria-label="Business Hours" onclick="toggleHoursPopup(event); return false;">
           <i class="fas fa-clock"></i>
@@ -383,6 +589,12 @@
           Sunday: Closed
         </div>
       </div>
+      <a href="tel:2515254405" title="Call Us" aria-label="Call Us">
+        <i class="fas fa-phone"></i>
+      </a>
+      <a href="https://g.page/r/CQjqan_iFBshEAE" target="_blank" rel="noopener noreferrer" title="Google Maps" aria-label="Google Maps">
+        <i class="fab fa-google"></i>
+      </a>
       <div class="hamburger" onclick="toggleMenu()" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
         <span></span>
         <span></span>
@@ -466,16 +678,18 @@
     <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d878474.4639526487!2d-88.50364527369405!3d30.675054662867886!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x889a5d78a87e436f%3A0x211b14e27f6aea08!2sDependable%20Painting%20LLC!5e0!3m2!1sen!2sus!4v1747600478528!5m2!1sen!2sus" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Dependable Painting Service Area Map"></iframe>
   </section>
 
-<footer class="site-footer">
-  <div class="footer-links">
-    <a href="tel:2515254405" class="footer-link">📞 Call</a>
-    <a href="mailto:alexdimmler@dependablepaintingal.com" class="footer-link">✉️ Email</a>
-    <a href="#contact" class="footer-link">📋 Quote</a>
-    <a href="https://search.google.com/local/writereview?placeid=ChIJAAAAAAAAAAARCOpqf-IUGyE" target="_blank" rel="noopener noreferrer" class="footer-link">⭐ Review</a>
-    <a href="/privacy.html" class="footer-link">🔒 Privacy</a>
-  </div>
-</footer>
-  <!-- Font Awesome CDN for nav icons -->
+  <footer class="site-footer">
+    <div class="footer-brand">
+      <img src="https://imagedelivery.net/VwxTcpKX2CusqbCCDB94Nw/0468e61a-5565-43fa-4026-fbc5801f1100/Logos" alt="Dependable Painting Logo">
+    </div>
+    <div class="footer-links">
+      <a href="tel:2515254405" class="footer-link">📞 Call</a>
+      <a href="mailto:alexdimmler@dependablepaintingal.com" class="footer-link">✉️ Email</a>
+      <a href="#contact" class="footer-link">📋 Quote</a>
+      <a href="https://search.google.com/local/writereview?placeid=ChIJAAAAAAAAAAARCOpqf-IUGyE" target="_blank" rel="noopener noreferrer" class="footer-link">⭐ Review</a>
+      <a href="/privacy.html" class="footer-link">🔒 Privacy</a>
+    </div>
+  </footer>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
   <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
@@ -487,18 +701,115 @@
     });
   </script>
   <script>
-    function toggleMenu() {
-      const navMenu = document.querySelector('nav.menu');
-      if (navMenu) {
-        navMenu.classList.toggle('open');
-      }
-      document.querySelector('.hamburger').classList.toggle('active');
+    // Initialize AOS (Animate On Scroll) library if it's loaded
+    if (typeof AOS !== 'undefined') {
+        AOS.init({
+            duration: 800,
+            once: true,
+            offset: 80,
+            delay: 50,
+        });
     }
-    function toggleHoursPopup(event) {
-      event.preventDefault();
-      const popup = document.getElementById('hoursPopup');
-      if (popup) {
-        popup.style.display = (popup.style.display === 'block') ? 'none' : 'block';
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const menu = document.getElementById('mobileMenu');
+      const hamburger = document.querySelector('.hamburger');
+      const hoursPopup = document.getElementById('hoursPopup');
+      const body = document.body;
+      const siteFooter = document.querySelector('.site-footer');
+
+      window.toggleMenu = () => {
+        if (!menu || !hamburger || !body) {
+            return;
+        }
+        const isOpen = menu.classList.toggle('open');
+        hamburger.classList.toggle('active', isOpen);
+        hamburger.setAttribute('aria-expanded', isOpen.toString());
+        menu.setAttribute('aria-hidden', (!isOpen).toString());
+        body.style.overflow = isOpen ? 'hidden' : '';
+
+        if (isOpen) {
+            if(body) body.classList.remove('swipe-active');
+            const links = menu.querySelectorAll('nav.menu a');
+            links.forEach((link, i) => {
+                link.style.animation = 'none';
+                link.offsetHeight;
+                link.style.animation = `menuItemFadeIn 0.5s ease forwards ${i * 0.07 + 0.1}s`;
+                link.style.transform = 'translateY(10px)';
+            });
+        } else {
+            if (window.innerWidth <= 768 && body) {
+                body.classList.add('swipe-active');
+            }
+        }
+      };
+
+      window.toggleHoursPopup = (e) => {
+        if (!hoursPopup || !e || !e.currentTarget) return;
+        e.stopPropagation();
+        const isVisible = hoursPopup.classList.toggle('visible');
+        e.currentTarget.setAttribute('aria-expanded', isVisible.toString());
+      };
+
+      document.addEventListener('click', (e) => {
+        if (hoursPopup && hoursPopup.classList.contains('visible')) {
+          if (e.target && !hoursPopup.contains(e.target) && !e.target.closest('.hours-toggle')) {
+            hoursPopup.classList.remove('visible');
+            const hoursToggleAnchor = document.querySelector('.hours-toggle a');
+            if(hoursToggleAnchor) hoursToggleAnchor.setAttribute('aria-expanded', 'false');
+          }
+        }
+      });
+
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && menu && menu.classList.contains('open')) {
+          toggleMenu();
+        }
+      });
+
+      let touchStartX = 0;
+      let touchEndX = 0;
+      const SWIPE_THRESHOLD = 50;
+      const EDGE_THRESHOLD = 60;
+
+      document.addEventListener('touchstart', (e) => {
+        touchStartX = e.changedTouches[0].screenX;
+      }, { passive: true });
+
+      document.addEventListener('touchend', (e) => {
+        if (!menu) return;
+        touchEndX = e.changedTouches[0].screenX;
+        const swipeDiff = touchEndX - touchStartX;
+
+        if (menu.classList.contains('open') && swipeDiff < -SWIPE_THRESHOLD) {
+          toggleMenu();
+        }
+        else if (!menu.classList.contains('open') && swipeDiff > SWIPE_THRESHOLD && touchStartX < EDGE_THRESHOLD) {
+          toggleMenu();
+        }
+      });
+
+      function adjustFooterPadding() {
+        if (siteFooter && body) {
+            const footerHeight = siteFooter.offsetHeight;
+            body.style.paddingBottom = `${footerHeight + 20}px`;
+        }
       }
-    }
+
+      if (body && menu) {
+        if (window.innerWidth <= 768 && !menu.classList.contains('open')) {
+          body.classList.add('swipe-active');
+        }
+      }
+      adjustFooterPadding();
+      window.addEventListener('resize', adjustFooterPadding);
+      window.addEventListener('load', () => {
+        adjustFooterPadding();
+        if (typeof AOS !== 'undefined') {
+            // AOS.refresh();
+        }
+      });
+    });
   </script>
+</body>
+</html>
