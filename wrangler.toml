@@ -1,6 +1,7 @@
-name = "dependable-painting"
-compatibility_date = "2025-05-18"
+name = "dependablepainting-work"
+compatibility_date = "2024-05-20"
 
-[pages]
-project = "dependable-painting"
-directory = /users/alex-dimmler/dependablepainting/dependablepainting-work
+[site]
+bucket = "."  # since homepage.html is in the root
+entry-point = "."
+
