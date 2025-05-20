@@ -1,8 +1,6 @@
 name = "dependable-painting"
-account_id = "5a02a885ddcd3fdcfd15ac76faae8315"
-zone_id = "feab5fbb3c536331ecf14332705fcf8b"
 compatibility_date = "2025-05-18"
 
 [pages]
-project = "dependablepainting-work"
-directory = "/Users/alex-dimmler/dependablepainting/dependablepainting-work"
+project = "dependable-painting"
+directory = /users/alex-dimmler/dependablepainting/dependablepainting-work
