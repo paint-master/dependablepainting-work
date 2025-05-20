@@ -1,7 +1,0 @@
-name = "dependablepainting-work"
-compatibility_date = "2024-05-20"
-
-[site]
-bucket = "."  # since homepage.html is in the root
-entry-point = "."
-
