@@ -391,6 +391,20 @@
     </div>
   </header>
 
+  <nav class="menu" id="mobileMenu" aria-hidden="true">
+    <div class="close-btn" onclick="toggleMenu()" aria-label="Close menu">×</div>
+    <form action="https://www.google.com/search" method="GET" target="_blank" class="search-bar-container" onsubmit="this.q.value='site:dependablepaintingal.com ' + this.q.value.trim(); return !!this.q.value.replace('site:dependablepaintingal.com ', '').trim();">
+      <input class="search-bar" type="text" name="q" placeholder="Search Our Site..." onfocus="this.select();" />
+      <button type="submit" aria-label="Search"><i class="fas fa-search"></i></button>
+    </form>
+    <a href="/">Home</a>
+    <a href="/about.html">About Us</a>
+    <a href="/services/">Services</a>
+    <a href="/contact/">Contact</a>
+    <a href="/gallery/">Gallery</a>
+    <a href="/privacy.html">Privacy Policy</a>
+  </nav>
+
   <section class="hero">
     <h1>Built on Craft. Fueled by Pride. Run by the Owners.</h1>
     <p>We’re not a franchise. We’re not a random crew. We’re Alex and Megan — and Dependable Painting is our family-run company built on 20+ years of combined experience, discipline, and detail.</p>
