@@ -5,44 +5,359 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Privacy Policy | Dependable Painting</title>
   <link rel="icon" href="https://imagedelivery.net/VwxTcpKX2CusqbCCDB94Nw/0468e61a-5565-43fa-4026-fbc5801f1100/facicon" />
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js" defer crossorigin="anonymous"></script>
   <style>
+    /* Reset and base styles */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
     body {
-      margin: 0;
-      padding: 2rem;
-      background-color: #000;
-      color: #fff;
-      font-family: sans-serif;
+      font-family: Arial, sans-serif;
+      background: #000000; /* Background: Black */
+      color: #ffffff; /* Default Text: White */
+      line-height: 1.6;
+      padding-bottom: 120px; /* Initial padding for sticky footer, JS will adjust it. */
+    }
+
+    /* Header styling - Copied from index.html */
+    header {
+      background: #000000;
+      padding: 1rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      z-index: 9999;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+      border-bottom: 1px solid #333333;
+    }
+    .brand { display: flex; align-items: center; gap: 0.8rem; }
+    .brand img { width: 40px; height: 40px; border-radius: 50%; object-fit: cover;}
+    .brand span { font-weight: bold; font-size: 1.4rem; color: #e00000; }
+    .brand a { text-decoration: none; display: flex; align-items: center; }
+
+    /* Navigation icons - Copied from index.html */
+    .nav-icons { display: flex; align-items: center; gap: 1.2rem; }
+    .nav-icons a {
+      background: #000000;
+      padding: 0.5rem;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 2.4rem;
+      height: 2.4rem;
+      box-shadow: 0 0 6px rgba(224, 0, 0, 0.3);
+      color: #e00000;
+      font-size: 1.3rem;
+      transition: background 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+      text-decoration: none;
+      border: 1px solid #333333;
+    }
+    .nav-icons a:hover { background: #e00000; color: #ffffff; border-color: #e00000; }
+    .hours-toggle { position: relative; cursor: pointer; }
+    #hoursPopup {
+      display: none;
+      position: absolute;
+      top: 130%;
+      right: 0;
+      background: #000000;
+      color: #ffffff;
+      padding: 1rem;
+      border-radius: 6px;
+      box-shadow: 0 0 10px rgba(224, 0, 0, 0.5);
+      font-size: 0.9rem;
+      white-space: nowrap;
+      z-index: 99999;
+      opacity: 0;
+      transition: opacity 0.3s ease, transform 0.3s ease;
+      transform: translateY(-10px);
+      border: 1px solid #333333;
+    }
+    #hoursPopup strong { color: #e00000; }
+    #hoursPopup.visible { display: block; opacity: 1; transform: translateY(0); }
+
+    /* Hamburger icon - Copied from index.html */
+    .hamburger {
+      width: 30px;
+      height: 22px;
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .hamburger span {
+      height: 3px;
+      width: 100%;
+      background: #e00000;
+      border-radius: 2px;
+      transition: transform 0.4s ease, opacity 0.4s ease, background-color 0.4s ease;
+    }
+    .hamburger.active span:nth-child(1) { transform: translateY(9.5px) rotate(45deg); }
+    .hamburger.active span:nth-child(2) { opacity: 0; }
+    .hamburger.active span:nth-child(3) { transform: translateY(-9.5px) rotate(-45deg); }
+
+    /* Mobile menu - Copied from index.html */
+    nav.menu {
+      z-index: 10000;
+      backdrop-filter: blur(4px);
+      position: fixed;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100vh;
+      background: rgba(0, 0, 0, 0.95);
+      color: #ffffff;
+      padding: 4rem 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.8rem;
+      transition: left 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      overflow-y: auto;
+    }
+    nav.menu.open { left: 0; box-shadow: 5px 0 30px rgba(224, 0, 0, 0.2); }
+    nav.menu .search-bar-container {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        margin-bottom: 1rem;
+    }
+    nav.menu .search-bar {
+      height: 2.75rem;
+      padding: 0.5rem 1rem;
+      font-size: 1rem;
+      color: #ffffff;
+      background: #000000;
+      border: 1px solid #333333;
+      border-radius: 6px;
+      width: 100%;
+      outline: none;
+      transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    }
+    nav.menu .search-bar:focus { border-color: #e00000; box-shadow: 0 0 10px rgba(224, 0, 0, 0.6); }
+    nav.menu .search-bar-container button {
+        background: none;
+        border: none;
+        color: #e00000;
+        font-size: 1.4rem;
+        cursor: pointer;
+        padding: 0.5rem;
+        transition: color 0.3s ease;
+    }
+    nav.menu .search-bar-container button:hover { color: #ffffff; }
+    nav.menu a {
+      color: #e00000;
+      font-size: 1.5rem;
+      font-weight: bold;
+      text-decoration: none;
+      display: block;
+      padding: 0.5rem 0;
+      transition: color 0.3s ease, transform 0.3s ease;
+      opacity: 0;
+      animation: menuItemFadeIn 0.5s ease forwards;
+    }
+    nav.menu a:hover { color: #ffffff; transform: translateX(5px); }
+    .close-btn {
+      position: absolute;
+      top: 1.5rem;
+      right: 1.5rem;
+      font-size: 2.2rem;
+      cursor: pointer;
+      color: #e00000;
+      transition: color 0.3s ease, transform 0.3s ease;
+    }
+    .close-btn:hover { color: #ffffff; transform: rotate(90deg); }
+    @keyframes menuItemFadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Privacy Policy specific styles (adjusted for consistency) */
+    .container {
+      max-width: 800px;
+      margin: 2rem auto; /* Adjusted margin for better spacing */
+      padding: 0 1rem; /* Added padding for smaller screens */
+    }
+    h1 {
+      color: #e00000; /* Consistent with other pages */
+      text-align: center;
+      margin-top: 2rem; /* Added margin for spacing below header */
+      margin-bottom: 1.5rem;
+      font-size: 2.8rem; /* Consistent with other page titles */
+    }
+    h2 {
+      color: #e00000; /* Consistent with other pages */
+      margin-top: 2rem;
+      margin-bottom: 1rem;
+      font-size: 2rem; /* Consistent with other section titles */
+    }
+    p, ul {
+      font-size: 1.1rem;
+      margin-bottom: 1.5rem;
       line-height: 1.6;
     }
-    header, footer {
-      text-align: center;
-      margin-bottom: 2rem;
-    }
     a {
-      color: #ff1b0a;
+      color: #e00000; /* Consistent with other pages */
       text-decoration: none;
     }
     a:hover {
       text-decoration: underline;
     }
-    h1, h2 {
-      color: #ff1b0a;
+    strong {
+      color: #e00000; /* Consistent with other pages */
     }
-    .container {
-      max-width: 800px;
-      margin: auto;
+    ul {
+      list-style-type: disc;
+      margin-left: 20px;
     }
+    .back-to-homepage {
+      display: block;
+      margin-top: 2rem;
+      text-align: center;
+      font-weight: bold;
+    }
+
+    /* Sticky Footer Styles - Copied from index.html */
+    .site-footer {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      background: #000000;
+      color: #ffffff;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 9998;
+      box-shadow: 0 -4px 10px rgba(224, 0, 0, 0.15);
+      border-top: 1px solid #333333;
+    }
+    .footer-brand {
+        display: flex;
+        align-items: center;
+        gap: 0.8rem;
+    }
+    .footer-brand img {
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        object-fit: cover;
+    }
+    .footer-brand strong {
+        color: #e00000;
+    }
+    .footer-links {
+        display: flex;
+        gap: 1rem;
+        flex-wrap: wrap;
+        justify-content: center;
+        margin-top: 0.5rem;
+    }
+    .footer-link {
+      color: #e00000;
+      text-decoration: none;
+      font-weight: bold;
+      transition: color 0.3s ease, transform 0.3s ease;
+      padding: 0.3rem 0.5rem;
+    }
+    .footer-link:hover {
+      color: #ffffff;
+      transform: translateY(-2px);
+    }
+
+    /* Responsive adjustments - Copied from index.html */
+    @media (max-width: 768px) {
+      header { padding: 0.8rem 1rem; }
+      .brand span { font-size: 1.1rem; }
+      .brand img { width: 32px; height: 32px; }
+      .nav-icons a { width: 2.2rem; height: 2.2rem; font-size: 1.1rem; padding: 0.4rem; }
+      .nav-icons { gap: 0.8rem; }
+      .hamburger { width: 24px; height: 18px; }
+      .hamburger span { height: 2.5px; }
+      .hamburger.active span:nth-child(1) { transform: translateY(7.75px) rotate(45deg); }
+      .hamburger.active span:nth-child(3) { transform: translateY(-7.75px) rotate(-45deg); }
+      nav.menu { padding: 3.5rem 1.5rem; gap: 1.5rem; }
+      nav.menu .search-bar { font-size: 0.95rem; padding: 0.5rem 0.8rem; }
+      nav.menu a { font-size: 1.3rem; }
+      #hoursPopup { font-size: 0.8rem; padding: 0.8rem; right: 5px; top: 120%; }
+      .close-btn { top: 1rem; right: 1rem; font-size: 2rem; }
+
+      .site-footer {
+        flex-direction: column;
+        text-align: center;
+        gap: 0.8rem;
+        padding: 0.8rem 1rem;
+      }
+      .footer-brand, .footer-links {
+        justify-content: center;
+      }
+      .footer-links { margin-top: 0.5rem; }
+
+      h1 { font-size: 2rem; }
+      h2 { font-size: 1.6rem; }
+      p, ul { font-size: 1rem; }
+    }
+
+    /* Left-edge swipe cue for mobile menu - Copied from index.html */
+    @media (max-width: 768px) {
+      body.swipe-active::before {
+        content: ""; position: fixed; top: 0; left: 0; width: 15px; height: 100vh;
+        background: radial-gradient(circle at left center, rgba(224,0,0,0.15), transparent 70%);
+        z-index: 9998; pointer-events: none; opacity: 0.7;
+        animation: pulseEdge 2s ease-in-out infinite alternate;
+      }
+    }
+    @keyframes pulseEdge { 0% { opacity: 0.3; transform: scaleX(0.8); } 100% { opacity: 0.7; transform: scaleX(1); } }
   </style>
 </head>
 <body>
   <header>
-    <a href="index.html">
-      <img src="https://imagedelivery.net/VwxTcpKX2CusqbCCDB94Nw/0468e61a-5565-43fa-4026-fbc5801f1100/Logos" alt="Dependable Painting logo" style="max-height: 60px; vertical-align: middle;">
-    </a>
-    <h1>Privacy Policy</h1>
+    <div class="brand">
+      <a href="/">
+        <img src="https://imagedelivery.net/VwxTcpKX2CusqbCCDB94Nw/0468e61a-5565-43fa-4026-fbc5801f1100/Logos" alt="Dependable Painting Logo">
+      </a>
+      <span>Dependable Painting</span>
+    </div>
+    <div class="nav-icons">
+      <div class="hours-toggle">
+        <a href="#" title="Business Hours" aria-label="Business Hours" onclick="toggleHoursPopup(event); return false;">
+          <i class="fas fa-clock"></i>
+        </a>
+        <div id="hoursPopup" role="tooltip">
+          <strong>Hours:</strong><br>
+          Mon–Fri: 8:00am – 5:30pm<br>
+          Saturday: By Appointment<br>
+          Sunday: Closed
+        </div>
+      </div>
+      <a href="tel:2515254405" title="Call Us" aria-label="Call Us"><i class="fas fa-phone"></i></a>
+      <a href="https://g.page/r/CQjqan_iFBshEAE" target="_blank" rel="noopener noreferrer" title="Find us on Google" aria-label="Find us on Google"><i class="fab fa-google"></i></a>
+      <div class="hamburger" onclick="toggleMenu()" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
   </header>
 
+  <nav class="menu" id="mobileMenu" aria-hidden="true">
+    <div class="close-btn" onclick="toggleMenu()" aria-label="Close menu">×</div>
+    <form action="https://www.google.com/search" method="GET" target="_blank" class="search-bar-container" onsubmit="this.q.value='site:dependablepaintingal.com ' + this.q.value.trim(); return !!this.q.value.replace('site:dependablepaintingal.com ', '').trim();">
+      <input class="search-bar" type="text" name="q" placeholder="Search Our Site..." onfocus="this.select();">
+      <button type="submit" aria-label="Search"><i class="fas fa-search"></i></button>
+    </form>
+    <a href="/">Home</a>
+    <a href="/about.html">About Us</a>
+    <a href="/services/">Services</a>
+    <a href="/contact/">Contact</a>
+    <a href="/gallery/">Gallery</a>
+    <a href="/privacy.html">Privacy Policy</a>
+  </nav>
+
   <div class="container">
+    <h1>Privacy Policy</h1>
     <p>At Dependable Painting, your privacy is important to us. This Privacy Policy explains how we collect, use, and safeguard your information when you interact with us online or offline.</p>
 
     <h2>What We Collect</h2>
@@ -56,25 +371,159 @@
     <h2>How We Use It</h2>
     <p>Your information is used strictly to respond to your inquiries, deliver services, and communicate about your project. We don’t sell, rent, or share your data with anyone.</p>
 
+    <h2>Data Retention</h2>
+    <p>We retain your personal information only for as long as necessary to fulfill the purposes for which it was collected, or as required by law. Once no longer needed, your data is securely deleted.</p>
+
     <h2>Cookies & Analytics</h2>
     <p>We may use cookies or third-party tools (like Google Analytics) to improve our website experience. You can disable cookies in your browser settings.</p>
+
+    <h2>Third-Party Links</h2>
+    <p>Our website may contain links to other sites that are not operated by us. If you click on a third-party link, you will be directed to that third party's site. We strongly advise you to review the Privacy Policy of every site you visit. We have no control over and assume no responsibility for the content, privacy policies, or practices of any third-party sites or services.</p>
+
+    <h2>Children's Privacy</h2>
+    <p>Our services are not intended for anyone under the age of 13. We do not knowingly collect personally identifiable information from children under 13. If you are a parent or guardian and you are aware that your child has provided us with personal data, please contact us. If we become aware that we have collected personal data from anyone under the age of 13 without verification of parental consent, we take steps to remove that information from our servers.</p>
 
     <h2>Security</h2>
     <p>We take your security seriously. All data is transmitted securely, and stored with restricted access.</p>
 
     <h2>Your Rights</h2>
-    <p>You have the right to request access, corrections, or deletion of your personal data. Just contact us directly to request it.</p>
+    <p>You have the right to request access, corrections, or deletion of your personal data. To exercise these rights or for any privacy concerns, please contact us:</p>
+    <ul>
+      <li>Email: <a href="mailto:alexdimmler@dependablepainting.work">alexdimmler@dependablepainting.work</a></li>
+      <li>Phone: <a href="tel:2515254405">251-525-4405</a></li>
+    </ul>
 
     <h2>Changes</h2>
     <p>This Privacy Policy may be updated from time to time. All changes will be posted on this page with an updated revision date.</p>
 
     <p><strong>Last updated:</strong> May 2025</p>
 
-    <p><a href="index.html">← Back to Homepage</a></p>
+    <p class="back-to-homepage"><a href="index.html">← Back to Homepage</a></p>
   </div>
 
-  <footer>
-    <p>&copy; 2025 Dependable Painting. All rights reserved.</p>
+  <footer class="site-footer">
+    <div class="footer-brand">
+      <img src="https://imagedelivery.net/VwxTcpKX2CusqbCCDB94Nw/0468e61a-5565-43fa-4026-fbc5801f1100/Logos" alt="Dependable Painting Logo">
+    </div>
+    <div class="footer-links">
+      <a href="tel:2515254405" class="footer-link">📞 Call</a>
+      <a href="mailto:alexdimmler@dependablepaintingal.com" class="footer-link">✉️ Email</a>
+      <a href="#contact" class="footer-link">📋 Quote</a>
+      <a href="https://search.google.com/local/writereview?placeid=ChIJAAAAAAAAAAARCOpqf-IUGyE" target="_blank" rel="noopener noreferrer" class="footer-link">⭐ Review</a>
+      <a href="/privacy.html" class="footer-link">🔒 Privacy</a>
+    </div>
   </footer>
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    // Initialize AOS (Animate On Scroll) library if it's loaded
+    if (typeof AOS !== 'undefined') {
+        AOS.init({
+            duration: 800,
+            once: true,
+            offset: 80,
+            delay: 50,
+        });
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const menu = document.getElementById('mobileMenu');
+      const hamburger = document.querySelector('.hamburger');
+      const hoursPopup = document.getElementById('hoursPopup');
+      const body = document.body;
+      const siteFooter = document.querySelector('.site-footer');
+
+      window.toggleMenu = () => {
+        if (!menu || !hamburger || !body) {
+            return;
+        }
+        const isOpen = menu.classList.toggle('open');
+        hamburger.classList.toggle('active', isOpen);
+        hamburger.setAttribute('aria-expanded', isOpen.toString());
+        menu.setAttribute('aria-hidden', (!isOpen).toString());
+        body.style.overflow = isOpen ? 'hidden' : '';
+
+        if (isOpen) {
+            if(body) body.classList.remove('swipe-active');
+            const links = menu.querySelectorAll('nav.menu a');
+            links.forEach((link, i) => {
+                link.style.animation = 'none';
+                link.offsetHeight;
+                link.style.animation = `menuItemFadeIn 0.5s ease forwards ${i * 0.07 + 0.1}s`;
+                link.style.transform = 'translateY(10px)';
+            });
+        } else {
+            if (window.innerWidth <= 768 && body) {
+                body.classList.add('swipe-active');
+            }
+        }
+      };
+
+      window.toggleHoursPopup = (e) => {
+        if (!hoursPopup || !e || !e.currentTarget) return;
+        e.stopPropagation();
+        const isVisible = hoursPopup.classList.toggle('visible');
+        e.currentTarget.setAttribute('aria-expanded', isVisible.toString());
+      };
+
+      document.addEventListener('click', (e) => {
+        if (hoursPopup && hoursPopup.classList.contains('visible')) {
+          if (e.target && !hoursPopup.contains(e.target) && !e.target.closest('.hours-toggle')) {
+            hoursPopup.classList.remove('visible');
+            const hoursToggleAnchor = document.querySelector('.hours-toggle a');
+            if(hoursToggleAnchor) hoursToggleAnchor.setAttribute('aria-expanded', 'false');
+          }
+        }
+      });
+
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && menu && menu.classList.contains('open')) {
+          toggleMenu();
+        }
+      });
+
+      let touchStartX = 0;
+      let touchEndX = 0;
+      const SWIPE_THRESHOLD = 50;
+      const EDGE_THRESHOLD = 60;
+
+      document.addEventListener('touchstart', (e) => {
+        touchStartX = e.changedTouches[0].screenX;
+      }, { passive: true });
+
+      document.addEventListener('touchend', (e) => {
+        if (!menu) return;
+        touchEndX = e.changedTouches[0].screenX;
+        const swipeDiff = touchEndX - touchStartX;
+
+        if (menu.classList.contains('open') && swipeDiff < -SWIPE_THRESHOLD) {
+          toggleMenu();
+        }
+        else if (!menu.classList.contains('open') && swipeDiff > SWIPE_THRESHOLD && touchStartX < EDGE_THRESHOLD) {
+          toggleMenu();
+        }
+      });
+
+      function adjustFooterPadding() {
+        if (siteFooter && body) {
+            const footerHeight = siteFooter.offsetHeight;
+            body.style.paddingBottom = `${footerHeight + 20}px`;
+        }
+      }
+
+      if (body && menu) {
+        if (window.innerWidth <= 768 && !menu.classList.contains('open')) {
+          body.classList.add('swipe-active');
+        }
+      }
+      adjustFooterPadding();
+      window.addEventListener('resize', adjustFooterPadding);
+      window.addEventListener('load', () => {
+        adjustFooterPadding();
+        if (typeof AOS !== 'undefined') {
+            // AOS.refresh();
+        }
+      });
+    });
+  </script>
 </body>
 </html>

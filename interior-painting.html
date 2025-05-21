@@ -1,0 +1,1371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Interior Painting | Dependable Painting</title>
+  <link rel="icon" href="https://imagedelivery.net/VwxTcpKX2CusqbCCDB94Nw/0468e61a-5565-43fa-4026-fbc5801f1100/facicon" />
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js" defer crossorigin="anonymous"></script>
+  <style>
+    /* Reset and base styles */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: Arial, sans-serif;
+      background: #000000; /* Background: Black */
+      color: #ffffff; /* Default Text: White */
+      line-height: 1.6;
+      padding-bottom: 120px; /* Initial padding for sticky footer, JS will adjust it. */
+    }
+
+    /* Header styling - Consistent with other pages */
+    header {
+      background: #000000;
+      padding: 1rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      z-index: 9999;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+      border-bottom: 1px solid #333333;
+    }
+    .brand { display: flex; align-items: center; gap: 0.8rem; }
+    .brand img { width: 40px; height: 40px; border-radius: 50%; object-fit: cover;}
+    .brand span { font-weight: bold; font-size: 1.4rem; color: #e00000; }
+    .brand a { text-decoration: none; display: flex; align-items: center; }
+
+    /* Navigation icons - Consistent with other pages */
+    .nav-icons { display: flex; align-items: center; gap: 1.2rem; }
+    .nav-icons a {
+      background: #000000;
+      padding: 0.5rem;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 2.4rem;
+      height: 2.4rem;
+      box-shadow: 0 0 6px rgba(224, 0, 0, 0.3);
+      color: #e00000;
+      font-size: 1.3rem;
+      transition: background 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+      text-decoration: none;
+      border: 1px solid #333333;
+    }
+    .nav-icons a:hover { background: #e00000; color: #ffffff; border-color: #e00000; }
+    .hours-toggle { position: relative; cursor: pointer; }
+    #hoursPopup {
+      display: none;
+      position: absolute;
+      top: 130%;
+      right: 0;
+      background: #000000;
+      color: #ffffff;
+      padding: 1rem;
+      border-radius: 6px;
+      box-shadow: 0 0 10px rgba(224, 0, 0, 0.5);
+      font-size: 0.9rem;
+      white-space: nowrap;
+      z-index: 99999;
+      opacity: 0;
+      transition: opacity 0.3s ease, transform 0.3s ease;
+      transform: translateY(-10px);
+      border: 1px solid #333333;
+    }
+    #hoursPopup strong { color: #e00000; }
+    #hoursPopup.visible { display: block; opacity: 1; transform: translateY(0); }
+
+    /* Hamburger icon - Consistent with other pages */
+    .hamburger {
+      width: 30px;
+      height: 22px;
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .hamburger span {
+      height: 3px;
+      width: 100%;
+      background: #e00000;
+      border-radius: 2px;
+      transition: transform 0.4s ease, opacity 0.4s ease, background-color 0.4s ease;
+    }
+    .hamburger.active span:nth-child(1) { transform: translateY(9.5px) rotate(45deg); }
+    .hamburger.active span:nth-child(2) { opacity: 0; }
+    .hamburger.active span:nth-child(3) { transform: translateY(-9.5px) rotate(-45deg); }
+
+    /* Mobile menu - Consistent with other pages */
+    nav.menu {
+      z-index: 10000;
+      backdrop-filter: blur(4px);
+      position: fixed;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100vh;
+      background: rgba(0, 0, 0, 0.95);
+      color: #ffffff;
+      padding: 4rem 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.8rem;
+      transition: left 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      overflow-y: auto;
+    }
+    nav.menu.open { left: 0; box-shadow: 5px 0 30px rgba(224, 0, 0, 0.2); }
+    nav.menu .search-bar-container {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        margin-bottom: 1rem;
+    }
+    nav.menu .search-bar {
+      height: 2.75rem;
+      padding: 0.5rem 1rem;
+      font-size: 1rem;
+      color: #ffffff;
+      background: #000000;
+      border: 1px solid #333333;
+      border-radius: 6px;
+      width: 100%;
+      outline: none;
+      transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    }
+    nav.menu .search-bar:focus { border-color: #e00000; box-shadow: 0 0 10px rgba(224, 0, 0, 0.6); }
+    nav.menu .search-bar-container button {
+        background: none;
+        border: none;
+        color: #e00000;
+        font-size: 1.4rem;
+        cursor: pointer;
+        padding: 0.5rem;
+        transition: color 0.3s ease;
+    }
+    nav.menu .search-bar-container button:hover { color: #ffffff; }
+    nav.menu a {
+      color: #e00000;
+      font-size: 1.5rem;
+      font-weight: bold;
+      text-decoration: none;
+      display: block;
+      padding: 0.5rem 0;
+      transition: color 0.3s ease, transform 0.3s ease;
+      opacity: 0;
+      animation: menuItemFadeIn 0.5s ease forwards;
+    }
+    nav.menu a:hover { color: #ffffff; transform: translateX(5px); }
+    .close-btn {
+      position: absolute;
+      top: 1.5rem;
+      right: 1.5rem;
+      font-size: 2.2rem;
+      cursor: pointer;
+      color: #e00000;
+      transition: color 0.3s ease, transform 0.3s ease;
+    }
+    .close-btn:hover { color: #ffffff; transform: rotate(90deg); }
+    @keyframes menuItemFadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Hero Section Styles */
+    .interior-hero {
+      padding: 5rem 2rem;
+      text-align: center;
+      background: #000000;
+    }
+    .interior-hero h1 {
+      color: #e00000;
+      font-size: 2.8rem;
+      max-width: 800px;
+      margin: 0 auto 1.5rem;
+      text-shadow: 0 0 8px rgba(224, 0, 0, 0.4);
+    }
+    .interior-hero p {
+      color: #ffffff;
+      font-size: 1.2rem;
+      max-width: 700px;
+      margin: 0 auto 2rem;
+    }
+    .interior-hero a {
+      background: #e00000;
+      color: white;
+      padding: 1rem 2rem;
+      font-weight: bold;
+      border-radius: 6px;
+      text-decoration: none;
+      font-size: 1.1rem;
+      box-shadow: 0 0 15px rgba(224, 0, 0, 0.3);
+      transition: background 0.3s ease, transform 0.3s ease;
+      display: inline-block;
+    }
+    .interior-hero a:hover {
+      background: #c00000;
+      transform: translateY(-2px);
+    }
+
+    /* Flip Card Section Styles (Adapted for Interior FAQ) */
+    .flip-grid-section {
+      padding: 5rem 2rem;
+      background: #000000;
+      color: #ffffff;
+    }
+    .flip-grid-section h2 {
+      font-size: 2.5rem;
+      color: #e00000;
+      margin-bottom: 3rem;
+      text-align: center;
+      text-shadow: 0 0 10px rgba(224, 0, 0, 0.3);
+    }
+    .flip-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 2rem;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+    .flip-card {
+      background: transparent;
+      perspective: 1000px;
+    }
+    .flip-card-inner {
+      position: relative;
+      width: 100%;
+      height: 240px; /* Fixed height for consistent card size */
+      text-align: center;
+      transition: transform 0.8s ease;
+      transform-style: preserve-3d;
+    }
+    .flip-card:hover .flip-card-inner {
+      transform: rotateY(180deg);
+    }
+    .flip-card-front,
+    .flip-card-back {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      padding: 1.5rem;
+      border-radius: 10px;
+      backface-visibility: hidden;
+      background: #000000; /* Consistent background */
+      border-left: 4px solid #e00000; /* Consistent accent color */
+      box-shadow: 0 0 15px rgba(224, 0, 0, 0.1); /* Consistent shadow */
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      border: 1px solid #222222; /* Consistent border */
+    }
+    /* Styles for red outline and deep shadow */
+    .flip-card-front {
+      border: 1px solid #e00000; /* Red outline */
+      box-shadow: 0 0 20px rgba(224, 0, 0, 0.5); /* Deep red shadow */
+    }
+    .flip-card-front h3 {
+      color: #e00000; /* Red text for questions */
+      font-size: 1.3rem;
+      line-height: 1.4;
+      margin: 0;
+    }
+    .flip-card-back {
+      transform: rotateY(180deg);
+      color: #ffffff; /* Keep text white on back */
+      font-size: 1rem;
+      line-height: 1.5;
+    }
+    @media (max-width: 600px) {
+      .flip-card-inner {
+        height: auto; /* Allow height to adjust on small screens */
+        min-height: 180px; /* Ensure minimum height */
+      }
+      .flip-card-front, .flip-card-back {
+        position: relative; /* Adjust for auto height */
+        height: auto;
+        min-height: 180px;
+      }
+    }
+
+    /* Gallery Section Styles - Consistent with other pages */
+    #gallery {
+      padding: 4rem 2rem;
+      background: #000000;
+      color: white;
+      text-align: center;
+    }
+    #gallery h2 {
+      font-size: 2.5rem;
+      margin-bottom: 2rem;
+      color: #e00000;
+    }
+    #gallery p {
+      max-width: 700px;
+      margin: 0 auto 2rem;
+      color: #ffffff;
+    }
+    #gallery > div {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    #gallery figure {
+      margin: 0;
+      background:#000000;
+      border-radius:10px;
+      overflow:hidden;
+      border: 1px solid #222222;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+      transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+    }
+    #gallery figure:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 25px rgba(224, 0, 0, 0.3);
+      border-color: rgba(224,0,0,0.5);
+    }
+    #gallery img {
+      width: 100%;
+      aspect-ratio: 4/3;
+      object-fit: cover;
+      transition: transform 0.3s ease;
+      display: block;
+    }
+    #gallery figcaption {
+      color: #ffffff;
+      font-size: 0.9rem;
+      margin-top: 0.5rem;
+      padding-bottom: 0.5rem;
+    }
+    #gallery img:hover {
+      transform: scale(1.03);
+    }
+
+    /* LLM Feature Styles - Consistent with other pages */
+    #llm-project-ideas {
+      padding: 5rem 2rem;
+      background: #000000;
+      text-align: center;
+    }
+    #llm-project-ideas h2 {
+      color: #e00000;
+      font-size: 2.5rem;
+      margin-bottom: 2rem;
+    }
+    #llm-project-ideas p {
+      color: #ffffff;
+      max-width: 700px;
+      margin: 0 auto 2rem;
+    }
+    #llm-project-ideas textarea {
+      width: 100%;
+      max-width: 600px;
+      height: 120px;
+      padding: 1rem;
+      background: #000000;
+      border: 1px solid #333333;
+      border-radius: 8px;
+      color: #ffffff;
+      font-size: 1rem;
+      margin-bottom: 1.5rem;
+      resize: vertical;
+      outline: none;
+      transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    }
+    #llm-project-ideas textarea:focus {
+      border-color: #e00000;
+      box-shadow: 0 0 8px rgba(224, 0, 0, 0.3);
+    }
+    #llm-project-ideas button {
+      background: #e00000;
+      color: white;
+      padding: 1rem 2.2rem;
+      font-weight: bold;
+      border: none;
+      border-radius: 6px;
+      font-size: 1.1rem;
+      cursor: pointer;
+      transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+      box-shadow: 0 4px 12px rgba(224, 0, 0, 0.25);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      margin: 0 auto 2rem auto;
+    }
+    #llm-project-ideas button:hover {
+      background: #c00000;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 18px rgba(224, 0, 0, 0.45);
+    }
+    #llm-project-ideas .loading-indicator {
+      display: none;
+      color: #e00000;
+      font-size: 1rem;
+      margin-top: 1rem;
+    }
+    #llm-project-ideas #projectIdeasOutput {
+      background: #0a0a0a;
+      border: 1px solid #222222;
+      border-radius: 8px;
+      padding: 2rem;
+      margin-top: 2rem;
+      text-align: left;
+      white-space: pre-wrap;
+      word-wrap: break-word;
+      min-height: 100px;
+      color: #ffffff;
+      line-height: 1.8;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+    }
+    #llm-project-ideas #projectIdeasOutput h3 {
+      color: #e00000;
+      margin-bottom: 1rem;
+      font-size: 1.6rem;
+    }
+    #llm-project-ideas #projectIdeasOutput ul {
+        list-style-type: disc;
+        margin-left: 20px;
+        margin-bottom: 1rem;
+    }
+    #llm-project-ideas #projectIdeasOutput li {
+        margin-bottom: 0.5rem;
+    }
+
+    /* Reviews Section Styles - Consistent with other pages */
+    #reviews-section {
+      background: #000000;
+      padding: 5rem 2rem;
+      text-align: center;
+    }
+    #reviews-section h2 {
+      font-size: 2.5rem;
+      color: #e00000;
+      margin-bottom: 3rem;
+      text-shadow: 0 0 8px rgba(224,0,0,0.3);
+    }
+    .reviews-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      max-width: 900px;
+      margin: 0 auto 3rem auto;
+    }
+    .testimonial-card {
+      background: #000000;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 8px 20px rgba(224, 0, 0, 0.15);
+      border: 1px solid #333333;
+      transition: border-color 0.3s ease;
+    }
+    .testimonial-card:hover { border-color: rgba(224,0,0,0.5); }
+    .stars {
+      color: #e00000;
+      font-size: 1.4rem;
+      margin-bottom: 0.5rem;
+      letter-spacing: 1px;
+      animation: glowStars 2s infinite ease-in-out;
+    }
+    .quote { color: #ffffff; font-size: 1.1rem; margin: 1rem 0; line-height: 1.6; }
+    .name { color: #ffffff; font-style: italic; font-size: 0.95rem; opacity: 0.7; }
+    .qr-code-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+    }
+    .qr-code-container img {
+        width: 150px;
+        height: 150px;
+        object-fit: contain;
+        border-radius: 8px;
+        box-shadow: 0 4px 12px rgba(224, 0, 0, 0.25);
+    }
+    .qr-code-container p { color: #ffffff; font-size: 0.9rem; opacity: 0.7;}
+    .qr-code-container a {
+      display: inline-block;
+      background: #e00000;
+      color: #ffffff;
+      padding: 0.8rem 2rem;
+      border-radius: 6px;
+      font-weight: bold;
+      text-decoration: none;
+      font-size: 1.1rem;
+      transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+      box-shadow: 0 4px 12px rgba(224, 0, 0, 0.25);
+    }
+    .qr-code-container a:hover {
+        background-color: #c00000;
+        transform: translateY(-2px);
+        box-shadow: 0 6px 18px rgba(224, 0, 0, 0.4);
+    }
+    @keyframes glowStars {
+      0%, 100% { text-shadow: 0 0 5px rgba(224,0,0,0.5); }
+      50% { text-shadow: 0 0 15px rgba(224,0,0,0.9); }
+    }
+
+    /* CTA Highlight Section Styles - Consistent with other pages */
+    .cta-highlight {
+      background: linear-gradient(135deg, #000000, #111111);
+      color: #ffffff;
+      text-align: center;
+      padding: 4rem 1rem;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 0 20px rgba(224, 0, 0, 0.15);
+      border-top: 1px solid rgba(224,0,0,0.3);
+      border-bottom: 1px solid rgba(224,0,0,0.3);
+    }
+
+    .cta-headline {
+      font-size: 2.8rem;
+      margin-bottom: 1.2rem;
+      color: #e00000;
+      text-shadow: 0 0 12px rgba(224, 0, 0, 0.4);
+      animation: pulseText 2.5s ease-in-out infinite;
+    }
+    .cta-subtext {
+      font-size: 1.2rem;
+      max-width: 650px;
+      margin: 0 auto 2.5rem;
+      color: #ffffff;
+      line-height: 1.6;
+    }
+    .cta-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1.2rem;
+    }
+    .cta-btn {
+      background-color: #e00000;
+      color: #ffffff;
+      padding: 0.85rem 1.8rem;
+      border-radius: 6px;
+      font-weight: bold;
+      font-size: 1rem;
+      text-decoration: none;
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+      box-shadow: 0 4px 14px rgba(224, 0, 0, 0.25);
+    }
+    .cta-btn:hover {
+      transform: translateY(-2px) scale(1.04);
+      background-color: #c00000;
+      box-shadow: 0 6px 18px rgba(224, 0, 0, 0.35);
+    }
+    @keyframes pulseText {
+      0%, 100% { transform: scale(1); opacity: 1; }
+      50% { transform: scale(1.03); opacity: 0.9; }
+    }
+
+    /* Contact Section Styles - Consistent with other pages */
+    #contact { background:#000000; color:#ffffff; padding:5rem 2rem; text-align:center; }
+    #contact h2 { font-size:2.5rem; margin-bottom:1rem; color:#e00000; }
+    #contact .contact-intro-p {
+        color:#ffffff; max-width:600px; margin:0 auto 2.5rem; font-size:1.1rem;
+    }
+    #contact-form-container { /* New container for the form or iframe */
+        max-width: 550px;
+        margin: 0 auto;
+        padding: 1rem; /* Add some padding */
+        background: #0a0a0a; /* Slightly lighter background for the container */
+        border-radius: 8px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5); /* Shadow for the container */
+        border: 1px solid #222222; /* Border for the container */
+    }
+    /* Style for form elements */
+    #contact-form input[type="text"],
+    #contact-form input[type="email"],
+    #contact-form textarea {
+      width:100%; padding:1rem; background:#000000;
+      border:1px solid #e00000; /* Red outline */
+      color:#ffffff; margin-bottom:1.2rem;
+      border-radius:6px;
+      transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    }
+    #contact-form input[type="text"]:focus,
+    #contact-form input[type="email"]:focus,
+    #contact-form textarea:focus {
+      border-color:#e00000;
+      box-shadow: 0 0 8px rgba(224, 0, 0, 0.3);
+      outline: none;
+    }
+    #contact-form textarea { resize: vertical; }
+    #contact-form button[type="submit"] {
+      background:#e00000; color:#ffffff; padding:1rem 2.2rem;
+      font-weight:bold; border:none; border-radius:6px;
+      font-size:1.1rem; cursor: pointer;
+      transition:background 0.3s ease, transform 0.3s ease;
+    }
+    #contact-form button[type="submit"]:hover {
+        background: #c00000;
+        transform: translateY(-2px);
+    }
+    #form-success { display:none; color:#00ff99; margin-top:2rem; font-weight:bold; font-size: 1.2rem; }
+
+    /* Map Section Styles - Consistent with other pages */
+    #map-section {
+      background: #000000;
+      padding: 4rem 2rem;
+      text-align: center;
+    }
+    #map-section h2 {
+      color: #e00000;
+      font-size: 2.4rem;
+      margin-bottom: 1rem;
+      text-shadow: 0 0 8px rgba(224, 0, 0, 0.3);
+    }
+    #map-section .location-intro-p {
+      color: #ffffff;
+      font-size: 1.1rem;
+      margin-bottom: 2.5rem;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .map-container {
+      max-width: 1000px;
+      margin: 0 auto;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 8px 25px rgba(224, 0, 0, 0.2);
+      border: 1px solid #222222;
+    }
+    .map-container iframe {
+        display: block;
+    }
+
+    /* Sticky Footer Styles - Consistent with other pages */
+    .site-footer {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      background: #000000;
+      color: #ffffff;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 9998;
+      box-shadow: 0 -4px 10px rgba(224, 0, 0, 0.15);
+      border-top: 1px solid #333333;
+    }
+    .footer-links {
+        display: flex;
+        gap: 1rem;
+        flex-wrap: wrap;
+        justify-content: center;
+        margin-top: 0.5rem;
+    }
+    .footer-link {
+      color: #e00000;
+      text-decoration: none;
+      font-weight: bold;
+      transition: color 0.3s ease, transform 0.3s ease;
+      padding: 0.3rem 0.5rem;
+    }
+    .footer-link:hover {
+      color: #ffffff;
+      transform: translateY(-2px);
+    }
+
+    /* Responsive adjustments - Consistent with other pages */
+    @media (max-width: 768px) {
+      header { padding: 0.8rem 1rem; }
+      .brand span { font-size: 1.1rem; }
+      .brand img { width: 32px; height: 32px; }
+      .nav-icons a { width: 2.2rem; height: 2.2rem; font-size: 1.1rem; padding: 0.4rem; }
+      .nav-icons { gap: 0.8rem; }
+      .hamburger { width: 24px; height: 18px; }
+      .hamburger span { height: 2.5px; }
+      .hamburger.active span:nth-child(1) { transform: translateY(7.75px) rotate(45deg); }
+      .hamburger.active span:nth-child(3) { transform: translateY(-7.75px) rotate(-45deg); }
+      nav.menu { padding: 3.5rem 1.5rem; gap: 1.5rem; }
+      nav.menu .search-bar { font-size: 0.95rem; padding: 0.5rem 0.8rem; }
+      nav.menu a { font-size: 1.3rem; }
+      #hoursPopup { font-size: 0.8rem; padding: 0.8rem; right: 5px; top: 120%; }
+      .close-btn { top: 1rem; right: 1rem; font-size: 2rem; }
+
+      .site-footer {
+        flex-direction: column;
+        text-align: center;
+        gap: 0.8rem;
+        padding: 0.8rem 1rem;
+      }
+      .footer-links {
+        justify-content: center;
+      }
+      .footer-links { margin-top: 0.5rem; }
+
+      .interior-hero h1 { font-size: 2.2rem; }
+      .interior-hero p { font-size: 1rem; }
+      .flip-grid-section h2 { font-size: 2rem; }
+      .flip-card-inner { min-height: 150px; } /* Adjusted for mobile */
+      .flip-card-front h3 { font-size: 1.1rem; }
+      .flip-card-back p { font-size: 0.9rem; }
+      #gallery h2 { font-size: 2rem; }
+      #gallery p { font-size: 0.95rem; }
+      #llm-project-ideas h2 { font-size: 2rem; }
+      #llm-project-ideas p { font-size: 1rem; }
+      #llm-project-ideas textarea { height: 100px; }
+      #llm-project-ideas button { padding: 0.8rem 1.5rem; font-size: 1rem; }
+      #llm-project-ideas #projectIdeasOutput { padding: 1.5rem; }
+      #reviews-section h2 { font-size: 2rem; }
+      .testimonial-card { padding: 1.5rem; }
+      .quote { font-size: 1.1rem; }
+      .name { font-size: 0.9rem; }
+      .qr-code-container img { width: 120px; height: 120px;}
+      .qr-code-container a { font-size: 1rem; padding: 0.7rem 1.5rem; }
+      .cta-headline { font-size: 2.2rem; }
+      .cta-subtext { font-size: 1.1rem; }
+      #contact h2 { font-size: 2.2rem; }
+      #contact .contact-intro-p { font-size: 1rem; }
+      #contact-form-container { padding: 0.5rem; } /* Adjusted padding for mobile */
+      #contact-form input[type="text"],
+      #contact-form input[type="email"],
+      #contact-form textarea { padding: 0.9rem; }
+      #contact-form button[type="submit"] { padding: 0.9rem 1.8rem; font-size: 1rem; }
+      #map-section h2 { font-size: 2rem; }
+      #map-section .location-intro-p { font-size: 1rem; }
+      .map-container iframe { height: 350px; }
+    }
+
+    @media (min-width: 768px) {
+      .flip-grid {
+        grid-template-columns: repeat(3, 1fr); /* 3 columns on larger screens */
+      }
+    }
+
+    @media (max-width: 600px) {
+      .flip-card-inner {
+        height: auto;
+        min-height: 180px;
+      }
+      .flip-card-front, .flip-card-back {
+        position: relative;
+        height: auto;
+        min-height: 180px;
+      }
+    }
+
+    /* Left-edge swipe cue for mobile menu - Consistent with other pages */
+    @media (max-width: 768px) {
+      body.swipe-active::before {
+        content: ""; position: fixed; top: 0; left: 0; width: 15px; height: 100vh;
+        background: radial-gradient(circle at left center, rgba(224,0,0,0.15), transparent 70%);
+        z-index: 9998; pointer-events: none; opacity: 0.7;
+        animation: pulseEdge 2s ease-in-out infinite alternate;
+      }
+    }
+    @keyframes pulseEdge { 0% { opacity: 0.3; transform: scaleX(0.8); } 100% { opacity: 0.7; transform: scaleX(1); } }
+
+    /* Animations for hero section */
+    @keyframes fadeInDown {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    /* Modal Styles for Gallery - Consistent with other pages */
+    .modal {
+        display: none; position: fixed; z-index: 10000; left: 0; top: 0;
+        width: 100%; height: 100%; overflow: auto; background-color: rgba(0, 0, 0, 0.92);
+        display: flex; align-items: center; justify-content: center;
+        padding: 15px; box-sizing: border-box;
+    }
+    .modal-content {
+        position: relative;
+        background-color: #000000;
+        padding: 0;
+        border-radius: 8px;
+        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.7);
+        border: 1px solid #333333;
+        width: 90%;
+        max-width: 900px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+        max-height: calc(100vh - 40px);
+    }
+
+    .modal-image-wrapper {
+        position: relative;
+        width: 100%;
+        padding-top: 75%; /* 4:3 Aspect Ratio */
+        overflow: hidden;
+        flex-shrink: 0;
+        background-color: #000;
+    }
+
+    #modalImage {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        display: block;
+    }
+
+    #caption {
+        width: 100%;
+        background-color: rgba(0, 0, 0, 0.75);
+        color: #ffffff;
+        padding: 12px 15px;
+        text-align: center;
+        font-size: 1rem;
+        box-sizing: border-box;
+        border-bottom-left-radius: 8px;
+        border-bottom-right-radius: 8px;
+        flex-shrink: 0;
+    }
+
+    .close-button {
+        position: absolute; top: 10px; right: 25px; color: #ffffff;
+        font-size: 35px; font-weight: bold; transition: 0.3s ease;
+        cursor: pointer; line-height: 1; z-index: 10;
+    }
+    .close-button:hover, .close-button:focus { color: #e00000; text-decoration: none; }
+    .prev, .next {
+        cursor: pointer; position: absolute; top: 50%; transform: translateY(-50%);
+        width: auto; padding: 16px; color: #ffffff; font-weight: bold;
+        font-size: 24px; transition: 0.4s ease; border-radius: 0 3px 3px 0;
+        user-select: none; background-color: rgba(0, 0, 0, 0.4); z-index: 5;
+    }
+    .prev { left: 0; border-radius: 3px 0 0 3px; }
+    .next { right: 0; border-radius: 0 3px 3px 0; }
+    .prev:hover, .next:hover { background-color: rgba(224, 0, 0, 0.7); }
+
+    @media (max-width: 768px) {
+      .modal-content {
+        width: calc(100vw - 20px);
+        max-width: unset;
+      }
+      #caption { font-size: 0.9rem; padding: 10px; }
+      .prev, .next { font-size: 20px; padding: 12px; }
+      .close-button { font-size: 30px; top: 8px; right: 15px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="brand">
+      <a href="/">
+        <img src="https://imagedelivery.net/VwxTcpKX2CusqbCCDB94Nw/0468e61a-5565-43fa-4026-fbc5801f1100/Logos" alt="Dependable Painting Logo">
+      </a>
+      <span>Dependable Painting</span>
+    </div>
+    <div class="nav-icons">
+      <div class="hours-toggle">
+        <a href="#" title="Business Hours" aria-label="Business Hours" onclick="toggleHoursPopup(event); return false;">
+          <i class="fas fa-clock"></i>
+        </a>
+        <div id="hoursPopup" role="tooltip">
+          <strong>Hours:</strong><br>
+          Mon–Fri: 8:00am – 5:30pm<br>
+          Saturday: By Appointment<br>
+          Sunday: Closed
+        </div>
+      </div>
+      <a href="tel:2515254405" title="Call Us" aria-label="Call Us"><i class="fas fa-phone"></i></a>
+      <a href="https://g.page/r/CQjqan_iFBshEAE" target="_blank" rel="noopener noreferrer" title="Find us on Google" aria-label="Find us on Google"><i class="fab fa-google"></i></a>
+      <div class="hamburger" onclick="toggleMenu()" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+  </header>
+
+  <nav class="menu" id="mobileMenu" aria-hidden="true">
+    <div class="close-btn" onclick="toggleMenu()" aria-label="Close menu">×</div>
+    <form action="https://www.google.com/search" method="GET" target="_blank" class="search-bar-container" onsubmit="this.q.value='site:dependablepaintingal.com ' + this.q.value.trim(); return !!this.q.value.replace('site:dependablepaintingal.com ', '').trim();">
+      <input class="search-bar" type="text" name="q" placeholder="Search Our Site..." onfocus="this.select();">
+      <button type="submit" aria-label="Search"><i class="fas fa-search"></i></button>
+    </form>
+    <a href="/">Home</a>
+    <a href="/about.html">About Us</a>
+    <a href="/services/">Services</a>
+    <a href="/contact/">Contact</a>
+    <a href="/gallery/">Gallery</a>
+    <a href="/privacy.html">Privacy Policy</a>
+  </nav>
+
+  <section class="interior-hero">
+    <h1>Transform Your Home with Expert Interior Painting</h1>
+    <p>From refreshing a single room to a complete home makeover, our interior painting services deliver flawless finishes, vibrant colors, and lasting beauty. We protect your space and work efficiently to bring your vision to life.</p>
+    <a href="#contact">Get Your Free Quote</a>
+  </section>
+
+  <section class="flip-grid-section">
+    <h2>Interior Painting: Your Questions Answered</h2>
+    <div class="flip-grid">
+      <div class="flip-card">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+            <h3>How do you protect my furniture and floors?</h3>
+          </div>
+          <div class="flip-card-back">
+            <p>We meticulously cover all furniture, floors, and non-painted surfaces with drop cloths and plastic sheeting. Your home will be treated with the utmost care.</p>
+          </div>
+        </div>
+      </div>
+      <div class="flip-card">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+            <h3>What kind of paint do you use for interiors?</h3>
+          </div>
+          <div class="flip-card-back">
+            <p>We primarily use premium, low-VOC (Volatile Organic Compound) paints from Sherwin-Williams, ensuring a durable finish and minimal odor for your family's comfort.</p>
+          </div>
+        </div>
+      </div>
+      <div class="flip-card">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+            <h3>How long does interior paint take to dry?</h3>
+          </div>
+          <div class="flip-card-back">
+            <p>Most interior paints are dry to the touch within 1-4 hours, and ready for a second coat in 2-4 hours. Full cure time can take several days to a few weeks.</p>
+          </div>
+        </div>
+      </div>
+      <div class="flip-card">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+            <h3>Can you help with color selection?</h3>
+          </div>
+          <div class="flip-card-back">
+            <p>While we don't offer full design services, we can provide color swatches, discuss trends, and offer expert advice to help you choose the perfect palette for your space.</p>
+          </div>
+        </div>
+      </div>
+      <div class="flip-card">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+            <h3>Do I need to move all my furniture?</h3>
+          </div>
+          <div class="flip-card-back">
+            <p>We ask that you remove small, fragile items. Our team will carefully move larger furniture to the center of the room and cover it before painting begins.</p>
+          </div>
+        </div>
+      </div>
+      <div class="flip-card">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+            <h3>What about dust and fumes?</h3>
+          </div>
+          <div class="flip-card-back">
+            <p>We use dust-minimizing techniques during prep work and low-VOC paints to reduce fumes. We also ensure proper ventilation to keep your home comfortable.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="gallery">
+    <h2>Interior Painting Gallery</h2>
+    <p>See our meticulous interior work, from vibrant accent walls to complete home transformations. Quality finishes, every time.</p>
+    <div>
+      <figure class="gallery-item" data-aos="fade-up">
+        <a href="#" onclick="openGalleryModal(0); return false;">
+          <img src="https://imagedelivery.net/VwxTcpKX2CusqbCCDB94Nw/69efca4e-5958-41f1-fc97-896e4b23c500/ThumbnailGallery" alt="Serene Green Bedroom Interior" loading="lazy">
+        </a>
+        <figcaption class="hover-caption">Serene Green Bedroom</figcaption>
+      </figure>
+      <figure class="gallery-item" data-aos="fade-up" data-aos-delay="100">
+        <a href="#" onclick="openGalleryModal(1); return false;">
+          <img src="https://imagedelivery.net/VwxTcpKX2CusqbCCDB94Nw/3653af44-769f-4969-ee9d-b92ec14fb700/ThumbnailGallery" alt="Cozy Living Room Interior Painting" loading="lazy">
+        </a>
+        <figcaption class="hover-caption">Cozy Living Room</figcaption>
+      </figure>
+      <figure class="gallery-item" data-aos="fade-up" data-aos-delay="200">
+        <a href="#" onclick="openGalleryModal(2); return false;">
+          <img src="https://imagedelivery.net/VwxTcpKX2CusqbCCDB94Nw/e6eb4503-6073-40eb-e80d-d9329f759200/ThumbnailGallery" alt="Spacious Living Room Interior Refresh" loading="lazy">
+        </a>
+        <figcaption class="hover-caption">Spacious Living Room</figcaption>
+      </figure>
+      <figure class="gallery-item" data-aos="fade-up" data-aos-delay="300">
+        <a href="#" onclick="openGalleryModal(3); return false;">
+          <img src="https://imagedelivery.net/VwxTcpKX2CusqbCCDB94Nw/85af1721-79bb-47cd-c953-8590e114c800/ThumbnailGallery" alt="Bright and Inviting Hallway Painting" loading="lazy">
+        </a>
+        <figcaption class="hover-caption">Bright Hallway</figcaption>
+      </figure>
+      <figure class="gallery-item" data-aos="fade-up" data-aos-delay="400">
+        <a href="#" onclick="openGalleryModal(4); return false;">
+          <img src="https://imagedelivery.net/VwxTcpKX2CusqbCCDB94Nw/abac3900-91a8-4ad7-6e7a-464e483d8900/ThumbnailGallery" alt="Sunny Sunroom Interior Painting" loading="lazy">
+        </a>
+        <figcaption class="hover-caption">Sunny Sunroom</figcaption>
+      </figure>
+      <figure class="gallery-item" data-aos="fade-up" data-aos-delay="500">
+        <a href="#" onclick="openGalleryModal(5); return false;">
+          <img src="https://imagedelivery.net/VwxTcpKX2CusqbCCDB94Nw/79371775-03c7-4d2f-89a7-5353439f8d00/ThumbnailGallery" alt="Comfortable Bedroom Interior Painting" loading="lazy">
+        </a>
+        <figcaption class="hover-caption">Comfortable Bedroom</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section id="llm-project-ideas">
+    <h2>✨ Get Interior Project Ideas ✨</h2>
+    <p>Describe your room's purpose, current style, or desired mood, and our AI will suggest creative interior painting ideas!</p>
+    <textarea id="projectDescription" placeholder="e.g., 'I want my living room to feel cozy and modern.' or 'What colors would make my small bedroom feel larger?'"></textarea>
+    <button id="generateIdeasButton">Generate Ideas</button>
+    <div class="loading-indicator" id="loadingIndicator">Generating ideas...</div>
+    <div id="projectIdeasOutput"></div>
+  </section>
+
+  <section id="reviews-section">
+    <h2>5-Star Results. Real People. Local Trust.</h2>
+    <div class="reviews-grid">
+      <div class="testimonial-card" data-aos="fade-up">
+        <div class="stars">★★★★★</div>
+        <p class="quote">“Alex and his team are incredible. They knocked out our whole home interior in 2 days and it looks flawless.”</p>
+        <p class="name">— Jessica M., Spanish Fort</p>
+      </div>
+      <div class="testimonial-card" data-aos="fade-up" data-aos-delay="100">
+        <div class="stars">★★★★★</div>
+        <p class="quote">“Dependable Painting showed up on time, kept the place clean, and delivered beyond expectations. Highly recommend.”</p>
+        <p class="name">— Brandon T., Daphne</p>
+      </div>
+      <div class="testimonial-card" data-aos="fade-up" data-aos-delay="200">
+        <div class="stars">★★★★★</div>
+        <p class="quote">“They repainted our kitchen cabinets and made them look brand new. Better than factory finish.”</p>
+        <p class="name">— Rachel G., Fairhope</p>
+      </div>
+      <div class="testimonial-card" data-aos="fade-up" data-aos-delay="300">
+        <div class="stars">★★★★★</div>
+        <p class="quote">“Smooth, fast, and professional from start to finish. I won’t use anyone else again.”</p>
+        <p class="name">— Charles D., Gulf Shores</p>
+      </div>
+    </div>
+    <div class="qr-code-container" data-aos="fade-up">
+      <img src="https://imagedelivery.net/VwxTcpKX2CusqbCCDB94Nw/8be76abe-7442-4579-3195-b315af6fba00/512" alt="Google Review QR Code">
+      <p>Scan to leave a Google Review</p>
+      <a href="https://search.google.com/local/writereview?placeid=ChIJAAAAAAAAAAARCOpqf-IUGyE" target="_blank" rel="noopener noreferrer">
+        ⭐ Leave Us a Review
+      </a>
+    </div>
+  </section>
+
+  <section class="cta-highlight" data-aos="fade-in">
+    <h2 class="cta-headline">Ready for a Fresh Interior?</h2>
+    <p class="cta-subtext">
+      From single rooms to whole-home transformations, we deliver clean lines, vibrant colors, and lasting beauty.
+    </p>
+    <div class="cta-buttons">
+      <link href="https://calendar.google.com/calendar/scheduling-button-script.css" rel="stylesheet">
+      <script src="https://calendar.google.com/calendar/scheduling-button-script.js" async></script>
+      <script>
+      (function() {
+        var target = document.currentScript;
+        window.addEventListener('load', function() {
+          calendar.schedulingButton.load({
+            url: 'https://calendar.google.com/calendar/appointments/AcZssZ0IkanO1Oc9HQaQH9aBxxNaKYtd5XygGBAJsKg=?gv=true',
+            color: '#D50000',
+            label: 'Book an Appointment',
+            target,
+          });
+        });
+      })();
+      </script>
+      <a href="tel:2515254405" class="cta-btn primary">📞 Call Now</a>
+    </div>
+  </section>
+
+  <section id="contact">
+    <h2>Let’s Talk About Your Next Project</h2>
+    <p class="contact-intro-p">
+      Free estimates. Honest timelines. Guaranteed satisfaction. Fill out the form and we’ll get back to you ASAP.
+    </p>
+    <div id="contact-form-container">
+      <form id="contact-form" action="https://formspree.io/f/xdkebgja" method="POST">
+        <input type="text" name="name" placeholder="Your Name" required>
+        <input type="email" name="email" placeholder="Your Email" required>
+        <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
+        <button type="submit">📩 Send Message</button>
+      </form>
+      <p id="form-success" style="display:none;">Message sent! We’ll be in touch soon.</p>
+    </div>
+  </section>
+
+  <section id="map-section">
+    <h2>Proudly Serving the Gulf Coast</h2>
+    <p class="location-intro-p">
+      From Mobile to Baldwin County and the surrounding areas, we bring dependable results to homes and businesses across Alabama's Gulf Coast.
+    </p>
+    <div class="map-container">
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d878474.4639526487!2d-88.50364527369405!3d30.675054662867886!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x889a5d78a87e436f%3A0x211b14e27f6aea08!2sDependable%20Painting%20LLC!5e0!3m2!1sen!2sus!4v1747600478528!5m2!1sen!2sus"
+        width="100%"
+        height="450"
+        style="border:0;"
+        allowfullscreen=""
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+      ></iframe>
+    </div>
+    <p style="margin-top: 1.5rem; font-size: 1.1rem;">
+      <a href="https://search.google.com/local/writereview?placeid=ChIJAAAAAAAAAAARCOpqf-IUGyE" target="_blank" rel="noopener noreferrer" style="color: #e00000; text-decoration: underline;">
+        ⭐ Leave us a review on Google
+      </a>
+    </p>
+  </section>
+
+  <footer class="site-footer">
+    <div class="footer-links">
+      <a href="tel:2515254405" class="footer-link">📞 Call</a>
+      <a href="mailto:alexdimmler@dependablepaintingal.com" class="footer-link">✉️ Email</a>
+      <a href="#contact" class="footer-link">📋 Quote</a>
+      <a href="https://search.google.com/local/writereview?placeid=ChIJAAAAAAAAAAARCOpqf-IUGyE" target="_blank" rel="noopener noreferrer" class="footer-link">⭐ Review</a>
+    </div>
+  </footer>
+
+  <div id="imageModal" class="modal" style="display: none;">
+    <span class="close-button" onclick="closeGalleryModal()">×</span>
+    <div class="modal-content">
+        <div class="modal-image-wrapper">
+            <img id="modalImage" src="" alt="Enlarged project image">
+        </div>
+        <a class="prev" onclick="changeGalleryImage(-1)">❮</a>
+        <a class="next" onclick="changeGalleryImage(1)">❯</a>
+        <div id="caption"></div>
+    </div>
+  </div>
+
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    // Initialize AOS (Animate On Scroll) library if it's loaded
+    if (typeof AOS !== 'undefined') {
+        AOS.init({
+            duration: 800,
+            once: true,
+            offset: 80,
+            delay: 50,
+        });
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const menu = document.getElementById('mobileMenu');
+      const hamburger = document.querySelector('.hamburger');
+      const hoursPopup = document.getElementById('hoursPopup');
+      const body = document.body;
+      const siteFooter = document.querySelector('.site-footer');
+      const imageModal = document.getElementById("imageModal");
+      const modalImg = document.getElementById("modalImage");
+      const captionText = document.getElementById("caption");
+      const contactForm = document.getElementById('contact-form');
+      const formSuccessMessage = document.getElementById('form-success');
+
+      window.toggleMenu = () => {
+        if (!menu || !hamburger || !body) {
+            return;
+        }
+        const isOpen = menu.classList.toggle('open');
+        hamburger.classList.toggle('active', isOpen);
+        hamburger.setAttribute('aria-expanded', isOpen.toString());
+        menu.setAttribute('aria-hidden', (!isOpen).toString());
+        body.style.overflow = isOpen ? 'hidden' : '';
+
+        if (isOpen) {
+            if(body) body.classList.remove('swipe-active');
+            const links = menu.querySelectorAll('nav.menu a');
+            links.forEach((link, i) => {
+                link.style.animation = 'none';
+                link.offsetHeight;
+                link.style.animation = `menuItemFadeIn 0.5s ease forwards ${i * 0.07 + 0.1}s`;
+                link.style.transform = 'translateY(10px)';
+            });
+        } else {
+            if (window.innerWidth <= 768 && body) {
+                body.classList.add('swipe-active');
+            }
+        }
+      };
+
+      window.toggleHoursPopup = (e) => {
+        if (!hoursPopup || !e || !e.currentTarget) return;
+        e.stopPropagation();
+        const isVisible = hoursPopup.classList.toggle('visible');
+        e.currentTarget.setAttribute('aria-expanded', isVisible.toString());
+      };
+
+      document.addEventListener('click', (e) => {
+        if (hoursPopup && hoursPopup.classList.contains('visible')) {
+          if (e.target && !hoursPopup.contains(e.target) && !e.target.closest('.hours-toggle')) {
+            hoursPopup.classList.remove('visible');
+            const hoursToggleAnchor = document.querySelector('.hours-toggle a');
+            if(hoursToggleAnchor) hoursToggleAnchor.setAttribute('aria-expanded', 'false');
+          }
+        }
+      });
+
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && menu && menu.classList.contains('open')) {
+          toggleMenu();
+        }
+      });
+
+      let touchStartX = 0;
+      let touchEndX = 0;
+      const SWIPE_THRESHOLD = 50;
+      const EDGE_THRESHOLD = 60;
+
+      document.addEventListener('touchstart', (e) => {
+        touchStartX = e.changedTouches[0].screenX;
+      }, { passive: true });
+
+      document.addEventListener('touchend', (e) => {
+        if (!menu) return;
+        touchEndX = e.changedTouches[0].screenX;
+        const swipeDiff = touchEndX - touchStartX;
+
+        if (menu.classList.contains('open') && swipeDiff < -SWIPE_THRESHOLD) {
+          toggleMenu();
+        }
+        else if (!menu.classList.contains('open') && swipeEndX > SWIPE_THRESHOLD && touchStartX < EDGE_THRESHOLD) {
+          toggleMenu();
+        }
+      });
+
+      function adjustFooterPadding() {
+        if (siteFooter && body) {
+            const footerHeight = siteFooter.offsetHeight;
+            body.style.paddingBottom = `${footerHeight + 20}px`;
+        }
+      }
+
+      if (body && menu) {
+        if (window.innerWidth <= 768 && !menu.classList.contains('open')) {
+          body.classList.add('swipe-active');
+        }
+      }
+      adjustFooterPadding();
+      window.addEventListener('resize', adjustFooterPadding);
+      window.addEventListener('load', () => {
+        adjustFooterPadding();
+        if (typeof AOS !== 'undefined') {
+            // AOS.refresh();
+        }
+      });
+
+      // Gallery Modal Functionality
+      let gallerySlideIndex = 0;
+      const galleryImages = [
+          "https://imagedelivery.net/VwxTcpKX2CusqbCCDB94Nw/69efca4e-5958-41f1-fc97-896e4b23c500/public", /* Green Bedroom */
+          "https://imagedelivery.net/VwxTcpKX2CusqbCCDB94Nw/3653af44-769f-4969-ee9d-b92ec14fb700/public", /* Living Room */
+          "https://imagedelivery.net/VwxTcpKX2CusqbCCDB94Nw/e6eb4503-6073-40eb-e80d-d9329f759200/public", /* Big Living Room */
+          "https://imagedelivery.net/VwxTcpKX2CusqbCCDB94Nw/85af1721-79bb-47cd-c953-8590e114c800/public", /* Hallway */
+          "https://imagedelivery.net/VwxTcpKX2CusqbCCDB94Nw/abac3900-91a8-4ad7-6e7a-464e483d8900/public", /* Sunroom */
+          "https://imagedelivery.net/VwxTcpKX2CusqbCCDB94Nw/79371775-03c7-4d2f-89a7-5353439f8d00/public"  /* Bedroom */
+      ];
+      const galleryCaptions = [
+          "Tranquil Green Bedroom with Modern Finishes",
+          "Cozy Living Room with Inviting Color Palette",
+          "Expansive Living Room Featuring Elegant Paintwork",
+          "Bright and Welcoming Hallway Transformation",
+          "Sunny Sunroom with Fresh, Light Interior Paint",
+          "Comfortable Bedroom with Soothing Wall Colors"
+      ];
+
+      window.openGalleryModal = (index) => {
+          if (!imageModal || !modalImg || !captionText) return;
+          gallerySlideIndex = index;
+          modalImg.src = galleryImages[gallerySlideIndex];
+          modalImg.alt = galleryCaptions[gallerySlideIndex];
+          captionText.innerHTML = galleryCaptions[gallerySlideIndex];
+          imageModal.style.display = "flex";
+          document.body.style.overflow = 'hidden';
+      }
+      window.closeGalleryModal = () => {
+          if (imageModal) imageModal.style.display = "none";
+          document.body.style.overflow = '';
+      }
+      window.changeGalleryImage = (n) => {
+          if (!modalImg || !captionText) return;
+          gallerySlideIndex += n;
+          if (gallerySlideIndex >= galleryImages.length) { gallerySlideIndex = 0; }
+          if (gallerySlideIndex < 0) { gallerySlideIndex = galleryImages.length - 1; }
+          modalImg.src = galleryImages[gallerySlideIndex];
+          modalImg.alt = galleryCaptions[gallerySlideIndex];
+          captionText.innerHTML = galleryCaptions[gallerySlideIndex];
+      }
+
+      if (imageModal) {
+          imageModal.addEventListener('click', (event) => {
+              if (event.target === imageModal) { closeGalleryModal(); }
+          });
+      }
+
+      document.addEventListener('keydown', (event) => {
+          if (imageModal && imageModal.style.display === "flex") {
+              if (event.key === "ArrowLeft") { changeGalleryImage(-1); }
+              else if (event.key === "ArrowRight") { changeGalleryImage(1); }
+              else if (event.key === "Escape") { closeGalleryModal(); }
+          }
+      });
+
+      // LLM Integration
+      const generateIdeasButton = document.getElementById('generateIdeasButton');
+      const projectDescriptionInput = document.getElementById('projectDescription');
+      const projectIdeasOutput = document.getElementById('projectIdeasOutput');
+      const loadingIndicator = document.getElementById('loadingIndicator');
+
+      if (generateIdeasButton && projectDescriptionInput && projectIdeasOutput && loadingIndicator) {
+        generateIdeasButton.addEventListener('click', async () => {
+          const prompt = projectDescriptionInput.value.trim();
+          if (!prompt) {
+            projectIdeasOutput.innerHTML = '<p style="color: #e00000;">Please describe your project to get ideas.</p>';
+            return;
+          }
+
+          loadingIndicator.style.display = 'block';
+          projectIdeasOutput.innerHTML = ''; // Clear previous output
+
+          try {
+            let chatHistory = [];
+            chatHistory.push({ role: "user", parts: [{ text: `Generate creative interior painting project ideas based on the following description: "${prompt}". Provide a title and then a bulleted list of ideas, focusing on color schemes, finishes, and design elements. Keep it concise, around 150-200 words, and relevant to interior painting services.` }] });
+            const payload = { contents: chatHistory };
+            const apiKey = ""; // If you want to use models other than gemini-2.0-flash or imagen-3.0-generate-002, provide an API key here. Otherwise, leave this as-is.
+            const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`;
+
+            const response = await fetch(apiUrl, {
+                       method: 'POST',
+                       headers: { 'Content-Type': 'application/json' },
+                       body: JSON.stringify(payload)
+                   });
+            const result = await response.json();
+
+            if (result.candidates && result.candidates.length > 0 &&
+                result.candidates[0].content && result.candidates[0].content.parts &&
+                result.candidates[0].content.parts.length > 0) {
+              const text = result.candidates[0].content.parts[0].text;
+              projectIdeasOutput.innerHTML = `<h3>Generated Ideas:</h3>${text.replace(/\*/g, '')}`; // Remove markdown asterisks
+            } else {
+              projectIdeasOutput.innerHTML = '<p style="color: #e00000;">Sorry, I couldn\'t generate ideas at this time. Please try again.</p>';
+            }
+          } catch (error) {
+            console.error('Error calling Gemini API:', error);
+            projectIdeasOutput.innerHTML = '<p style="color: #e00000;">An error occurred while fetching ideas. Please try again later.</p>';
+          } finally {
+            loadingIndicator.style.display = 'none';
+          }
+        });
+      }
+    });
+  </script>
+</body>
+</html>
