@@ -557,7 +557,7 @@
 
     /* CTA Highlight Section Styles */
     .cta-highlight {
-      background: linear-gradient(135deg, #000000, #111111);
+      background: linear-gradient(135deg, #000000, #111111); /* Adjusted for consistency */
       color: #ffffff;
       text-align: center;
       padding: 4rem 1rem;
@@ -617,15 +617,7 @@
     #contact .contact-intro-p {
         color:#ffffff; max-width:600px; margin:0 auto 2.5rem; font-size:1.1rem;
     }
-    #contact-form-container {
-        max-width: 550px;
-        margin: 0 auto;
-        padding: 1rem;
-        background: #0a0a0a;
-        border-radius: 8px;
-        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
-        border: 1px solid #222222;
-    }
+    #contact-form { max-width:550px; margin:0 auto; }
     #contact-form input[type="text"],
     #contact-form input[type="email"],
     #contact-form textarea {
@@ -656,7 +648,7 @@
     #form-success { display:none; color:#00ff99; margin-top:2rem; font-weight:bold; font-size: 1.2rem; }
 
     /* Map Section Styles */
-    #map-section {
+    #map-section { /* Renamed ID for clarity */
       background: #000000;
       padding: 4rem 2rem;
       text-align: center;
@@ -697,7 +689,7 @@
       color: #ffffff;
       padding: 1rem 2rem;
       display: flex;
-      justify-content: center;
+      justify-content: center; /* Centered links */
       align-items: center;
       z-index: 9998;
       box-shadow: 0 -4px 10px rgba(224, 0, 0, 0.15);
@@ -808,7 +800,7 @@
         animation: pulseEdge 2s ease-in-out infinite alternate;
       }
     }
-    @keyframes pulseEdge { 0% { opacity: 0.3; transform: scaleX(0.8); } 100% { transform: scaleX(1); } }
+    @keyframes pulseEdge { 0% { opacity: 0.3; transform: scaleX(0.8); } 100% { opacity: 0.7; transform: scaleX(1); } }
 
     /* Animations for hero section, copied from index.html (if applicable) */
     @keyframes fadeInDown {
@@ -864,7 +856,7 @@
     }
 
     #caption {
-        width: 100%;
+        width: 100%; /* Take full width of modal-content */
         background-color: rgba(0, 0, 0, 0.75);
         color: #ffffff;
         padding: 12px 15px;
@@ -894,8 +886,8 @@
 
     @media (max-width: 768px) {
       .modal-content {
-        width: calc(100vw - 20px);
-        max-width: unset;
+        width: calc(100vw - 20px); /* More responsive on small screens */
+        max-width: unset; /* Remove max-width on mobile */
       }
       #caption { font-size: 0.9rem; padding: 10px; }
       .prev, .next { font-size: 20px; padding: 12px; }
@@ -975,32 +967,32 @@
       <div class="service-card" data-aos="fade-up">
         <h3>Exterior Painting</h3>
         <p>Protect and beautify your home's exterior with our durable, weather-resistant painting solutions. We handle all surfaces, from siding to brick.</p>
-        <a href="/exterior-painting.html" class="cta-button">View Exterior Services</a>
+        <a href="exterior-painting.html" class="cta-button">View Exterior Services</a>
       </div>
       <div class="service-card" data-aos="fade-up" data-aos-delay="100">
         <h3>Interior Painting</h3>
         <p>Transform your indoor spaces with fresh colors, smooth finishes, and meticulous attention to detail. We ensure a clean, efficient, and beautiful outcome.</p>
-        <a href="/interior-painting.html" class="cta-button">Discover Interior Options</a>
+        <a href="interior-painting.html" class="cta-button">Discover Interior Options</a>
       </div>
       <div class="service-card" data-aos="fade-up" data-aos-delay="200">
         <h3>Commercial Painting</h3>
         <p>Professional painting services for businesses, retail spaces, and multi-unit properties. We work efficiently to minimize disruption to your operations.</p>
-        <a href="/commercial-painting.html" class="cta-button">Explore Commercial Solutions</a>
+        <a href="commercial-painting.html" class="cta-button">Explore Commercial Solutions</a>
       </div>
       <div class="service-card" data-aos="fade-up" data-aos-delay="300">
         <h3>Epoxy Floor Coatings</h3>
         <p>Durable and attractive epoxy coatings for garages, patios, and commercial floors. Enhance aesthetics and provide long-lasting protection.</p>
-        <a href="/epoxy-floor-coatings.html" class="cta-button">Upgrade Your Floors</a>
+        <a href="epoxy-floor-coatings.html" class="cta-button">Upgrade Your Floors</a>
       </div>
       <div class="service-card" data-aos="fade-up" data-aos-delay="400">
         <h3>Cabinet Painting</h3>
         <p>Give your kitchen or bathroom a complete refresh with expert cabinet painting. Achieve a factory-smooth finish at a fraction of replacement cost.</p>
-        <a href="/cabinet-painting.html" class="cta-button">Revitalize Your Cabinets</a>
+        <a href="cabinet-painting.html" class="cta-button">Revitalize Your Cabinets</a>
       </div>
       <div class="service-card" data-aos="fade-up" data-aos-delay="500">
         <h3>Sheetrock & Drywall Repair</h3>
         <p>Seamless repairs for holes, cracks, and imperfections in your walls and ceilings. We ensure a smooth surface, perfectly prepped for painting.</p>
-        <a href="/sheetrock-repair.html" class="cta-button">Fix Your Walls</a>
+        <a href="sheetrock-repair.html" class="cta-button">Fix Your Walls</a>
       </div>
     </div>
   </section>
@@ -1381,7 +1373,7 @@
 
           try {
             let chatHistory = [];
-            chatHistory.push({ role: "user", parts: [{ text: `Generate creative interior painting project ideas based on the following description: "${prompt}". Provide a title and then a bulleted list of ideas, focusing on color schemes, finishes, and design elements. Keep it concise, around 150-200 words, and relevant to interior painting services.` }] });
+            chatHistory.push({ role: "user", parts: [{ text: `Generate creative painting project ideas based on the following description: "${prompt}". Provide a title and then a bulleted list of ideas, focusing on color schemes, finishes, and design elements. Keep it concise, around 150-200 words, and relevant to painting services.` }] });
             const payload = { contents: chatHistory };
             const apiKey = ""; // If you want to use models other than gemini-2.0-flash or imagen-3.0-generate-002, provide an API key here. Otherwise, leave this as-is.
             const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`;
@@ -1392,6 +1384,7 @@
                        body: JSON.stringify(payload)
                    });
             const result = await response.json();
+            console.log('Gemini API Response:', result); // Log the full API response
 
             if (result.candidates && result.candidates.length > 0 &&
                 result.candidates[0].content && result.candidates[0].content.parts &&
@@ -1399,11 +1392,12 @@
               const text = result.candidates[0].content.parts[0].text;
               projectIdeasOutput.innerHTML = `<h3>Generated Ideas:</h3>${text.replace(/\*/g, '')}`; // Remove markdown asterisks
             } else {
-              projectIdeasOutput.innerHTML = '<p style="color: #e00000;">Sorry, I couldn\'t generate ideas at this time. Please try again.</p>';
+              // More detailed error message if API call was successful but response was unexpected
+              projectIdeasOutput.innerHTML = '<p style="color: #e00000;">Sorry, I couldn\'t generate ideas at this time. The response was unexpected. Please try again or refine your description.</p>';
             }
           } catch (error) {
             console.error('Error calling Gemini API:', error);
-            projectIdeasOutput.innerHTML = '<p style="color: #e00000;">An error occurred while fetching ideas. Please try again later.</p>';
+            projectIdeasOutput.innerHTML = '<p style="color: #e00000;">An error occurred while fetching ideas. Please check your internet connection or try again later. (See console for details).</p>';
           } finally {
             loadingIndicator.style.display = 'none';
           }
