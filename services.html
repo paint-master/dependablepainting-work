@@ -571,7 +571,7 @@
     .cta-headline {
       font-size: 2.8rem;
       margin-bottom: 1.2rem;
-      color: #e00000; /* Standardized color */
+      color: #e00000;
       text-shadow: 0 0 12px rgba(224, 0, 0, 0.4);
       animation: pulseText 2.5s ease-in-out infinite;
     }
@@ -589,7 +589,7 @@
       gap: 1.2rem;
     }
     .cta-btn {
-      background-color: #e00000; /* Standardized color */
+      background-color: #e00000;
       color: #ffffff;
       padding: 0.85rem 1.8rem;
       border-radius: 6px;
@@ -603,7 +603,7 @@
     }
     .cta-btn:hover {
       transform: translateY(-2px) scale(1.04);
-      background-color: #c00000; /* Standardized color */
+      background-color: #c00000;
       box-shadow: 0 6px 18px rgba(224, 0, 0, 0.35);
     }
     @keyframes pulseText {
@@ -622,7 +622,7 @@
     #contact-form input[type="email"],
     #contact-form textarea {
       width:100%; padding:1rem; background:#000000;
-      border:1px solid #333333;
+      border:1px solid #e00000; /* Red outline */
       color:#ffffff; margin-bottom:1.2rem;
       border-radius:6px;
       transition: border-color 0.3s ease, box-shadow 0.3s ease;
@@ -679,7 +679,7 @@
         display: block;
     }
 
-    /* Sticky Footer Styles - Consistent with index.html */
+    /* Sticky Footer Styles */
     .site-footer {
       position: fixed;
       bottom: 0;
@@ -714,7 +714,7 @@
       transform: translateY(-2px);
     }
 
-    /* Responsive adjustments - Consistent with index.html */
+    /* Responsive adjustments */
     @media (max-width: 768px) {
       header { padding: 0.8rem 1rem; }
       .brand span { font-size: 1.1rem; }
@@ -760,7 +760,7 @@
       #llm-project-ideas #projectIdeasOutput { padding: 1.5rem; }
       #reviews-section h2 { font-size: 2rem; }
       .testimonial-card { padding: 1.5rem; }
-      .quote { font-size: 1rem; }
+      .quote { font-size: 1.1rem; }
       .name { font-size: 0.9rem; }
       .qr-code-container img { width: 120px; height: 120px;}
       .qr-code-container a { font-size: 1rem; padding: 0.7rem 1.5rem; }
@@ -865,7 +865,7 @@
         box-sizing: border-box;
         border-bottom-left-radius: 8px;
         border-bottom-right-radius: 8px;
-        flex-shrink: 0; /* Prevent it from shrinking */
+        flex-shrink: 0;
     }
 
     .close-button {
@@ -886,8 +886,8 @@
 
     @media (max-width: 768px) {
       .modal-content {
-        width: calc(100vw - 20px); /* More responsive on small screens */
-        max-width: unset; /* Remove max-width on mobile */
+        width: calc(100vw - 20px);
+        max-width: unset;
       }
       #caption { font-size: 0.9rem; padding: 10px; }
       .prev, .next { font-size: 20px; padding: 12px; }
@@ -1301,20 +1301,20 @@
       // Gallery Modal Functionality
       let gallerySlideIndex = 0;
       const galleryImages = [
-          "https://imagedelivery.net/VwxTcpKX2CusqbCCDB94Nw/54cdaebb-64d1-4bfe-fe25-021a5e309f00/public",
-          "https://imagedelivery.net/VwxTcpKX2CusqbCCDB94Nw/0c65be1b-a4bd-440c-7a0d-08c2bfef0f00/public",
-          "https://imagedelivery.net/VwxTcpKX2CusqbCCDB94Nw/a9d37fb2-7ac2-471e-0e61-2ef8371f1a00/public",
-          "https://imagedelivery.net/VwxTcpKX2CusqbCCDB94Nw/291bf1b1-6796-4e58-ee6e-9f6497a65500/public",
-          "https://imagedelivery.net/VwxTcpKX2CusqbCCDB94Nw/dc1cf8c9-afa2-4c3f-bb4a-4a92cfcce500/public",
-          "https://imagedelivery.net/VwxTcpKX2CusqbCCDB94Nw/57cc5fba-c264-4a7a-3ea4-d766856e7300/public"
+          "https://imagedelivery.net/VwxTcpKX2CusqbCCDB94Nw/69efca4e-5958-41f1-fc97-896e4b23c500/public", /* Green Bedroom */
+          "https://imagedelivery.net/VwxTcpKX2CusqbCCDB94Nw/3653af44-769f-4969-ee9d-b92ec14fb700/public", /* Living Room */
+          "https://imagedelivery.net/VwxTcpKX2CusqbCCDB94Nw/e6eb4503-6073-40eb-e80d-d9329f759200/public", /* Big Living Room */
+          "https://imagedelivery.net/VwxTcpKX2CusqbCCDB94Nw/85af1721-79bb-47cd-c953-8590e114c800/public", /* Hallway */
+          "https://imagedelivery.net/VwxTcpKX2CusqbCCDB94Nw/abac3900-91a8-4ad7-6e7a-464e483d8900/public", /* Sunroom */
+          "https://imagedelivery.net/VwxTcpKX2CusqbCCDB94Nw/79371775-03c7-4d2f-89a7-5353439f8d00/public"  /* Bedroom */
       ];
       const galleryCaptions = [
-          "Expert Sheetrock and Drywall Sanding for Smooth Walls",
-          "Vibrant Interior Painting in a Palm Themed Bedroom",
-          "Complete Exterior Repaint with Stunning Curb Appeal",
-          "Durable and Beautifully Painted Deck Surface",
-          "Professional Commercial Building Signage Painting",
-          "Dramatic Before & After of Cabinet Refinishing"
+          "Tranquil Green Bedroom with Modern Finishes",
+          "Cozy Living Room with Inviting Color Palette",
+          "Expansive Living Room Featuring Elegant Paintwork",
+          "Bright and Welcoming Hallway Transformation",
+          "Sunny Sunroom with Fresh, Light Interior Paint",
+          "Comfortable Bedroom with Soothing Wall Colors"
       ];
 
       window.openGalleryModal = (index) => {
@@ -1373,7 +1373,7 @@
 
           try {
             let chatHistory = [];
-            chatHistory.push({ role: "user", parts: [{ text: `Generate creative painting project ideas based on the following description: "${prompt}". Provide a title and then a bulleted list of ideas, focusing on color schemes, finishes, and design elements. Keep it concise, around 150-200 words, and relevant to painting services.` }] });
+            chatHistory.push({ role: "user", parts: [{ text: `Generate creative interior painting project ideas based on the following description: "${prompt}". Provide a title and then a bulleted list of ideas, focusing on color schemes, finishes, and design elements. Keep it concise, around 150-200 words, and relevant to interior painting services.` }] });
             const payload = { contents: chatHistory };
             const apiKey = ""; // If you want to use models other than gemini-2.0-flash or imagen-3.0-generate-002, provide an API key here. Otherwise, leave this as-is.
             const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`;
