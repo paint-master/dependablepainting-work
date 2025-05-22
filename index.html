@@ -958,7 +958,11 @@
     <p class="contact-intro-p">
       Free estimates. Honest timelines. Guaranteed satisfaction. Fill out the form and we’ll get back to you ASAP.
     </p>
-    <form id="contact-form" action="https://formspree.io/f/xdkebgja" method="POST"> <input type="text" name="name" placeholder="Your Name" required>
+    <form id="contact-form" action="https://formsubmit.co/alexdimmler@dependablepainting.work" method="POST">
+      <input type="hidden" name="_next" value="https://dependablepainting.work/thank-you.html">
+      <input type="text" name="_honey" style="display:none">
+      <input type="hidden" name="_captcha" value="false">
+      <input type="text" name="name" placeholder="Your Name" required>
       <input type="email" name="email" placeholder="Your Email" required>
       <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
       <button type="submit">📩 Send Message</button>
@@ -1220,6 +1224,14 @@
       }
     });
  </script>
+  <script>
+    document.getElementById("contact-form").addEventListener("submit", function () {
+      gtag('event', 'form_submit', {
+        event_category: 'Contact',
+        event_label: 'Contact Form Submitted'
+      });
+    });
+  </script>
 </body> 
 <footer class="site-footer" style="justify-content: center; text-align: center;">
   <div class="footer-brand">
