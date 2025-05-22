@@ -762,6 +762,14 @@
       .close-button { font-size: 30px; top: 8px; right: 15px; }
     }
   </style>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-4199PGW8SW"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-4199PGW8SW');
+  </script>
 </head>
 <body>
   <header>
@@ -1157,6 +1165,20 @@
           } finally {
             loadingIndicator.style.display = 'none';
           }
+        });
+      }
+    });
+  </script>
+</script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const contactForm = document.getElementById("contact-form");
+      if (contactForm) {
+        contactForm.addEventListener("submit", function () {
+          gtag('event', 'form_submit', {
+            event_category: 'Contact',
+            event_label: 'Contact Form Submitted'
+          });
         });
       }
     });

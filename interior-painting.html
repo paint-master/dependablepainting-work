@@ -859,6 +859,14 @@
       .close-button { font-size: 30px; top: 8px; right: 15px; }
     }
   </style>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-4199PGW8SW"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-4199PGW8SW');
+  </script>
 </head>
 <body>
   <header>
@@ -1083,7 +1091,10 @@
       Free estimates. Honest timelines. Guaranteed satisfaction. Fill out the form and we’ll get back to you ASAP.
     </p>
     <div id="contact-form-container">
-      <form id="contact-form" action="https://formspree.io/f/xdkebgja" method="POST">
+      <form id="contact-form" action="https://formsubmit.co/alexdimmler@dependablepainting.work" method="POST">
+        <input type="hidden" name="_next" value="https://dependablepainting.work/thank-you.html">
+        <input type="text" name="_honey" style="display:none">
+        <input type="hidden" name="_captcha" value="false">
         <input type="text" name="name" placeholder="Your Name" required>
         <input type="email" name="email" placeholder="Your Email" required>
         <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
@@ -1359,4 +1370,12 @@
     });
   </script>
 </body>
+  <script>
+    document.getElementById("contact-form").addEventListener("submit", function () {
+      gtag('event', 'form_submit', {
+        event_category: 'Contact',
+        event_label: 'Interior Page Form Submitted'
+      });
+    });
+  </script>
 </html>
