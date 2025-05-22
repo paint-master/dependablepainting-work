@@ -950,7 +950,12 @@
       })();
       </script>
       <!-- end Google Calendar Appointment Scheduling -->
-      <a href="tel:2515254405" class="cta-btn primary">📞 Call Now</a>
+      <a href="tel:2515254405" class="cta-btn primary"
+         onclick="gtag('event', 'phone_click', {
+           event_category: 'Contact',
+           event_label: 'Mobile Tap to Call'
+         })"
+      >📞 Call Now</a>
     </div>
   </section>
 
