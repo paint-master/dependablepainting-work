@@ -1,39 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-4199PGW8SW"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-4199PGW8SW"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-4199PGW8SW');
+  </script>
 
-  gtag('config', 'G-4199PGW8SW');
-</script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Dependable Painting</title>
   <link rel="icon" type="image/png" href="https://imagedelivery.net/VwxTcpKX2CusqbCCDB94Nw/0468e61a-5565-43fa-4026-fbc5801f1100/facicon" sizes="512x512">
   <link rel="mask-icon" href="https://imagedelivery.net/VwxTcpKX2CusqbCCDB94Nw/0468e61a-5565-43fa-4026-fbc5801f1100/facicon" color="#e00000">
   <meta name="theme-color" content="#000000">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js" defer crossorigin="anonymous"></script>
-  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
-  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js" crossorigin="anonymous"></script>
+
+  <link rel="preconnect" href="https://imagedelivery.net">
+  <link rel="preconnect" href="https://www.googletagmanager.com">
+
   <style>
-    /* Reset and base styles */
+    /* Reset & Base Styles */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
-    body {
-      font-family: Arial, sans-serif;
-      background: #000000; /* Background: Black */
-      color: #ffffff; /* Default Text: White */
-      line-height: 1.6;
-      padding-bottom: 120px; /* Initial padding for sticky footer, JS will adjust it. Increased slightly. */
-    }
+    body { font-family: Arial, sans-serif; background: #000; color: #fff; }
 
-    /* Header styling */
+    /* Header Styles */
     header {
-      background: #000000; /* Header Background: Black */
+      background: #0a0a0a;
       padding: 1rem 2rem;
       display: flex;
       align-items: center;
@@ -41,56 +35,37 @@
       position: sticky;
       top: 0;
       z-index: 9999;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.3); /* Subtle black shadow */
-      border-bottom: 1px solid #333333; 
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
     }
-    .brand { display: flex; align-items: center; gap: 0.8rem; }
-    .brand img { width: 40px; height: 40px; border-radius: 50%; object-fit: cover;}
-    .brand span { font-weight: bold; font-size: 1.4rem; color: #e00000; } /* Brand Text: Red */
-    .brand a { text-decoration: none; display: flex; align-items: center; }
-
-    /* Navigation icons */
-    .nav-icons { display: flex; align-items: center; gap: 1.2rem; }
-    .nav-icons a {
-      background: #000000; 
-      padding: 0.5rem;
-      border-radius: 50%;
+    .brand {
       display: flex;
       align-items: center;
-      justify-content: center;
-      width: 2.4rem;
-      height: 2.4rem;
-      box-shadow: 0 0 6px rgba(224, 0, 0, 0.3); 
-      color: #e00000; 
-      font-size: 1.3rem;
-      transition: background 0.3s ease, color 0.3s ease, border-color 0.3s ease;
-      text-decoration: none;
-      border: 1px solid #333333; 
+      gap: 0.8rem;
     }
-    .nav-icons a:hover { background: #e00000; color: #ffffff; border-color: #e00000; } 
-    .hours-toggle { position: relative; cursor: pointer; }
-    #hoursPopup {
-      display: none;
-      position: absolute;
-      top: 130%;
-      right: 0;
-      background: #000000; 
-      color: #ffffff; 
-      padding: 1rem;
-      border-radius: 6px;
-      box-shadow: 0 0 10px rgba(224, 0, 0, 0.5); 
-      font-size: 0.9rem;
-      white-space: nowrap;
-      z-index: 99999;
-      opacity: 0;
-      transition: opacity 0.3s ease, transform 0.3s ease;
-      transform: translateY(-10px);
-      border: 1px solid #333333; 
+    .brand img {
+      width: 40px;
+      height: auto;
     }
-    #hoursPopup strong { color: #e00000; } 
-    #hoursPopup.visible { display: block; opacity: 1; transform: translateY(0); }
+    .brand span {
+      font-weight: bold;
+      font-size: 1.4rem;
+      color: #ff3b3b;
+    }
+    .nav-icons {
+      display: flex;
+      align-items: center;
+      gap: 1.2rem;
+    }
+    .nav-icons a {
+      color: #ff3b3b;
+      font-size: 1.5rem;
+      transition: color 0.3s ease;
+    }
+    .nav-icons a:hover {
+      color: #fff;
+    }
 
-    /* Hamburger icon */
+    /* Hamburger Menu */
     .hamburger {
       width: 30px;
       height: 22px;
@@ -98,1157 +73,852 @@
       display: flex;
       flex-direction: column;
       justify-content: space-between;
+      margin-left: 1rem;
     }
     .hamburger span {
       height: 3px;
       width: 100%;
-      background: #e00000; 
+      background: #ff3b3b;
       border-radius: 2px;
-      transition: transform 0.4s ease, opacity 0.4s ease, background-color 0.4s ease;
+      transition: 0.4s;
     }
-    .hamburger.active span:nth-child(1) { transform: translateY(9.5px) rotate(45deg); }
-    .hamburger.active span:nth-child(2) { opacity: 0; }
-    .hamburger.active span:nth-child(3) { transform: translateY(-9.5px) rotate(-45deg); }
 
-    /* Mobile menu */
+    /* Mobile Menu */
     nav.menu {
-      z-index: 10000;
-      backdrop-filter: blur(4px);
       position: fixed;
       top: 0;
-      left: -100%; 
+      left: -100%;
       width: 100%;
       height: 100vh;
-      background: rgba(0, 0, 0, 0.95); 
-      color: #ffffff; 
+      background: #0a0a0a;
+      color: #fff;
       padding: 4rem 2rem;
       display: flex;
       flex-direction: column;
-      gap: 1.8rem;
-      transition: left 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-      overflow-y: auto;
+      gap: 2rem;
+      transition: left 0.4s ease;
+      z-index: 9998;
     }
-    nav.menu.open { left: 0; box-shadow: 5px 0 30px rgba(224, 0, 0, 0.2); } 
-    nav.menu .search-bar-container {
-        display: flex;
-        align-items: center;
-        gap: 0.5rem;
-        margin-bottom: 1rem;
+    nav.menu.open {
+      left: 0;
     }
     nav.menu .search-bar {
-      height: 2.75rem;
-      padding: 0.5rem 1rem;
+      background: #222;
+      padding: 0.8rem 1rem;
+      border-radius: 8px;
+      margin-bottom: 2rem;
+      color: #ccc;
       font-size: 1rem;
-      color: #ffffff; 
-      background: #000000; 
-      border: 1px solid #333333; 
-      border-radius: 6px;
       width: 100%;
-      outline: none;
-      transition: border-color 0.3s ease, box-shadow 0.3s ease;
+      border: none;
     }
-    nav.menu .search-bar:focus { border-color: #e00000; box-shadow: 0 0 10px rgba(224, 0, 0, 0.6); } 
-    nav.menu .search-bar-container button {
-        background: none;
-        border: none;
-        color: #e00000; 
-        font-size: 1.4rem;
-        cursor: pointer;
-        padding: 0.5rem;
-        transition: color 0.3s ease;
-    }
-    nav.menu .search-bar-container button:hover { color: #ffffff; } 
     nav.menu a {
-      color: #e00000; 
+      color: #ff3b3b;
       font-size: 1.5rem;
       font-weight: bold;
       text-decoration: none;
       display: block;
-      padding: 0.5rem 0;
-      transition: color 0.3s ease, transform 0.3s ease;
-      opacity: 0; 
-      animation: menuItemFadeIn 0.5s ease forwards; 
+      transition: color 0.3s ease;
     }
-    nav.menu a:hover { color: #ffffff; transform: translateX(5px); } 
+    nav.menu a:hover {
+      color: #fff;
+    }
+    nav.menu .submenu {
+      display: none;
+      flex-direction: column;
+      margin-top: 0.5rem;
+      margin-left: 1rem;
+      gap: 0.8rem;
+    }
+    nav.menu .submenu.open {
+      display: flex;
+    }
     .close-btn {
       position: absolute;
-      top: 1.5rem;
+      top: 1rem;
       right: 1.5rem;
-      font-size: 2.2rem;
+      font-size: 2rem;
       cursor: pointer;
-      color: #e00000; 
-      transition: color 0.3s ease, transform 0.3s ease;
-    }
-    .close-btn:hover { color: #ffffff; transform: rotate(90deg); } 
-    @keyframes menuItemFadeIn { 
-      from { opacity: 0; transform: translateY(10px); }
-      to { opacity: 1; transform: translateY(0); } 
+      color: #ff3b3b;
     }
 
-    /* Hero Section Styles */
-    .hero-section { background: #000000 !important; box-shadow: 0 10px 30px rgba(0,0,0,0.5) !important; padding: 5rem 2rem; text-align: center; }
-    .hero-section .fade-up { 
-        transition: opacity 0.8s ease-out, transform 0.8s ease-out; 
-    }
-    .hero-section .fade-up.aos-animate { opacity: 1; transform: translateY(0); }
-
-    .hero-section .cta-button { 
-      background: #e00000 !important; 
-      color: #ffffff !important; 
-      padding: 1rem 2rem !important;
-      font-weight: bold !important;
-      border-radius: 5px !important;
-      text-decoration: none !important;
-      font-size: 1.1rem !important;
-      display: inline-block !important;
-    }
-    .hero-section .cta-button.aos-animate { animation: bounceInHero 0.8s ease forwards; } 
-    @keyframes bounceInHero { 0% { transform: scale(0.9); } 50% { transform: scale(1.05); } 100% { transform: scale(1); } }
-    .hero-section .cta-button:hover { background: #c00000 !important; box-shadow: 0 5px 15px rgba(224, 0, 0, 0.5); transform: translateY(-2px); }
-    
-
-    /* Services Section Styles */
-    #services { padding: 4rem 2rem; text-align: center; background: #000000; color: #ffffff; }
-    #services h2 { font-size: 2.5rem; margin-bottom: 2.5rem; color: #e00000; text-shadow: 0 0 8px rgba(224,0,0,0.3); }
-    .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; }
-    .service-card {
-      background: #000000; 
-      padding: 2rem;
-      border-radius: 12px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
-      box-shadow: 0 6px 15px rgba(0,0,0,0.4); 
-      border: 1px solid #333333; 
-    }
-    .service-card:hover { transform: translateY(-8px); box-shadow: 0 12px 28px rgba(224, 0, 0, 0.3); border-color: rgba(224,0,0,0.5); }
-    .service-card h3 { color: #e00000; margin-bottom: 1rem; font-size: 1.6rem; }
-    .service-card p { color: #ffffff; flex-grow: 1; font-size: 1rem; line-height: 1.6; margin-bottom: 1.5rem; }
-    .cta-button { 
+    /* Hours Toggle and Popup */
+    .hours-toggle {
+      position: relative;
       display: inline-block;
-      background: #e00000; 
-      color: #ffffff; 
-      padding: 0.8rem 1.8rem;
-      border-radius: 6px;
-      font-weight: bold;
-      text-decoration: none;
-      font-size: 1rem;
-      transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
-      box-shadow: 0 4px 12px rgba(224, 0, 0, 0.25); 
-      text-align: center;
     }
-    .cta-button:hover { background: #c00000; transform: translateY(-3px); box-shadow: 0 6px 18px rgba(224, 0, 0, 0.45); }
-
-    /* Gallery Section Styles */
-    #gallery { padding: 3rem 1.5rem; background: #000000; color: #ffffff; text-align: center; }
-    #gallery h2 { font-size: 2.25rem; margin-bottom: 1.5rem; color: #e00000; font-weight: 700; }
-    #gallery .gallery-intro-p { max-width: 700px; margin: 0 auto 2rem; color: #ffffff; font-size: 1rem; line-height: 1.6; }
-    .cabinet-gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; }
-    .gallery-item .img-container {
-        position: relative; width: 100%; aspect-ratio: 4 / 3; overflow: hidden;
-        border-radius: 12px; background: #000000; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5); 
-        transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
-        border: 1px solid #333333;
-    }
-    .gallery-item:hover .img-container { transform: translateY(-5px); box-shadow: 0 8px 25px rgba(224, 0, 0, 0.3); border-color: rgba(224,0,0,0.5); }
-    .gallery-img { width: 100%; height: 100%; object-fit: cover; display: block; cursor: pointer; transition: transform 0.3s ease; }
-    .gallery-item:hover .gallery-img { transform: scale(1.05); }
-    .hover-caption {
-        position: absolute; bottom: 0; left: 0; right: 0;
-        background: rgba(0, 0, 0, 0.85); color: #ffffff; font-size: 0.9rem; padding: 0.75rem 1rem; 
-        opacity: 0; transform: translateY(100%);
-        transition: opacity 0.4s ease, transform 0.4s ease;
-        text-align: center; border-bottom-left-radius: 12px; border-bottom-right-radius: 12px;
-    }
-    .gallery-item:hover .hover-caption { opacity: 1; transform: translateY(0); }
-
-    /* Modal Styles for Gallery */
-    .modal {
-        display: none; position: fixed; z-index: 10000; left: 0; top: 0;
-        width: 100%; height: 100%; overflow: auto; background-color: rgba(0, 0, 0, 0.92); 
-        display: flex; align-items: center; justify-content: center;
-        padding: 15px; box-sizing: border-box;
-    }
-    .modal-content {
-        position: relative; background-color: #000000; padding: 0; border-radius: 8px; 
-        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.7); border: 1px solid #333333;
-        max-width: calc(100vw - 40px); max-height: calc(100vh - 40px);
-        display: flex; align-items: center; justify-content: center; overflow: hidden;
-    }
-    #modalImage { display: block; max-width: 100%; max-height: 100%; object-fit: contain; }
-    #caption {
-        position: absolute; bottom: 0; left: 0; width: 100%;
-        background-color: rgba(0, 0, 0, 0.75); color: #ffffff; padding: 12px 15px; 
-        text-align: center; font-size: 1rem; box-sizing: border-box;
-        border-bottom-left-radius: 8px; border-bottom-right-radius: 8px;
-    }
-    .close-button { 
-        position: absolute; top: 10px; right: 25px; color: #ffffff; 
-        font-size: 35px; font-weight: bold; transition: 0.3s ease;
-        cursor: pointer; line-height: 1; z-index: 10;
-    }
-    .close-button:hover, .close-button:focus { color: #e00000; text-decoration: none; }
-    .prev, .next { 
-        cursor: pointer; position: absolute; top: 50%; transform: translateY(-50%);
-        width: auto; padding: 16px; color: #ffffff; font-weight: bold; 
-        font-size: 24px; transition: 0.4s ease; border-radius: 0 3px 3px 0;
-        user-select: none; background-color: rgba(0, 0, 0, 0.4); z-index: 5;
-    }
-    .prev { left: 0; border-radius: 3px 0 0 3px; }
-    .next { right: 0; border-radius: 0 3px 3px 0; }
-    .prev:hover, .next:hover { background-color: rgba(224, 0, 0, 0.7); }
-
-    /* "What to Expect" Section Styles */
-    #what-to-expect { background: #000000; padding: 5rem 2rem; }
-    #what-to-expect h2 {
-      color: #e00000; font-size: 2.5rem; margin-bottom: 2.2rem; 
-      text-align: center; text-shadow: 0 0 10px rgba(224, 0, 0, 0.5); 
-    }
-    .detail-card-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-        gap: 2rem;
-    }
-    .detail-card { 
-      background: #000000; 
-      border: 1px solid #222222; 
-      border-radius: 12px;
-      padding: 2rem;
-      transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
-      box-shadow: inset 0 0 0 rgba(0, 0, 0, 0);
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-    }
-    .detail-card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 0 0 2px rgba(224,0,0,0.1), 
-                  0 12px 30px rgba(224, 0, 0, 0.25); 
-      border-color: rgba(224,0,0,0.3);
-    }
-    .detail-card h3 {
-      color: #e00000; 
-      font-size: 1.5rem;
-      margin-bottom: 0.75rem;
-      font-weight: 700;
-      letter-spacing: 0.3px;
-      text-shadow: 0 0 8px rgba(224, 0, 0, 0.4); 
-    }
-    .detail-card p {
-      color: #ffffff; 
-      font-size: 1.05rem;
-      line-height: 1.6;
-    }
-
-    /* Reviews Section Styles */
-    #reviews-only { background: #000000; padding: 5rem 2rem; text-align: center; }
-    #reviews-only h2 {
-      font-size: 2.5rem; color: #e00000; margin-bottom: 3rem; 
-      text-shadow: 0 0 8px rgba(224,0,0,0.3); 
-    }
-    .reviews-grid {
-      display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 2rem; margin-bottom: 3rem;
-    }
-    .testimonial-card { 
-      background: #000000; 
-      padding: 2rem;
-      border-radius: 12px;
-      box-shadow: 0 8px 20px rgba(224, 0, 0, 0.15); 
-      border: 1px solid #333333; 
-      transition: border-color 0.3s ease;
-    }
-    .testimonial-card:hover { border-color: rgba(224,0,0,0.5); }
-    .stars {
-      color: #e00000; 
-      font-size: 1.4rem;
-      margin-bottom: 0.5rem;
-      letter-spacing: 1px;
-      animation: glowStars 2s infinite ease-in-out;
-    }
-    .quote { color: #ffffff; font-size: 1.1rem; margin: 1rem 0; line-height: 1.6; }
-    .name { color: #ffffff; font-style: italic; font-size: 0.95rem; opacity: 0.7; }
-    .qr-code-container {
-        display: flex; flex-direction: column; align-items: center; gap: 1rem;
-    }
-    .qr-code-container img {
-        width: 150px; height: 150px; object-fit: contain;
-        border-radius: 8px; box-shadow: 0 4px 12px rgba(224, 0, 0, 0.25); 
-    }
-    .qr-code-container p { color: #ffffff; font-size: 0.9rem; opacity: 0.7;}
-    .qr-code-container a {
-      display: inline-block; background: #e00000; color: #ffffff; 
-      padding: 0.8rem 2rem; border-radius: 6px; font-weight: bold;
-      text-decoration: none; font-size: 1.1rem; transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
-    }
-    .qr-code-container a:hover {
-        background-color: #c00000; 
-        transform: translateY(-2px);
-        box-shadow: 0 6px 15px rgba(224, 0, 0, 0.4); 
-    }
-    @keyframes glowStars {
-      0%, 100% { text-shadow: 0 0 5px rgba(224,0,0,0.5); } 
-      50% { text-shadow: 0 0 15px rgba(224,0,0,0.9); } 
-    }
-
-    /* FAQ Section Styles */
-    .faq-section {
-      padding: 4rem 1.5rem;
-      background-color: #000000; 
-      color: #ffffff; 
-    }
-    .faq-container {
-      max-width: 900px;
-      margin: 0 auto;
-    }
-    .faq-section h2 {
-      font-size: 2.75rem;
-      color: #e00000; 
-      text-align: center;
-      margin-bottom: 3rem;
-      text-shadow: 0 0 8px rgba(224, 0, 0, 0.25); 
-    }
-    .faq-grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 1.5rem;
-    }
-    .faq-item { 
-      background: #000000; 
-      padding: 1.75rem 2rem;
-      border-left: 4px solid #e00000; 
+    #hoursPopup {
+      display: none;
+      position: absolute;
+      background-color: #222;
+      color: #fff;
+      padding: 1rem;
       border-radius: 8px;
-      transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
-      border-top: 1px solid rgba(224,0,0,0.2); 
-      border-right: 1px solid rgba(224,0,0,0.2); 
-      border-bottom: 1px solid rgba(224,0,0,0.2); 
+      box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+      top: 100%;
+      left: 50%;
+      transform: translateX(-50%);
+      white-space: nowrap;
+      z-index: 10000;
+      margin-top: 10px;
     }
-    .faq-item:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 6px 25px rgba(224, 0, 0, 0.2); 
-      border-color: rgba(224,0,0,0.4);
-      border-left-color: #e00000;
+    #hoursPopup.open {
+      display: block;
     }
-    .faq-item h3 { font-size: 1.4rem; color: #e00000; margin-bottom: 0.75rem; }
-    .faq-item p { font-size: 1.05rem; color: #ffffff; line-height: 1.7; }
-    .faq-item p a { color: #e00000; text-decoration: underline; transition: color 0.3s ease; }
-    .faq-item p a:hover { color: #ffffff; }
 
-    /* CTA Highlight Section Styles */
-    .cta-highlight { 
-      background-color: #000000; 
-      color: #ffffff; 
+    /* Main Content Sections */
+    section {
+      padding: 5rem 2rem;
       text-align: center;
-      padding: 4rem 1rem;
+      background: #1a1a1a;
+      color: #fff;
+    }
+    h1 {
+      color: white;
+      font-size: 2.7rem;
+      max-width: 800px;
+      margin: 0 auto 1.5rem;
+    }
+    p {
+      color: #ccc;
+      font-size: 1.2rem;
+      max-width: 700px;
+      margin: 0 auto 2rem;
+    }
+    section:nth-of-type(2) {
+      background: #0a0a0a;
+    }
+    h2 {
+      font-size: 2.5rem;
+      margin-bottom: 3rem;
+      color: #fff;
+    }
+    .service-card {
+      background: linear-gradient(145deg, #111 0%, #1f1f1f 100%);
+      padding: 2rem;
+      border-radius: 20px;
+      box-shadow: 0 12px 25px rgba(255, 59, 59, 0.3);
+      transition: transform 0.4s, box-shadow 0.4s;
+    }
+    .service-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 18px 35px rgba(255, 59, 59, 0.45);
+    }
+    .service-card h3 {
+      color: #ff3b3b;
+      font-size: 1.8rem;
+      margin-bottom: 1.2rem;
+    }
+    .service-card p {
+      color: #e0e0e0;
+      line-height: 1.6;
+      text-align: left;
+    }
+    .cta-highlight {
+      background-color: #1f1f1f;
+      color: #fff;
+      text-align: center;
+      padding: 3.5rem 2rem;
       position: relative;
       overflow: hidden;
-      box-shadow: 0 0 20px rgba(224, 0, 0, 0.15); 
-      border-top: 1px solid rgba(224,0,0,0.3);
-      border-bottom: 1px solid rgba(224,0,0,0.3);
     }
-    
-    .cta-headline {
-      font-size: 2.8rem;
-      margin-bottom: 1.2rem;
-      color: #e00000; 
-      text-shadow: 0 0 12px rgba(224, 0, 0, 0.4); 
-      animation: pulseText 2.5s ease-in-out infinite;
+    .cta-highlight h2 {
+      font-size: 2.7rem;
+      margin-bottom: 1.5rem;
+      animation: pulseText 2s infinite ease-in-out;
+      color: #ff3b3b;
+      font-weight: 800;
+      letter-spacing: 0.5px;
     }
-    .cta-subtext {
-      font-size: 1.2rem;
+    .cta-highlight p {
+      font-size: 1.25rem;
       max-width: 650px;
       margin: 0 auto 2.5rem;
-      color: #ffffff; 
+      color: #ccc;
       line-height: 1.6;
     }
-    .cta-buttons {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 1.2rem;
-    }
-    .cta-btn { 
-      background-color: #e00000; 
-      color: #ffffff; 
-      padding: 0.85rem 1.8rem;
-      border-radius: 6px;
-      font-weight: bold;
-      font-size: 1rem;
+    .cta-highlight .wp-block-button__link {
+      background-color: #ff3b3b;
+      color: #fff;
+      padding: 0.85rem 2rem;
+      border-radius: 8px;
+      font-weight: 600;
       text-decoration: none;
-      position: relative;
-      overflow: hidden;
-      transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
-      box-shadow: 0 4px 14px rgba(224, 0, 0, 0.25); 
+      font-size: 1.1rem;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      display: inline-block;
     }
-    .cta-btn:hover {
-      transform: translateY(-2px) scale(1.04);
-      background-color: #c00000; 
-      box-shadow: 0 6px 18px rgba(224, 0, 0, 0.35); 
+    .cta-highlight .wp-block-button__link:hover {
+      transform: scale(1.07);
+      box-shadow: 0 6px 18px rgba(255, 59, 59, 0.4);
     }
     @keyframes pulseText {
-      0%, 100% { transform: scale(1); opacity: 1; }
-      50% { transform: scale(1.03); opacity: 0.9; }
+      0%, 100% {
+        opacity: 1;
+        transform: scale(1);
+      }
+      50% {
+        opacity: 0.95;
+        transform: scale(1.03);
+      }
     }
-
-    /* Contact Section Styles */
-    #contact { background:#000000; color:#ffffff; padding:5rem 2rem; text-align:center; }
-    #contact h2 { font-size:2.5rem; margin-bottom:1rem; color:#e00000; }
-    #contact .contact-intro-p {
-        color:#ffffff; max-width:600px; margin:0 auto 2.5rem; font-size:1.1rem; 
-    }
-    #contact-form { max-width:550px; margin:0 auto; }
-    #contact-form input[type="text"],
-    #contact-form input[type="email"],
-    #contact-form textarea {
-      width:100%; padding:1rem; background:#000000; 
-      border:1px solid #333333; 
-      color:#ffffff; margin-bottom:1.2rem; 
-      border-radius:6px;
-      transition: border-color 0.3s ease, box-shadow 0.3s ease;
-    }
-    #contact-form input[type="text"]:focus,
-    #contact-form input[type="email"]:focus,
-    #contact-form textarea:focus {
-      border-color:#e00000; 
-      box-shadow: 0 0 8px rgba(224, 0, 0, 0.3); 
-      outline: none;
-    }
-    #contact-form textarea { resize: vertical; }
-    #contact-form button[type="submit"] {
-      background:#e00000; color:#ffffff; padding:1rem 2.2rem; 
-      font-weight:bold; border:none; border-radius:6px;
-      font-size:1.1rem; cursor: pointer;
-      transition:background 0.3s ease, transform 0.3s ease;
-    }
-    #contact-form button[type="submit"]:hover {
-        background: #c00000; 
-        transform: translateY(-2px);
-    }
-    #form-success { display:none; color:#00ff99; margin-top:2rem; font-weight:bold; font-size: 1.2rem; }
-
-    /* Location Map Section Styles */
-    #location-map { background: #000000; padding: 4rem 2rem; text-align: center; }
-    #location-map h2 {
-      color: #e00000; font-size: 2.4rem; margin-bottom: 1rem; 
-      text-shadow: 0 0 8px rgba(224, 0, 0, 0.3); 
-    }
-    #location-map .location-intro-p {
-      color: #ffffff; font-size: 1.1rem; margin-bottom: 2.5rem; 
-      max-width: 600px; margin-left: auto; margin-right: auto;
-    }
-    .map-container {
-      max-width: 1000px;
-      margin: 0 auto;
-      border-radius: 12px;
+    iframe {
+      max-width: 100%;
       overflow: hidden;
-      box-shadow: 0 8px 25px rgba(224, 0, 0, 0.2); 
-      border: 1px solid #222222; 
-    }
-    .map-container iframe {
-        display: block;
+      border: 0;
+      border-radius: 10px;
     }
 
-    /* Sticky Footer Styles */
-    .site-footer {
-      position: fixed;
-      bottom: 0;
-      left: 0;
+    /* === NEW GALLERY SLIDESHOW STYLES START === */
+    .slideshow-container {
+      max-width: 1200px; /* Max width of the slideshow, matches your image width */
+      position: relative;
+      margin: auto; /* Centers the slideshow container */
+      overflow: hidden;
+      border-radius: 12px; /* From your original style, looks nice */
+      box-shadow: 0 8px 20px rgba(0,0,0,0.5); /* From your original style */
+    }
+
+    .mySlides {
+      display: none; /* Hide all slides by default */
       width: 100%;
-      background: #000000; 
-      color: #ffffff; 
-      padding: 1rem 2rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      z-index: 9998;
-      box-shadow: 0 -4px 10px rgba(224, 0, 0, 0.15); 
-      border-top: 1px solid #333333; 
+      box-sizing: border-box;
     }
-    .footer-brand {
-        display: flex;
-        align-items: center;
-        gap: 0.8rem;
+
+    .mySlides img {
+      width: 100%; 
+      height: auto; 
+      vertical-align: middle; 
+      border-radius: 8px; /* Rounded corners for images if container also has them */
+                           /* Note: if slideshow-container has border-radius, image might not need it unless there's padding */
     }
-    .footer-brand img {
-        width: 32px;
-        height: 32px;
-        border-radius: 50%;
-        object-fit: cover;
+
+    .text {
+      color: #f2f2f2;
+      font-size: 1rem;
+      padding: 12px 12px;
+      position: absolute;
+      bottom: 12px; /* Placed a bit higher for better aesthetics */
+      width: 100%;
+      text-align: center;
+      background-color: rgba(0, 0, 0, 0.6); 
+      box-sizing: border-box;
+      /* If images have border-radius, match bottom part of caption */
+      border-bottom-left-radius: 8px; 
+      border-bottom-right-radius: 8px;
     }
-    .footer-brand strong {
-        color: #e00000; 
+
+    .prev, .next {
+      cursor: pointer;
+      position: absolute;
+      top: 50%;
+      width: auto;
+      padding: 16px;
+      margin-top: -22px; 
+      color: white;
+      font-weight: bold;
+      font-size: 1.5rem; /* Slightly larger for better clickability */
+      transition: 0.3s ease;
+      border-radius: 0 3px 3px 0;
+      user-select: none;
+      background-color: rgba(0,0,0,0.3); 
     }
-    .footer-links {
-        display: flex;
-        gap: 1rem;
-        flex-wrap: wrap;
-        justify-content: center;
-        margin-top: 0.5rem;
+
+    .next {
+      right: 0;
+      border-radius: 3px 0 0 3px;
     }
-    .footer-link {
-      color: #e00000; 
+
+    .prev:hover, .next:hover {
+      background-color: rgba(255, 59, 59, 0.8); /* Theme color #ff3b3b on hover */
+    }
+
+    .dots-container {
+      text-align: center;
+      padding-top: 20px; /* Increased padding slightly */
+    }
+
+    .dot {
+      cursor: pointer;
+      height: 15px;
+      width: 15px;
+      margin: 0 4px; /* Slightly more margin */
+      background-color: #717171; /* Darker inactive dot for better contrast on light parts of bg */
+      border-radius: 50%;
+      display: inline-block;
+      transition: background-color 0.3s ease;
+    }
+
+    .active, .dot:hover {
+      background-color: #ff3b3b; /* Your theme color for active/hover */
+    }
+
+    .fade {
+      animation-name: fade;
+      animation-duration: 1.5s;
+    }
+
+    @keyframes fade {
+      from {opacity: .4}
+      to {opacity: 1}
+    }
+    /* === NEW GALLERY SLIDESHOW STYLES END === */
+
+
+    /* Footer Styles */
+    .site-footer {
+      background:#111;
+      color:#fff;
+      padding:1.5rem 1rem;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      text-align:center;
+    }
+    .site-footer .footer-links {
+      display:flex;
+      flex-wrap: wrap;
+      justify-content:center;
+      gap: 0.75rem;
+      margin-bottom:1rem;
+    }
+    .site-footer .footer-link {
+      color: #ff3b3b;
       text-decoration: none;
       font-weight: bold;
-      transition: color 0.3s ease, transform 0.3s ease;
-      padding: 0.3rem 0.5rem;
+      font-size: 0.9rem;
+      padding: 0.5rem 0.75rem;
+      border-radius: 5px;
+      transition: transform 0.3s ease, color 0.3s ease, background-color 0.3s ease;
     }
-    .footer-link:hover {
-      color: #ffffff; 
-      transform: translateY(-2px);
+    .site-footer .footer-link:hover {
+      color: #fff;
+      background-color: #ff3b3b;
+      transform: translateY(-3px);
+    }
+    .site-footer .footer-logo-container {
+      margin-bottom:1rem;
+    }
+    .site-footer .footer-logo-container img {
+      width:40px;
+      height:auto;
+      margin-bottom:0.5rem;
+    }
+    .site-footer .footer-logo-container h3 {
+      color:#ff3b3b;
+      font-size: 1.2rem;
+    }
+    .site-footer p {
+      font-size:0.8rem;
+      color:#777;
+      margin-top: 0.5rem;
+      margin-bottom: 0;
     }
 
+    /* Floating Call Button */
+    #floating-call {
+      position:fixed;
+      bottom:20px;
+      right:20px;
+      background:#ff3b3b;
+      color:white;
+      border-radius:50%;
+      padding:1rem;
+      font-size:1.5rem;
+      z-index:9999;
+      box-shadow:0 0 10px #ff3b3b;
+      text-align:center;
+      text-decoration:none;
+      opacity:0;
+      pointer-events:none;
+      transition:opacity 0.6s ease, transform 0.4s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 60px;
+      height: 60px;
+    }
+    #floating-call.show {
+      opacity: 1;
+      pointer-events: auto;
+    }
+    #floating-call:hover {
+      transform: scale(1.1);
+      box-shadow: 0 0 15px #ff3b3b;
+    }
 
-    /* Responsive adjustments */
+    /* Responsive Adjustments */
     @media (max-width: 768px) {
-      header { padding: 0.8rem 1rem; }
-      .brand span { font-size: 1.1rem; }
-      .brand img { width: 32px; height: 32px; }
-      .nav-icons a { width: 2.2rem; height: 2.2rem; font-size: 1.1rem; padding: 0.4rem; }
+      header { padding: 1rem; }
+      .brand span { font-size: 1.2rem; }
+      .brand img { width: 35px; }
       .nav-icons { gap: 0.8rem; }
-      .hamburger { width: 24px; height: 18px; }
-      .hamburger span { height: 2.5px; }
-      .hamburger.active span:nth-child(1) { transform: translateY(7.75px) rotate(45deg); }
-      .hamburger.active span:nth-child(3) { transform: translateY(-7.75px) rotate(-45deg); }
-      nav.menu { padding: 3.5rem 1.5rem; gap: 1.5rem; }
-      nav.menu .search-bar { font-size: 0.95rem; padding: 0.5rem 0.8rem; }
+      .nav-icons a { font-size: 1.3rem; }
+      .hamburger { width: 25px; height: 18px; }
+      nav.menu { padding: 3rem 1.5rem; }
       nav.menu a { font-size: 1.3rem; }
-      #hoursPopup { font-size: 0.8rem; padding: 0.8rem; right: 5px; top: 120%; }
-      .close-btn { top: 1rem; right: 1rem; font-size: 2rem; }
+      nav.menu .search-bar { font-size: 0.9rem; padding: 0.6rem 0.8rem; }
+      .close-btn { font-size: 1.8rem; top: 0.8rem; right: 1rem; }
+      section { padding: 3rem 1rem; }
+      h1 { font-size: 2rem; }
+      p { font-size: 1rem; }
+      h2 { font-size: 2rem; }
+      .service-card { padding: 1.5rem; }
+      .service-card h3 { font-size: 1.5rem; }
+      .cta-highlight { padding: 2.5rem 1rem; }
+      .cta-highlight h2 { font-size: 2rem; }
+      .cta-highlight p { font-size: 1rem; }
+      .cta-highlight .wp-block-button__link { padding: 0.75rem 1.5rem; font-size: 1rem; }
+      .site-footer { padding: 2rem 1rem; }
+      .site-footer .footer-links { gap: 0.5rem; }
+      .site-footer .footer-link { font-size: 0.8rem; padding: 0.4rem 0.6rem; }
+      #floating-call { bottom: 15px; right: 15px; width: 50px; height: 50px; font-size: 1.2rem; }
 
-      #services h2 { font-size: 2rem; }
-      .service-card h3 { font-size: 1.4rem; }
-      .service-card p { font-size: 0.95rem; }
-      .cta-button { font-size: 0.95rem; padding: 0.7rem 1.5rem; }
-
-      #gallery h2 { font-size: 2rem; }
-      .gallery-item .img-container { border-radius: 10px; }
-      .hover-caption { font-size: 0.85rem; padding: 0.6rem 0.8rem; }
-      .modal-content { max-width: calc(100vw - 20px); max-height: calc(100vh - 20px); }
-      #caption { font-size: 0.9rem; padding: 10px; }
-      .prev, .next { font-size: 20px; padding: 12px; }
-      .close-button { font-size: 30px; top: 8px; right: 15px; }
-
-      #what-to-expect h2 { font-size: 2rem; }
-      .detail-card { padding: 1.5rem; }
-      .detail-card h3 { font-size: 1.3rem; }
-      .detail-card p { font-size: 1rem; }
-
-      #reviews-only h2 { font-size: 2rem; }
-      .testimonial-card { padding: 1.5rem; }
-      .quote { font-size: 1rem; }
-      .name { font-size: 0.9rem; }
-      .qr-code-container img { width: 120px; height: 120px;}
-      .qr-code-container a { font-size: 1rem; padding: 0.7rem 1.5rem; }
-
-      .faq-section h2 { font-size: 2.25rem; }
-      .faq-item { padding: 1.25rem 1.5rem; }
-      .faq-item h3 { font-size: 1.25rem; }
-      .faq-item p { font-size: 1rem; }
-
-      .cta-headline { font-size: 2.2rem; }
-      .cta-subtext { font-size: 1.1rem; }
-
-      #contact h2 { font-size: 2.2rem; }
-      #contact .contact-intro-p { font-size: 1rem; }
-      #contact-form input[type="text"],
-      #contact-form input[type="email"],
-      #contact-form textarea { padding: 0.9rem; }
-      #contact-form button[type="submit"] { padding: 0.9rem 1.8rem; font-size: 1rem; }
-
-      #location-map h2 { font-size: 2rem; }
-      #location-map .location-intro-p { font-size: 1rem; }
-      .map-container iframe { height: 350px; }
-
-      .site-footer {
-        flex-direction: column;
-        text-align: center;
-        gap: 0.8rem;
-        padding: 0.8rem 1rem;
+      /* Gallery Responsive */
+      .prev, .next {
+        font-size: 1.2rem;
+        padding: 12px;
       }
-      .footer-brand, .footer-links {
-        justify-content: center;
+      .text {
+        font-size: 0.9rem;
       }
-      .footer-links { margin-top: 0.5rem; }
-    }
-
-    @media (min-width: 768px) {
-      .faq-grid {
-        grid-template-columns: 1fr 1fr; 
+      .dot {
+        height: 12px;
+        width: 12px;
       }
     }
 
-    @media (max-width: 600px) {
-      .service-card .cta-button { width: 100%; } 
-      .hero-section .cta-button { width: auto; } 
-      .cabinet-gallery { grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem; }
-      .detail-card-grid { grid-template-columns: 1fr; } 
-      .reviews-grid { grid-template-columns: 1fr; } 
-      .faq-grid { grid-template-columns: 1fr; } 
-      .cta-btn { width: 100%; } 
-      .cta-headline { font-size: 2rem; }
-      .cta-subtext { font-size: 1rem; }
-      #location-map h2 { font-size: 1.8rem; }
-      .map-container iframe { height: 300px; }
-    }
+    @media (max-width: 480px) {
+      header { padding: 0.8rem; }
+      .brand img { width: 30px; }
+      .brand span { font-size: 1.1rem; }
+      .nav-icons { gap: 0.6rem; }
+      .nav-icons a { font-size: 1.2rem; }
+      .hamburger { width: 22px; height: 16px; }
+      section { padding: 2.5rem 0.8rem; }
+      h1 { font-size: 1.8rem; }
+      p { font-size: 0.95rem; }
+      h2 { font-size: 1.8rem; }
+      .service-card { padding: 1.2rem; }
+      .service-card h3 { font-size: 1.3rem; }
+      .site-footer .footer-links { flex-direction: column; gap: 0.3rem; }
 
-    /* Left-edge swipe cue for mobile menu */
-    @media (max-width: 768px) {
-      body.swipe-active::before {
-        content: ""; position: fixed; top: 0; left: 0; width: 15px; height: 100vh;
-        background: radial-gradient(circle at left center, rgba(224,0,0,0.15), transparent 70%); 
-        z-index: 9998; pointer-events: none; opacity: 0.7;
-        animation: pulseEdge 2s ease-in-out infinite alternate;
+      /* Gallery Responsive */
+      .text {
+        font-size: 0.8rem;
+        padding: 8px;
       }
     }
-    @keyframes pulseEdge { 0% { opacity: 0.3; transform: scaleX(0.8); } 100% { opacity: 0.7; transform: scaleX(1); } }
-
   </style>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js" async></script>
 </head>
 <body>
-  <header>
-    <div class="brand">
-      <a href="/">
-        <img src="https://imagedelivery.net/VwxTcpKX2CusqbCCDB94Nw/0468e61a-5565-43fa-4026-fbc5801f1100/Logos" alt="Dependable Painting Logo">
-      </a>
-      <span>Dependable Painting</span>
-    </div>
-    <div class="nav-icons">
-      <div class="hours-toggle">
-        <a href="#" title="Business Hours" aria-label="Business Hours" onclick="toggleHoursPopup(event); return false;">
-          <i class="fas fa-clock"></i>
-        </a>
-        <div id="hoursPopup" role="tooltip">
-          <strong>Hours:</strong><br>
-          Mon–Fri: 8:00am – 5:30pm<br>
-          Saturday: By Appointment<br>
-          Sunday: Closed
-        </div>
-      </div>
-      <a href="tel:2515254405" title="Call Us" aria-label="Call Us"><i class="fas fa-phone"></i></a>
-      <a href="https://g.page/r/CQjqan_iFBshEAE" target="_blank" rel="noopener noreferrer" title="Find us on Google" aria-label="Find us on Google"><i class="fab fa-google"></i></a>
-      <div class="hamburger" onclick="toggleMenu()" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
-        <span></span>
-        <span></span>
-        <span></span>
-      </div>
-    </div>
-  </header>
-
-  <section class="hero-section"> <h1 class="fade-up" data-aos="fade-up" data-aos-delay="0" style="color: #e00000; font-size: 2.7rem; max-width: 800px; margin: 0 auto 1.5rem;">
-      Professional Painting Done Right! Interior, Exterior, Cabinets & More
-    </h1>
-    <p class="fade-up" data-aos="fade-up" data-aos-delay="200" style="color: #ffffff; font-size: 1.2rem; max-width: 700px; margin: 0 auto 2rem;">
-      Dependable Painting serves Baldwin and Mobile Counties with clean, consistent craftsmanship. We use premium products, proper prep, and proven processes to ensure your home or business looks its best and stays that way.
-    </p>
-    <p class="fade-up" data-aos="fade-up" data-aos-delay="400" style="color: #ffffff; font-size: 1rem; max-width: 700px; margin: 0 auto 2rem;">
-      Clear estimates. On time crews. Guaranteed satisfaction. That’s what we deliver.
-    </p>
-    <a href="#contact" class="cta-button fade-up" data-aos="fade-up" data-aos-delay="600"> Get Your Free Quote
+<header>
+  <div class="brand">
+    <a href="/">
+      <img src="https://imagedelivery.net/VwxTcpKX2CusqbCCDB94Nw/0468e61a-5565-43fa-4026-fbc5801f1100/Logos" alt="Dependable Painting Logo">
     </a>
-  </section>
-
-  <section id="services">
-    <h2>What We Do Best</h2>
-    <div class="services-grid">
-      <div class="service-card" data-aos="fade-up">
-        <h3>Interior Painting</h3>
-        <p>Freshen up walls, ceilings, trim, and doors with professional prep and rich, lasting finishes. Worry free color matching and surface protection included.</p>
-        <a href="/services/interior-painting" class="cta-button">Explore Interior Options</a>
-      </div>
-      <div class="service-card" data-aos="fade-up" data-aos-delay="100">
-        <h3>Exterior Painting</h3>
-        <p>Complete exterior services from power washing and surface repair to flawless coatings that stand up to Alabama heat, humidity, and storms.</p>
-        <a href="/services/exterior-painting" class="cta-button">See Exterior Solutions</a>
-      </div>
-      <div class="service-card" data-aos="fade-up" data-aos-delay="200">
-        <h3>Cabinet Painting</h3>
-        <p>Revamp outdated kitchens or bathrooms. Professional-grade prep, spraying, and sealing gives your cabinets a like-new durable finish at a fraction of replacement cost.</p>
-        <a href="/services/cabinet-painting" class="cta-button">Get Cabinet Pricing</a>
-      </div>
-      <div class="service-card" data-aos="fade-up" data-aos-delay="300">
-        <h3>Commercial Painting</h3>
-        <p>Retail, office, churches, and multifamily painting fast, clean, and on schedule with OSHA-safe practices to minimize business disruptions.</p>
-        <a href="/services/commercial-painting" class="cta-button">View Commercial Services</a>
-      </div>
-      <div class="service-card" data-aos="fade-up" data-aos-delay="400">
-        <h3>Sheetrock & Repairs</h3>
-        <p>Patching, floating, sanding, and texturing to erase signs of water damage, cracks, holes, or popcorn ceiling removal perfectly blended and prepped for new paint.</p>
-        <a href="/services/sheetrock-repair" class="cta-button">Fix My Walls</a>
-      </div>
-      <div class="service-card" data-aos="fade-up" data-aos-delay="500">
-        <h3>Epoxy Floor Coatings</h3>
-        <p>Durable, chemical-resistant floor systems for garages, patios, showrooms, and warehouses. Clean, prep, grind, and install decorative or solid color epoxy with protective clear coats.</p>
-        <a href="/services/epoxy-floor-coatings" class="cta-button">Upgrade My Floors</a>
-      </div>
-    </div>
-  </section>
-
-  <section id="gallery">
-    <h2>Project Gallery</h2>
-    <p class="gallery-intro-p">
-        Browse our latest interior, exterior, and specialty projects. From kitchen updates and drywall repair to stunning deck transformations and whole home painting, Dependable delivers.
-    </p>
-    <div class="cabinet-gallery">
-        <div class="gallery-item" data-aos="fade-up">
-            <figure class="img-container">
-                <img src="https://imagedelivery.net/VwxTcpKX2CusqbCCDB94Nw/54cdaebb-64d1-4bfe-fe25-021a5e309f00/ThumbnailGallery"
-                     alt="Sheetrock drywall sanding" class="gallery-img expandable-image" loading="lazy" onclick="openGalleryModal(0)"
-                     onerror="this.onerror=null; this.src='https://placehold.co/400x300/000000/e00000?text=Image+Not+Found';">
-                <figcaption class="hover-caption">Sheetrock & Drywall Sanding</figcaption>
-            </figure>
-        </div>
-        <div class="gallery-item" data-aos="fade-up" data-aos-delay="100">
-            <figure class="img-container">
-                <img src="https://imagedelivery.net/VwxTcpKX2CusqbCCDB94Nw/0c65be1b-a4bd-440c-7a0d-08c2bfef0f00/ThumbnailGallery"
-                     alt="Palm bedroom" class="gallery-img expandable-image" loading="lazy" onclick="openGalleryModal(1)"
-                     onerror="this.onerror=null; this.src='https://placehold.co/400x300/000000/e00000?text=Image+Not+Found';">
-                <figcaption class="hover-caption">Palm Bedroom</figcaption>
-            </figure>
-        </div>
-        <div class="gallery-item" data-aos="fade-up" data-aos-delay="200">
-            <figure class="img-container">
-                <img src="https://imagedelivery.net/VwxTcpKX2CusqbCCDB94Nw/a9d37fb2-7ac2-471e-0e61-2ef8371f1a00/ThumbnailGallery"
-                     alt="Front view exterior" class="gallery-img expandable-image" loading="lazy" onclick="openGalleryModal(2)"
-                     onerror="this.onerror=null; this.src='https://placehold.co/400x300/000000/e00000?text=Image+Not+Found';">
-                <figcaption class="hover-caption">Front View Exterior</figcaption>
-            </figure>
-        </div>
-        <div class="gallery-item" data-aos="fade-up" data-aos-delay="300">
-            <figure class="img-container">
-                <img src="https://imagedelivery.net/VwxTcpKX2CusqbCCDB94Nw/291bf1b1-6796-4e58-ee6e-9f6497a65500/ThumbnailGallery"
-                     alt="Painted deck" class="gallery-img expandable-image" loading="lazy" onclick="openGalleryModal(3)"
-                     onerror="this.onerror=null; this.src='https://placehold.co/400x300/000000/e00000?text=Image+Not+Found';">
-                <figcaption class="hover-caption">Painted Deck</figcaption>
-            </figure>
-        </div>
-        <div class="gallery-item" data-aos="fade-up" data-aos-delay="400">
-            <figure class="img-container">
-                <img src="https://imagedelivery.net/VwxTcpKX2CusqbCCDB94Nw/dc1cf8c9-afa2-4c3f-bb4a-4a92cfcce500/ThumbnailGallery"
-                     alt="Commercial building signage" class="gallery-img expandable-image" loading="lazy" onclick="openGalleryModal(4)"
-                     onerror="this.onerror=null; this.src='https://placehold.co/400x300/000000/e00000?text=Image+Not+Found';">
-                <figcaption class="hover-caption">Commercial Building Signage</figcaption>
-            </figure>
-        </div>
-        <div class="gallery-item" data-aos="fade-up" data-aos-delay="500">
-            <figure class="img-container">
-                <img src="https://imagedelivery.net/VwxTcpKX2CusqbCCDB94Nw/57cc5fba-c264-4a7a-3ea4-d766856e7300/ThumbnailGallery"
-                     alt="Cabinet before after" class="gallery-img expandable-image" loading="lazy" onclick="openGalleryModal(5)"
-                     onerror="this.onerror=null; this.src='https://placehold.co/400x300/000000/e00000?text=Image+Not+Found';">
-                <figcaption class="hover-caption">Cabinet Before & After</figcaption>
-            </figure>
-        </div>
-    </div>
-  </section>
-
-  <section id="what-to-expect"> <h2>What to Expect When You Hire Us</h2>
-    <div class="detail-card-grid">
-      <div class="detail-card" data-aos="fade-up">
-        <h3>Flawless Interior Painting</h3>
-        <p>Expect sharp lines, smooth walls, and professional prep every time. We protect your furniture, fix wall damage, and deliver finishes that elevate your space from kitchens to hallways to ceilings and trim.</p>
-      </div>
-      <div class="detail-card" data-aos="fade-up" data-aos-delay="100">
-        <h3>Durable, Weather-Resistant Exteriors</h3>
-        <p>Our exterior projects are built to last with power washing, surface repair, and top-tier coatings that hold up through Alabama heat, humidity, and storms. Your home will look sharp and stay protected.</p>
-      </div>
-      <div class="detail-card" data-aos="fade-up" data-aos-delay="200">
-        <h3>Expert Repairs & Surface Prep</h3>
-        <p>We don't cut corners. From patching nail holes to floating drywall seams and sealing stains, our prep work is next-level. It's the foundation of a premium finish and it shows in the results.</p>
-      </div>
-      <div class="detail-card" data-aos="fade-up" data-aos-delay="300">
-        <h3>Clean, Respectful, On-Time Crews</h3>
-        <p>No loud music. No smoke breaks. No mess. Just uniformed, skilled pros who show up on time, keep your home clean, and treat your space with care. You’ll feel the difference from day one.</p>
-      </div>
-    </div>
-  </section>
-
-  <section id="reviews-only"> <h2>5-Star Results. Real People. Local Trust.</h2>
-    <div class="reviews-grid">
-      <div class="testimonial-card" data-aos="fade-up">
-        <div class="stars">★★★★★</div>
-        <p class="quote">“Alex and his team are incredible. They knocked out our whole home interior in 2 days and it looks flawless.”</p>
-        <p class="name">— Jessica M., Spanish Fort</p>
-      </div>
-      <div class="testimonial-card" data-aos="fade-up" data-aos-delay="100">
-        <div class="stars">★★★★★</div>
-        <p class="quote">“Dependable Painting showed up on time, kept the place clean, and delivered beyond expectations. Highly recommend.”</p>
-        <p class="name">— Brandon T., Daphne</p>
-      </div>
-      <div class="testimonial-card" data-aos="fade-up" data-aos-delay="200">
-        <div class="stars">★★★★★</div>
-        <p class="quote">“They repainted our kitchen cabinets and made them look brand new. Better than factory finish.”</p>
-        <p class="name">— Rachel G., Fairhope</p>
-      </div>
-      <div class="testimonial-card" data-aos="fade-up" data-aos-delay="300">
-        <div class="stars">★★★★★</div>
-        <p class="quote">“Smooth, fast, and professional from start to finish. I won’t use anyone else again.”</p>
-        <p class="name">— Charles D., Gulf Shores</p>
-      </div>
-    </div>
-    <div class="qr-code-container" data-aos="fade-up">
-      <img src="https://imagedelivery.net/VwxTcpKX2CusqbCCDB94Nw/8be76abe-7442-4579-3195-b315af6fba00/512" alt="Google Review QR Code">
-      <p>Scan to leave a Google Review</p>
-      <a href="https://search.google.com/local/writereview?placeid=ChIJAAAAAAAAAAARCOpqf-IUGyE" target="_blank" rel="noopener noreferrer">
-        ⭐ Leave Us a Review
+    <span>Dependable Painting</span>
+  </div>
+  <div class="nav-icons">
+    <div class="hours-toggle">
+      <a href="#" title="Business Hours" aria-label="Business Hours" onclick="toggleHoursPopup(event); return false;">
+        <i class="fas fa-clock"></i>
       </a>
-    </div>
-  </section>
-
-  <section id="faq" class="faq-section">
-    <div class="faq-container">
-      <h2>Frequently Asked Questions</h2>
-      <div class="faq-grid">
-        <div class="faq-item" data-aos="fade-up" data-aos-delay="0">
-          <h3>Do you provide free estimates?</h3>
-          <p>Yes. We offer 100% free, no-pressure estimates. We'll walk your project, review scope, and provide a clear quote within 24–48 hours.</p>
-        </div>
-        <div class="faq-item" data-aos="fade-up" data-aos-delay="100">
-          <h3>Are you licensed and insured?</h3>
-          <p>Absolutely. We're fully licensed and insured for residential and commercial work in Alabama. Certificates are available upon request.</p>
-        </div>
-        <div class="faq-item" data-aos="fade-up" data-aos-delay="200">
-          <h3>What kind of paint do you use?</h3>
-          <p>We primarily use Sherwin-Williams products unless otherwise requested. For cabinets and interiors, we use scuff-resistant and washable formulas for high traffic durability.</p>
-        </div>
-        <div class="faq-item" data-aos="fade-up" data-aos-delay="300">
-          <h3>How soon can you start?</h3>
-          <p>Most jobs can begin within 1–2 weeks of your quote approval. We also offer rush scheduling when availability allows.</p>
-        </div>
-        <div class="faq-item" data-aos="fade-up" data-aos-delay="400">
-          <h3>What’s your prep process?</h3>
-          <p>We protect all floors, furniture, and fixtures. Surfaces are cleaned, sanded, patched, and primed as needed before applying any paint. Prep is 80% of the job and we don’t cut corners.</p>
-        </div>
-        <div class="faq-item" data-aos="fade-up" data-aos-delay="500">
-          <h3>How do I book a project?</h3>
-          <p>Easy—just head to our <a href="#contact">Contact</a> page and fill out the form, or call us directly. We’ll get back to you quickly to schedule your estimate and lock in your timeline.</p>
-        </div>
+      <div id="hoursPopup" role="tooltip">
+        <strong>Hours:</strong><br>
+        Mon–Fri: 8:00am – 5:30pm<br>
+        Saturday: By Appointment<br>
+        Sunday: Closed
       </div>
     </div>
-  </section>
-
-  <section class="cta-highlight" data-aos="fade-in"> <h2 class="cta-headline">
-      Reliable Results. Minimal Disruption.
-    </h2>
-    <p class="cta-subtext">
-      From retail to offices and multi-unit properties, we keep your project clean, on schedule, and professionally managed without interrupting your business.
-    </p>
-    <div class="cta-buttons">
-      <!-- Google Calendar Appointment Scheduling begin -->
-      <link href="https://calendar.google.com/calendar/scheduling-button-script.css" rel="stylesheet">
-      <script src="https://calendar.google.com/calendar/scheduling-button-script.js" async></script>
-      <script>
-      (function() {
-        var target = document.currentScript;
-        window.addEventListener('load', function() {
-          calendar.schedulingButton.load({
-            url: 'https://calendar.google.com/calendar/appointments/AcZssZ0IkanO1Oc9HQaQH9aBxxNaKYtd5XygGBAJsKg=?gv=true',
-            color: '#D50000',
-            label: 'Book an appointment',
-            target,
-          });
-        });
-      })();
-      </script>
-      <!-- end Google Calendar Appointment Scheduling -->
-      <a href="tel:2515254405" class="cta-btn primary"
-         onclick="gtag('event', 'phone_click', {
-           event_category: 'Contact',
-           event_label: 'Mobile Tap to Call'
-         })"
-      >📞 Call Now</a>
-    </div>
-  </section>
-
-  <section id="contact"> <h2>Let’s Talk About Your Next Project</h2>
-    <p class="contact-intro-p">
-      Free estimates. Honest timelines. Guaranteed satisfaction. Fill out the form and we’ll get back to you ASAP.
-    </p>
-    <form id="contact-form" action="https://formsubmit.co/alexdimmler@dependablepainting.work" method="POST">
-      <input type="hidden" name="_next" value="https://dependablepainting.work/thank-you.html">
-      <input type="text" name="_honey" style="display:none">
-      <input type="hidden" name="_captcha" value="false">
-      <input type="text" name="name" placeholder="Your Name" required>
-      <input type="email" name="email" placeholder="Your Email" required>
-      <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
-      <button type="submit">📩 Send Message</button>
-    </form>
-    <p id="form-success" style="display:none;">Message sent! We’ll be in touch soon.</p>
-    <!-- Removed embedded calendar iframe -->
-  </section>
-
-  <section id="location-map">
-    <h2>Proudly Serving the Gulf Coast</h2>
-    <p class="location-intro-p">
-      From Mobile to Baldwin County and the surrounding areas, we bring dependable results to homes and businesses across Alabama's Gulf Coast.
-    </p>
-    <div class="map-container">
-      <iframe
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d878474.4639526487!2d-88.50364527369405!3d30.675054662867886!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x889a5d78a87e436f%3A0x211b14e27f6aea08!2sDependable%20Painting%20LLC!5e0!3m2!1sen!2sus!4v1747600478528!5m2!1sen!2sus"
-        width="100%"
-        height="450"
-        style="border:0;"
-        allowfullscreen=""
-        loading="lazy"
-        referrerpolicy="no-referrer-when-downgrade"
-      ></iframe>
-    </div>
-    <p style="margin-top: 1.5rem; font-size: 1.1rem;">
-      <a href="https://search.google.com/local/writereview?placeid=ChIJAAAAAAAAAAARCOpqf-IUGyE" target="_blank" rel="noopener noreferrer" style="color: #e00000; text-decoration: underline;">
-        ⭐ Leave us a review on Google
-      </a>
-    </p>
-  </section>
-
-  <div id="imageModal" class="modal" style="display: none;">
-    <span class="close-button" onclick="closeGalleryModal()">×</span>
-    <div class="modal-content">
-        <img id="modalImage" src="" alt="Enlarged project image">
-        <a class="prev" onclick="changeGalleryImage(-1)">❮</a>
-        <a class="next" onclick="changeGalleryImage(1)">❯</a>
-        <div id="caption"></div>
+    <a href="tel:2515254405" title="Call Us" aria-label="Call Us"><i class="fas fa-phone"></i></a>
+    <a href="https://g.page/r/CQjqan_iFBshEAE" target="_blank" rel="noopener noreferrer" title="Find us on Google" aria-label="Find us on Google"><i class="fab fa-google"></i></a>
+    <div class="hamburger" onclick="toggleMenu()" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
+      <span></span>
+      <span></span>
+      <span></span>
     </div>
   </div>
-
-  <nav class="menu" id="mobileMenu" aria-hidden="true">
-    <div class="close-btn" onclick="toggleMenu()" aria-label="Close menu">×</div>
-    <form action="https://www.google.com/search" method="GET" target="_blank" class="search-bar-container" onsubmit="this.q.value='site:dependablepaintingal.com ' + this.q.value.trim(); return !!this.q.value.replace('site:dependablepaintingal.com ', '').trim();">
-      <input class="search-bar" type="text" name="q" placeholder="Search Our Site..." onfocus="this.select();">
-      <button type="submit" aria-label="Search"><i class="fas fa-search"></i></button>
-    </form>
-    <a href="/">Home</a>
-    <a href="/about.html">About Us</a>
-    <a href="/services/">Services</a>
-    <a href="/contact/">Contact</a>
-    <a href="/gallery/">Gallery</a>
-    <a href="/privacy.html">Privacy Policy</a>
-  </nav>
-
-  <!-- Footer moved just before </body> and centered -->
-
-  <script>
-    // Initialize AOS (Animate On Scroll) library if it's loaded
-    // console.log('Attempting to initialize AOS...');
-    if (typeof AOS !== 'undefined') {
-        AOS.init({
-            duration: 800, 
-            once: true,     
-            offset: 80,  
-            delay: 50,       
-        });
-        // console.log('AOS initialized.');
-    } else {
-        // console.log('AOS is not defined.');
-    }
-
-    document.addEventListener('DOMContentLoaded', () => {
-      // console.log('DOM fully loaded and parsed');
-
-      const menu = document.getElementById('mobileMenu');
-      const hamburger = document.querySelector('.hamburger');
-      const hoursPopup = document.getElementById('hoursPopup');
-      const body = document.body;
-      const siteFooter = document.querySelector('.site-footer');
-      const imageModal = document.getElementById("imageModal");
-      const modalImg = document.getElementById("modalImage");
-      const captionText = document.getElementById("caption");
-      const contactForm = document.getElementById('contact-form');
-      const formSuccessMessage = document.getElementById('form-success');
-
-      window.toggleMenu = () => {
-        if (!menu || !hamburger || !body) {
-            return; 
-        }
-        const isOpen = menu.classList.toggle('open');
-        hamburger.classList.toggle('active', isOpen);
-        hamburger.setAttribute('aria-expanded', isOpen.toString());
-        menu.setAttribute('aria-hidden', (!isOpen).toString());
-        body.style.overflow = isOpen ? 'hidden' : ''; 
-
-        if (isOpen) {
-            if(body) body.classList.remove('swipe-active'); 
-            const links = menu.querySelectorAll('nav.menu a');
-            links.forEach((link, i) => {
-                link.style.animation = 'none'; 
-                link.offsetHeight; 
-                link.style.animation = `menuItemFadeIn 0.5s ease forwards ${i * 0.07 + 0.1}s`;
-                link.style.transform = 'translateY(10px)'; 
-            });
-        } else {
-            if (window.innerWidth <= 768 && body) {
-                body.classList.add('swipe-active');
-            }
-        }
-      };
-
-      window.toggleHoursPopup = (e) => {
-        if (!hoursPopup || !e || !e.currentTarget) return;
-        e.stopPropagation(); 
-        const isVisible = hoursPopup.classList.toggle('visible');
-        e.currentTarget.setAttribute('aria-expanded', isVisible.toString());
-      };
-
-      document.addEventListener('click', (e) => {
-        if (hoursPopup && hoursPopup.classList.contains('visible')) {
-          if (e.target && !hoursPopup.contains(e.target) && !e.target.closest('.hours-toggle')) {
-            hoursPopup.classList.remove('visible');
-            const hoursToggleAnchor = document.querySelector('.hours-toggle a');
-            if(hoursToggleAnchor) hoursToggleAnchor.setAttribute('aria-expanded', 'false');
-          }
-        }
-      });
-
-      document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape' && menu && menu.classList.contains('open')) {
-          toggleMenu();
-        }
-      });
-
-      let touchStartX = 0;
-      let touchEndX = 0;
-      const SWIPE_THRESHOLD = 50; 
-      const EDGE_THRESHOLD = 60;  
-
-      document.addEventListener('touchstart', (e) => {
-        touchStartX = e.changedTouches[0].screenX;
-      }, { passive: true }); 
-
-      document.addEventListener('touchend', (e) => {
-        if (!menu) return; 
-        touchEndX = e.changedTouches[0].screenX;
-        const swipeDiff = touchEndX - touchStartX;
-
-        if (menu.classList.contains('open') && swipeDiff < -SWIPE_THRESHOLD) {
-          toggleMenu();
-        }
-        else if (!menu.classList.contains('open') && swipeDiff > SWIPE_THRESHOLD && touchStartX < EDGE_THRESHOLD) {
-          toggleMenu();
-        }
-      });
-
-      function adjustFooterPadding() {
-        if (siteFooter && body) {
-            const footerHeight = siteFooter.offsetHeight;
-            body.style.paddingBottom = `${footerHeight + 20}px`; 
-        }
-      }
-
-      if (body && menu) { 
-        if (window.innerWidth <= 768 && !menu.classList.contains('open')) {
-          body.classList.add('swipe-active');
-        }
-      }
-      adjustFooterPadding(); 
-      window.addEventListener('resize', adjustFooterPadding);
-      window.addEventListener('load', () => {
-        adjustFooterPadding();
-        if (typeof AOS !== 'undefined') {
-            // AOS.refresh(); 
-        }
-      });
-
-      let gallerySlideIndex = 0;
-      const galleryImages = [ 
-          "https://imagedelivery.net/VwxTcpKX2CusqbCCDB94Nw/54cdaebb-64d1-4bfe-fe25-021a5e309f00/public",
-          "https://imagedelivery.net/VwxTcpKX2CusqbCCDB94Nw/0c65be1b-a4bd-440c-7a0d-08c2bfef0f00/public",
-          "https://imagedelivery.net/VwxTcpKX2CusqbCCDB94Nw/a9d37fb2-7ac2-471e-0e61-2ef8371f1a00/public",
-          "https://imagedelivery.net/VwxTcpKX2CusqbCCDB94Nw/291bf1b1-6796-4e58-ee6e-9f6497a65500/public",
-          "https://imagedelivery.net/VwxTcpKX2CusqbCCDB94Nw/dc1cf8c9-afa2-4c3f-bb4a-4a92cfcce500/public",
-          "https://imagedelivery.net/VwxTcpKX2CusqbCCDB94Nw/57cc5fba-c264-4a7a-3ea4-d766856e7300/public"
-      ];
-      const galleryCaptions = [ 
-          "White Brick Home Exterior", "Palm Themed Bedroom", "House Exterior - Front Angle",
-          "Painted Deck", "Edward Jones Office Interior", "Cabinet Repaint (Before & After)"
-      ];
-      
-      window.openGalleryModal = (index) => {
-          if (!imageModal || !modalImg || !captionText) return;
-          gallerySlideIndex = index;
-          imageModal.style.display = "flex"; 
-          setTimeout(() => { 
-              modalImg.src = galleryImages[gallerySlideIndex];
-              modalImg.alt = galleryCaptions[gallerySlideIndex];
-              captionText.innerHTML = galleryCaptions[gallerySlideIndex];
-          }, 50);
-      }
-      window.closeGalleryModal = () => { if (imageModal) imageModal.style.display = "none"; }
-      window.changeGalleryImage = (n) => { 
-          if (!modalImg || !captionText) return;
-          gallerySlideIndex += n;
-          if (gallerySlideIndex >= galleryImages.length) { gallerySlideIndex = 0; } 
-          if (gallerySlideIndex < 0) { gallerySlideIndex = galleryImages.length - 1; } 
-          modalImg.src = galleryImages[gallerySlideIndex];
-          modalImg.alt = galleryCaptions[gallerySlideIndex];
-          captionText.innerHTML = galleryCaptions[gallerySlideIndex];
-      }
-      
-      if (imageModal) {
-          imageModal.addEventListener('click', (event) => {
-              if (event.target === imageModal) { closeGalleryModal(); }
-          });
-      }
-      
-      document.addEventListener('keydown', (event) => {
-          if (imageModal && imageModal.style.display === "flex") {
-              if (event.key === "ArrowLeft") { changeGalleryImage(-1); }
-              else if (event.key === "ArrowRight") { changeGalleryImage(1); }
-              else if (event.key === "Escape") { closeGalleryModal(); }
-          }
-      });
-
-      if (contactForm && formSuccessMessage) { 
-        contactForm.addEventListener('submit', async (e) => {
-          e.preventDefault(); 
-          const formData = new FormData(contactForm);
-          
-          try {
-            const response = await fetch(contactForm.action, {
-              method: 'POST',
-              body: formData,
-              headers: { 'Accept': 'application/json' }
-            });
-
-            if (response.ok) { 
-              contactForm.style.display = 'none'; 
-              formSuccessMessage.style.display = 'block'; 
-            } else { 
-              response.json().then(data => { 
-                if (data.errors && data.errors.length > 0) {
-                  alert("Error: " + data.errors.map(error => error.message).join(", "));
-                } else {
-                  alert("Something went wrong with the submission. Please try again or call us directly.");
-                }
-              }).catch(() => { 
-                alert("Something went wrong with the submission and couldn't parse the error. Please try again or call us directly.");
-              });
-            }
-          } catch (error) { 
-            console.error("Form submission error:", error);
-            alert("A network error occurred. Please check your connection and try again.");
-          }
-        });
-      }
-    });
- </script>
-  <script>
-    document.getElementById("contact-form").addEventListener("submit", function () {
-      gtag('event', 'form_submit', {
-        event_category: 'Contact',
-        event_label: 'Contact Form Submitted'
-      });
-    });
-  </script>
-</body> 
-<footer class="site-footer" style="justify-content: center; text-align: center;">
-  <div class="footer-brand">
-    <img src="https://imagedelivery.net/VwxTcpKX2CusqbCCDB94Nw/0468e61a-5565-43fa-4026-fbc5801f1100/Logos" alt="Dependable Painting Logo">
+</header>
+<nav class="menu" id="mobileMenu">
+  <div class="close-btn" onclick="toggleMenu()">×</div>
+  <input class="search-bar" type="text" placeholder="Search Our Site...">
+  <a href="/">Home</a>
+  <a href="#" onclick="toggleSubMenu(event)">Services ▾</a>
+  <div class="submenu" id="submenu">
+    <a href="/services/interior/">Interior</a>
+    <a href="/services/exterior/">Exterior</a>
+    <a href="/services/commercial/">Commercial</a>
+    <a href="/services/cabinets/">Cabinets</a>
   </div>
-  <div class="footer-links">
-    <a href="tel:2515254405" class="footer-link">📞 Call</a>
-    <a href="mailto:alexdimmler@dependablepaintingal.com" class="footer-link">✉️ Email</a>
-    <a href="#contact" class="footer-link">📋 Quote</a>
-    <a href="https://search.google.com/local/writereview?placeid=ChIJAAAAAAAAAAARCOpqf-IUGyE" target="_blank" rel="noopener noreferrer" class="footer-link">⭐ Review</a>
-    <a href="/privacy.html" class="footer-link">🔒 Privacy</a>
+  <a href="/contact/">Contact</a>
+  <a href="/gallery/">Gallery</a>
+  <a href="/privacy-page/">Privacy Policy</a>
+</nav>
+
+<section class="hero-section" style="background-image: url('https://imagedelivery.net/VwxTcpKX2CusqbCCDB94Nw/86b51c5e-04c9-4673-f1e1-e94f114c0000/public'); background-size: cover; background-position: center; color: white; text-align: center; padding: 100px 20px; min-height: 60vh; display: flex; align-items: center; justify-content: center;">
+  <div class="hero-content">
+    <h1 style="font-size: 3.5rem; margin-bottom: 20px; text-shadow: 2px 2px 4px rgba(0,0,0,0.7);">Dependable Painting</h1>
+    <p style="font-size: 1.5rem; max-width: 800px; margin: 0 auto 30px; text-shadow: 1px 1px 3px rgba(0,0,0,0.7);">
+      Professional Painting Services in Baldwin and Mobile Counties
+    </p>
+    <a href="#contact" style="background-color: #ff3b3b; color: white; padding: 15px 30px; border-radius: 5px; text-decoration: none; font-size: 1.2rem; font-weight: bold; transition: background-color 0.3s ease;">
+      Get a Free Quote
+    </a>
   </div>
+</section>
+
+<section id="services-overview" style="padding: 4rem 2rem; text-align: center; background: #0a0a0a; color: white;">
+  <h2 style="font-size: 2.5rem; margin-bottom: 3rem; color: #fff;">Our Services</h2>
+  <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem;">
+    <div class="service-card" style="background: linear-gradient(145deg, #111 0%, #1f1f1f 100%); padding: 2rem; border-radius: 20px; box-shadow: 0 12px 25px rgba(255, 59, 59, 0.3); transition: transform 0.4s, box-shadow 0.4s;">
+      <h3 style="color: #ff3b3b; font-size: 1.8rem; margin-bottom: 1.2rem;">Interior Painting</h3>
+      <p style="color: #e0e0e0; line-height: 1.6;">
+        Transform your indoor spaces with fresh colors and flawless finishes. From single rooms to whole homes, we handle it all with precision and care.
+      </p>
+      <a href="/services/interior/" style="color: #fff; text-decoration: none; border: 1px solid #ff3b3b; padding: 0.7rem 1.5rem; border-radius: 5px; margin-top: 1.5rem; display: inline-block; transition: background-color 0.3s ease, color 0.3s ease;">Learn More</a>
+    </div>
+    <div class="service-card" style="background: linear-gradient(145deg, #111 0%, #1f1f1f 100%); padding: 2rem; border-radius: 20px; box-shadow: 0 12px 25px rgba(255, 59, 59, 0.3); transition: transform 0.4s, box-shadow 0.4s;">
+      <h3 style="color: #ff3b3b; font-size: 1.8rem; margin-bottom: 1.2rem;">Exterior Painting</h3>
+      <p style="color: #e0e0e0; line-height: 1.6;">
+        Protect and beautify your home's exterior with durable, weather-resistant paints. Enhance curb appeal and longevity with our expert touch.
+      </p>
+      <a href="/services/exterior/" style="color: #fff; text-decoration: none; border: 1px solid #ff3b3b; padding: 0.7rem 1.5rem; border-radius: 5px; margin-top: 1.5rem; display: inline-block; transition: background-color 0.3s ease, color 0.3s ease;">Learn More</a>
+    </div>
+    <div class="service-card" style="background: linear-gradient(145deg, #111 0%, #1f1f1f 100%); padding: 2rem; border-radius: 20px; box-shadow: 0 12px 25px rgba(255, 59, 59, 0.3); transition: transform 0.4s, box-shadow 0.4s;">
+      <h3 style="color: #ff3b3b; font-size: 1.8rem; margin-bottom: 1.2rem;">Cabinet Painting</h3>
+      <p style="color: #e0e0e0; line-height: 1.6;">
+        Revitalize your kitchen or bathroom with stunning cabinet repainting. Achieve a factory-smooth finish that looks and lasts like new.
+      </p>
+      <a href="/services/cabinets/" style="color: #fff; text-decoration: none; border: 1px solid #ff3b3b; padding: 0.7rem 1.5rem; border-radius: 5px; margin-top: 1.5rem; display: inline-block; transition: background-color 0.3s ease, color 0.3s ease;">Learn More</a>
+    </div>
+    <div class="service-card" style="background: linear-gradient(145deg, #111 0%, #1f1f1f 100%); padding: 2rem; border-radius: 20px; box-shadow: 0 12px 25px rgba(255, 59, 59, 0.3); transition: transform 0.4s, box-shadow 0.4s;">
+      <h3 style="color: #ff3b3b; font-size: 1.8rem; margin-bottom: 1.2rem;">Commercial Painting</h3>
+      <p style="color: #e0e0e0; line-height: 1.6;">
+        Professional painting solutions for businesses and commercial properties. We deliver high-quality results with minimal disruption to your operations.
+      </p>
+      <a href="/services/commercial/" style="color: #fff; text-decoration: none; border: 1px solid #ff3b3b; padding: 0.7rem 1.5rem; border-radius: 5px; margin-top: 1.5rem; display: inline-block; transition: background-color 0.3s ease, color 0.3s ease;">Learn More</a>
+    </div>
+  </div>
+</section>
+
+<section id="what-to-expect" style="padding: 4rem 2rem; text-align: center; background: #1a1a1a; color: white;">
+  <h2 style="font-size: 2.5rem; margin-bottom: 3rem; color: #fff;">What to Expect</h2>
+  <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem;">
+    <div class="expect-card" style="background: linear-gradient(145deg, #111 0%, #1f1f1f 100%); padding: 2rem; border-radius: 20px; box-shadow: 0 8px 15px rgba(0,0,0,0.3); transition: transform 0.3s ease, box-shadow 0.3s ease;">
+      <h3 style="color: #ff3b3b; font-size: 1.8rem; margin-bottom: 1.2rem;">Communication</h3>
+      <p style="color: #e0e0e0; line-height: 1.6;">
+        We believe in clear and consistent communication from start to finish. You'll always be informed about the progress of your project.
+      </p>
+    </div>
+    <div class="expect-card" style="background: linear-gradient(145deg, #111 0%, #1f1f1f 100%); padding: 2rem; border-radius: 20px; box-shadow: 0 8px 15px rgba(0,0,0,0.3); transition: transform 0.3s ease, box-shadow 0.3s ease;">
+      <h3 style="color: #ff3b3b; font-size: 1.8rem; margin-bottom: 1.2rem;">Quality Workmanship</h3>
+      <p style="color: #e0e0e0; line-height: 1.6;">
+        Our experienced painters are dedicated to delivering exceptional results. We use high-quality materials and proven techniques for a lasting finish.
+      </p>
+    </div>
+    <div class="expect-card" style="background: linear-gradient(145deg, #111 0%, #1f1f1f 100%); padding: 2rem; border-radius: 20px; box-shadow: 0 8px 15px rgba(0,0,0,0.3); transition: transform 0.3s ease, box-shadow 0.3s ease;">
+      <h3 style="color: #ff3b3b; font-size: 1.8rem; margin-bottom: 1.2rem;">Customer Satisfaction</h3>
+      <p style="color: #e0e0e0; line-height: 1.6;">
+        Your satisfaction is our top priority. We're not happy until you're delighted with your newly painted space.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section id="reviews" style="padding: 4rem 2rem; background: #0a0a0a; color: white; text-align: center;">
+  <h2 style="font-size: 2.5rem; margin-bottom: 3rem; color: #fff;">What Our Clients Say</h2>
+  <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
+    <div class="review-card" style="background: linear-gradient(145deg, #111 0%, #1f1f1f 100%); padding: 2rem; border-radius: 20px; box-shadow: 0 8px 15px rgba(0,0,0,0.3);">
+      <p style="font-style: italic; color: #e0e0e0; margin-bottom: 1rem;">
+        "Dependable Painting did an outstanding job on our exterior. Professional, efficient, and the results are amazing!"
+      </p>
+      <p style="font-weight: bold; color: #ff3b3b;">- John D.</p>
+    </div>
+    <div class="review-card" style="background: linear-gradient(145deg, #111 0%, #1f1f1f 100%); padding: 2rem; border-radius: 20px; box-shadow: 0 8px 15px rgba(0,0,0,0.3);">
+      <p style="font-style: italic; color: #e0e0e0; margin-bottom: 1rem;">
+        "Our kitchen cabinets look brand new! The team was meticulous and delivered a flawless finish. Highly recommend!"
+      </p>
+      <p style="font-weight: bold; color: #ff3b3b;">- Sarah L.</p>
+    </div>
+    <div class="review-card" style="background: linear-gradient(145deg, #111 0%, #1f1f1f 100%); padding: 2rem; border-radius: 20px; box-shadow: 0 8px 15px rgba(0,0,0,0.3);">
+      <p style="font-style: italic; color: #e0e0e0; margin-bottom: 1rem;">
+        "Great experience from start to finish. They were responsive, detailed, and the paint job exceeded our expectations."
+      </p>
+      <p style="font-weight: bold; color: #ff3b3b;">- Michael P.</p>
+    </div>
+  </div>
+  <a href="https://g.page/r/CQjqan_iFBshEAE/review" target="_blank" rel="noopener noreferrer" style="background-color: #ff3b3b; color: white; padding: 15px 30px; border-radius: 5px; text-decoration: none; font-size: 1.2rem; font-weight: bold; transition: background-color 0.3s ease; display: inline-block; margin-top: 2rem;">
+    Leave Us a Review
+  </a>
+</section>
+
+<section id="gallery" style="padding: 4rem 2rem; background: #1a1a1a; color: white; text-align: center;">
+  <h2 style="font-size: 2.5rem; margin-bottom: 2rem; color: #ff3b3b; font-weight: 700;">Our Work Gallery</h2>
+  <p style="max-width: 700px; margin: 0 auto 2.5rem; color: #ccc; font-size: 1.1rem; line-height: 1.6;">
+    Browse through some of our recent projects. Quality and precision in every brushstroke.
+  </p>
+
+  <div class="slideshow-container">
+    <div class="mySlides fade">
+      <img src="https://imagedelivery.net/VwxTcpKX2CusqbCCDB94Nw/a9d37fb2-7ac2-471e-0e61-2ef8371f1a00/1200x675" alt="Professionally painted house exterior" loading="lazy">
+      <div class="text">Exterior Painting</div>
+    </div>
+
+    <div class="mySlides fade">
+      <img src="https://imagedelivery.net/VwxTcpKX2CusqbCCDB94Nw/79371775-03c7-4d2f-89a7-5353439f8d00/1200x675" alt="Bright and modern painted interior room" loading="lazy">
+      <div class="text">Interior Painting</div>
+    </div>
+
+    <div class="mySlides fade">
+      <img src="https://imagedelivery.net/VwxTcpKX2CusqbCCDB94Nw/dc1cf8c9-afa2-4c3f-bb4a-4a92cfcce500/1200x675" alt="Exterior of a painted commercial building" loading="lazy">
+      <div class="text">Commercial Projects</div>
+    </div>
+
+    <div class="mySlides fade">
+      <img src="https://imagedelivery.net/VwxTcpKX2CusqbCCDB94Nw/2dafe566-e3ea-4c07-25b8-d875a33c6000/1200x675" alt="Detailed view of refinished kitchen cabinets" loading="lazy">
+      <div class="text">Cabinet Refinishing</div>
+    </div>
+
+    <div class="mySlides fade">
+      <img src="https://imagedelivery.net/VwxTcpKX2CusqbCCDB94Nw/54cdaebb-64d1-4bfe-fe25-021a5e309f00/1200x675" alt="Sheetrock installation and finishing" loading="lazy">
+      <div class="text">Sheetrock & Texturing</div>
+    </div>
+
+    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+    <a class="next" onclick="plusSlides(1)">&#10095;</a>
+  </div>
+  <br>
+  <div class="dots-container">
+    <span class="dot" onclick="currentSlide(1)"></span>
+    <span class="dot" onclick="currentSlide(2)"></span>
+    <span class="dot" onclick="currentSlide(3)"></span>
+    <span class="dot" onclick="currentSlide(4)"></span>
+    <span class="dot" onclick="currentSlide(5)"></span>
+  </div>
+</section>
+<section id="contact" style="padding: 4rem 2rem; background: #0a0a0a; color: white; text-align: center;">
+  <h2 style="font-size: 2.5rem; margin-bottom: 2rem; color: #fff;">Get a Free Estimate</h2>
+  <p style="max-width: 700px; margin: 0 auto 2.5rem; color: #ccc; font-size: 1.1rem; line-height: 1.6;">
+    Ready to transform your space? Fill out the form below or contact us directly for a free, no-obligation estimate.
+  </p>
+  <form id="contact-form" style="max-width: 600px; margin: 0 auto; background: #1a1a1a; padding: 2.5rem; border-radius: 15px; box-shadow: 0 10px 25px rgba(0,0,0,0.4); text-align: left;">
+    <div style="margin-bottom: 1.5rem;">
+      <label for="name" style="display: block; color: #ff3b3b; font-weight: bold; margin-bottom: 0.5rem;">Name:</label>
+      <input type="text" id="name" name="name" required style="width: 100%; padding: 0.8rem; border-radius: 8px; border: 1px solid #333; background: #222; color: #fff; font-size: 1rem;">
+    </div>
+    <div style="margin-bottom: 1.5rem;">
+      <label for="email" style="display: block; color: #ff3b3b; font-weight: bold; margin-bottom: 0.5rem;">Email:</label>
+      <input type="email" id="email" name="email" required style="width: 100%; padding: 0.8rem; border-radius: 8px; border: 1px solid #333; background: #222; color: #fff; font-size: 1rem;">
+    </div>
+    <div style="margin-bottom: 1.5rem;">
+      <label for="phone" style="display: block; color: #ff3b3b; font-weight: bold; margin-bottom: 0.5rem;">Phone (Optional):</label>
+      <input type="tel" id="phone" name="phone" style="width: 100%; padding: 0.8rem; border-radius: 8px; border: 1px solid #333; background: #222; color: #fff; font-size: 1rem;">
+    </div>
+    <div style="margin-bottom: 1.5rem;">
+      <label for="service" style="display: block; color: #ff3b3b; font-weight: bold; margin-bottom: 0.5rem;">Service Needed:</label>
+      <select id="service" name="service" required style="width: 100%; padding: 0.8rem; border-radius: 8px; border: 1px solid #333; background: #222; color: #fff; font-size: 1rem;">
+        <option value="">Select a Service</option>
+        <option value="Interior Painting">Interior Painting</option>
+        <option value="Exterior Painting">Exterior Painting</option>
+        <option value="Cabinet Painting">Cabinet Painting</option>
+        <option value="Commercial Painting">Commercial Painting</option>
+        <option value="Other">Other</option>
+      </select>
+    </div>
+    <div style="margin-bottom: 1.5rem;">
+      <label for="message" style="display: block; color: #ff3b3b; font-weight: bold; margin-bottom: 0.5rem;">Message:</label>
+      <textarea id="message" name="message" rows="5" required style="width: 100%; padding: 0.8rem; border-radius: 8px; border: 1px solid #333; background: #222; color: #fff; font-size: 1rem; resize: vertical;"></textarea>
+    </div>
+    <button type="submit" style="background-color: #ff3b3b; color: white; padding: 1rem 2rem; border-radius: 8px; border: none; cursor: pointer; font-size: 1.1rem; font-weight: bold; transition: background-color 0.3s ease, transform 0.2s ease;">
+      Submit Request
+    </button>
+  </form>
+</section>
+
+<section style="padding: 4rem 2rem; background: #1a1a1a; color: #fff; text-align: center;">
+  <h2 style="color: #ff3b3b; font-size: 2rem; margin-bottom: 2rem;">Where We Work</h2>
+  <p style="color: #ccc; max-width: 700px; margin: 0 auto 2rem;">
+    Dependable Painting proudly serves homeowners and businesses throughout <strong>Baldwin County</strong> and <strong>Mobile County</strong> — including Fairhope, Daphne, Foley, Gulf Shores, Spanish Fort, Robertsdale, Bay Minette, and surrounding areas.
+  </p>
+  <p style="color: #aaa; font-size: 0.95rem; max-width: 700px; margin: 0 auto 2rem;">
+    Not sure if we come to your neighborhood? Call us at <a href="tel:2515254405" style="color: #ff3b3b; font-weight: bold; text-decoration: none;">(251) 525-4405</a> and we’ll let you know.
+  </p>
+  <div style="max-width: 100%; overflow: hidden; border-radius: 10px;">
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d439229.658767195!2d-87.8441665!3d30.67672005!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x889a5d78a87e436f%3A0x211b14e27f6aea08!2sDependable%20Painting%20LLC!5e0!3m2!1sen!2sus!4v1745456700377!5m2!1sen!2sus" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+  </div>
+</section>
+
+<footer class="site-footer">
+    <div class="footer-logo-container">
+      <img src="https://dependablepaintingal.com/wp-content/uploads/2025/04/cropped-icon-only.webp" alt="Dependable Painting Logo">
+      <h3>Dependable Painting LLC</h3>
+    </div>
+    <div class="footer-links">
+      <a href="tel:2515254405" class="footer-link" onclick="gtag('event', 'phone_click', { event_category: 'Contact', event_label: 'Mobile Tap to Call' })">📞 Call</a>
+      <a href="mailto:alexdimmler@dependablepaintingal.com" class="footer-link">✉️ Email</a>
+      <a href="#contact" class="footer-link">📋 Quote</a>
+      <a href="https://search.google.com/local/writereview?placeid=ChIJAAAAAAAAAAARCOpqf-IUGyE" target="_blank" rel="noopener noreferrer" class="footer-link">⭐ Review</a>
+    </div>
+    <p>Copyright © 2025 Dependable Painting LLC. All rights reserved.</p>
 </footer>
 
+<a href="tel:2515254405" id="floating-call">📞</a>
+
+<script>
+  let slideIndex = 1;
+  // showSlides is called when the page loads, after its definition
+  // Make sure all DOM elements are loaded before showSlides if it manipulates them directly on init.
+  // In this case, it's okay because the first call to showSlides will happen after elements are parsed.
+
+  function plusSlides(n) {
+    showSlides(slideIndex += n);
+  }
+
+  function currentSlide(n) {
+    showSlides(slideIndex = n);
+  }
+
+  function showSlides(n) {
+    let i;
+    let slides = document.getElementsByClassName("mySlides");
+    let dots = document.getElementsByClassName("dot");
+    if (slides.length === 0) return; // Exit if no slides
+
+    if (n > slides.length) {slideIndex = 1}
+    if (n < 1) {slideIndex = slides.length}
+    for (i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none";
+    }
+    for (i = 0; i < dots.length; i++) {
+      dots[i].className = dots[i].className.replace(" active", "");
+    }
+    slides[slideIndex-1].style.display = "block";
+    if (dots.length > 0) { // Check if dots exist
+        dots[slideIndex-1].className += " active";
+    }
+  }
+  // Initialize the slideshow once the DOM is fully loaded
+  document.addEventListener('DOMContentLoaded', function() {
+      showSlides(slideIndex);
+  });
+
+
+  // Optional: Add keyboard navigation (left/right arrow keys)
+  document.addEventListener('keydown', function(event) {
+    if (event.key === "ArrowLeft") {
+      plusSlides(-1);
+    } else if (event.key === "ArrowRight") {
+      plusSlides(1);
+    }
+  });
+
+  // Automatic slideshow (currently commented out in your original file)
+  // let autoSlideInterval;
+  // function startAutoSlides() {
+  //    autoSlideInterval = setInterval(function() {
+  //       plusSlides(1);
+  //    }, 5000); // Change image every 5 seconds
+  // }
+  // function stopAutoSlides() {
+  //    clearInterval(autoSlideInterval);
+  // }
+  // startAutoSlides(); // Start slideshow automatically
+
+  function toggleMenu() {
+    const mobileMenu = document.getElementById('mobileMenu');
+    mobileMenu.classList.toggle('open');
+    const hamburger = document.querySelector('.hamburger');
+    const isExpanded = mobileMenu.classList.contains('open');
+    hamburger.setAttribute('aria-expanded', isExpanded);
+  }
+
+  function toggleSubMenu(e) {
+    e.preventDefault();
+    document.getElementById('submenu').classList.toggle('open');
+  }
+
+  function toggleHoursPopup(event) {
+    event.stopPropagation();
+    const hoursPopup = document.getElementById('hoursPopup');
+    hoursPopup.classList.toggle('open');
+    // Close popup if clicked outside
+    document.addEventListener('click', function closeHoursPopupOnClickOutside(e) {
+      if (!hoursPopup.contains(e.target) && !event.target.closest('.hours-toggle')) {
+        hoursPopup.classList.remove('open');
+        document.removeEventListener('click', closeHoursPopupOnClickOutside);
+      }
+    });
+  }
+
+  window.addEventListener('scroll', function() {
+    const floatingCall = document.getElementById('floating-call');
+    if (window.scrollY > 200) {
+      floatingCall.classList.add('show');
+    } else {
+      floatingCall.classList.remove('show');
+    }
+  });
+
+  document.addEventListener("DOMContentLoaded", function() {
+    const contactForm = document.getElementById("contact-form");
+    if (contactForm) {
+      contactForm.addEventListener("submit", async function (event) {
+        event.preventDefault(); 
+
+        const name = document.getElementById('name').value;
+        const email = document.getElementById('email').value;
+        const message = document.getElementById('message').value;
+
+        if (!name || !email || !message) {
+          alert('Please fill in all required fields.');
+          return;
+        }
+
+        const formData = new FormData(contactForm);
+        const jsonData = {};
+        formData.forEach((value, key) => { jsonData[key] = value; });
+
+        try {
+          // IMPORTANT: Replace "YOUR_FORM_SUBMISSION_ENDPOINT" with your actual backend URL for form processing
+          const response = await fetch("YOUR_FORM_SUBMISSION_ENDPOINT", { 
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+              "Accept": "application/json"
+            },
+            body: JSON.stringify(jsonData),
+          });
+
+          if (response.ok) {
+            alert("Your message has been sent successfully!");
+            contactForm.reset(); 
+            gtag('event', 'form_submit', {
+              event_category: 'Contact',
+              event_label: 'Contact Form Submitted Success'
+            });
+          } else {
+            const errorData = await response.json().catch(() => ({})); // Catch if response is not JSON
+            if (errorData && errorData.errors) {
+              const errorMessages = errorData.errors.map(err => err.message).join("\n");
+              alert("Submission failed:\n" + errorMessages);
+            } else {
+              alert("Something went wrong with the submission. Please try again or call us directly. Status: " + response.status);
+            }
+          }
+        } catch (error) {
+          console.error("Form submission error:", error);
+          alert("A network error occurred. Please check your connection and try again.");
+        }
+      });
+    }
+
+    // Initialize slideshow (if not already called globally, this ensures it's called after DOM is ready)
+    // The global call to showSlides(slideIndex) at the top of your script block is fine too.
+    // However, it's generally safer to ensure the DOM is ready.
+    // showSlides(slideIndex); // This line can be removed if you keep the global call above, or ensure it's inside DOMContentLoaded
+});
+</script>
+</body>
 </html>
