@@ -1,0 +1,717 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dependable Painting</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: Arial, sans-serif; background: #000; color: #fff; }
+
+    /* Header Styles */
+    header {
+      background: #0a0a0a;
+      padding: 1rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      z-index: 9999;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+    }
+    .brand img {
+      width: 40px;
+      height: auto;
+    }
+    .brand span {
+      font-weight: bold;
+      font-size: 1.4rem;
+      color: #ff3b3b;
+    }
+    .nav-icons {
+      display: flex;
+      align-items: center;
+      gap: 1.2rem;
+    }
+    .nav-icons a {
+      color: #ff3b3b;
+      font-size: 1.5rem;
+      transition: color 0.3s ease;
+    }
+    .nav-icons a:hover {
+      color: #fff;
+    }
+
+    /* Hamburger Menu */
+    .hamburger {
+      width: 30px;
+      height: 22px;
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      margin-left: 1rem; /* Adjust spacing as needed */
+    }
+    .hamburger span {
+      height: 3px;
+      width: 100%;
+      background: #ff3b3b;
+      border-radius: 2px;
+      transition: 0.4s;
+    }
+
+    /* Mobile Menu */
+    nav.menu {
+      position: fixed;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100vh;
+      background: #0a0a0a;
+      color: #fff;
+      padding: 4rem 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+      transition: left 0.4s ease;
+      z-index: 9998;
+    }
+    nav.menu.open {
+      left: 0;
+    }
+    nav.menu .search-bar {
+      background: #222;
+      padding: 0.8rem 1rem;
+      border-radius: 8px;
+      margin-bottom: 2rem;
+      color: #ccc;
+      font-size: 1rem;
+      width: 100%;
+      border: none; /* Added for consistency */
+    }
+    nav.menu a {
+      color: #ff3b3b;
+      font-size: 1.5rem;
+      font-weight: bold;
+      text-decoration: none;
+      display: block;
+      transition: color 0.3s ease;
+    }
+    nav.menu a:hover {
+      color: #fff;
+    }
+    nav.menu .submenu {
+      display: none;
+      flex-direction: column;
+      margin-top: 0.5rem;
+      margin-left: 1rem;
+      gap: 0.8rem;
+    }
+    nav.menu .submenu.open {
+      display: flex;
+    }
+    .close-btn {
+      position: absolute;
+      top: 1rem;
+      right: 1.5rem;
+      font-size: 2rem;
+      cursor: pointer;
+      color: #ff3b3b;
+    }
+
+    /* Hours Toggle and Popup */
+    .hours-toggle {
+      position: relative;
+      display: inline-block;
+    }
+    #hoursPopup {
+      display: none;
+      position: absolute;
+      background-color: #222;
+      color: #fff;
+      padding: 1rem;
+      border-radius: 8px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+      top: 100%; /* Position below the icon */
+      left: 50%;
+      transform: translateX(-50%);
+      white-space: nowrap;
+      z-index: 10000;
+      margin-top: 10px; /* Space between icon and popup */
+    }
+    #hoursPopup.open {
+      display: block;
+    }
+
+    /* Main Content Sections */
+    section {
+      padding: 5rem 2rem;
+      text-align: center;
+      background: #1a1a1a;
+      color: #fff;
+    }
+    h1 {
+      color: white;
+      font-size: 2.7rem;
+      max-width: 800px;
+      margin: 0 auto 1.5rem;
+    }
+    p {
+      color: #ccc;
+      font-size: 1.2rem;
+      max-width: 700px;
+      margin: 0 auto 2rem;
+    }
+    section:nth-of-type(2) { /* For the 'Cabinet Painting Like You've Never Seen' section */
+      background: #0a0a0a;
+    }
+    h2 {
+      font-size: 2.5rem;
+      margin-bottom: 3rem;
+      color: #fff;
+    }
+    .service-card {
+      background: linear-gradient(145deg, #111 0%, #1f1f1f 100%);
+      padding: 2rem;
+      border-radius: 20px;
+      box-shadow: 0 12px 25px rgba(255, 59, 59, 0.3);
+      transition: transform 0.4s, box-shadow 0.4s;
+    }
+    .service-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 18px 35px rgba(255, 59, 59, 0.45);
+    }
+    .service-card h3 {
+      color: #ff3b3b;
+      font-size: 1.8rem;
+      margin-bottom: 1.2rem;
+    }
+    .service-card p {
+      color: #e0e0e0;
+      line-height: 1.6;
+      text-align: left;
+    }
+    .cta-highlight {
+      background-color: #1f1f1f;
+      color: #fff;
+      text-align: center;
+      padding: 3.5rem 2rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .cta-highlight h2 {
+      font-size: 2.7rem;
+      margin-bottom: 1.5rem;
+      animation: pulseText 2s infinite ease-in-out;
+      color: #ff3b3b;
+      font-weight: 800;
+      letter-spacing: 0.5px;
+    }
+    .cta-highlight p {
+      font-size: 1.25rem;
+      max-width: 650px;
+      margin: 0 auto 2.5rem;
+      color: #ccc;
+      line-height: 1.6;
+    }
+    .cta-highlight .wp-block-button__link {
+      background-color: #ff3b3b;
+      color: #fff;
+      padding: 0.85rem 2rem;
+      border-radius: 8px;
+      font-weight: 600;
+      text-decoration: none;
+      font-size: 1.1rem;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      display: inline-block; /* Ensure buttons wrap nicely */
+    }
+    .cta-highlight .wp-block-button__link:hover {
+      transform: scale(1.07);
+      box-shadow: 0 6px 18px rgba(255, 59, 59, 0.4);
+    }
+    @keyframes pulseText {
+      0%, 100% {
+        opacity: 1;
+        transform: scale(1);
+      }
+      50% {
+        opacity: 0.95;
+        transform: scale(1.03);
+      }
+    }
+    iframe {
+      max-width: 100%;
+      overflow: hidden;
+      border: 0; /* Changed from border:0; to border: 0; for consistency */
+      border-radius: 10px;
+    }
+
+    /* Gallery Styles */
+    .cabinet-gallery {
+      position: relative;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+    .img-container {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      overflow: hidden;
+      border-radius: 12px;
+    }
+    .gallery-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.4s ease, filter 0.4s ease;
+      display: block;
+    }
+    .gallery-item:hover .gallery-img {
+      transform: scale(1.05);
+      filter: brightness(1.05) contrast(1.05);
+    }
+    .hover-caption {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: rgba(0, 0, 0, 0.65);
+      color: #fff;
+      font-size: 0.95rem;
+      padding: 0.75rem;
+      opacity: 0;
+      transform: translateY(100%);
+      transition: all 0.4s ease;
+      text-align: center;
+    }
+    .gallery-item:hover .hover-caption {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Footer Styles */
+    .site-footer {
+      background:#111;
+      color:#fff;
+      padding:1.5rem 1rem; /* Reduced padding for mobile */
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      text-align:center;
+    }
+    .site-footer .footer-links {
+      display:flex;
+      flex-wrap: wrap; /* Allow links to wrap */
+      justify-content:center;
+      gap: 0.75rem; /* Reduced gap for mobile */
+      margin-bottom:1rem;
+    }
+    .site-footer .footer-link {
+      color: #ff3b3b;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 0.9rem; /* Smaller font size for mobile */
+      padding: 0.5rem 0.75rem; /* Added padding for touch targets */
+      border-radius: 5px;
+      transition: transform 0.3s ease, color 0.3s ease, background-color 0.3s ease;
+    }
+    .site-footer .footer-link:hover {
+      color: #fff;
+      background-color: #ff3b3b; /* Added hover effect for background */
+      transform: translateY(-3px);
+    }
+    .site-footer .footer-logo-container {
+      margin-bottom:1rem;
+    }
+    .site-footer .footer-logo-container img {
+      width:40px; /* Smaller logo for mobile */
+      height:auto;
+      margin-bottom:0.5rem;
+    }
+    .site-footer .footer-logo-container h3 {
+      color:#ff3b3b;
+      font-size: 1.2rem; /* Smaller heading for mobile */
+    }
+    .site-footer p {
+      font-size:0.8rem; /* Smaller copyright text for mobile */
+      color:#777;
+      margin-top: 0.5rem;
+      margin-bottom: 0;
+    }
+
+    /* Floating Call Button */
+    #floating-call {
+      position:fixed;
+      bottom:20px;
+      right:20px;
+      background:#ff3b3b;
+      color:white;
+      border-radius:50%;
+      padding:1rem;
+      font-size:1.5rem;
+      z-index:9999;
+      box-shadow:0 0 10px #ff3b3b;
+      text-align:center;
+      text-decoration:none;
+      opacity:0;
+      pointer-events:none;
+      transition:opacity 0.6s ease, transform 0.4s ease;
+      display: flex; /* Centering content */
+      align-items: center;
+      justify-content: center;
+      width: 60px; /* Fixed size */
+      height: 60px; /* Fixed size */
+    }
+    #floating-call.show {
+      opacity: 1;
+      pointer-events: auto;
+    }
+    #floating-call:hover {
+      transform: scale(1.1);
+      box-shadow: 0 0 15px #ff3b3b;
+    }
+
+    /* Responsive Adjustments */
+    @media (max-width: 768px) {
+      header {
+        padding: 1rem;
+      }
+      .brand span {
+        font-size: 1.2rem;
+      }
+      .brand img {
+        width: 35px;
+      }
+      .nav-icons {
+        gap: 0.8rem;
+      }
+      .nav-icons a {
+        font-size: 1.3rem;
+      }
+      .hamburger {
+        width: 25px;
+        height: 18px;
+      }
+      nav.menu {
+        padding: 3rem 1.5rem;
+      }
+      nav.menu a {
+        font-size: 1.3rem;
+      }
+      nav.menu .search-bar {
+        font-size: 0.9rem;
+        padding: 0.6rem 0.8rem;
+      }
+      .close-btn {
+        font-size: 1.8rem;
+        top: 0.8rem;
+        right: 1rem;
+      }
+      section {
+        padding: 3rem 1rem;
+      }
+      h1 {
+        font-size: 2rem;
+      }
+      p {
+        font-size: 1rem;
+      }
+      h2 {
+        font-size: 2rem;
+      }
+      .service-card {
+        padding: 1.5rem;
+      }
+      .service-card h3 {
+        font-size: 1.5rem;
+      }
+      .cta-highlight {
+        padding: 2.5rem 1rem;
+      }
+      .cta-highlight h2 {
+        font-size: 2rem;
+      }
+      .cta-highlight p {
+        font-size: 1rem;
+      }
+      .cta-highlight .wp-block-button__link {
+        padding: 0.75rem 1.5rem;
+        font-size: 1rem;
+      }
+      .site-footer {
+        padding: 2rem 1rem;
+      }
+      .site-footer .footer-links {
+        gap: 0.5rem;
+      }
+      .site-footer .footer-link {
+        font-size: 0.8rem;
+        padding: 0.4rem 0.6rem;
+      }
+      #floating-call {
+        bottom: 15px;
+        right: 15px;
+        width: 50px;
+        height: 50px;
+        font-size: 1.2rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      header {
+        padding: 0.8rem;
+      }
+      .brand img {
+        width: 30px;
+      }
+      .brand span {
+        font-size: 1.1rem;
+      }
+      .nav-icons {
+        gap: 0.6rem;
+      }
+      .nav-icons a {
+        font-size: 1.2rem;
+      }
+      .hamburger {
+        width: 22px;
+        height: 16px;
+      }
+      section {
+        padding: 2.5rem 0.8rem;
+      }
+      h1 {
+        font-size: 1.8rem;
+      }
+      p {
+        font-size: 0.95rem;
+      }
+      h2 {
+        font-size: 1.8rem;
+      }
+      .service-card {
+        padding: 1.2rem;
+      }
+      .service-card h3 {
+        font-size: 1.3rem;
+      }
+      .site-footer .footer-links {
+        flex-direction: column; /* Stack links vertically */
+        gap: 0.3rem;
+      }
+    }
+
+  </style>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js"></script>
+</head>
+<body>
+<header>
+  <div class="brand">
+    <a href="/">
+      <img src="https://imagedelivery.net/VwxTcpKX2CusqbCCDB94Nw/0468e61a-5565-43fa-4026-fbc5801f1100/Logos" alt="Dependable Painting Logo">
+    </a>
+    <span>Dependable Painting</span>
+  </div>
+  <div class="nav-icons">
+    <div class="hours-toggle">
+      <a href="#" title="Business Hours" aria-label="Business Hours" onclick="toggleHoursPopup(event); return false;">
+        <i class="fas fa-clock"></i>
+      </a>
+      <div id="hoursPopup" role="tooltip">
+        <strong>Hours:</strong><br>
+        Mon–Fri: 8:00am – 5:30pm<br>
+        Saturday: By Appointment<br>
+        Sunday: Closed
+      </div>
+    </div>
+    <a href="tel:2515254405" title="Call Us" aria-label="Call Us"><i class="fas fa-phone"></i></a>
+    <a href="https://g.page/r/CQjqan_iFBshEAE" target="_blank" rel="noopener noreferrer" title="Find us on Google" aria-label="Find us on Google"><i class="fab fa-google"></i></a>
+    <div class="hamburger" onclick="toggleMenu()" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </div>
+</header>
+<nav class="menu" id="mobileMenu">
+  <div class="close-btn" onclick="toggleMenu()">×</div>
+  <input class="search-bar" type="text" placeholder="Search Our Site...">
+  <a href="/">Home</a>
+  <a href="#" onclick="toggleSubMenu(event)">Services ▾</a>
+  <div class="submenu" id="submenu">
+    <a href="/services/interior/">Interior</a>
+    <a href="/services/exterior/">Exterior</a>
+    <a href="/services/commercial/">Commercial</a>
+    <a href="/services/cabinets/">Cabinets</a>
+  </div>
+  <a href="/contact/">Contact</a>
+  <a href="/gallery/">Gallery</a>
+  <a href="/privacy-page/">Privacy Policy</a>
+</nav>
+
+<section style="padding: 5rem 2rem; text-align: center; background: #1a1a1a;">
+  <h1 style="color: white; font-size: 2.7rem; max-width: 800px; margin: 0 auto 1.5rem;">
+    Cabinet Painting That Transforms Kitchens, Bathrooms, Built Ins & More
+  </h1>
+  <p style="color: #ccc; font-size: 1.2rem; max-width: 700px; margin: 0 auto 2rem;">
+    At Dependable Painting, we breathe new life into outdated cabinets with clean lines, rich finishes, and flawless durability. Serving Baldwin and Mobile Counties, our process is built for kitchens that impress and last.
+  </p>
+  <p style="color: #aaa; font-size: 1rem; max-width: 700px; margin: 0 auto 2rem;">
+    Factory-quality finishes. Fast turnarounds. Zero shortcuts. Let’s make your cabinets shine.
+  </p>
+  <a href="#contact" style="background: #ff3b3b; color: white; padding: 1rem 2rem; font-weight: bold; border-radius: 5px; text-decoration: none; font-size: 1.1rem;">
+    Get Your Free Cabinet Quote
+  </a>
+</section>
+<section id="services" style="padding: 4rem 2rem; text-align: center; background: #0a0a0a; color: white;">
+  <h2 style="font-size: 2.5rem; margin-bottom: 3rem; color: #fff;">Cabinet Painting Like You’ve Never Seen</h2>
+  <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2.5rem;">
+    <div class="service-card">
+      <h3 style="color: #ff3b3b; font-size: 1.8rem; margin-bottom: 1.2rem;">Surface Prep That Sticks</h3>
+      <p style="color: #e0e0e0; line-height: 1.6; text-align: left;">
+        Cabinets are cleaned, degreased, and sanded with precision. Every imperfection is filled, caulked, and leveled. This foundation ensures proper adhesion and flawless results. It’s the gritty work done right.
+      </p>
+    </div>
+    <div class="service-card">
+      <h3 style="color: #ff3b3b; font-size: 1.8rem; margin-bottom: 1.2rem;">Shop Spraying & Curing</h3>
+      <p style="color: #e0e0e0; line-height: 1.6; text-align: left;">
+        We carefully remove your cabinet doors and drawers and transport them to our dedicated spray shop. Here, in a controlled, dust-free environment, they receive multiple coats of high-end primer and a professional-grade topcoat, ensuring a durable, glass-smooth finish with zero brush marks.
+      </p>
+    </div>
+    <div class="service-card">
+      <h3 style="color: #ff3b3b; font-size: 1.8rem; margin-bottom: 1.2rem;">On-Site Spray Zone & Prep</h3>
+      <p style="color: #e0e0e0; line-height: 1.6; text-align: left;">
+        For the cabinet frames and fixed elements in your home, we meticulously mask off surrounding areas to create a sealed, dust-free spray zone. This military-precision masking ensures no overspray or mess, maintaining a clean environment while we achieve the same factory-quality finish on site.
+      </p>
+    </div>
+  </div>
+</section>
+<section class="cta-highlight fade-in">
+  <h2 style="font-size: 2.7rem; margin-bottom: 1.5rem; animation: pulseText 2s infinite ease-in-out; color: #ff3b3b; font-weight: 800; letter-spacing: 0.5px;">
+    Transform Your Cabinets With Confidence
+  </h2>
+  <p style="font-size: 1.25rem; max-width: 650px; margin: 0 auto 2.5rem; color: #ccc; line-height: 1.6;">
+    Elevate your kitchen or bath with factory-smooth cabinet painting that lasts. We bring unmatched prep, precision spraying, and professional finishes to homes across Baldwin & Mobile Counties.
+  </p>
+  <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem;">
+    <a href="https://book.titan.email/dependablepaintingal" class="wp-block-button__link">
+      Book Your Cabinet Quote
+    </a>
+    <a href="tel:2515254405" class="wp-block-button__link">
+      Call For Cabinet Estimate
+    </a>
+  </div>
+</section>
+
+<section id="gallery" style="padding: 4rem 2rem; background: #0a0a0a; color: white; text-align: center;">
+  <h2 style="font-size: 2.5rem; margin-bottom: 2rem; color: #ff3b3b; font-weight: 700;">Cabinet Painting Gallery</h2>
+  <p style="max-width: 700px; margin: 0 auto 2.5rem; color: #ccc; font-size: 1.1rem; line-height: 1.6;">
+    See how we’ve transformed kitchens, bathrooms, and built-ins across Baldwin and Mobile Counties. Precision prep. Clean lines. Lasting finishes.
+  </p>
+  <div class="cabinet-gallery">
+    <a href="https://imagedelivery.net/VwxTcpKX2CusqbCCDB94Nw/60ef6830-3e00-4102-9024-33929a110900/ThumbnailGallery" target="_blank" class="gallery-item">
+      <figure class="img-container">
+        <img src="https://imagedelivery.net/VwxTcpKX2CusqbCCDB94Nw/60ef6830-3e00-4102-9024-33929a110900/ThumbnailGallery" alt="Kitchen Cabinets Refinished" class="gallery-img">
+        <figcaption class="hover-caption">Kitchen Cabinets Refinished</figcaption>
+      </figure>
+    </a>
+    <a href="https://imagedelivery.net/VwxTcpKX2CusqbCCDB94Nw/e35d0350-1928-415f-136a-22ce14915d00/ThumbnailGallery" target="_blank" class="gallery-item">
+      <figure class="img-container">
+        <img src="https://imagedelivery.net/VwxTcpKX2CusqbCCDB94Nw/e35d0350-1928-415f-136a-22ce14915d00/ThumbnailGallery" alt="Custom Built-ins Painted" class="gallery-img">
+        <figcaption class="hover-caption">Custom Built-ins Painted</figcaption>
+      </figure>
+    </a>
+    <a href="https://imagedelivery.net/VwxTcpKX2CusqbCCDB94Nw/2dafe566-e3ea-4c07-25b8-d875a33c6000/ThumbnailGallery" target="_blank" class="gallery-item">
+      <figure class="img-container">
+        <img src="https://imagedelivery.net/VwxTcpKX2CusqbCCDB94Nw/2dafe566-e3ea-4c07-25b8-d875a33c6000/ThumbnailGallery" alt="Modern Kitchen Cabinet Painting" class="gallery-img">
+        <figcaption class="hover-caption">Modern Kitchen Cabinet Painting</figcaption>
+      </figure>
+    </a>
+  </div>
+</section>
+
+<section style="padding: 4rem 2rem; background: #1a1a1a; color: #fff; text-align: center;">
+  <h2 style="color: #ff3b3b; font-size: 2rem; margin-bottom: 2rem;">Where We Work</h2>
+  <p style="color: #ccc; max-width: 700px; margin: 0 auto 2rem;">
+    Dependable Painting proudly serves homeowners and businesses throughout <strong>Baldwin County</strong> and <strong>Mobile County</strong> — including Fairhope, Daphne, Foley, Gulf Shores, Spanish Fort, Robertsdale, Bay Minette, and surrounding areas.
+  </p>
+  <p style="color: #aaa; font-size: 0.95rem; max-width: 700px; margin: 0 auto 2rem;">
+    Not sure if we come to your neighborhood? Call us at <a href="tel:2515254405" style="color: #ff3b3b; font-weight: bold; text-decoration: none;">(251) 525-4405</a> and we’ll let you know.
+  </p>
+  <div style="max-width: 100%; overflow: hidden; border-radius: 10px;">
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d439229.658767195!2d-87.8441665!3d30.67672005!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x889a5d78a87e436f%3A0x211b14e27f6aea08!2sDependable%20Painting%20LLC!5e0!3m2!1sen!2sus!4v1745456700377!5m2!1sen!2sus" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+  </div>
+</section>
+
+<footer class="site-footer">
+    <div class="footer-logo-container">
+      <img src="https://dependablepaintingal.com/wp-content/uploads/2025/04/cropped-icon-only.webp" alt="Dependable Painting Logo">
+      <h3>Dependable Painting LLC</h3>
+    </div>
+    <div class="footer-links">
+      <a href="tel:2515254405" class="footer-link" onclick="gtag('event', 'phone_click', { event_category: 'Contact', event_label: 'Mobile Tap to Call' })">📞 Call</a>
+      <a href="mailto:alexdimmler@dependablepaintingal.com" class="footer-link">✉️ Email</a>
+      <a href="#contact" class="footer-link">📋 Quote</a>
+      <a href="https://search.google.com/local/writereview?placeid=ChIJAAAAAAAAAAARCOpqf-IUGyE" target="_blank" rel="noopener noreferrer" class="footer-link">⭐ Review</a>
+    </div>
+    <p>Copyright © 2025 Dependable Painting LLC. All rights reserved.</p>
+</footer>
+
+<a href="tel:2515254405" id="floating-call">📞</a>
+
+<script>
+  function toggleMenu() {
+    const mobileMenu = document.getElementById('mobileMenu');
+    mobileMenu.classList.toggle('open');
+    // Set aria-expanded attribute for accessibility
+    const hamburger = document.querySelector('.hamburger');
+    const isExpanded = mobileMenu.classList.contains('open');
+    hamburger.setAttribute('aria-expanded', isExpanded);
+  }
+
+  function toggleSubMenu(e) {
+    e.preventDefault();
+    document.getElementById('submenu').classList.toggle('open');
+  }
+
+  function toggleHoursPopup(event) {
+    event.stopPropagation(); // Prevent click from closing immediately if another handler is present
+    const hoursPopup = document.getElementById('hoursPopup');
+    hoursPopup.classList.toggle('open');
+    // Close the popup if clicked anywhere else
+    document.addEventListener('click', function closeHoursPopup(e) {
+      if (!hoursPopup.contains(e.target) && !event.target.closest('.hours-toggle')) {
+        hoursPopup.classList.remove('open');
+        document.removeEventListener('click', closeHoursPopup);
+      }
+    });
+  }
+
+  // Show floating call button on scroll
+  window.addEventListener('scroll', function() {
+    const floatingCall = document.getElementById('floating-call');
+    if (window.scrollY > 200) { // Show after scrolling 200px
+      floatingCall.classList.add('show');
+    } else {
+      floatingCall.classList.remove('show');
+    }
+  });
+
+  // Basic gtag function for demonstration if gtag is not fully loaded
+  // In a real scenario, ensure your Google Analytics script is correctly loaded before using gtag
+  if (typeof gtag !== 'function') {
+    window.gtag = function() {
+      console.log('gtag function called with arguments:', arguments);
+    };
+  }
+</script>
+</body>
+</html>
