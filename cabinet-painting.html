@@ -3,11 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Dependable Painting</title>
+  <title>Dependable Painting - Cabinet Painting</title> <!-- Updated Title -->
+  <link rel="icon" type="image/png"
+    href="https://imagedelivery.net/VwxTcpKX2CusqbCCDB94Nw/0468e61a-5565-43fa-4026-fbc5801f1100/facicon"
+    sizes="512x512">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
-    body { font-family: Arial, sans-serif; background: #000; color: #fff; }
+    body { font-family: Arial, sans-serif; background: #000; color: #fff; padding-bottom: 100px; /* Space for footer */ }
 
     /* Header Styles */
     header {
@@ -33,7 +36,7 @@
     .brand span {
       font-weight: bold;
       font-size: 1.4rem;
-      color: #ff3b3b;
+      color: #ff3b3b; /* Standardized Red */
     }
     .nav-icons {
       display: flex;
@@ -41,9 +44,10 @@
       gap: 1.2rem;
     }
     .nav-icons a {
-      color: #ff3b3b;
+      color: #ff3b3b; /* Standardized Red */
       font-size: 1.5rem;
       transition: color 0.3s ease;
+      text-decoration: none;
     }
     .nav-icons a:hover {
       color: #fff;
@@ -57,15 +61,18 @@
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      margin-left: 1rem; /* Adjust spacing as needed */
+      margin-left: 1rem; 
     }
     .hamburger span {
       height: 3px;
       width: 100%;
-      background: #ff3b3b;
+      background: #ff3b3b; /* Standardized Red */
       border-radius: 2px;
       transition: 0.4s;
     }
+    .hamburger.active span:nth-child(1) { transform: translateY(9.5px) rotate(45deg); }
+    .hamburger.active span:nth-child(2) { opacity: 0; }
+    .hamburger.active span:nth-child(3) { transform: translateY(-9.5px) rotate(-45deg); }
 
     /* Mobile Menu */
     nav.menu {
@@ -74,38 +81,71 @@
       left: -100%;
       width: 100%;
       height: 100vh;
-      background: #0a0a0a;
+      background: rgba(0, 0, 0, 0.95); 
+      backdrop-filter: blur(4px); 
       color: #fff;
       padding: 4rem 2rem;
       display: flex;
       flex-direction: column;
-      gap: 2rem;
-      transition: left 0.4s ease;
+      gap: 1.8rem; 
+      transition: left 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94); 
       z-index: 9998;
+      overflow-y: auto; 
     }
     nav.menu.open {
       left: 0;
+      box-shadow: 5px 0 30px rgba(255, 59, 59, 0.2); /* Standardized Red */
+    }
+    nav.menu .search-bar-container {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        margin-bottom: 1rem;
     }
     nav.menu .search-bar {
-      background: #222;
-      padding: 0.8rem 1rem;
-      border-radius: 8px;
-      margin-bottom: 2rem;
-      color: #ccc;
+      height: 2.75rem;
+      padding: 0.5rem 1rem;
       font-size: 1rem;
+      color: #ffffff;
+      background: #000000;
+      border: 1px solid #333333;
+      border-radius: 6px;
       width: 100%;
-      border: none; /* Added for consistency */
+      outline: none;
+      transition: border-color 0.3s ease, box-shadow 0.3s ease;
     }
+    nav.menu .search-bar:focus { 
+        border-color: #ff3b3b; /* Standardized Red */
+        box-shadow: 0 0 10px rgba(255, 59, 59, 0.6); /* Standardized Red */
+    }
+    nav.menu .search-bar-container button {
+        background: none;
+        border: none;
+        color: #ff3b3b; /* Standardized Red */
+        font-size: 1.4rem;
+        cursor: pointer;
+        padding: 0.5rem;
+        transition: color 0.3s ease;
+    }
+    nav.menu .search-bar-container button:hover { color: #ffffff; }
     nav.menu a {
-      color: #ff3b3b;
+      color: #ff3b3b; /* Standardized Red */
       font-size: 1.5rem;
       font-weight: bold;
       text-decoration: none;
       display: block;
-      transition: color 0.3s ease;
+      padding: 0.5rem 0; 
+      transition: color 0.3s ease, transform 0.3s ease; 
+      opacity: 0; 
+      animation: menuItemFadeIn 0.5s ease forwards; 
+    }
+    @keyframes menuItemFadeIn { 
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
     }
     nav.menu a:hover {
       color: #fff;
+      transform: translateX(5px); 
     }
     nav.menu .submenu {
       display: none;
@@ -119,11 +159,16 @@
     }
     .close-btn {
       position: absolute;
-      top: 1rem;
-      right: 1.5rem;
-      font-size: 2rem;
+      top: 1.5rem; 
+      right: 1.5rem; 
+      font-size: 2.2rem; 
       cursor: pointer;
-      color: #ff3b3b;
+      color: #ff3b3b; /* Standardized Red */
+      transition: color 0.3s ease, transform 0.3s ease; 
+    }
+    .close-btn:hover { 
+        color: #ffffff; 
+        transform: rotate(90deg); 
     }
 
     /* Hours Toggle and Popup */
@@ -134,20 +179,25 @@
     #hoursPopup {
       display: none;
       position: absolute;
-      background-color: #222;
+      background-color: #000000; 
       color: #fff;
       padding: 1rem;
-      border-radius: 8px;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.4);
-      top: 100%; /* Position below the icon */
-      left: 50%;
-      transform: translateX(-50%);
+      border-radius: 6px; 
+      box-shadow: 0 0 10px rgba(255, 59, 59, 0.5); /* Standardized Red */
+      top: 130%; 
+      right: 0; 
       white-space: nowrap;
-      z-index: 10000;
-      margin-top: 10px; /* Space between icon and popup */
+      z-index: 10000; 
+      opacity: 0; 
+      transition: opacity 0.3s ease, transform 0.3s ease; 
+      transform: translateY(-10px); 
+      border: 1px solid #333333; 
     }
-    #hoursPopup.open {
+    #hoursPopup strong { color: #ff3b3b; } /* Standardized Red */
+    #hoursPopup.visible { /* Renamed from .open */
       display: block;
+      opacity: 1;
+      transform: translateY(0);
     }
 
     /* Main Content Sections */
@@ -169,7 +219,7 @@
       max-width: 700px;
       margin: 0 auto 2rem;
     }
-    section:nth-of-type(2) { /* For the 'Cabinet Painting Like You've Never Seen' section */
+    section:nth-of-type(2) { 
       background: #0a0a0a;
     }
     h2 {
@@ -181,15 +231,15 @@
       background: linear-gradient(145deg, #111 0%, #1f1f1f 100%);
       padding: 2rem;
       border-radius: 20px;
-      box-shadow: 0 12px 25px rgba(255, 59, 59, 0.3);
+      box-shadow: 0 12px 25px rgba(255, 59, 59, 0.3); /* Standardized Red */
       transition: transform 0.4s, box-shadow 0.4s;
     }
     .service-card:hover {
       transform: translateY(-10px);
-      box-shadow: 0 18px 35px rgba(255, 59, 59, 0.45);
+      box-shadow: 0 18px 35px rgba(255, 59, 59, 0.45); /* Standardized Red */
     }
     .service-card h3 {
-      color: #ff3b3b;
+      color: #ff3b3b; /* Standardized Red */
       font-size: 1.8rem;
       margin-bottom: 1.2rem;
     }
@@ -210,7 +260,7 @@
       font-size: 2.7rem;
       margin-bottom: 1.5rem;
       animation: pulseText 2s infinite ease-in-out;
-      color: #ff3b3b;
+      color: #ff3b3b; /* Standardized Red */
       font-weight: 800;
       letter-spacing: 0.5px;
     }
@@ -222,7 +272,7 @@
       line-height: 1.6;
     }
     .cta-highlight .wp-block-button__link {
-      background-color: #ff3b3b;
+      background-color: #ff3b3b; /* Standardized Red */
       color: #fff;
       padding: 0.85rem 2rem;
       border-radius: 8px;
@@ -230,11 +280,11 @@
       text-decoration: none;
       font-size: 1.1rem;
       transition: transform 0.3s ease, box-shadow 0.3s ease;
-      display: inline-block; /* Ensure buttons wrap nicely */
+      display: inline-block; 
     }
     .cta-highlight .wp-block-button__link:hover {
       transform: scale(1.07);
-      box-shadow: 0 6px 18px rgba(255, 59, 59, 0.4);
+      box-shadow: 0 6px 18px rgba(255, 59, 59, 0.4); /* Standardized Red */
     }
     @keyframes pulseText {
       0%, 100% {
@@ -249,7 +299,7 @@
     iframe {
       max-width: 100%;
       overflow: hidden;
-      border: 0; /* Changed from border:0; to border: 0; for consistency */
+      border: 0; 
       border-radius: 10px;
     }
 
@@ -299,49 +349,58 @@
 
     /* Footer Styles */
     .site-footer {
-      background:#111;
+      background:#111; /* Darker background for footer */
       color:#fff;
       padding:1.5rem 1rem; /* Reduced padding for mobile */
       display:flex;
       flex-direction:column;
       align-items:center;
       text-align:center;
-    }
-    .site-footer .footer-links {
-      display:flex;
-      flex-wrap: wrap; /* Allow links to wrap */
-      justify-content:center;
-      gap: 0.75rem; /* Reduced gap for mobile */
-      margin-bottom:1rem;
-    }
-    .site-footer .footer-link {
-      color: #ff3b3b;
-      text-decoration: none;
-      font-weight: bold;
-      font-size: 0.9rem; /* Smaller font size for mobile */
-      padding: 0.5rem 0.75rem; /* Added padding for touch targets */
-      border-radius: 5px;
-      transition: transform 0.3s ease, color 0.3s ease, background-color 0.3s ease;
-    }
-    .site-footer .footer-link:hover {
-      color: #fff;
-      background-color: #ff3b3b; /* Added hover effect for background */
-      transform: translateY(-3px);
+      border-top: 1px solid #333; /* Added border for separation */
+      position: fixed; /* Sticky footer */
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      z-index: 9998;
+      box-shadow: 0 -4px 10px rgba(255, 59, 59, 0.15); /* Standardized Red */
     }
     .site-footer .footer-logo-container {
       margin-bottom:1rem;
     }
     .site-footer .footer-logo-container img {
-      width:40px; /* Smaller logo for mobile */
+      width:40px; 
       height:auto;
       margin-bottom:0.5rem;
+      border-radius: 50%; /* Ensure logo is round if it's the icon */
+      object-fit: cover;
     }
     .site-footer .footer-logo-container h3 {
-      color:#ff3b3b;
-      font-size: 1.2rem; /* Smaller heading for mobile */
+      color:#ff3b3b; /* Standardized Red */
+      font-size: 1.2rem; 
+    }
+    .site-footer .footer-links {
+      display:flex;
+      flex-wrap: wrap; 
+      justify-content:center;
+      gap: 0.75rem; 
+      margin-bottom:1rem;
+    }
+    .site-footer .footer-link {
+      color: #ff3b3b; /* Standardized Red */
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 0.9rem; 
+      padding: 0.5rem 0.75rem; 
+      border-radius: 5px;
+      transition: transform 0.3s ease, color 0.3s ease, background-color 0.3s ease;
+    }
+    .site-footer .footer-link:hover {
+      color: #fff;
+      background-color: #ff3b3b; /* Standardized Red */
+      transform: translateY(-3px);
     }
     .site-footer p {
-      font-size:0.8rem; /* Smaller copyright text for mobile */
+      font-size:0.8rem; 
       color:#777;
       margin-top: 0.5rem;
       margin-bottom: 0;
@@ -352,23 +411,23 @@
       position:fixed;
       bottom:20px;
       right:20px;
-      background:#ff3b3b;
+      background:#ff3b3b; /* Standardized Red */
       color:white;
       border-radius:50%;
       padding:1rem;
       font-size:1.5rem;
       z-index:9999;
-      box-shadow:0 0 10px #ff3b3b;
+      box-shadow:0 0 10px #ff3b3b; /* Standardized Red */
       text-align:center;
       text-decoration:none;
       opacity:0;
       pointer-events:none;
       transition:opacity 0.6s ease, transform 0.4s ease;
-      display: flex; /* Centering content */
+      display: flex; 
       align-items: center;
       justify-content: center;
-      width: 60px; /* Fixed size */
-      height: 60px; /* Fixed size */
+      width: 60px; 
+      height: 60px; 
     }
     #floating-call.show {
       opacity: 1;
@@ -376,7 +435,7 @@
     }
     #floating-call:hover {
       transform: scale(1.1);
-      box-shadow: 0 0 15px #ff3b3b;
+      box-shadow: 0 0 15px #ff3b3b; /* Standardized Red */
     }
 
     /* Responsive Adjustments */
@@ -401,19 +460,26 @@
         height: 18px;
       }
       nav.menu {
-        padding: 3rem 1.5rem;
+        padding: 3.5rem 1.5rem;
+        gap: 1.5rem;
       }
       nav.menu a {
         font-size: 1.3rem;
       }
       nav.menu .search-bar {
-        font-size: 0.9rem;
-        padding: 0.6rem 0.8rem;
+        font-size: 0.95rem; 
+        padding: 0.5rem 0.8rem;
       }
       .close-btn {
-        font-size: 1.8rem;
-        top: 0.8rem;
-        right: 1rem;
+        font-size: 2rem; 
+        top: 1rem; 
+        right: 1rem; 
+      }
+       #hoursPopup { 
+        font-size: 0.8rem; 
+        padding: 0.8rem; 
+        right: 5px; 
+        top: 120%; 
       }
       section {
         padding: 3rem 1rem;
@@ -447,10 +513,13 @@
         font-size: 1rem;
       }
       .site-footer {
-        padding: 2rem 1rem;
+        padding: 1rem; /* Adjusted for sticky */
+        flex-direction: column;
+        gap: 0.5rem;
       }
       .site-footer .footer-links {
         gap: 0.5rem;
+        margin-bottom: 0.5rem;
       }
       .site-footer .footer-link {
         font-size: 0.8rem;
@@ -463,7 +532,15 @@
         height: 50px;
         font-size: 1.2rem;
       }
+       body.swipe-active::before {
+        content: ""; position: fixed; top: 0; left: 0; width: 15px; height: 100vh;
+        background: radial-gradient(circle at left center, rgba(255,59,59,0.15), transparent 70%); /* Standardized Red */
+        z-index: 9998; pointer-events: none; opacity: 0.7;
+        animation: pulseEdge 2s ease-in-out infinite alternate;
+      }
     }
+     @keyframes pulseEdge { 0% { opacity: 0.3; transform: scaleX(0.8); } 100% { opacity: 0.7; transform: scaleX(1); } }
+
 
     @media (max-width: 480px) {
       header {
@@ -504,57 +581,62 @@
         font-size: 1.3rem;
       }
       .site-footer .footer-links {
-        flex-direction: column; /* Stack links vertically */
+        flex-direction: column; 
         gap: 0.3rem;
       }
     }
 
   </style>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js" defer crossorigin="anonymous"></script>
 </head>
 <body>
 <header>
-  <div class="brand">
-    <a href="/">
-      <img src="https://imagedelivery.net/VwxTcpKX2CusqbCCDB94Nw/0468e61a-5565-43fa-4026-fbc5801f1100/Logos" alt="Dependable Painting Logo">
-    </a>
-    <span>Dependable Painting</span>
-  </div>
-  <div class="nav-icons">
-    <div class="hours-toggle">
-      <a href="#" title="Business Hours" aria-label="Business Hours" onclick="toggleHoursPopup(event); return false;">
-        <i class="fas fa-clock"></i>
+    <div class="brand">
+      <a href="index.html"> 
+        <img src="https://imagedelivery.net/VwxTcpKX2CusqbCCDB94Nw/0468e61a-5565-43fa-4026-fbc5801f1100/Logos" alt="Dependable Painting Logo">
       </a>
-      <div id="hoursPopup" role="tooltip">
-        <strong>Hours:</strong><br>
-        Mon–Fri: 8:00am – 5:30pm<br>
-        Saturday: By Appointment<br>
-        Sunday: Closed
+      <span>Dependable Painting</span>
+    </div>
+    <div class="nav-icons">
+      <div class="hours-toggle">
+        <a href="#" title="Business Hours" aria-label="Business Hours" onclick="toggleHoursPopup(event); return false;">
+          <i class="fas fa-clock"></i>
+        </a>
+        <div id="hoursPopup" role="tooltip">
+          <strong>Hours:</strong><br>
+          Mon–Fri: 8:00am – 5:30pm<br>
+          Saturday: By Appointment<br>
+          Sunday: Closed
+        </div>
+      </div>
+      <a href="tel:2515254405" title="Call Us" aria-label="Call Us"><i class="fas fa-phone"></i></a>
+      <a href="https://g.page/r/CQjqan_iFBshEAE" target="_blank" rel="noopener noreferrer" title="Find us on Google" aria-label="Find us on Google"><i class="fab fa-google"></i></a>
+      <div class="hamburger" onclick="toggleMenu()" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
+        <span></span>
+        <span></span>
+        <span></span>
       </div>
     </div>
-    <a href="tel:2515254405" title="Call Us" aria-label="Call Us"><i class="fas fa-phone"></i></a>
-    <a href="https://g.page/r/CQjqan_iFBshEAE" target="_blank" rel="noopener noreferrer" title="Find us on Google" aria-label="Find us on Google"><i class="fab fa-google"></i></a>
-    <div class="hamburger" onclick="toggleMenu()" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
-      <span></span>
-      <span></span>
-      <span></span>
-    </div>
-  </div>
 </header>
-<nav class="menu" id="mobileMenu">
-  <div class="close-btn" onclick="toggleMenu()">×</div>
-  <input class="search-bar" type="text" placeholder="Search Our Site...">
-  <a href="/">Home</a>
-  <a href="#" onclick="toggleSubMenu(event)">Services ▾</a>
-  <div class="submenu" id="submenu">
-    <a href="/services/interior/">Interior</a>
-    <a href="/services/exterior/">Exterior</a>
-    <a href="/services/commercial/">Commercial</a>
-    <a href="/services/cabinets/">Cabinets</a>
-  </div>
-  <a href="/contact/">Contact</a>
-  <a href="/gallery/">Gallery</a>
-  <a href="/privacy-page/">Privacy Policy</a>
+<nav class="menu" id="mobileMenu" aria-hidden="true">
+    <div class="close-btn" onclick="toggleMenu()" aria-label="Close menu">×</div>
+    <form action="https://www.google.com/search" method="GET" target="_blank" class="search-bar-container" onsubmit="this.q.value='site:dependablepaintingal.com ' + this.q.value.trim(); return !!this.q.value.replace('site:dependablepaintingal.com ', '').trim();">
+      <input class="search-bar" type="text" name="q" placeholder="Search Our Site..." onfocus="this.select();">
+      <button type="submit" aria-label="Search"><i class="fas fa-search"></i></button>
+    </form>
+    <a href="index.html">Home</a>
+    <a href="about.html">About Us</a>
+    <a href="#" onclick="toggleSubMenu(event)">Services ▾</a>
+    <div class="submenu" id="submenu">
+      <a href="services.html">Services Overview</a>
+      <a href="interior-painting.html">Interior Painting</a>
+      <a href="exterior-painting.html">Exterior Painting</a>
+      <a href="commercial-painting.html">Commercial Painting</a>
+      <a href="cabinet-painting.html">Cabinet Painting</a>
+    </div>
+    <a href="index.html#contact">Contact</a>
+    <a href="index.html#gallery">Gallery</a>
+    <a href="privacy.html">Privacy Policy</a>
 </nav>
 
 <section style="padding: 5rem 2rem; text-align: center; background: #1a1a1a;">
@@ -638,7 +720,7 @@
   </div>
 </section>
 
-<section style="padding: 4rem 2rem; background: #1a1a1a; color: #fff; text-align: center;">
+<section id="contact" style="padding: 4rem 2rem; background: #1a1a1a; color: #fff; text-align: center;"> <!-- Added ID for footer link -->
   <h2 style="color: #ff3b3b; font-size: 2rem; margin-bottom: 2rem;">Where We Work</h2>
   <p style="color: #ccc; max-width: 700px; margin: 0 auto 2rem;">
     Dependable Painting proudly serves homeowners and businesses throughout <strong>Baldwin County</strong> and <strong>Mobile County</strong> — including Fairhope, Daphne, Foley, Gulf Shores, Spanish Fort, Robertsdale, Bay Minette, and surrounding areas.
@@ -653,60 +735,136 @@
 
 <footer class="site-footer">
     <div class="footer-logo-container">
-      <img src="https://dependablepaintingal.com/wp-content/uploads/2025/04/cropped-icon-only.webp" alt="Dependable Painting Logo">
-      <h3>Dependable Painting LLC</h3>
+      <img src="https://imagedelivery.net/VwxTcpKX2CusqbCCDB94Nw/0468e61a-5565-43fa-4026-fbc5801f1100/Logos" alt="Dependable Painting Logo" style="width:40px; height:auto; margin-bottom:0.5rem;">
+      <h3 style="color:#ff3b3b; font-size: 1.2rem;">Dependable Painting LLC</h3>
     </div>
     <div class="footer-links">
       <a href="tel:2515254405" class="footer-link" onclick="gtag('event', 'phone_click', { event_category: 'Contact', event_label: 'Mobile Tap to Call' })">📞 Call</a>
       <a href="mailto:alexdimmler@dependablepaintingal.com" class="footer-link">✉️ Email</a>
-      <a href="#contact" class="footer-link">📋 Quote</a>
+      <a href="index.html#contact" class="footer-link">📋 Quote</a>
       <a href="https://search.google.com/local/writereview?placeid=ChIJAAAAAAAAAAARCOpqf-IUGyE" target="_blank" rel="noopener noreferrer" class="footer-link">⭐ Review</a>
+      <a href="privacy.html" class="footer-link">🔒 Privacy</a>
     </div>
-    <p>Copyright © 2025 Dependable Painting LLC. All rights reserved.</p>
+    <p style="font-size:0.8rem; color:#777; margin-top: 0.5rem; margin-bottom: 0;">Copyright © 2025 Dependable Painting LLC. All rights reserved.</p>
 </footer>
 
 <a href="tel:2515254405" id="floating-call">📞</a>
 
 <script>
-  function toggleMenu() {
-    const mobileMenu = document.getElementById('mobileMenu');
-    mobileMenu.classList.toggle('open');
-    // Set aria-expanded attribute for accessibility
-    const hamburger = document.querySelector('.hamburger');
-    const isExpanded = mobileMenu.classList.contains('open');
-    hamburger.setAttribute('aria-expanded', isExpanded);
-  }
+  document.addEventListener('DOMContentLoaded', () => {
+      const menu = document.getElementById('mobileMenu');
+      const hamburger = document.querySelector('.hamburger');
+      const hoursPopup = document.getElementById('hoursPopup');
+      const body = document.body;
+      const siteFooter = document.querySelector('.site-footer'); 
 
-  function toggleSubMenu(e) {
-    e.preventDefault();
-    document.getElementById('submenu').classList.toggle('open');
-  }
+      window.toggleMenu = () => {
+        if (!menu || !hamburger || !body) return;
+        const isOpen = menu.classList.toggle('open');
+        hamburger.classList.toggle('active', isOpen);
+        hamburger.setAttribute('aria-expanded', isOpen.toString());
+        menu.setAttribute('aria-hidden', (!isOpen).toString());
+        body.style.overflow = isOpen ? 'hidden' : '';
 
-  function toggleHoursPopup(event) {
-    event.stopPropagation(); // Prevent click from closing immediately if another handler is present
-    const hoursPopup = document.getElementById('hoursPopup');
-    hoursPopup.classList.toggle('open');
-    // Close the popup if clicked anywhere else
-    document.addEventListener('click', function closeHoursPopup(e) {
-      if (!hoursPopup.contains(e.target) && !event.target.closest('.hours-toggle')) {
-        hoursPopup.classList.remove('open');
-        document.removeEventListener('click', closeHoursPopup);
+        if (isOpen) {
+            if(body) body.classList.remove('swipe-active');
+            const links = menu.querySelectorAll('nav.menu a');
+            links.forEach((link, i) => {
+                link.style.animation = 'none'; 
+                link.offsetHeight; 
+                link.style.animation = `menuItemFadeIn 0.5s ease forwards ${i * 0.07 + 0.1}s`;
+            });
+        } else {
+             if (window.innerWidth <= 768 && body) {
+                body.classList.add('swipe-active');
+            }
+        }
+      };
+      
+      window.toggleSubMenu = (e) => { // Ensure submenu toggle is global if used
+        e.preventDefault();
+        const submenu = document.getElementById('submenu');
+        if (submenu) {
+            submenu.classList.toggle('open');
+        }
+      };
+
+      window.toggleHoursPopup = (e) => {
+        if (!hoursPopup || !e || !e.currentTarget) return;
+        e.stopPropagation(); 
+        const isVisible = hoursPopup.classList.toggle('visible');
+        e.currentTarget.setAttribute('aria-expanded', isVisible.toString());
+      };
+
+      document.addEventListener('click', (e) => {
+        if (hoursPopup && hoursPopup.classList.contains('visible')) {
+          if (e.target && !hoursPopup.contains(e.target) && !e.target.closest('.hours-toggle')) {
+            hoursPopup.classList.remove('visible');
+            const hoursToggleAnchor = document.querySelector('.hours-toggle a');
+            if(hoursToggleAnchor) hoursToggleAnchor.setAttribute('aria-expanded', 'false');
+          }
+        }
+      });
+
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && menu && menu.classList.contains('open')) {
+          toggleMenu();
+        }
+      });
+      
+      let touchStartX = 0;
+      let touchEndX = 0;
+      const SWIPE_THRESHOLD = 50; 
+      const EDGE_THRESHOLD = 60; 
+
+      document.addEventListener('touchstart', (e) => {
+        touchStartX = e.changedTouches[0].screenX;
+      }, { passive: true });
+
+      document.addEventListener('touchend', (e) => {
+        if (!menu) return;
+        touchEndX = e.changedTouches[0].screenX;
+        const swipeDiff = touchEndX - touchStartX;
+
+        if (menu.classList.contains('open') && swipeDiff < -SWIPE_THRESHOLD) { 
+          toggleMenu();
+        } 
+        else if (!menu.classList.contains('open') && swipeDiff > SWIPE_THRESHOLD && touchStartX < EDGE_THRESHOLD) { 
+          toggleMenu();
+        }
+      });
+      
+      function adjustFooterPadding() {
+        if (siteFooter && body) {
+            const footerHeight = siteFooter.offsetHeight;
+            body.style.paddingBottom = `${footerHeight + 20}px`; 
+        }
+      }
+
+      if (body && menu) {
+          if (window.innerWidth <= 768 && !menu.classList.contains('open')) {
+            body.classList.add('swipe-active');
+          }
+      }
+      adjustFooterPadding();
+      window.addEventListener('resize', adjustFooterPadding);
+      window.addEventListener('load', adjustFooterPadding);
+
+
+      // Show floating call button on scroll
+      const floatingCall = document.getElementById('floating-call');
+      if (floatingCall) {
+          window.addEventListener('scroll', function() {
+            if (window.scrollY > 200) { 
+              floatingCall.classList.add('show');
+            } else {
+              floatingCall.classList.remove('show');
+            }
+          });
       }
     });
-  }
-
-  // Show floating call button on scroll
-  window.addEventListener('scroll', function() {
-    const floatingCall = document.getElementById('floating-call');
-    if (window.scrollY > 200) { // Show after scrolling 200px
-      floatingCall.classList.add('show');
-    } else {
-      floatingCall.classList.remove('show');
-    }
-  });
 
   // Basic gtag function for demonstration if gtag is not fully loaded
-  // In a real scenario, ensure your Google Analytics script is correctly loaded before using gtag
   if (typeof gtag !== 'function') {
     window.gtag = function() {
       console.log('gtag function called with arguments:', arguments);

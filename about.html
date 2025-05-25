@@ -13,84 +13,76 @@
     html { scroll-behavior: smooth; }
     body {
       font-family: Arial, sans-serif;
-      background: #000000; /* Background: Black */
-      color: #ffffff; /* Default Text: White */
+      background: #000000; 
+      color: #ffffff; 
       line-height: 1.6;
-      padding-bottom: 120px; /* Initial padding for sticky footer, JS will adjust it. Increased slightly. */
+      padding-bottom: 120px; 
     }
 
     /* Header styling */
     header {
-      background: #000000; /* Header Background: Black */
-      padding: 1rem 2rem; /* Consistent with index.html */
+      background: #0a0a0a; /* Standardized from index.html */
+      padding: 1rem 2rem; 
       display: flex;
-      align-items: center; /* Consistent with index.html */
+      align-items: center; 
       justify-content: space-between;
       position: sticky;
       top: 0;
       z-index: 9999;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.3); /* Consistent with index.html */
-      border-bottom: 1px solid #333333; /* Consistent with index.html */
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3); 
+      /* border-bottom: 1px solid #333333; */ /* Original had this, index.html doesn't, removed for strict match */
     }
-    .brand { display: flex; align-items: center; gap: 0.8rem; } /* Consistent with index.html */
-    .brand img { width: 40px; height: 40px; border-radius: 50%; object-fit: cover;} /* Consistent with index.html */
-    .brand span { font-weight: bold; font-size: 1.4rem; color: #e00000; } /* Consistent with index.html */
+    .brand { display: flex; align-items: center; gap: 0.8rem; } 
+    .brand img { width: 40px; height: auto; /* Standardized from index.html */ } 
+    .brand span { font-weight: bold; font-size: 1.4rem; color: #ff3b3b; } /* Standardized Red */
     .brand a { text-decoration: none; display: flex; align-items: center; }
 
     /* Navigation icons */
-    .nav-icons { display: flex; align-items: center; gap: 1.2rem; } /* Consistent with index.html */
+    .nav-icons { display: flex; align-items: center; gap: 1.2rem; } 
     .nav-icons a {
-      background: #000000;
-      padding: 0.5rem;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 2.4rem;
-      height: 2.4rem;
-      box-shadow: 0 0 6px rgba(224, 0, 0, 0.3);
-      color: #e00000;
-      font-size: 1.3rem;
-      transition: background 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+      color: #ff3b3b; /* Standardized Red */
+      font-size: 1.5rem; /* Standardized from index.html */
+      transition: color 0.3s ease;
       text-decoration: none;
-      border: 1px solid #333333;
+      /* Removed button-like styling to match index.html */
     }
-    .nav-icons a:hover { background: #e00000; color: #ffffff; border-color: #e00000; }
+    .nav-icons a:hover { color: #ffffff; }
     .hours-toggle { position: relative; cursor: pointer; }
     #hoursPopup {
       display: none;
       position: absolute;
-      top: 130%; /* Consistent with index.html */
-      right: 0; /* Consistent with index.html */
-      background: #000000; /* Consistent with index.html */
+      top: 130%; 
+      right: 0; 
+      background: #000000; 
       color: #ffffff;
       padding: 1rem;
       border-radius: 6px;
-      box-shadow: 0 0 10px rgba(224, 0, 0, 0.5); /* Consistent with index.html */
+      box-shadow: 0 0 10px rgba(255, 59, 59, 0.5); /* Standardized Red */
       font-size: 0.9rem;
       white-space: nowrap;
-      z-index: 99999;
+      z-index: 99999; /* Higher than header */
       opacity: 0;
       transition: opacity 0.3s ease, transform 0.3s ease;
       transform: translateY(-10px);
-      border: 1px solid #333333; /* Consistent with index.html */
+      border: 1px solid #333333; 
     }
-    #hoursPopup strong { color: #e00000; } /* Consistent with index.html */
+    #hoursPopup strong { color: #ff3b3b; } /* Standardized Red */
     #hoursPopup.visible { display: block; opacity: 1; transform: translateY(0); }
 
     /* Hamburger icon */
     .hamburger {
-      width: 30px; /* Consistent with index.html */
-      height: 22px; /* Consistent with index.html */
+      width: 30px; 
+      height: 22px; 
       cursor: pointer;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
+      margin-left: 1rem; /* Added from index for spacing */
     }
     .hamburger span {
       height: 3px;
       width: 100%;
-      background: #e00000;
+      background: #ff3b3b; /* Standardized Red */
       border-radius: 2px;
       transition: transform 0.4s ease, opacity 0.4s ease, background-color 0.4s ease;
     }
@@ -100,8 +92,8 @@
 
     /* Mobile menu */
     nav.menu {
-      z-index: 10000;
-      backdrop-filter: blur(4px); /* Consistent with index.html */
+      z-index: 9998; /* Below header's hours popup if open */
+      backdrop-filter: blur(4px); 
       position: fixed;
       top: 0;
       left: -100%;
@@ -116,7 +108,7 @@
       transition: left 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
       overflow-y: auto;
     }
-    nav.menu.open { left: 0; box-shadow: 5px 0 30px rgba(224, 0, 0, 0.2); }
+    nav.menu.open { left: 0; box-shadow: 5px 0 30px rgba(255, 59, 59, 0.2); } /* Standardized Red */
     nav.menu .search-bar-container {
         display: flex;
         align-items: center;
@@ -135,11 +127,14 @@
       outline: none;
       transition: border-color 0.3s ease, box-shadow 0.3s ease;
     }
-    nav.menu .search-bar:focus { border-color: #e00000; box-shadow: 0 0 10px rgba(224, 0, 0, 0.6); }
+    nav.menu .search-bar:focus { 
+        border-color: #ff3b3b; /* Standardized Red */
+        box-shadow: 0 0 10px rgba(255, 59, 59, 0.6); /* Standardized Red */
+    }
     nav.menu .search-bar-container button {
         background: none;
         border: none;
-        color: #e00000;
+        color: #ff3b3b; /* Standardized Red */
         font-size: 1.4rem;
         cursor: pointer;
         padding: 0.5rem;
@@ -147,7 +142,7 @@
     }
     nav.menu .search-bar-container button:hover { color: #ffffff; }
     nav.menu a {
-      color: #e00000;
+      color: #ff3b3b; /* Standardized Red */
       font-size: 1.5rem;
       font-weight: bold;
       text-decoration: none;
@@ -158,13 +153,23 @@
       animation: menuItemFadeIn 0.5s ease forwards;
     }
     nav.menu a:hover { color: #ffffff; transform: translateX(5px); }
+     nav.menu .submenu { /* Copied from index.html for consistency */
+      display: none;
+      flex-direction: column;
+      margin-top: 0.5rem;
+      margin-left: 1rem;
+      gap: 0.8rem;
+    }
+    nav.menu .submenu.open {
+      display: flex;
+    }
     .close-btn {
       position: absolute;
       top: 1.5rem;
       right: 1.5rem;
       font-size: 2.2rem;
       cursor: pointer;
-      color: #e00000;
+      color: #ff3b3b; /* Standardized Red */
       transition: color 0.3s ease, transform 0.3s ease;
     }
     .close-btn:hover { color: #ffffff; transform: rotate(90deg); }
@@ -174,8 +179,8 @@
     }
 
     /* General about page content styles (kept from original about.html) */
-    h1, h2 {
-      color: #ff1b0a;
+    h1, h2 { /* Content specific headings */
+      color: #ff1b0a; /* Original red for content */
       text-align: center;
     }
     p {
@@ -186,7 +191,7 @@
       margin-right: auto;
     }
     a {
-      color: #ff1b0a;
+      color: #ff1b0a; /* Original red for content links */
       text-decoration: none;
     }
     a:hover {
@@ -212,7 +217,7 @@
       width: 180px;
       height: 180px;
       object-fit: cover;
-      box-shadow: 0 8px 24px rgba(255, 27, 10, 0.2);
+      box-shadow: 0 8px 24px rgba(255, 27, 10, 0.2); /* Original Red Shadow */
       display: block;
       margin: 0 auto 1.1rem auto;
       border: 3px solid #1a1a1a;
@@ -236,11 +241,11 @@
       text-align: center;
       background: #000;
     }
-    section.hero h1 {
+    section.hero h1 { /* Content H1 */
       font-size: 2.8rem;
       max-width: 850px;
       margin: 0 auto 1.5rem;
-      text-shadow: 0 0 8px rgba(255, 27, 10, 0.4);
+      text-shadow: 0 0 8px rgba(255, 27, 10, 0.4); /* Original Red Shadow */
     }
     section.hero p:first-of-type {
       color: #ffffff;
@@ -255,30 +260,30 @@
       margin: 0 auto 2rem;
     }
     section.hero a.cta-button {
-      background: #ff1b0a;
+      background: #ff1b0a; /* Original Red for content CTA */
       color: white;
       padding: 1rem 2.2rem;
       font-weight: bold;
       border-radius: 6px;
       text-decoration: none;
       font-size: 1.1rem;
-      box-shadow: 0 0 15px rgba(255, 27, 10, 0.3);
+      box-shadow: 0 0 15px rgba(255, 27, 10, 0.3); /* Original Red Shadow */
       transition: background 0.3s ease, transform 0.3s ease;
       display: inline-block;
     }
     section.hero a.cta-button:hover {
-      background: #e21700;
+      background: #e21700; /* Darker original red */
       transform: translateY(-2px);
     }
     #how-we-operate {
       background: #000000;
       padding: 5rem 2rem;
     }
-    #how-we-operate h2 {
+    #how-we-operate h2 { /* Content H2 */
       font-size: 2.5rem;
       margin-bottom: 2.2rem;
       text-align: center;
-      text-shadow: 0 0 10px rgba(255, 27, 10, 0.5);
+      text-shadow: 0 0 10px rgba(255, 27, 10, 0.5); /* Original Red Shadow */
     }
     #how-we-operate .detail-cards {
       display: grid;
@@ -292,7 +297,7 @@
       border: 1px solid #222222;
       border-radius: 12px;
       padding: 2rem;
-      transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease; /* Added border-color transition */
+      transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease; 
       box-shadow: inset 0 0 0 rgba(0, 0, 0, 0);
       display: flex;
       flex-direction: column;
@@ -300,18 +305,19 @@
     }
     .detail-card:hover {
       transform: translateY(-6px);
+      /* Using standardized red for hover effect on cards */
       box-shadow:
-        0 0 0 2px rgba(224,0,0,0.1), /* Consistent with index.html */
-        0 12px 30px rgba(224, 0, 0, 0.25); /* Consistent with index.html */
-      border-color: rgba(224,0,0,0.3); /* Consistent with index.html */
+        0 0 0 2px rgba(255,59,59,0.1), 
+        0 12px 30px rgba(255,59,59, 0.25); 
+      border-color: rgba(255,59,59,0.3); 
     }
-    .detail-card h3 {
-      color: #e00000; /* Consistent with index.html */
+    .detail-card h3 { /* Card headings */
+      color: #ff3b3b; /* Standardized Red */
       font-size: 1.5rem;
       margin-bottom: 0.75rem;
       font-weight: 700;
       letter-spacing: 0.3px;
-      text-shadow: 0 0 8px rgba(224, 0, 0, 0.4); /* Consistent with index.html */
+      text-shadow: 0 0 8px rgba(255,59,59, 0.4); /* Standardized Red Shadow */
     }
     .detail-card p {
       color: #ffffff;
@@ -331,34 +337,32 @@
       padding: 5rem 2rem;
       text-align: center;
     }
-    #reviews-only h2 {
+    #reviews-only h2 { /* Content H2 */
       font-size: 2.5rem;
-      color: #e00000; /* Consistent with index.html */
+      color: #ff3b3b; /* Standardized Red */
       margin-bottom: 3rem;
-      text-shadow: 0 0 8px rgba(224, 0, 0, 0.3); /* Consistent with index.html */
+      text-shadow: 0 0 8px rgba(255,59,59, 0.3); /* Standardized Red Shadow */
     }
     .qr-code-container {
-      display: flex; /* Changed to flex for consistency */
-      flex-direction: column; /* Added for consistency */
-      align-items: center; /* Added for consistency */
-      gap: 1rem; /* Added for consistency */
+      display: flex; 
+      flex-direction: column; 
+      align-items: center; 
+      gap: 1rem; 
       text-align: center;
       color: #ffffff;
       font-size: 0.9rem;
-      opacity: 0.7; /* Removed as it's not in index.html for this block */
     }
     .qr-code-container img {
       width: 150px;
       height: 150px;
       object-fit: contain;
       border-radius: 8px;
-      box-shadow: 0 4px 12px rgba(224, 0, 0, 0.25); /* Consistent with index.html */
-      margin-bottom: 0.5rem; /* Removed as it's not in index.html for this block */
+      box-shadow: 0 4px 12px rgba(255,59,59, 0.25); /* Standardized Red Shadow */
     }
-    .qr-code-container p { color: #ffffff; font-size: 0.9rem; opacity: 0.7;} /* Consistent with index.html */
+    .qr-code-container p { color: #ffffff; font-size: 0.9rem; opacity: 0.7;} 
     .qr-code-container a {
       display: inline-block;
-      background: #e00000; /* Consistent with index.html */
+      background: #ff3b3b; /* Standardized Red */
       color: #ffffff;
       padding: 0.8rem 2rem;
       border-radius: 6px;
@@ -366,23 +370,23 @@
       text-decoration: none;
       font-size: 1.1rem;
       transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
-      box-shadow: 0 4px 12px rgba(224, 0, 0, 0.25); /* Consistent with index.html */
+      box-shadow: 0 4px 12px rgba(255,59,59, 0.25); /* Standardized Red Shadow */
     }
     .qr-code-container a:hover {
-      background-color: #c00000; /* Consistent with index.html */
+      background-color: #e00000; /* Darker Standardized Red */
       transform: translateY(-2px);
-      box-shadow: 0 6px 15px rgba(224, 0, 0, 0.4); /* Consistent with index.html */
+      box-shadow: 0 6px 15px rgba(255,59,59, 0.4); /* Standardized Red Shadow */
     }
     #location-map {
       background: #000000;
       padding: 4rem 2rem;
       text-align: center;
     }
-    #location-map h2 {
-      color: #e00000; /* Consistent with index.html */
+    #location-map h2 { /* Content H2 */
+      color: #ff3b3b; /* Standardized Red */
       font-size: 2.4rem;
       margin-bottom: 1rem;
-      text-shadow: 0 0 8px rgba(224, 0, 0, 0.3); /* Consistent with index.html */
+      text-shadow: 0 0 8px rgba(255,59,59, 0.3); /* Standardized Red Shadow */
     }
     #location-map p {
       color: #ffffff;
@@ -392,15 +396,15 @@
       margin-left: auto;
       margin-right: auto;
     }
-    .map-container { /* Added for consistency */
+    .map-container { 
       max-width: 1000px;
       margin: 0 auto;
       border-radius: 12px;
       overflow: hidden;
-      box-shadow: 0 8px 25px rgba(224, 0, 0, 0.2);
+      box-shadow: 0 8px 25px rgba(255,59,59, 0.2); /* Standardized Red Shadow */
       border: 1px solid #222222;
     }
-    .map-container iframe { /* Adjusted for consistency */
+    .map-container iframe { 
         display: block;
     }
 
@@ -410,47 +414,58 @@
       bottom: 0;
       left: 0;
       width: 100%;
-      background: #000000; /* Consistent with index.html */
+      background: #000000; 
       color: #ffffff;
-      padding: 1rem 2rem; /* Consistent with index.html */
+      padding: 1rem 2rem; 
       display: flex;
-      justify-content: space-between; /* Consistent with index.html */
-      align-items: center; /* Consistent with index.html */
+      /* justify-content: space-between; Default: will be column on mobile */
+      align-items: center; 
       z-index: 9998;
-      box-shadow: 0 -4px 10px rgba(224, 0, 0, 0.15); /* Consistent with index.html */
-      border-top: 1px solid #333333; /* Consistent with index.html */
+      box-shadow: 0 -4px 10px rgba(255,59,59, 0.15); /* Standardized Red Shadow */
+      border-top: 1px solid #333333; 
     }
-    .footer-brand {
-        display: flex;
+    .site-footer .footer-logo-container { /* Added class from standard footer */
+        margin-bottom:1rem;
+        display: flex; /* Align logo and h3 side by side if desired, or keep column */
+        flex-direction: column;
         align-items: center;
-        gap: 0.8rem; /* Consistent with index.html */
     }
-    .footer-brand img {
-        width: 32px;
-        height: 32px;
-        border-radius: 50%;
+    .site-footer .footer-logo-container img {
+        width:40px; 
+        height:auto;
+        margin-bottom:0.5rem;
+        border-radius: 50%; 
         object-fit: cover;
     }
-    .footer-brand strong {
-        color: #e00000; /* Consistent with index.html */
+    .site-footer .footer-logo-container h3 {
+      color:#ff3b3b; /* Standardized Red */
+      font-size: 1.2rem; 
     }
     .footer-links {
         display: flex;
-        gap: 1rem; /* Consistent with index.html */
+        gap: 1rem; 
         flex-wrap: wrap;
         justify-content: center;
-        margin-top: 0.5rem; /* Consistent with index.html */
+        /* margin-top: 0.5rem; */ /* Removed as footer-logo-container has margin-bottom */
     }
     .footer-link {
-      color: #e00000; /* Consistent with index.html */
+      color: #ff3b3b; /* Standardized Red */
       text-decoration: none;
       font-weight: bold;
       transition: color 0.3s ease, transform 0.3s ease;
-      padding: 0.3rem 0.5rem; /* Consistent with index.html */
+      padding: 0.3rem 0.5rem; 
     }
     .footer-link:hover {
-      color: #ffffff; /* Consistent with index.html */
+      color: #ffffff; 
       transform: translateY(-2px);
+    }
+    .site-footer > p { /* Targeting the copyright paragraph specifically */
+        font-size:0.8rem; 
+        color:#777;
+        margin-top: 0.5rem;
+        margin-bottom: 0;
+        width: 100%; /* Ensure it takes full width for text-align center to work if footer is column */
+        text-align: center;
     }
 
 
@@ -458,8 +473,8 @@
     @media (max-width: 768px) {
       header { padding: 0.8rem 1rem; }
       .brand span { font-size: 1.1rem; }
-      .brand img { width: 32px; height: 32px; }
-      .nav-icons a { width: 2.2rem; height: 2.2rem; font-size: 1.1rem; padding: 0.4rem; }
+      .brand img { width: 32px; height: 32px; } /* Adjusted height for consistency */
+      .nav-icons a { width: auto; height: auto; font-size: 1.3rem; padding: 0; background: none; border: none; box-shadow: none; } /* Standardized to match index.html */
       .nav-icons { gap: 0.8rem; }
       .hamburger { width: 24px; height: 18px; }
       .hamburger span { height: 2.5px; }
@@ -477,17 +492,41 @@
         gap: 0.8rem;
         padding: 0.8rem 1rem;
       }
-      .footer-brand, .footer-links {
+      .site-footer .footer-logo-container, .footer-links { /* Ensure logo container also centers if needed */
         justify-content: center;
+        width: 100%;
       }
       .footer-links { margin-top: 0.5rem; }
-    }
-
-    @media (min-width: 768px) {
-      .faq-grid {
-        grid-template-columns: 1fr 1fr;
+      
+      body.swipe-active::before {
+        content: ""; position: fixed; top: 0; left: 0; width: 15px; height: 100vh;
+        background: radial-gradient(circle at left center, rgba(255,59,59,0.15), transparent 70%); /* Standardized Red */
+        z-index: 9998; pointer-events: none; opacity: 0.7;
+        animation: pulseEdge 2s ease-in-out infinite alternate;
       }
     }
+    @keyframes pulseEdge { 0% { opacity: 0.3; transform: scaleX(0.8); } 100% { opacity: 0.7; transform: scaleX(1); } }
+
+
+    @media (min-width: 768px) { /* Styles for footer on larger screens */
+        .site-footer {
+            flex-direction: row;
+            justify-content: space-between;
+        }
+        .site-footer .footer-logo-container {
+            margin-bottom: 0;
+            align-items: flex-start; /* Align to start if row */
+            flex-direction: row; /* Logo and H3 side-by-side */
+            gap: 0.5rem;
+        }
+         .site-footer .footer-logo-container h3 { margin-top: 0.25rem; }
+        .footer-links { margin-top: 0; }
+        .site-footer > p { /* Copyright text */
+            text-align: right; /* Align to right on larger screens */
+            margin-top: 0;
+        }
+    }
+
 
     @media (max-width: 600px) {
       .service-card .cta-button { width: 100%; }
@@ -503,17 +542,7 @@
       .map-container iframe { height: 300px; }
     }
 
-    /* Left-edge swipe cue for mobile menu */
-    @media (max-width: 768px) {
-      body.swipe-active::before {
-        content: ""; position: fixed; top: 0; left: 0; width: 15px; height: 100vh;
-        background: radial-gradient(circle at left center, rgba(224,0,0,0.15), transparent 70%);
-        z-index: 9998; pointer-events: none; opacity: 0.7;
-        animation: pulseEdge 2s ease-in-out infinite alternate;
-      }
-    }
-    @keyframes pulseEdge { 0% { opacity: 0.3; transform: scaleX(0.8); } 100% { opacity: 0.7; transform: scaleX(1); } }
-</style>
+  </style>
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-4199PGW8SW"></script>
   <script>
@@ -526,7 +555,7 @@
 <body>
   <header>
     <div class="brand">
-      <a href="/">
+      <a href="index.html"> <!-- Updated Link -->
         <img src="https://imagedelivery.net/VwxTcpKX2CusqbCCDB94Nw/0468e61a-5565-43fa-4026-fbc5801f1100/Logos" alt="Dependable Painting Logo">
       </a>
       <span>Dependable Painting</span>
@@ -559,12 +588,19 @@
       <input class="search-bar" type="text" name="q" placeholder="Search Our Site..." onfocus="this.select();">
       <button type="submit" aria-label="Search"><i class="fas fa-search"></i></button>
     </form>
-    <a href="/">Home</a>
-    <a href="/about.html">About Us</a>
-    <a href="/services/">Services</a>
-    <a href="/contact/">Contact</a>
-    <a href="/gallery/">Gallery</a>
-    <a href="/privacy.html">Privacy Policy</a>
+    <a href="index.html">Home</a>
+    <a href="about.html">About Us</a>
+    <a href="#" onclick="toggleSubMenu(event)">Services ▾</a> <!-- Added toggleSubMenu -->
+    <div class="submenu" id="submenu"> <!-- Added submenu div -->
+      <a href="services.html">Services Overview</a>
+      <a href="interior-painting.html">Interior Painting</a>
+      <a href="exterior-painting.html">Exterior Painting</a>
+      <a href="commercial-painting.html">Commercial Painting</a>
+      <a href="cabinet-painting.html">Cabinet Painting</a>
+    </div>
+    <a href="index.html#contact">Contact</a>
+    <a href="index.html#gallery">Gallery</a>
+    <a href="privacy.html">Privacy Policy</a>
   </nav>
 
   <section class="hero">
@@ -631,20 +667,21 @@
   </section>
 
   <footer class="site-footer">
-    <div class="footer-brand">
-      <img src="https://imagedelivery.net/VwxTcpKX2CusqbCCDB94Nw/0468e61a-5565-43fa-4026-fbc5801f1100/Logos" alt="Dependable Painting Logo">
+    <div class="footer-logo-container">
+      <img src="https://imagedelivery.net/VwxTcpKX2CusqbCCDB94Nw/0468e61a-5565-43fa-4026-fbc5801f1100/Logos" alt="Dependable Painting Logo" style="width:40px; height:auto; margin-bottom:0.5rem;">
+      <h3 style="color:#ff3b3b; font-size: 1.2rem;">Dependable Painting LLC</h3>
     </div>
     <div class="footer-links">
       <a href="tel:2515254405" class="footer-link" onclick="gtag('event', 'phone_click', { event_category: 'Contact', event_label: 'Mobile Tap to Call' })">📞 Call</a>
       <a href="mailto:alexdimmler@dependablepaintingal.com" class="footer-link">✉️ Email</a>
-      <a href="#contact" class="footer-link">📋 Quote</a>
+      <a href="index.html#contact" class="footer-link">📋 Quote</a>
       <a href="https://search.google.com/local/writereview?placeid=ChIJAAAAAAAAAAARCOpqf-IUGyE" target="_blank" rel="noopener noreferrer" class="footer-link">⭐ Review</a>
-      <a href="/privacy.html" class="footer-link">🔒 Privacy</a>
+      <a href="privacy.html" class="footer-link">🔒 Privacy</a>
     </div>
+    <p style="font-size:0.8rem; color:#777; margin-top: 0.5rem; margin-bottom: 0;">Copyright © 2025 Dependable Painting LLC. All rights reserved.</p>
   </footer>
   <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
   <script>
-    // Initialize AOS (Animate On Scroll) library if it's loaded
     if (typeof AOS !== 'undefined') {
         AOS.init({
             duration: 800,
@@ -662,9 +699,7 @@
       const siteFooter = document.querySelector('.site-footer');
 
       window.toggleMenu = () => {
-        if (!menu || !hamburger || !body) {
-            return;
-        }
+        if (!menu || !hamburger || !body) return;
         const isOpen = menu.classList.toggle('open');
         hamburger.classList.toggle('active', isOpen);
         hamburger.setAttribute('aria-expanded', isOpen.toString());
@@ -678,12 +713,19 @@
                 link.style.animation = 'none';
                 link.offsetHeight;
                 link.style.animation = `menuItemFadeIn 0.5s ease forwards ${i * 0.07 + 0.1}s`;
-                link.style.transform = 'translateY(10px)';
             });
         } else {
             if (window.innerWidth <= 768 && body) {
                 body.classList.add('swipe-active');
             }
+        }
+      };
+      
+      window.toggleSubMenu = (e) => { // Added toggleSubMenu
+        e.preventDefault();
+        const submenu = document.getElementById('submenu');
+        if (submenu) {
+            submenu.classList.toggle('open');
         }
       };
 
@@ -748,9 +790,6 @@
       window.addEventListener('resize', adjustFooterPadding);
       window.addEventListener('load', () => {
         adjustFooterPadding();
-        if (typeof AOS !== 'undefined') {
-            // AOS.refresh();
-        }
       });
     });
   </script>
