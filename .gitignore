@@ -1,1 +1,17 @@
+# System files (macOS)
 .DS_Store
+.AppleDouble
+.LSOverride
+Icon
+
+# macOS Finder junk
+__MACOSX/
+
+# Logs
+*.log
+
+# Node projects (future-proofing)
+node_modules/
+
+# Secrets and configs
+.env
