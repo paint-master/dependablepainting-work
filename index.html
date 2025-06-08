@@ -853,27 +853,18 @@
       </div>
     </div>
   </header>
-  <nav class="menu" id="mobileMenu" aria-hidden="true"> <!-- Standardized attributes -->
-    <div class="close-btn" onclick="toggleMenu()" aria-label="Close menu">×</div>
-    <!-- Standardized search form -->
-    <form action="https://www.google.com/search" method="GET" target="_blank" class="search-bar-container"
-      onsubmit="this.q.value='site:dependablepaintingal.com ' + this.q.value.trim(); return !!this.q.value.replace('site:dependablepaintingal.com ', '').trim();">
-      <input class="search-bar" type="text" name="q" placeholder="Search Our Site..." onfocus="this.select();">
-      <button type="submit" aria-label="Search"><i class="fas fa-search"></i></button>
-    </form>
+  <nav class="menu" id="mobileMenu" aria-hidden="true"> 
+    <div class="close-btn" onclick="toggleMenu()" aria-label="Close menu">
+      </div>
     <a href="/">Home</a>
-    <a href="about.html">About Us</a> <!-- Added About Us -->
+    <a href="about">About Us</a>
     <a href="#" onclick="toggleSubMenu(event)">Services ▾</a>
     <div class="submenu" id="submenu">
-      <!-- Kept original /services/ type links for index.html as they might be part of a specific setup -->
-      <a href="/services/interior/">Interior</a>
-      <a href="/services/exterior/">Exterior</a>
-      <a href="/services/commercial/">Commercial</a>
-      <a href="/services/cabinets/">Cabinets</a>
+      <a href="/interior-painting/">Interior</a>
+      <a href="/exterior-painting/">Exterior</a>
+      <a href="/cabinet-painting/">Cabinets</a>
     </div>
-    <a href="/contact/">Contact</a>
-    <a href="/gallery/">Gallery</a>
-    <a href="privacy.html">Privacy Policy</a> <!-- Updated link to privacy.html -->
+    <a href="privacy">Privacy Policy</a>
   </nav>
 
   <section class="hero-section"
@@ -901,7 +892,7 @@
           Transform your indoor spaces with fresh colors and flawless finishes. From single rooms to whole homes, we
           handle it all with precision and care.
         </p>
-        <a href="/services/interior/"
+        <a href="/interior-painting/"
           style="color: #fff; text-decoration: none; border: 1px solid #ff3b3b; padding: 0.7rem 1.5rem; border-radius: 5px; margin-top: 1.5rem; display: inline-block; transition: background-color 0.3s ease, color 0.3s ease;">Learn
           More</a>
       </div>
@@ -912,7 +903,7 @@
           Protect and beautify your home's exterior with durable, weather-resistant paints. Enhance curb appeal and
           longevity with our expert touch.
         </p>
-        <a href="/services/exterior/"
+        <a href="/exterior-painting/"
           style="color: #fff; text-decoration: none; border: 1px solid #ff3b3b; padding: 0.7rem 1.5rem; border-radius: 5px; margin-top: 1.5rem; display: inline-block; transition: background-color 0.3s ease, color 0.3s ease;">Learn
           More</a>
       </div>
@@ -923,7 +914,7 @@
           Revitalize your kitchen or bathroom with stunning cabinet repainting. Achieve a factory-smooth finish that
           looks and lasts like new.
         </p>
-        <a href="/services/cabinets/"
+        <a href="/cabinet-painting/"
           style="color: #fff; text-decoration: none; border: 1px solid #ff3b3b; padding: 0.7rem 1.5rem; border-radius: 5px; margin-top: 1.5rem; display: inline-block; transition: background-color 0.3s ease, color 0.3s ease;">Learn
           More</a>
       </div>
@@ -934,7 +925,7 @@
           Professional painting solutions for businesses and commercial properties. We deliver high-quality results with
           minimal disruption to your operations.
         </p>
-        <a href="/services/commercial/"
+        <a href="/services/"
           style="color: #fff; text-decoration: none; border: 1px solid #ff3b3b; padding: 0.7rem 1.5rem; border-radius: 5px; margin-top: 1.5rem; display: inline-block; transition: background-color 0.3s ease, color 0.3s ease;">Learn
           More</a>
       </div>
@@ -1110,21 +1101,8 @@
 
   <a href="tel:2515254405" id="floating-call">📞</a>
 
-  <footer style="background: #0a0a0a; color: #ccc; padding: 3rem 2rem 1.5rem; text-align: center;">
-    <div style="max-width: 1100px; margin: 0 auto;">
-      <div style="margin-bottom: 2rem;">
-          alt="Dependable Painting Logo" style="height: 50px; margin-bottom: 1rem;">
-        <h3 style="font-size: 1.6rem; color: #ff3b3b; margin: 0;">Dependable Painting LLC</h3>
-        <p style="font-size: 0.95rem; color: #aaa;">Baldwin & Mobile County's #1 Residential & Commercial Painters</p>
-      </div>
-      <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 1.5rem; margin-bottom: 2rem;">
-        <a href="/about" style="color: #ff3b3b; text-decoration: none; font-weight: 500;">About</a>
-        <a href="/services" style="color: #ff3b3b; text-decoration: none; font-weight: 500;">Services</a>
-        <a href="/privacy" style="color: #ff3b3b; text-decoration: none; font-weight: 500;">Privacy</a>
-      </div>
-      <p style="font-size: 0.85rem; color: #666;">&copy; 2025 Dependable Painting LLC • 37221 State Highway 225, Bay
-        Minette, AL • <a href="tel:2515254405" style="color: #ff3b3b; text-decoration: none;">(251) 525-4405</a></p>
-    </div>
+  <footer style="background: #0a0a0a; color: #ccc; padding: 1rem 2rem; text-align: center; font-size: 0.9rem;">
+    <p>&copy; 2025 Dependable Painting LLC • <a href="tel:2515254405" style="color: #ff3b3b; text-decoration: none;">(251) 525-4405</a> • Bay Minette, AL</p>
   </footer>
 
   <script>
