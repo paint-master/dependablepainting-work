@@ -1,0 +1,11 @@
+{
+  "name": "dependable-contact",
+  "main": "src/index.js",
+  "compatibility_date": "2025-06-10",
+  "routes": [
+    {
+      "pattern": "api.dependablepainting.work/contact",
+      "custom_domain": true
+    }
+  ]
+}
