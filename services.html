@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
- <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-4199PGW8SW"></script>
+ <script async src="https://www.googletagmanager.com/gtag/js?id=G-4199PGW8SW"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
@@ -21,15 +20,14 @@
     html { scroll-behavior: smooth; }
     body {
       font-family: Arial, sans-serif;
-      background: #000000; /* Background: Black */
-      color: #ffffff; /* Default Text: White */
+      background: #000;
+      color: #fff;
       line-height: 1.6;
-      padding-bottom: 120px; /* Initial padding for sticky footer, JS will adjust it. */
     }
 
-    /* Header styling - Consistent with index.html */
+    /* Header styling */
     header {
-      background: #000000;
+      background: #0a0a0a;
       padding: 1rem 2rem;
       display: flex;
       align-items: center;
@@ -38,33 +36,22 @@
       top: 0;
       z-index: 9999;
       box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-      border-bottom: 1px solid #333333;
     }
     .brand { display: flex; align-items: center; gap: 0.8rem; }
-    .brand img { width: 40px; height: 40px; border-radius: 50%; object-fit: cover;}
-    .brand span { font-weight: bold; font-size: 1.4rem; color: #e00000; }
-    .brand a { text-decoration: none; display: flex; align-items: center; }
+    .brand img { width: 40px; height: auto; }
+    .brand span { font-weight: bold; font-size: 1.4rem; color: #ff3b3b; }
+    .brand a { text-decoration: none; display: flex; align-items: center; gap: 0.8rem;}
 
-    /* Navigation icons - Consistent with index.html */
+    /* Navigation icons */
     .nav-icons { display: flex; align-items: center; gap: 1.2rem; }
     .nav-icons a {
-      background: #000000;
-      padding: 0.5rem;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 2.4rem;
-      height: 2.4rem;
-      box-shadow: 0 0 6px rgba(224, 0, 0, 0.3);
-      color: #e00000;
-      font-size: 1.3rem;
-      transition: background 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+      color: #ff3b3b;
+      font-size: 1.5rem;
+      transition: color 0.3s ease;
       text-decoration: none;
-      border: 1px solid #333333;
     }
-    .nav-icons a:hover { background: #e00000; color: #ffffff; border-color: #e00000; }
-    .hours-toggle { position: relative; cursor: pointer; }
+    .nav-icons a:hover { color: #fff; }
+    .hours-toggle { position: relative; }
     #hoursPopup {
       display: none;
       position: absolute;
@@ -74,7 +61,7 @@
       color: #ffffff;
       padding: 1rem;
       border-radius: 6px;
-      box-shadow: 0 0 10px rgba(224, 0, 0, 0.5);
+      box-shadow: 0 0 10px rgba(255, 59, 59, 0.5);
       font-size: 0.9rem;
       white-space: nowrap;
       z-index: 99999;
@@ -83,10 +70,10 @@
       transform: translateY(-10px);
       border: 1px solid #333333;
     }
-    #hoursPopup strong { color: #e00000; }
+    #hoursPopup strong { color: #ff3b3b; }
     #hoursPopup.visible { display: block; opacity: 1; transform: translateY(0); }
 
-    /* Hamburger icon - Consistent with index.html */
+    /* Hamburger icon */
     .hamburger {
       width: 30px;
       height: 22px;
@@ -98,64 +85,35 @@
     .hamburger span {
       height: 3px;
       width: 100%;
-      background: #e00000;
+      background: #ff3b3b;
       border-radius: 2px;
-      transition: transform 0.4s ease, opacity 0.4s ease, background-color 0.4s ease;
+      transition: 0.4s;
     }
     .hamburger.active span:nth-child(1) { transform: translateY(9.5px) rotate(45deg); }
     .hamburger.active span:nth-child(2) { opacity: 0; }
     .hamburger.active span:nth-child(3) { transform: translateY(-9.5px) rotate(-45deg); }
 
-    /* Mobile menu - Consistent with index.html */
+    /* Mobile menu */
     nav.menu {
-      z-index: 10000;
-      backdrop-filter: blur(4px);
       position: fixed;
       top: 0;
       left: -100%;
       width: 100%;
       height: 100vh;
       background: rgba(0, 0, 0, 0.95);
-      color: #ffffff;
+      backdrop-filter: blur(4px);
+      color: #fff;
       padding: 4rem 2rem;
       display: flex;
       flex-direction: column;
       gap: 1.8rem;
       transition: left 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      z-index: 9998;
       overflow-y: auto;
     }
-    nav.menu.open { left: 0; box-shadow: 5px 0 30px rgba(224, 0, 0, 0.2); }
-    nav.menu .search-bar-container {
-        display: flex;
-        align-items: center;
-        gap: 0.5rem;
-        margin-bottom: 1rem;
-    }
-    nav.menu .search-bar {
-      height: 2.75rem;
-      padding: 0.5rem 1rem;
-      font-size: 1rem;
-      color: #ffffff;
-      background: #000000;
-      border: 1px solid #333333;
-      border-radius: 6px;
-      width: 100%;
-      outline: none;
-      transition: border-color 0.3s ease, box-shadow 0.3s ease;
-    }
-    nav.menu .search-bar:focus { border-color: #e00000; box-shadow: 0 0 10px rgba(224, 0, 0, 0.6); }
-    nav.menu .search-bar-container button {
-        background: none;
-        border: none;
-        color: #e00000;
-        font-size: 1.4rem;
-        cursor: pointer;
-        padding: 0.5rem;
-        transition: color 0.3s ease;
-    }
-    nav.menu .search-bar-container button:hover { color: #ffffff; }
+    nav.menu.open { left: 0; box-shadow: 5px 0 30px rgba(255, 59, 59, 0.2); }
     nav.menu a {
-      color: #e00000;
+      color: #ff3b3b;
       font-size: 1.5rem;
       font-weight: bold;
       text-decoration: none;
@@ -165,14 +123,14 @@
       opacity: 0;
       animation: menuItemFadeIn 0.5s ease forwards;
     }
-    nav.menu a:hover { color: #ffffff; transform: translateX(5px); }
+    nav.menu a:hover { color: #fff; transform: translateX(5px); }
     .close-btn {
       position: absolute;
       top: 1.5rem;
       right: 1.5rem;
       font-size: 2.2rem;
       cursor: pointer;
-      color: #e00000;
+      color: #ff3b3b;
       transition: color 0.3s ease, transform 0.3s ease;
     }
     .close-btn:hover { color: #ffffff; transform: rotate(90deg); }
@@ -180,65 +138,53 @@
       from { opacity: 0; transform: translateY(10px); }
       to { opacity: 1; transform: translateY(0); }
     }
+    nav.menu .submenu {
+      display: none;
+      flex-direction: column;
+      margin-top: 0.5rem;
+      margin-left: 1rem;
+      gap: 0.8rem;
+    }
+    nav.menu .submenu.open {
+      display: flex;
+    }
+
+    section {
+        padding: 5rem 2rem;
+        text-align: center;
+        background: #1a1a1a;
+    }
+    h1, h2{
+        color: #fff;
+    }
+    p{
+        color: #ccc;
+    }
 
     /* Intro Section Styles */
     .intro-section {
-      padding: 5rem 2rem;
-      text-align: center;
-      background: #000000;
+      background: #0a0a0a;
     }
     .intro-section h1 {
-      color: #e00000;
+      color: #ff3b3b;
       font-size: 2.8rem;
       max-width: 850px;
       margin: 0 auto 1.5rem;
-      text-shadow: 0 0 8px rgba(224, 0, 0, 0.4);
+      text-shadow: 0 0 8px rgba(255, 59, 59, 0.4);
     }
     .intro-section p {
-      color: #ffffff;
       font-size: 1.15rem;
       max-width: 700px;
       margin: 0 auto 2rem;
     }
-    /* Styles for the Google Calendar button in intro section */
-    .intro-section .cta-button-container {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      margin-top: 2rem;
-    }
-    .intro-section .gcal-button {
-      /* Adjust styling to match your site's aesthetic */
-      background: #e00000 !important;
-      color: white !important;
-      padding: 1rem 2.2rem !important;
-      font-weight: bold !important;
-      border-radius: 6px !important;
-      text-decoration: none !important;
-      font-size: 1.1rem !important;
-      border: none !important;
-      cursor: pointer !important;
-      box-shadow: 0 0 15px rgba(224, 0, 0, 0.3) !important;
-      transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease !important;
-    }
-    .intro-section .gcal-button:hover {
-      background: #c00000 !important;
-      transform: translateY(-2px) !important;
-      box-shadow: 0 5px 15px rgba(224, 0, 0, 0.5) !important;
-    }
-
 
     /* Services Grid Section Styles */
     #main-services {
-      padding: 5rem 2rem;
-      text-align: center;
-      background: #000000;
+      background: #1a1a1a;
     }
     #main-services h2 {
-      color: #e00000;
       font-size: 2.5rem;
       margin-bottom: 2.5rem;
-      text-shadow: 0 0 8px rgba(224,0,0,0.3);
     }
     .services-grid {
       display: grid;
@@ -248,63 +194,54 @@
       margin: 0 auto;
     }
     .service-card {
-      background: #000000;
+      background: linear-gradient(145deg, #111 0%, #1f1f1f 100%);
       padding: 2rem;
-      border-radius: 12px;
+      border-radius: 20px;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
-      box-shadow: 0 6px 15px rgba(0,0,0,0.4);
-      border: 1px solid #333333;
+      transition: transform 0.4s, box-shadow 0.4s;
+      box-shadow: 0 12px 25px rgba(255, 59, 59, 0.3);
     }
     .service-card:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 12px 28px rgba(224, 0, 0, 0.3);
-      border-color: rgba(224,0,0,0.5);
+      transform: translateY(-10px);
+      box-shadow: 0 18px 35px rgba(255, 59, 59, 0.45);
     }
     .service-card h3 {
-      color: #e00000;
+      color: #ff3b3b;
       margin-bottom: 1rem;
       font-size: 1.6rem;
     }
     .service-card p {
-      color: #ffffff;
       flex-grow: 1;
       font-size: 1rem;
       line-height: 1.6;
       margin-bottom: 1.5rem;
     }
-    .service-card a.cta-button { /* Specific style for service card buttons */
+    .service-card a.cta-button {
       display: inline-block;
-      background: #e00000;
+      background: #ff3b3b;
       color: #ffffff;
       padding: 0.8rem 1.8rem;
       border-radius: 6px;
       font-weight: bold;
       text-decoration: none;
       font-size: 1rem;
-      transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
-      box-shadow: 0 4px 12px rgba(224, 0, 0, 0.25);
-      text-align: center;
+      transition: background 0.3s ease, transform 0.3s ease;
     }
     .service-card a.cta-button:hover {
-      background: #c00000;
+      background: #e00000;
       transform: translateY(-3px);
-      box-shadow: 0 6px 18px rgba(224, 0, 0, 0.45);
     }
 
     /* What to Expect Section Styles */
     #what-to-expect {
-      padding: 5rem 2rem;
-      background: #000000;
+      background: #0a0a0a;
     }
     #what-to-expect h2 {
-      color: #e00000;
       font-size: 2.5rem;
       margin-bottom: 2.2rem;
-      text-align: center;
-      text-shadow: 0 0 10px rgba(224, 0, 0, 0.5);
+      text-shadow: 0 0 10px rgba(255, 59, 59, 0.5);
     }
     .detail-card-grid {
         display: grid;
@@ -314,49 +251,34 @@
         margin: 0 auto;
     }
     .detail-card {
-      background: #000000;
-      border: 1px solid #222222;
+      background: #1a1a1a;
+      border: 1px solid #333;
       border-radius: 12px;
       padding: 2rem;
-      transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
-      box-shadow: inset 0 0 0 rgba(0, 0, 0, 0);
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
     .detail-card:hover {
       transform: translateY(-6px);
-      box-shadow:
-        0 0 0 2px rgba(224,0,0,0.1),
-        0 12px 30px rgba(224, 0, 0, 0.25);
-      border-color: rgba(224,0,0,0.3);
+      box-shadow: 0 12px 30px rgba(255, 59, 59, 0.25);
     }
     .detail-card h3 {
-      color: #e00000;
+      color: #ff3b3b;
       font-size: 1.5rem;
       margin-bottom: 0.75rem;
-      font-weight: 700;
-      letter-spacing: 0.3px;
-      text-shadow: 0 0 8px rgba(224, 0, 0, 0.4);
     }
     .detail-card p {
-      color: #ffffff;
       font-size: 1.05rem;
       line-height: 1.6;
     }
 
-    /* FAQ Section Styles (Adjusted for services page) */
-    #faq-section { /* Renamed ID to avoid conflict with general FAQ */
-      padding: 4rem 2rem;
-      background: #000000;
-      color: white;
-      text-align: center;
+    /* FAQ Section Styles */
+    #faq-section {
+      background: #1a1a1a;
     }
     #faq-section h2 {
       font-size: 2.5rem;
-      color: #e00000;
+      color: #ff3b3b;
       margin-bottom: 2.5rem;
-      text-shadow: 0 0 8px rgba(224,0,0,0.3);
     }
     .faq-grid {
       display: grid;
@@ -366,32 +288,28 @@
       margin: 0 auto;
     }
     .faq-item {
-      background: #000000;
+      background: #0a0a0a;
       padding: 1.75rem 2rem;
-      border-left: 4px solid #e00000;
+      border-left: 4px solid #ff3b3b;
       border-radius: 8px;
-      transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
-      text-align: left; /* Align text left within FAQ item */
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      text-align: left;
     }
     .faq-item:hover {
       transform: translateY(-5px);
-      box-shadow: 0 6px 25px rgba(224, 0, 0, 0.2);
-      border-color: rgba(224,0,0,0.4);
-      border-left-color: #e00000;
+      box-shadow: 0 6px 25px rgba(255, 59, 59, 0.2);
     }
     .faq-item h3 {
-      color: #e00000;
+      color: #ff3b3b;
       margin-bottom: 0.75rem;
       font-size: 1.4rem;
     }
     .faq-item p {
-      color: #ffffff;
       font-size: 1.05rem;
       line-height: 1.7;
     }
     .faq-item a {
-      color: #e00000;
+      color: #ff3b3b;
       text-decoration: underline;
       transition: color 0.3s ease;
     }
@@ -399,508 +317,43 @@
       color: #ffffff;
     }
 
-    /* LLM Feature Styles (copied from exterior_page_update) */
-    #llm-project-ideas {
-      padding: 5rem 2rem;
-      background: #000000;
-      text-align: center;
-    }
-    #llm-project-ideas h2 {
-      color: #e00000;
-      font-size: 2.5rem;
-      margin-bottom: 2rem;
-    }
-    #llm-project-ideas p {
-      color: #ffffff;
-      max-width: 700px;
-      margin: 0 auto 2rem;
-    }
-    #llm-project-ideas textarea {
-      width: 100%;
-      max-width: 600px;
-      height: 120px;
-      padding: 1rem;
-      background: #000000;
-      border: 1px solid #333333;
-      border-radius: 8px;
-      color: #ffffff;
-      font-size: 1rem;
-      margin-bottom: 1.5rem;
-      resize: vertical;
-      outline: none;
-      transition: border-color 0.3s ease, box-shadow 0.3s ease;
-    }
-    #llm-project-ideas textarea:focus {
-      border-color: #e00000;
-      box-shadow: 0 0 8px rgba(224, 0, 0, 0.3);
-    }
-    #llm-project-ideas button {
-      background: #e00000;
-      color: white;
-      padding: 1rem 2.2rem;
-      font-weight: bold;
-      border: none;
-      border-radius: 6px;
-      font-size: 1.1rem;
-      cursor: pointer;
-      transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
-      box-shadow: 0 4px 12px rgba(224, 0, 0, 0.25);
-      display: flex; /* Use flex to center content */
-      align-items: center;
-      justify-content: center;
-      gap: 0.5rem;
-      margin: 0 auto 2rem auto; /* Center button */
-    }
-    #llm-project-ideas button:hover {
-      background: #c00000;
-      transform: translateY(-2px);
-      box-shadow: 0 6px 18px rgba(224, 0, 0, 0.45);
-    }
-    #llm-project-ideas .loading-indicator {
-      display: none;
-      color: #e00000;
-      font-size: 1rem;
-      margin-top: 1rem;
-    }
-    #llm-project-ideas #projectIdeasOutput {
-      background: #0a0a0a;
-      border: 1px solid #222222;
-      border-radius: 8px;
-      padding: 2rem;
-      margin-top: 2rem;
-      text-align: left;
-      white-space: pre-wrap; /* Preserve whitespace and line breaks */
-      word-wrap: break-word; /* Break long words */
-      min-height: 100px; /* Ensure it's visible */
-      color: #ffffff;
-      line-height: 1.8;
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
-    }
-    #llm-project-ideas #projectIdeasOutput h3 {
-      color: #e00000;
-      margin-bottom: 1rem;
-      font-size: 1.6rem;
-    }
-    #llm-project-ideas #projectIdeasOutput ul {
-        list-style-type: disc;
-        margin-left: 20px;
-        margin-bottom: 1rem;
-    }
-    #llm-project-ideas #projectIdeasOutput li {
-        margin-bottom: 0.5rem;
+    footer {
+        background: #0a0a0a;
+        color: #ccc;
+        padding: 1rem 2rem;
+        text-align: center;
+        font-size: 0.9rem;
     }
 
-    /* Reviews Section Styles */
-    #reviews-section { /* Renamed ID for clarity */
-      background: #000000;
-      padding: 5rem 2rem;
-      text-align: center;
-    }
-    #reviews-section h2 {
-      font-size: 2.5rem;
-      color: #e00000;
-      margin-bottom: 3rem;
-      text-shadow: 0 0 8px rgba(224,0,0,0.3);
-    }
-    .reviews-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 2rem;
-      max-width: 900px; /* Added max-width for grid */
-      margin: 0 auto 3rem auto; /* Centered grid */
-    }
-    .testimonial-card {
-      background: #000000;
-      padding: 2rem;
-      border-radius: 12px;
-      box-shadow: 0 8px 20px rgba(224, 0, 0, 0.15);
-      border: 1px solid #333333;
-      transition: border-color 0.3s ease;
-    }
-    .testimonial-card:hover { border-color: rgba(224,0,0,0.5); }
-    .stars {
-      color: #e00000;
-      font-size: 1.4rem;
-      margin-bottom: 0.5rem;
-      letter-spacing: 1px;
-      animation: glowStars 2s infinite ease-in-out;
-    }
-    .quote { color: #ffffff; font-size: 1.1rem; margin: 1rem 0; line-height: 1.6; }
-    .name { color: #ffffff; font-style: italic; font-size: 0.95rem; opacity: 0.7; }
-    .qr-code-container {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 1rem;
-    }
-    .qr-code-container img {
-        width: 150px;
-        height: 150px;
-        object-fit: contain;
-        border-radius: 8px;
-        box-shadow: 0 4px 12px rgba(224, 0, 0, 0.25);
-    }
-    .qr-code-container p { color: #ffffff; font-size: 0.9rem; opacity: 0.7;}
-    .qr-code-container a {
-      display: inline-block;
-      background: #e00000;
-      color: #ffffff;
-      padding: 0.8rem 2rem;
-      border-radius: 6px;
-      font-weight: bold;
-      text-decoration: none;
-      font-size: 1.1rem;
-      transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
-      box-shadow: 0 4px 12px rgba(224, 0, 0, 0.25);
-    }
-    .qr-code-container a:hover {
-        background-color: #c00000;
-        transform: translateY(-2px);
-        box-shadow: 0 6px 18px rgba(224, 0, 0, 0.4);
-    }
-    @keyframes glowStars {
-      0%, 100% { text-shadow: 0 0 5px rgba(224,0,0,0.5); }
-      50% { text-shadow: 0 0 15px rgba(224,0,0,0.9); }
+    footer a {
+        color: #ff3b3b;
+        text-decoration: none;
     }
 
-    /* CTA Highlight Section Styles */
-    .cta-highlight {
-      background: linear-gradient(135deg, #000000, #111111); /* Adjusted for consistency */
-      color: #ffffff;
-      text-align: center;
-      padding: 4rem 1rem;
-      position: relative;
-      overflow: hidden;
-      box-shadow: 0 0 20px rgba(224, 0, 0, 0.15);
-      border-top: 1px solid rgba(224,0,0,0.3);
-      border-bottom: 1px solid rgba(224,0,0,0.3);
-    }
-
-    .cta-headline {
-      font-size: 2.8rem;
-      margin-bottom: 1.2rem;
-      color: #e00000;
-      text-shadow: 0 0 12px rgba(224, 0, 0, 0.4);
-      animation: pulseText 2.5s ease-in-out infinite;
-    }
-    .cta-subtext {
-      font-size: 1.2rem;
-      max-width: 650px;
-      margin: 0 auto 2.5rem;
-      color: #ffffff;
-      line-height: 1.6;
-    }
-    .cta-buttons {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 1.2rem;
-    }
-    .cta-btn {
-      background-color: #e00000;
-      color: #ffffff;
-      padding: 0.85rem 1.8rem;
-      border-radius: 6px;
-      font-weight: bold;
-      font-size: 1rem;
-      text-decoration: none;
-      position: relative;
-      overflow: hidden;
-      transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
-      box-shadow: 0 4px 14px rgba(224, 0, 0, 0.25);
-    }
-    .cta-btn:hover {
-      transform: translateY(-2px) scale(1.04);
-      background-color: #c00000;
-      box-shadow: 0 6px 18px rgba(224, 0, 0, 0.35);
-    }
-    @keyframes pulseText {
-      0%, 100% { transform: scale(1); opacity: 1; }
-      50% { transform: scale(1.03); opacity: 0.9; }
-    }
-
-    /* Contact Section Styles */
-    #contact { background:#000000; color:#ffffff; padding:5rem 2rem; text-align:center; }
-    #contact h2 { font-size:2.5rem; margin-bottom:1rem; color:#e00000; }
-    #contact .contact-intro-p {
-        color:#ffffff; max-width:600px; margin:0 auto 2.5rem; font-size:1.1rem;
-    }
-    #contact-form { max-width:550px; margin:0 auto; }
-    #contact-form input[type="text"],
-    #contact-form input[type="email"],
-    #contact-form textarea {
-      width:100%; padding:1rem; background:#000000;
-      border:1px solid #e00000; /* Red outline */
-      color:#ffffff; margin-bottom:1.2rem;
-      border-radius:6px;
-      transition: border-color 0.3s ease, box-shadow 0.3s ease;
-    }
-    #contact-form input[type="text"]:focus,
-    #contact-form input[type="email"]:focus,
-    #contact-form textarea:focus {
-      border-color:#e00000;
-      box-shadow: 0 0 8px rgba(224, 0, 0, 0.3);
-      outline: none;
-    }
-    #contact-form textarea { resize: vertical; }
-    #contact-form button[type="submit"] {
-      background:#e00000; color:#ffffff; padding:1rem 2.2rem;
-      font-weight:bold; border:none; border-radius:6px;
-      font-size:1.1rem; cursor: pointer;
-      transition:background 0.3s ease, transform 0.3s ease;
-    }
-    #contact-form button[type="submit"]:hover {
-        background: #c00000;
-        transform: translateY(-2px);
-    }
-    #form-success { display:none; color:#00ff99; margin-top:2rem; font-weight:bold; font-size: 1.2rem; }
-
-    /* Map Section Styles */
-    #map-section { /* Renamed ID for clarity */
-      background: #000000;
-      padding: 4rem 2rem;
-      text-align: center;
-    }
-    #map-section h2 {
-      color: #e00000;
-      font-size: 2.4rem;
-      margin-bottom: 1rem;
-      text-shadow: 0 0 8px rgba(224, 0, 0, 0.3);
-    }
-    #map-section .location-intro-p {
-      color: #ffffff;
-      font-size: 1.1rem;
-      margin-bottom: 2.5rem;
-      max-width: 600px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-    .map-container {
-      max-width: 1000px;
-      margin: 0 auto;
-      border-radius: 12px;
-      overflow: hidden;
-      box-shadow: 0 8px 25px rgba(224, 0, 0, 0.2);
-      border: 1px solid #222222;
-    }
-    .map-container iframe {
-        display: block;
-    }
-
-    /* Sticky Footer Styles */
-    .site-footer {
-      position: fixed;
-      bottom: 0;
-      left: 0;
-      width: 100%;
-      background: #000000;
-      color: #ffffff;
-      padding: 1rem 2rem;
-      display: flex;
-      justify-content: center; /* Centered links */
-      align-items: center;
-      z-index: 9998;
-      box-shadow: 0 -4px 10px rgba(224, 0, 0, 0.15);
-      border-top: 1px solid #333333;
-    }
-    .footer-links {
-        display: flex;
-        gap: 1rem;
-        flex-wrap: wrap;
-        justify-content: center;
-        margin-top: 0.5rem;
-    }
-    .footer-link {
-      color: #e00000;
-      text-decoration: none;
-      font-weight: bold;
-      transition: color 0.3s ease, transform 0.3s ease;
-      padding: 0.3rem 0.5rem;
-    }
-    .footer-link:hover {
-      color: #ffffff;
-      transform: translateY(-2px);
-    }
 
     /* Responsive adjustments */
     @media (max-width: 768px) {
-      header { padding: 0.8rem 1rem; }
-      .brand span { font-size: 1.1rem; }
-      .brand img { width: 32px; height: 32px; }
-      .nav-icons a { width: 2.2rem; height: 2.2rem; font-size: 1.1rem; padding: 0.4rem; }
+      header { padding: 1rem; }
+      .brand span { font-size: 1.2rem; }
+      .brand img { width: 35px; }
+      .nav-icons a { font-size: 1.3rem; }
       .nav-icons { gap: 0.8rem; }
-      .hamburger { width: 24px; height: 18px; }
-      .hamburger span { height: 2.5px; }
-      .hamburger.active span:nth-child(1) { transform: translateY(7.75px) rotate(45deg); }
-      .hamburger.active span:nth-child(3) { transform: translateY(-7.75px) rotate(-45deg); }
+      .hamburger { width: 25px; height: 18px; }
       nav.menu { padding: 3.5rem 1.5rem; gap: 1.5rem; }
-      nav.menu .search-bar { font-size: 0.95rem; padding: 0.5rem 0.8rem; }
       nav.menu a { font-size: 1.3rem; }
-      #hoursPopup { font-size: 0.8rem; padding: 0.8rem; right: 5px; top: 120%; }
       .close-btn { top: 1rem; right: 1rem; font-size: 2rem; }
-
-      .site-footer {
-        flex-direction: column;
-        text-align: center;
-        gap: 0.8rem;
-        padding: 0.8rem 1rem;
-      }
-      .footer-links {
-        justify-content: center;
-      }
-      .footer-links { margin-top: 0.5rem; }
-
-      .intro-section h1 { font-size: 2.2rem; }
-      .intro-section p { font-size: 1rem; }
-      #main-services h2 { font-size: 2rem; }
-      .service-card h3 { font-size: 1.4rem; }
-      .service-card p { font-size: 0.95rem; }
-      #what-to-expect h2 { font-size: 2rem; }
-      .detail-card h3 { font-size: 1.3rem; }
-      .detail-card p { font-size: 1rem; }
-      #faq-section h2 { font-size: 2rem; }
-      .faq-item h3 { font-size: 1.2rem; }
-      .faq-item p { font-size: 1rem; }
-      #llm-project-ideas h2 { font-size: 2rem; }
-      #llm-project-ideas p { font-size: 1rem; }
-      #llm-project-ideas textarea { height: 100px; }
-      #llm-project-ideas button { padding: 0.8rem 1.5rem; font-size: 1rem; }
-      #llm-project-ideas #projectIdeasOutput { padding: 1.5rem; }
-      #reviews-section h2 { font-size: 2rem; }
-      .testimonial-card { padding: 1.5rem; }
-      .quote { font-size: 1.1rem; }
-      .name { font-size: 0.9rem; }
-      .qr-code-container img { width: 120px; height: 120px;}
-      .qr-code-container a { font-size: 1rem; padding: 0.7rem 1.5rem; }
-      .cta-headline { font-size: 2.2rem; }
-      .cta-subtext { font-size: 1.1rem; }
-      #contact h2 { font-size: 2.2rem; }
-      #contact .contact-intro-p { font-size: 1rem; }
-      #contact-form input[type="text"],
-      #contact-form input[type="email"],
-      #contact-form textarea { padding: 0.9rem; }
-      #contact-form button[type="submit"] { padding: 0.9rem 1.8rem; font-size: 1rem; }
-      #map-section h2 { font-size: 2rem; }
-      #map-section .location-intro-p { font-size: 1rem; }
-      .map-container iframe { height: 350px; }
-    }
-
-    @media (min-width: 768px) {
-      .faq-grid {
-        grid-template-columns: 1fr 1fr;
-      }
+      #hoursPopup { font-size: 0.8rem; padding: 0.8rem; right: 5px; top: 120%; }
+      section { padding: 3rem 1rem; }
+      .intro-section h1, #main-services h2, #what-to-expect h2, #faq-section h2 { font-size: 2rem; }
+      .intro-section p, .service-card p, .detail-card p, .faq-item p { font-size: 1rem; }
+      .service-card h3, .detail-card h3, .faq-item h3 { font-size: 1.4rem; }
     }
 
     @media (max-width: 600px) {
       .service-card a.cta-button { width: 100%; }
-      .detail-card-grid { grid-template-columns: 1fr; }
-      .faq-grid { grid-template-columns: 1fr; }
-      .reviews-grid { grid-template-columns: 1fr; }
-      .cta-btn { width: 100%; }
+      .detail-card-grid, .faq-grid { grid-template-columns: 1fr; }
     }
 
-    /* Left-edge swipe cue for mobile menu - Consistent with index.html */
-    @media (max-width: 768px) {
-      body.swipe-active::before {
-        content: ""; position: fixed; top: 0; left: 0; width: 15px; height: 100vh;
-        background: radial-gradient(circle at left center, rgba(224,0,0,0.15), transparent 70%);
-        z-index: 9998; pointer-events: none; opacity: 0.7;
-        animation: pulseEdge 2s ease-in-out infinite alternate;
-      }
-    }
-    @keyframes pulseEdge { 0% { opacity: 0.3; transform: scaleX(0.8); } 100% { opacity: 0.7; transform: scaleX(1); } }
-
-    /* Animations for hero section, copied from index.html (if applicable) */
-    @keyframes fadeInDown {
-      from { opacity: 0; transform: translateY(-20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-    @keyframes fadeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
-    }
-
-    /* Modal Styles for Gallery (copied and adapted from index.html for consistent sizing) */
-    .modal {
-        display: none; position: fixed; z-index: 10000; left: 0; top: 0;
-        width: 100%; height: 100%; overflow: auto; background-color: rgba(0, 0, 0, 0.92);
-        display: flex; align-items: center; justify-content: center;
-        padding: 15px; box-sizing: border-box;
-    }
-    .modal-content {
-        position: relative;
-        background-color: #000000;
-        padding: 0;
-        border-radius: 8px;
-        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.7);
-        border: 1px solid #333333;
-        width: 90%; /* Responsive width */
-        max-width: 900px; /* Max width for desktop */
-        display: flex;
-        flex-direction: column; /* Stack image wrapper and caption */
-        align-items: center; /* Center items horizontally */
-        justify-content: center;
-        overflow: hidden;
-        max-height: calc(100vh - 40px); /* Keep it within viewport */
-    }
-
-    .modal-image-wrapper { /* New wrapper to control aspect ratio */
-        position: relative;
-        width: 100%; /* Take full width of modal-content */
-        padding-top: 75%; /* 4:3 Aspect Ratio (height is 75% of width) */
-        overflow: hidden;
-        flex-shrink: 0; /* Prevent it from shrinking */
-        background-color: #000; /* Background for letterboxing */
-    }
-
-    #modalImage {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        object-fit: contain; /* Ensures image fits within the aspect ratio without cropping */
-        display: block;
-    }
-
-    #caption {
-        width: 100%; /* Take full width of modal-content */
-        background-color: rgba(0, 0, 0, 0.75);
-        color: #ffffff;
-        padding: 12px 15px;
-        text-align: center;
-        font-size: 1rem;
-        box-sizing: border-box;
-        border-bottom-left-radius: 8px;
-        border-bottom-right-radius: 8px;
-        flex-shrink: 0;
-    }
-
-    .close-button {
-        position: absolute; top: 10px; right: 25px; color: #ffffff;
-        font-size: 35px; font-weight: bold; transition: 0.3s ease;
-        cursor: pointer; line-height: 1; z-index: 10;
-    }
-    .close-button:hover, .close-button:focus { color: #e00000; text-decoration: none; }
-    .prev, .next {
-        cursor: pointer; position: absolute; top: 50%; transform: translateY(-50%);
-        width: auto; padding: 16px; color: #ffffff; font-weight: bold;
-        font-size: 24px; transition: 0.4s ease; border-radius: 0 3px 3px 0;
-        user-select: none; background-color: rgba(0, 0, 0, 0.4); z-index: 5;
-    }
-    .prev { left: 0; border-radius: 3px 0 0 3px; }
-    .next { right: 0; border-radius: 0 3px 3px 0; }
-    .prev:hover, .next:hover { background-color: rgba(224, 0, 0, 0.7); }
-
-    @media (max-width: 768px) {
-      .modal-content {
-        width: calc(100vw - 20px); /* More responsive on small screens */
-        max-width: unset; /* Remove max-width on mobile */
-      }
-      #caption { font-size: 0.9rem; padding: 10px; }
-      .prev, .next { font-size: 20px; padding: 12px; }
-      .close-button { font-size: 30px; top: 8px; right: 15px; }
-    }
   </style>
 </head>
 <body>
@@ -908,8 +361,8 @@
     <div class="brand">
       <a href="/">
         <img src="https://imagedelivery.net/VwxTcpKX2CusqbCCDB94Nw/0468e61a-5565-43fa-4026-fbc5801f1100/Logos" alt="Dependable Painting Logo">
+        <span>Dependable Painting</span>
       </a>
-      <span>Dependable Painting</span>
     </div>
     <div class="nav-icons">
       <div class="hours-toggle">
@@ -923,7 +376,7 @@
           Sunday: Closed
         </div>
       </div>
-      <a href="tel:2515254405" title="Call Us" aria-label="Call Us" onclick="gtag('event', 'phone_click', { event_category: 'Contact', event_label: 'Mobile Tap to Call' })"><i class="fas fa-phone"></i></a>
+      <a href="tel:2515254405" title="Call Us" aria-label="Call Us"><i class="fas fa-phone"></i></a>
       <a href="https://g.page/r/CQjqan_iFBshEAE" target="_blank" rel="noopener noreferrer" title="Find us on Google" aria-label="Find us on Google"><i class="fab fa-google"></i></a>
       <div class="hamburger" onclick="toggleMenu()" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
         <span></span>
@@ -935,38 +388,23 @@
 
   <nav class="menu" id="mobileMenu" aria-hidden="true">
     <div class="close-btn" onclick="toggleMenu()" aria-label="Close menu">×</div>
-    <form action="https://www.google.com/search" method="GET" target="_blank" class="search-bar-container" onsubmit="this.q.value='site:dependablepaintingal.com ' + this.q.value.trim(); return !!this.q.value.replace('site:dependablepaintingal.com ', '').trim();">
-      <input class="search-bar" type="text" name="q" placeholder="Search Our Site..." onfocus="this.select();">
-      <button type="submit" aria-label="Search"><i class="fas fa-search"></i></button>
-    </form>
     <a href="/">Home</a>
-    <a href="/about.html">About Us</a>
-    <a href="/services/">Services</a>
-    <a href="/contact/">Contact</a>
-    <a href="/gallery/">Gallery</a>
-    <a href="/privacy.html">Privacy Policy</a>
+    <a href="about.html">About Us</a>
+    <a href="#" onclick="toggleSubMenu(event)">Services ▾</a>
+    <div class="submenu" id="submenu">
+      <a href="services.html">Services Overview</a>
+      <a href="interior-painting.html">Interior Painting</a>
+      <a href="exterior-painting.html">Exterior Painting</a>
+      <a href="cabinet-painting.html">Cabinet Painting</a>
+    </div>
+    <a href="index.html#contact">Contact</a>
+    <a href="index.html#gallery">Gallery</a>
+    <a href="privacy.html">Privacy Policy</a>
   </nav>
 
   <section class="intro-section">
     <h1>Comprehensive Painting Services for Your Home & Business</h1>
     <p>From stunning interiors to durable exteriors, and specialized finishes for cabinets and floors, Dependable Painting offers a full spectrum of services to transform your property. We combine expert craftsmanship with premium materials for results that truly last.</p>
-    <div class="cta-button-container">
-      <link href="https://calendar.google.com/calendar/scheduling-button-script.css" rel="stylesheet">
-      <script src="https://calendar.google.com/calendar/scheduling-button-script.js" async></script>
-      <script>
-      (function() {
-        var target = document.currentScript;
-        window.addEventListener('load', function() {
-          calendar.schedulingButton.load({
-            url: 'https://calendar.app.google/HNBVjqru5tj2J5sR6',
-            color: '#D50000',
-            label: 'Book an Appointment',
-            target,
-          });
-        });
-      })();
-      </script>
-      </div>
   </section>
 
   <section id="main-services">
@@ -987,20 +425,10 @@
         <p>Professional painting services for businesses, retail spaces, and multi-unit properties. We work efficiently to minimize disruption to your operations.</p>
         <a href="commercial-painting.html" class="cta-button">Explore Commercial Solutions</a>
       </div>
-      <div class="service-card" data-aos="fade-up" data-aos-delay="300">
-        <h3>Epoxy Floor Coatings</h3>
-        <p>Durable and attractive epoxy coatings for garages, patios, and commercial floors. Enhance aesthetics and provide long-lasting protection.</p>
-        <a href="epoxy-floor-coatings.html" class="cta-button">Upgrade Your Floors</a>
-      </div>
       <div class="service-card" data-aos="fade-up" data-aos-delay="400">
         <h3>Cabinet Painting</h3>
         <p>Give your kitchen or bathroom a complete refresh with expert cabinet painting. Achieve a factory-smooth finish at a fraction of replacement cost.</p>
         <a href="cabinet-painting.html" class="cta-button">Revitalize Your Cabinets</a>
-      </div>
-      <div class="service-card" data-aos="fade-up" data-aos-delay="500">
-        <h3>Sheetrock & Drywall Repair</h3>
-        <p>Seamless repairs for holes, cracks, and imperfections in your walls and ceilings. We ensure a smooth surface, perfectly prepped for painting.</p>
-        <a href="sheetrock-repair.html" class="cta-button">Fix Your Walls</a>
       </div>
     </div>
   </section>
@@ -1008,185 +436,49 @@
   <section id="what-to-expect">
     <h2>What to Expect When You Hire Us</h2>
     <div class="detail-card-grid">
-      <div class="detail-card" data-aos="fade-up">
-        <h3>Exterior Painting Process</h3>
-        <p>Expect thorough power washing, detailed surface preparation (sanding, patching, priming), and application of premium, weather-resistant paints for a lasting finish that protects your home.</p>
-      </div>
-      <div class="detail-card" data-aos="fade-up" data-aos-delay="100">
-        <h3>Interior Painting Process</h3>
-        <p>We begin with protecting your furniture and floors, meticulous surface prep (filling holes, sanding), precise paint application, and a thorough cleanup, leaving your space fresh and immaculate.</p>
-      </div>
-      <div class="detail-card" data-aos="fade-up" data-aos-delay="200">
-        <h3>Commercial Project Approach</h3>
-        <p>We prioritize minimal disruption, offering flexible scheduling (after hours/weekends), clear communication with property managers, and OSHA-compliant practices to ensure a smooth, efficient project.</p>
-      </div>
-      <div class="detail-card" data-aos="fade-up" data-aos-delay="300">
-        <h3>Epoxy Flooring Application</h3>
-        <p>Our process includes extensive floor preparation (grinding, cleaning), crack repair, precise application of base coats, decorative flakes (if desired), and durable clear topcoats for a long-lasting, high-performance floor.</p>
-      </div>
-      <div class="detail-card" data-aos="fade-up" data-aos-delay="400">
-        <h3>Cabinet Refinishing Steps</h3>
-        <p>Cabinets are carefully removed, cleaned, degreased, sanded, primed, and then sprayed with multiple coats of high-quality, durable paint for a smooth, factory-like finish. Hardware is reinstalled with care.</p>
-      </div>
-      <div class="detail-card" data-aos="fade-up" data-aos-delay="500">
-        <h3>Sheetrock Repair & Finishing</h3>
-        <p>We expertly patch holes, repair cracks, float seams, and match textures to seamlessly blend repairs with existing walls. Our goal is a flawless surface, ready for a perfect paint job.</p>
-      </div>
+        <div class="detail-card" data-aos="fade-up">
+            <h3>Communication</h3>
+            <p>We believe in clear and consistent communication from start to finish. You'll always be informed about the progress of your project.</p>
+        </div>
+        <div class="detail-card" data-aos="fade-up" data-aos-delay="100">
+            <h3>Quality Workmanship</h3>
+            <p>Our experienced painters are dedicated to delivering exceptional results. We use high-quality materials and proven techniques for a lasting finish.</p>
+        </div>
+        <div class="detail-card" data-aos="fade-up" data-aos-delay="200">
+            <h3>Customer Satisfaction</h3>
+            <p>Your satisfaction is our top priority. We're not happy until you're delighted with your newly painted space.</p>
+        </div>
     </div>
   </section>
 
   <section id="faq-section">
-    <h2>Frequently Asked Questions by Service</h2>
+    <h2>Frequently Asked Questions</h2>
     <div class="faq-grid">
       <div class="faq-item" data-aos="fade-up">
-        <h3>Exterior Painting: How long does it take?</h3>
-        <p>Most exterior residential projects take 3-5 days, depending on size and prep. We provide clear timelines. <a href="/exterior-painting.html">Learn more about Exterior Painting.</a></p>
+        <h3>Are you licensed and insured?</h3>
+        <p>Yes. Dependable Painting is fully licensed and insured in the state of Alabama, including general liability and workers’ comp coverage for peace of mind.</p>
       </div>
       <div class="faq-item" data-aos="fade-up" data-aos-delay="100">
-        <h3>Interior Painting: Do you help with color selection?</h3>
-        <p>While we don't offer full design services, we can guide you on popular trends and paint finishes to help you choose the perfect palette. <a href="/interior-painting.html">Learn more about Interior Painting.</a></p>
+        <h3>Do you offer free estimates?</h3>
+        <p>Yes — you can request an estimate online or by phone. We aim to respond within 24–48 hours, and larger jobs may include an in-person walk-through.</p>
       </div>
       <div class="faq-item" data-aos="fade-up" data-aos-delay="200">
-        <h3>Commercial Painting: Can you work after business hours?</h3>
-        <p>Yes, we offer flexible scheduling, including nights and weekends, to minimize disruption to your business operations. <a href="/commercial-painting.html">Learn more about Commercial Painting.</a></p>
+        <h3>What areas do you serve?</h3>
+        <p>We proudly serve Baldwin and Mobile Counties, focusing on cities like Fairhope, Daphne, Spanish Fort, Loxley, and Bay Minette. We avoid Gulf Shores and Orange Beach unless it’s a large commercial job.</p>
       </div>
       <div class="faq-item" data-aos="fade-up" data-aos-delay="300">
-        <h3>Epoxy Floors: How durable are they?</h3>
-        <p>Epoxy floors are highly durable, resistant to abrasions, chemicals, and heavy traffic, making them ideal for garages and commercial spaces. <a href="/epoxy-floor-coatings.html">Learn more about Epoxy Floor Coatings.</a></p>
-      </div>
-      <div class="faq-item" data-aos="fade-up" data-aos-delay="400">
-        <h3>Cabinet Painting: Will the paint chip easily?</h3>
-        <p>No, we use specialized, high-adhesion primers and durable topcoats designed for cabinets to resist chipping and wear. <a href="/cabinet-painting.html">Learn more about Cabinet Painting.</a></p>
-      </div>
-      <div class="faq-item" data-aos="fade-up" data-aos-delay="500">
-        <h3>Sheetrock Repair: How seamless will repairs be?</h3>
-        <p>Our skilled technicians meticulously patch, sand, and blend repairs to ensure they are virtually undetectable, providing a smooth surface for painting. <a href="/sheetrock-repair.html">Learn more about Sheetrock Repair.</a></p>
+        <h3>Do you subcontract any work?</h3>
+        <p>No. All work is performed by our trained in-house crew. No subs. No shortcuts.</p>
       </div>
     </div>
   </section>
 
-  <section id="reviews-section">
-    <h2>5-Star Results. Real People. Local Trust.</h2>
-    <div class="reviews-grid">
-      <div class="testimonial-card" data-aos="fade-up">
-        <div class="stars">★★★★★</div>
-        <p class="quote">“Alex and his team are incredible. They knocked out our whole home interior in 2 days and it looks flawless.”</p>
-        <p class="name">— Jessica M., Spanish Fort</p>
-      </div>
-      <div class="testimonial-card" data-aos="fade-up" data-aos-delay="100">
-        <div class="stars">★★★★★</div>
-        <p class="quote">“Dependable Painting showed up on time, kept the place clean, and delivered beyond expectations. Highly recommend.”</p>
-        <p class="name">— Brandon T., Daphne</p>
-      </div>
-      <div class="testimonial-card" data-aos="fade-up" data-aos-delay="200">
-        <div class="stars">★★★★★</div>
-        <p class="quote">“They repainted our kitchen cabinets and made them look brand new. Better than factory finish.”</p>
-        <p class="name">— Rachel G., Fairhope</p>
-      </div>
-      <div class="testimonial-card" data-aos="fade-up" data-aos-delay="300">
-        <div class="stars">★★★★★</div>
-        <p class="quote">“Smooth, fast, and professional from start to finish. I won’t use anyone else again.”</p>
-        <p class="name">— Charles D., Gulf Shores</p>
-      </div>
-    </div>
-    <div class="qr-code-container" data-aos="fade-up">
-      <img src="https://imagedelivery.net/VwxTcpKX2CusqbCCDB94Nw/8be76abe-7442-4579-3195-b315af6fba00/512" alt="Google Review QR Code">
-      <p>Scan to leave a Google Review</p>
-      <a href="https://search.google.com/local/writereview?placeid=ChIJAAAAAAAAAAARCOpqf-IUGyE" target="_blank" rel="noopener noreferrer">
-        ⭐ Leave Us a Review
-      </a>
-    </div>
-  </section>
-
-  <section class="cta-highlight" data-aos="fade-in">
-    <h2 class="cta-headline">Reliable Results. Minimal Disruption.</h2>
-    <p class="cta-subtext">
-      From retail to offices and multi-unit properties, we keep your project clean, on schedule, and professionally managed without interrupting your business.
-    </p>
-    <div class="cta-buttons">
-      <link href="https://calendar.google.com/calendar/scheduling-button-script.css" rel="stylesheet">
-      <script src="https://calendar.google.com/calendar/scheduling-button-script.js" async></script>
-      <script>
-      (function() {
-        var target = document.currentScript;
-        window.addEventListener('load', function() {
-          calendar.schedulingButton.load({
-            url: 'https://calendar.google.com/calendar/appointments/AcZssZ0IkanO1Oc9HQaQH9aBxxNaKYtd5XygGBAJsKg=?gv=true',
-            color: '#D50000',
-            label: 'Book an appointment',
-            target,
-          });
-        });
-      })();
-      </script>
-      <a href="tel:2515254405" class="cta-btn primary" onclick="gtag('event', 'phone_click', { event_category: 'Contact', event_label: 'Mobile Tap to Call' })">📞 Call Now</a>
-    </div>
-  </section>
-
-  <section id="contact">
-    <h2>Let’s Talk About Your Next Project</h2>
-    <p class="contact-intro-p">
-      Free estimates. Honest timelines. Guaranteed satisfaction. Fill out the form and we’ll get back to you ASAP.
-    </p>
-    <form id="contact-form" action="https://formsubmit.co/alexdimmler@dependablepainting.work" method="POST">
-      <input type="hidden" name="_next" value="https://dependablepainting.work/thank-you.html">
-      <input type="text" name="_honey" style="display:none">
-      <input type="hidden" name="_captcha" value="false">
-      <input type="text" name="name" placeholder="Your Name" required>
-      <input type="email" name="email" placeholder="Your Email" required>
-      <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
-      <button type="submit">📩 Send Message</button>
-    </form>
-    <p id="form-success" style="display:none;">Message sent! We’ll be in touch soon.</p>
-  </section>
-
-  <section id="map-section">
-    <h2>Proudly Serving the Gulf Coast</h2>
-    <p class="location-intro-p">
-      From Mobile to Baldwin County and the surrounding areas, we bring dependable results to homes and businesses across Alabama's Gulf Coast.
-    </p>
-    <div class="map-container">
-      <iframe
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d878474.4639526487!2d-88.50364527369405!3d30.675054662867886!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x889a5d78a87e436f%3A0x211b14e27f6aea08!2sDependable%20Painting%20LLC!5e0!3m2!1sen!2sus!4v1747600478528!5m2!1sen!2sus"
-        width="100%"
-        height="450"
-        style="border:0;"
-        allowfullscreen=""
-        loading="lazy"
-        referrerpolicy="no-referrer-when-downgrade"
-      ></iframe>
-    </div>
-    <p style="margin-top: 1.5rem; font-size: 1.1rem;">
-      <a href="https://search.google.com/local/writereview?placeid=ChIJAAAAAAAAAAARCOpqf-IUGyE" target="_blank" rel="noopener noreferrer" style="color: #e00000; text-decoration: underline;">
-        ⭐ Leave us a review on Google
-      </a>
-    </p>
-  </section>
-
-  <footer class="site-footer">
-    <div class="footer-links">
-      <a href="tel:2515254405" class="footer-link" onclick="gtag('event', 'phone_click', { event_category: 'Contact', event_label: 'Mobile Tap to Call' })">📞 Call</a>
-      <a href="mailto:alexdimmler@dependablepaintingal.com" class="footer-link">✉️ Email</a>
-      <a href="#contact" class="footer-link">📋 Quote</a>
-      <a href="https://search.google.com/local/writereview?placeid=ChIJAAAAAAAAAAARCOpqf-IUGyE" target="_blank" rel="noopener noreferrer" class="footer-link">⭐ Review</a>
-    </div>
+  <footer>
+      <p>© <span id="current-year"></span> Dependable Painting LLC • <a href="tel:2515254405" style="color: #ff3b3b; text-decoration: none;">(251) 525-4405</a> • Bay Minette, AL</p>
   </footer>
-
-  <div id="imageModal" class="modal" style="display: none;">
-    <span class="close-button" onclick="closeGalleryModal()">×</span>
-    <div class="modal-content">
-        <div class="modal-image-wrapper">
-            <img id="modalImage" src="" alt="Enlarged project image">
-        </div>
-        <a class="prev" onclick="changeGalleryImage(-1)">❮</a>
-        <a class="next" onclick="changeGalleryImage(1)">❯</a>
-        <div id="caption"></div>
-    </div>
-  </div>
 
   <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
   <script>
-    // Initialize AOS (Animate On Scroll) library if it's loaded
     if (typeof AOS !== 'undefined') {
         AOS.init({
             duration: 800,
@@ -1201,36 +493,28 @@
       const hamburger = document.querySelector('.hamburger');
       const hoursPopup = document.getElementById('hoursPopup');
       const body = document.body;
-      const siteFooter = document.querySelector('.site-footer');
-      const imageModal = document.getElementById("imageModal");
-      const modalImg = document.getElementById("modalImage");
-      const captionText = document.getElementById("caption");
-      const contactForm = document.getElementById('contact-form');
-      const formSuccessMessage = document.getElementById('form-success');
 
       window.toggleMenu = () => {
-        if (!menu || !hamburger || !body) {
-            return;
-        }
+        if (!menu || !hamburger || !body) return;
         const isOpen = menu.classList.toggle('open');
         hamburger.classList.toggle('active', isOpen);
-        hamburger.setAttribute('aria-expanded', isOpen.toString());
-        menu.setAttribute('aria-hidden', (!isOpen).toString());
         body.style.overflow = isOpen ? 'hidden' : '';
 
         if (isOpen) {
-            if(body) body.classList.remove('swipe-active');
-            const links = menu.querySelectorAll('nav.menu a');
+            const links = menu.querySelectorAll('a');
             links.forEach((link, i) => {
                 link.style.animation = 'none';
                 link.offsetHeight;
                 link.style.animation = `menuItemFadeIn 0.5s ease forwards ${i * 0.07 + 0.1}s`;
-                link.style.transform = 'translateY(10px)';
             });
-        } else {
-            if (window.innerWidth <= 768 && body) {
-                body.classList.add('swipe-active');
-            }
+        }
+      };
+      
+      window.toggleSubMenu = (e) => {
+        e.preventDefault();
+        const submenu = document.getElementById('submenu');
+        if (submenu) {
+          submenu.classList.toggle('open');
         }
       };
 
@@ -1238,182 +522,20 @@
         if (!hoursPopup || !e || !e.currentTarget) return;
         e.stopPropagation();
         const isVisible = hoursPopup.classList.toggle('visible');
-        e.currentTarget.setAttribute('aria-expanded', isVisible.toString());
+        e.currentTarget.setAttribute('aria-expanded', isVisible);
       };
 
       document.addEventListener('click', (e) => {
         if (hoursPopup && hoursPopup.classList.contains('visible')) {
           if (e.target && !hoursPopup.contains(e.target) && !e.target.closest('.hours-toggle')) {
             hoursPopup.classList.remove('visible');
-            const hoursToggleAnchor = document.querySelector('.hours-toggle a');
-            if(hoursToggleAnchor) hoursToggleAnchor.setAttribute('aria-expanded', 'false');
+            document.querySelector('.hours-toggle a').setAttribute('aria-expanded', 'false');
           }
         }
       });
 
-      document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape' && menu && menu.classList.contains('open')) {
-          toggleMenu();
-        }
-      });
-
-      let touchStartX = 0;
-      let touchEndX = 0;
-      const SWIPE_THRESHOLD = 50;
-      const EDGE_THRESHOLD = 60;
-
-      document.addEventListener('touchstart', (e) => {
-        touchStartX = e.changedTouches[0].screenX;
-      }, { passive: true });
-
-      document.addEventListener('touchend', (e) => {
-        if (!menu) return;
-        touchEndX = e.changedTouches[0].screenX;
-        const swipeDiff = touchEndX - touchStartX;
-
-        if (menu.classList.contains('open') && swipeDiff < -SWIPE_THRESHOLD) {
-          toggleMenu();
-        }
-        else if (!menu.classList.contains('open') && swipeDiff > SWIPE_THRESHOLD && touchStartX < EDGE_THRESHOLD) {
-          toggleMenu();
-        }
-      });
-
-      function adjustFooterPadding() {
-        if (siteFooter && body) {
-            const footerHeight = siteFooter.offsetHeight;
-            body.style.paddingBottom = `${footerHeight + 20}px`;
-        }
-      }
-
-      if (body && menu) {
-        if (window.innerWidth <= 768 && !menu.classList.contains('open')) {
-          body.classList.add('swipe-active');
-        }
-      }
-      adjustFooterPadding();
-      window.addEventListener('resize', adjustFooterPadding);
-      window.addEventListener('load', () => {
-        adjustFooterPadding();
-        if (typeof AOS !== 'undefined') {
-            // AOS.refresh();
-        }
-      });
-
-      // Gallery Modal Functionality
-      let gallerySlideIndex = 0;
-      const galleryImages = [
-          "https://imagedelivery.net/VwxTcpKX2CusqbCCDB94Nw/69efca4e-5958-41f1-fc97-896e4b23c500/public", /* Green Bedroom */
-          "https://imagedelivery.net/VwxTcpKX2CusqbCCDB94Nw/3653af44-769f-4969-ee9d-b92ec14fb700/public", /* Living Room */
-          "https://imagedelivery.net/VwxTcpKX2CusqbCCDB94Nw/e6eb4503-6073-40eb-e80d-d9329f759200/public", /* Big Living Room */
-          "https://imagedelivery.net/VwxTcpKX2CusqbCCDB94Nw/85af1721-79bb-47cd-c953-8590e114c800/public", /* Hallway */
-          "https://imagedelivery.net/VwxTcpKX2CusqbCCDB94Nw/abac3900-91a8-4ad7-6e7a-464e483d8900/public", /* Sunroom */
-          "https://imagedelivery.net/VwxTcpKX2CusqbCCDB94Nw/79371775-03c7-4d2f-89a7-5353439f8d00/public"  /* Bedroom */
-      ];
-      const galleryCaptions = [
-          "Tranquil Green Bedroom with Modern Finishes",
-          "Cozy Living Room with Inviting Color Palette",
-          "Expansive Living Room Featuring Elegant Paintwork",
-          "Bright and Welcoming Hallway Transformation",
-          "Sunny Sunroom with Fresh, Light Interior Paint",
-          "Comfortable Bedroom with Soothing Wall Colors"
-      ];
-
-      window.openGalleryModal = (index) => {
-          if (!imageModal || !modalImg || !captionText) return;
-          gallerySlideIndex = index;
-          modalImg.src = galleryImages[gallerySlideIndex];
-          modalImg.alt = galleryCaptions[gallerySlideIndex];
-          captionText.innerHTML = galleryCaptions[gallerySlideIndex];
-          imageModal.style.display = "flex";
-          document.body.style.overflow = 'hidden';
-      }
-      window.closeGalleryModal = () => {
-          if (imageModal) imageModal.style.display = "none";
-          document.body.style.overflow = '';
-      }
-      window.changeGalleryImage = (n) => {
-          if (!modalImg || !captionText) return;
-          gallerySlideIndex += n;
-          if (gallerySlideIndex >= galleryImages.length) { gallerySlideIndex = 0; }
-          if (gallerySlideIndex < 0) { gallerySlideIndex = galleryImages.length - 1; }
-          modalImg.src = galleryImages[gallerySlideIndex];
-          modalImg.alt = galleryCaptions[gallerySlideIndex];
-          captionText.innerHTML = galleryCaptions[gallerySlideIndex];
-      }
-
-      if (imageModal) {
-          imageModal.addEventListener('click', (event) => {
-              if (event.target === imageModal) { closeGalleryModal(); }
-          });
-      }
-
-      document.addEventListener('keydown', (event) => {
-          if (imageModal && imageModal.style.display === "flex") {
-              if (event.key === "ArrowLeft") { changeGalleryImage(-1); }
-              else if (event.key === "ArrowRight") { changeGalleryImage(1); }
-              else if (event.key === "Escape") { closeGalleryModal(); }
-          }
-      });
-
-      // LLM Integration
-      const generateIdeasButton = document.getElementById('generateIdeasButton');
-      const projectDescriptionInput = document.getElementById('projectDescription');
-      const projectIdeasOutput = document.getElementById('projectIdeasOutput');
-      const loadingIndicator = document.getElementById('loadingIndicator');
-
-      if (generateIdeasButton && projectDescriptionInput && projectIdeasOutput && loadingIndicator) {
-        generateIdeasButton.addEventListener('click', async () => {
-          const prompt = projectDescriptionInput.value.trim();
-          if (!prompt) {
-            projectIdeasOutput.innerHTML = '<p style="color: #e00000;">Please describe your project to get ideas.</p>';
-            return;
-          }
-
-          loadingIndicator.style.display = 'block';
-          projectIdeasOutput.innerHTML = ''; // Clear previous output
-
-          try {
-            let chatHistory = [];
-            chatHistory.push({ role: "user", parts: [{ text: `Generate creative painting project ideas based on the following description: "${prompt}". Provide a title and then a bulleted list of ideas, focusing on color schemes, finishes, and design elements. Keep it concise, around 150-200 words, and relevant to painting services.` }] });
-            const payload = { contents: chatHistory };
-            const apiKey = ""; // If you want to use models other than gemini-2.0-flash or imagen-3.0-generate-002, provide an API key here. Otherwise, leave this as-is.
-            const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`;
-
-            const response = await fetch(apiUrl, {
-                       method: 'POST',
-                       headers: { 'Content-Type': 'application/json' },
-                       body: JSON.stringify(payload)
-                   });
-            const result = await response.json();
-            console.log('Gemini API Response:', result); // Log the full API response
-
-            if (result.candidates && result.candidates.length > 0 &&
-                result.candidates[0].content && result.candidates[0].content.parts &&
-                result.candidates[0].content.parts.length > 0) {
-              const text = result.candidates[0].content.parts[0].text;
-              projectIdeasOutput.innerHTML = `<h3>Generated Ideas:</h3>${text.replace(/\*/g, '')}`; // Remove markdown asterisks
-            } else {
-              // More detailed error message if API call was successful but response was unexpected
-              projectIdeasOutput.innerHTML = '<p style="color: #e00000;">Sorry, I couldn\'t generate ideas at this time. The response was unexpected. Please try again or refine your description.</p>';
-            }
-          } catch (error) {
-            console.error('Error calling Gemini API:', error);
-            projectIdeasOutput.innerHTML = '<p style="color: #e00000;">An error occurred while fetching ideas. Please check your internet connection or try again later. (See console for details).</p>';
-          } finally {
-            loadingIndicator.style.display = 'none';
-          }
-        });
-      }
+      document.getElementById('current-year').textContent = new Date().getFullYear();
     });
   </script>
 </body>
-  <script>
-    document.getElementById("contact-form").addEventListener("submit", function () {
-      gtag('event', 'form_submit', {
-        event_category: 'Contact',
-        event_label: 'Services Page Form Submitted'
-      });
-    });
-  </script>
 </html>
