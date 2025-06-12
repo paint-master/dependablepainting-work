@@ -1,18 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-<meta name="cf-2fa-verify" content="a50243aaa617024">
-  <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-4199PGW8SW"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-
   gtag('config', 'G-4199PGW8SW');
 </script>
-
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Dependable Painting</title>
@@ -23,10 +18,8 @@
     href="https://imagedelivery.net/VwxTcpKX2CusqbCCDB94Nw/0468e61a-5565-43fa-4026-fbc5801f1100/facicon"
     color="#e00000">
   <meta name="theme-color" content="#000000">
-
   <link rel="preconnect" href="https://imagedelivery.net">
   <link rel="preconnect" href="https://www.googletagmanager.com">
-
   <style>
     /* Reset & Base Styles */
     *,
@@ -36,17 +29,14 @@
       margin: 0;
       padding: 0;
     }
-
     html {
       scroll-behavior: smooth;
     }
-
     body {
       font-family: Arial, sans-serif;
       background: #000;
       color: #fff;
     }
-
     header {
       background: #0a0a0a;
       padding: 1rem 2rem;
@@ -58,42 +48,35 @@
       z-index: 9999;
       box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
     }
-
     .brand {
       display: flex;
       align-items: center;
       gap: 0.8rem;
     }
-
     .brand img {
       width: 40px;
       height: auto;
     }
-
     .brand span {
       font-weight: bold;
       font-size: 1.4rem;
       color: #ff3b3b;
       /* Standardized Red */
     }
-
     .nav-icons {
       display: flex;
       align-items: center;
       gap: 1.2rem;
     }
-
     .nav-icons a {
       color: #ff3b3b;
       /* Standardized Red */
       font-size: 1.5rem;
       transition: color 0.3s ease;
     }
-
     .nav-icons a:hover {
       color: #fff;
     }
-
     /* Hamburger Menu */
     .hamburger {
       width: 30px;
@@ -104,7 +87,6 @@
       justify-content: space-between;
       margin-left: 1rem;
     }
-
     .hamburger span {
       height: 3px;
       width: 100%;
@@ -113,20 +95,15 @@
       border-radius: 2px;
       transition: 0.4s;
     }
-
     .hamburger.active span:nth-child(1) {
       transform: translateY(9.5px) rotate(45deg);
     }
-
     .hamburger.active span:nth-child(2) {
       opacity: 0;
     }
-
     .hamburger.active span:nth-child(3) {
       transform: translateY(-9.5px) rotate(-45deg);
     }
-
-
     /* Mobile Menu */
     nav.menu {
       position: fixed;
@@ -150,13 +127,11 @@
       overflow-y: auto;
       /* Standardized */
     }
-
     nav.menu.open {
       left: 0;
       box-shadow: 5px 0 30px rgba(255, 59, 59, 0.2);
       /* Standardized Red */
     }
-
     /* Standardized search bar from about.html */
     nav.menu .search-bar-container {
       display: flex;
@@ -164,7 +139,6 @@
       gap: 0.5rem;
       margin-bottom: 1rem;
     }
-
     nav.menu .search-bar {
       height: 2.75rem;
       padding: 0.5rem 1rem;
@@ -177,14 +151,12 @@
       outline: none;
       transition: border-color 0.3s ease, box-shadow 0.3s ease;
     }
-
     nav.menu .search-bar:focus {
       border-color: #ff3b3b;
       /* Standardized Red */
       box-shadow: 0 0 10px rgba(255, 59, 59, 0.6);
       /* Standardized Red */
     }
-
     nav.menu .search-bar-container button {
       background: none;
       border: none;
@@ -195,12 +167,9 @@
       padding: 0.5rem;
       transition: color 0.3s ease;
     }
-
     nav.menu .search-bar-container button:hover {
       color: #ffffff;
     }
-
-
     nav.menu a {
       color: #ff3b3b;
       /* Standardized Red */
@@ -217,27 +186,22 @@
       animation: menuItemFadeIn 0.5s ease forwards;
       /* Standardized */
     }
-
     @keyframes menuItemFadeIn {
-
       /* Standardized from about.html */
       from {
         opacity: 0;
         transform: translateY(10px);
       }
-
       to {
         opacity: 1;
         transform: translateY(0);
       }
     }
-
     nav.menu a:hover {
       color: #fff;
       transform: translateX(5px);
       /* Standardized */
     }
-
     nav.menu .submenu {
       display: none;
       flex-direction: column;
@@ -245,11 +209,9 @@
       margin-left: 1rem;
       gap: 0.8rem;
     }
-
     nav.menu .submenu.open {
       display: flex;
     }
-
     .close-btn {
       position: absolute;
       top: 1.5rem;
@@ -264,20 +226,16 @@
       transition: color 0.3s ease, transform 0.3s ease;
       /* Standardized */
     }
-
     .close-btn:hover {
       color: #ffffff;
       transform: rotate(90deg);
       /* Standardized */
     }
-
-
     /* Hours Toggle and Popup */
     .hours-toggle {
       position: relative;
       display: inline-block;
     }
-
     #hoursPopup {
       display: none;
       position: absolute;
@@ -309,20 +267,15 @@
       border: 1px solid #333333;
       /* Standardized */
     }
-
     #hoursPopup strong {
       color: #ff3b3b;
     }
-
     /* Standardized Red */
-
     #hoursPopup.visible {
       display: block;
       opacity: 1;
       transform: translateY(0);
     }
-
-
     /* Main Content Sections */
     section {
       padding: 5rem 2rem;
@@ -330,31 +283,26 @@
       background: #1a1a1a;
       color: #fff;
     }
-
     h1 {
       color: white;
       font-size: 2.7rem;
       max-width: 800px;
       margin: 0 auto 1.5rem;
     }
-
     p {
       color: #ccc;
       font-size: 1.2rem;
       max-width: 700px;
       margin: 0 auto 2rem;
     }
-
     section:nth-of-type(2) {
       background: #0a0a0a;
     }
-
     h2 {
       font-size: 2.5rem;
       margin-bottom: 3rem;
       color: #fff;
     }
-
     .service-card {
       background: linear-gradient(145deg, #111 0%, #1f1f1f 100%);
       padding: 2rem;
@@ -362,24 +310,20 @@
       box-shadow: 0 12px 25px rgba(255, 59, 59, 0.3);
       transition: transform 0.4s, box-shadow 0.4s;
     }
-
     .service-card:hover {
       transform: translateY(-10px);
       box-shadow: 0 18px 35px rgba(255, 59, 59, 0.45);
     }
-
     .service-card h3 {
       color: #ff3b3b;
       font-size: 1.8rem;
       margin-bottom: 1.2rem;
     }
-
     .service-card p {
       color: #e0e0e0;
       line-height: 1.6;
       text-align: left;
     }
-
     .cta-highlight {
       background-color: #1f1f1f;
       color: #fff;
@@ -388,7 +332,6 @@
       position: relative;
       overflow: hidden;
     }
-
     .cta-highlight h2 {
       font-size: 2.7rem;
       margin-bottom: 1.5rem;
@@ -397,7 +340,6 @@
       font-weight: 800;
       letter-spacing: 0.5px;
     }
-
     .cta-highlight p {
       font-size: 1.25rem;
       max-width: 650px;
@@ -405,7 +347,6 @@
       color: #ccc;
       line-height: 1.6;
     }
-
     .cta-highlight .wp-block-button__link {
       background-color: #ff3b3b;
       color: #fff;
@@ -417,37 +358,30 @@
       transition: transform 0.3s ease, box-shadow 0.3s ease;
       display: inline-block;
     }
-
     .cta-highlight .wp-block-button__link:hover {
       transform: scale(1.07);
       box-shadow: 0 6px 18px rgba(255, 59, 59, 0.4);
     }
-
     @keyframes pulseText {
-
       0%,
       100% {
         opacity: 1;
         transform: scale(1);
       }
-
       50% {
         opacity: 0.95;
         transform: scale(1.03);
       }
     }
-
     iframe {
       max-width: 100%;
       overflow: hidden;
       border: 0;
       border-radius: 10px;
     }
-
 #gallery {
   padding: 3rem 1rem;
 }
-
 .swiper-container {
   width: 100%;
   max-width: 1200px;
@@ -458,11 +392,9 @@
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
   aspect-ratio: 16 / 9; 
 }
-
 .swiper-slide {
   background: #000;
 }
-
 .swiper-slide img {
   display: block;
   width: 100%;
@@ -499,7 +431,6 @@
     display: none; 
   }
 }
-
     #floating-call {
       position: fixed;
       bottom: 20px;
@@ -522,61 +453,49 @@
       width: 60px;
       height: 60px;
     }
-
     #floating-call.show {
       opacity: 1;
       pointer-events: auto;
     }
-
     #floating-call:hover {
       transform: scale(1.1);
       box-shadow: 0 0 15px #ff3b3b;
     }
-
     /* Responsive Adjustments */
     @media (max-width: 768px) {
       header {
         padding: 1rem;
       }
-
       .brand span {
         font-size: 1.2rem;
       }
-
       .brand img {
         width: 35px;
       }
-
       .nav-icons {
         gap: 0.8rem;
       }
-
       .nav-icons a {
         font-size: 1.3rem;
       }
-
       .hamburger {
         width: 25px;
         height: 18px;
       }
-
       nav.menu {
         padding: 3.5rem 1.5rem;
         /* Standardized */
         gap: 1.5rem;
         /* Standardized */
       }
-
       nav.menu a {
         font-size: 1.3rem;
       }
-
       nav.menu .search-bar {
         /* Standardized from about.html */
         font-size: 0.95rem;
         padding: 0.5rem 0.8rem;
       }
-
       .close-btn {
         font-size: 2rem;
         /* Standardized */
@@ -585,7 +504,6 @@
         right: 1rem;
         /* Standardized */
       }
-
       #hoursPopup {
         /* Standardized for mobile */
         font-size: 0.8rem;
@@ -593,48 +511,37 @@
         right: 5px;
         top: 120%;
       }
-
       section {
         padding: 3rem 1rem;
       }
-
       h1 {
         font-size: 2rem;
       }
-
       p {
         font-size: 1rem;
       }
-
       h2 {
         font-size: 2rem;
       }
-
       .service-card {
         padding: 1.5rem;
       }
-
       .service-card h3 {
         font-size: 1.5rem;
       }
-
       .cta-highlight {
         padding: 2.5rem 1rem;
       }
-
       .cta-highlight h2 {
         font-size: 2rem;
       }
-
       .cta-highlight p {
         font-size: 1rem;
       }
-
       .cta-highlight .wp-block-button__link {
         padding: 0.75rem 1.5rem;
         font-size: 1rem;
       }
-
       #floating-call {
         bottom: 15px;
         right: 15px;
@@ -642,23 +549,19 @@
         height: 50px;
         font-size: 1.2rem;
       }
-
       /* Gallery Responsive */
       #gallery .prev,
       #gallery .next {
         font-size: 1.2rem;
         padding: 12px;
       }
-
       .text {
         font-size: 0.9rem;
       }
-
       .dot {
         height: 12px;
         width: 12px;
       }
-
       /* Swipe cue for mobile menu */
       body.swipe-active::before {
         content: "";
@@ -675,70 +578,54 @@
         animation: pulseEdge 2s ease-in-out infinite alternate;
       }
     }
-
     @keyframes pulseEdge {
       0% {
         opacity: 0.3;
         transform: scaleX(0.8);
       }
-
       100% {
         opacity: 0.7;
         transform: scaleX(1);
       }
     }
-
-
     @media (max-width: 480px) {
       header {
         padding: 0.8rem;
       }
-
       .brand img {
         width: 30px;
       }
-
       .brand span {
         font-size: 1.1rem;
       }
-
       .nav-icons {
         gap: 0.6rem;
       }
-
       .nav-icons a {
         font-size: 1.2rem;
       }
-
       .hamburger {
         width: 22px;
         height: 16px;
       }
-
       section {
         padding: 2.5rem 0.8rem;
       }
-
       h1 {
         font-size: 1.8rem;
       }
-
       p {
         font-size: 0.95rem;
       }
-
       h2 {
         font-size: 1.8rem;
       }
-
       .service-card {
         padding: 1.2rem;
       }
-
       .service-card h3 {
         font-size: 1.3rem;
       }
-
       /* Gallery Responsive */
       .text {
         font-size: 0.8rem;
@@ -752,7 +639,6 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js" defer
   crossorigin="anonymous"></script> <!-- Standardized -->
 </head>
-
 <body>
   <header>
   <div class="brand">
@@ -797,7 +683,6 @@
   <a href="index.html#gallery">Gallery</a>
   <a href="privacy.html">Privacy Policy</a>
 </nav>
-
   <section class="hero-section"
   style="background-image: url('https://imagedelivery.net/VwxTcpKX2CusqbCCDB94Nw/86b51c5e-04c9-4673-f1e1-e94f114c0000/public'); background-size: cover; background-position: center; color: white; text-align: center; padding: 100px 20px; min-height: 60vh; display: flex; align-items: center; justify-content: center;">
   <div class="hero-content">
@@ -862,7 +747,6 @@
       </div>
     </div>
   </section>
-
   <section id="what-to-expect" style="padding: 4rem 2rem; text-align: center; background: #1a1a1a; color: white;">
     <h2 style="font-size: 2.5rem; margin-bottom: 3rem; color: #fff;">What to Expect</h2>
     <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem;">
@@ -891,7 +775,6 @@
       </div>
     </div>
   </section>
-
   <section id="reviews" style="padding: 4rem 2rem; background: #0a0a0a; color: white; text-align: center;">
     <h2 style="font-size: 2.5rem; margin-bottom: 3rem; color: #fff;">What Our Clients Say</h2>
     <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
@@ -925,7 +808,6 @@
       Leave Us a Review
     </a>
   </section>
-
   <section id="gallery">
   <h2 style="font-size: 2.5rem; margin-bottom: 2rem; color: #ff3b3b; font-weight: 700;">Our Work Gallery</h2>
   <p style="max-width: 700px; margin: 0 auto 2.5rem; color: #ccc; font-size: 1.1rem; line-height: 1.6;">
@@ -1037,7 +919,6 @@ We’re not just painters — we’re business owners like you, and we know how 
       </button>
     </form>
   </section>
-
   <section style="padding: 4rem 2rem; background: #1a1a1a; color: #fff; text-align: center;">
     <h2 style="color: #ff3b3b; font-size: 2rem; margin-bottom: 2rem;">Where We Work</h2>
     <p style="color: #ccc; max-width: 700px; margin: 0 auto 2rem;">
@@ -1062,13 +943,10 @@ We’re not just painters — we’re business owners like you, and we know how 
 </iframe>
     </div>
   </section>
-
   <a href="tel:2515254405" id="floating-call">📞</a>
-
   <footer style="background: #0a0a0a; color: #ccc; padding: 1rem 2rem; text-align: center; font-size: 0.9rem;">
   <p>© <span id="current-year"></span> Dependable Painting LLC • <a href="tel:2515254405" style="color: #ff3b3b; text-decoration: none;">(251) 525-4405</a> • Bay Minette, AL</p>
 </footer>
-
   <script>
     document.addEventListener('DOMContentLoaded', function () {
       // SwiperJS Gallery initialization
@@ -1088,13 +966,11 @@ We’re not just painters — we’re business owners like you, and we know how 
           prevEl: '.swiper-button-prev',
         },
       });
-
       // Standardized Menu, Hours Popup, and Footer padding logic
       const menu = document.getElementById('mobileMenu');
       const hamburger = document.querySelector('.hamburger');
       const hoursPopup = document.getElementById('hoursPopup');
       const body = document.body;
-
       window.toggleMenu = () => {
         if (!menu || !hamburger || !body) return;
         const isOpen = menu.classList.toggle('open');
@@ -1102,7 +978,6 @@ We’re not just painters — we’re business owners like you, and we know how 
         hamburger.setAttribute('aria-expanded', isOpen.toString());
         menu.setAttribute('aria-hidden', (!isOpen).toString());
         body.style.overflow = isOpen ? 'hidden' : '';
-
         if (isOpen) {
           if (body) body.classList.remove('swipe-active');
           const links = menu.querySelectorAll('nav.menu a');
@@ -1117,7 +992,6 @@ We’re not just painters — we’re business owners like you, and we know how 
           }
         }
       };
-
       window.toggleSubMenu = (e) => {
         e.preventDefault();
         const submenu = document.getElementById('submenu');
@@ -1125,14 +999,12 @@ We’re not just painters — we’re business owners like you, and we know how 
           submenu.classList.toggle('open');
         }
       };
-
       window.toggleHoursPopup = (e) => {
         if (!hoursPopup || !e || !e.currentTarget) return;
         e.stopPropagation();
         const isVisible = hoursPopup.classList.toggle('visible');
         e.currentTarget.setAttribute('aria-expanded', isVisible.toString());
       };
-
       document.addEventListener('click', (e) => {
         if (hoursPopup && hoursPopup.classList.contains('visible')) {
           if (e.target && !hoursPopup.contains(e.target) && !e.target.closest('.hours-toggle')) {
@@ -1142,28 +1014,23 @@ We’re not just painters — we’re business owners like you, and we know how 
           }
         }
       });
-
       document.addEventListener('keydown', (e) => {
         if (e.key === 'Escape' && menu && menu.classList.contains('open')) {
           toggleMenu();
         }
       });
-
       // Swipe gesture for mobile menu (standardized)
       let touchStartX = 0;
       let touchEndX = 0;
       const SWIPE_THRESHOLD = 50;
       const EDGE_THRESHOLD = 60;
-
       document.addEventListener('touchstart', (e) => {
         touchStartX = e.changedTouches[0].screenX;
       }, { passive: true });
-
       document.addEventListener('touchend', (e) => {
         if (!menu) return;
         touchEndX = e.changedTouches[0].screenX;
         const swipeDiff = touchEndX - touchStartX;
-
         if (menu.classList.contains('open') && swipeDiff < -SWIPE_THRESHOLD) {
           toggleMenu();
         }
@@ -1171,14 +1038,12 @@ We’re not just painters — we’re business owners like you, and we know how 
           toggleMenu();
         }
       });
-
       if (body && menu) {
         if (window.innerWidth <= 768 && !menu.classList.contains('open')) {
           body.classList.add('swipe-active');
         }
       }
     });
-
     window.addEventListener('scroll', function () {
       const floatingCall = document.getElementById('floating-call');
       if (window.scrollY > 200) {
@@ -1187,24 +1052,20 @@ We’re not just painters — we’re business owners like you, and we know how 
         floatingCall.classList.remove('show');
       }
     });
-
     document.addEventListener("DOMContentLoaded", function () {
   const contactForm = document.getElementById("contact-form");
   if (contactForm) {
     contactForm.addEventListener("submit", async function (event) {
       event.preventDefault();
-
       const name = document.getElementById('name').value.trim();
       const email = document.getElementById('email').value.trim();
       const phone = document.getElementById('phone').value.trim();
       const service = document.getElementById('service').value;
       const message = document.getElementById('message').value.trim();
-
       if (!name || !email || !message || !service) {
         alert("Please fill out all required fields.");
         return;
       }
-
       try {
         const response = await fetch("https://paint-worker.dependablepainting-site.workers.dev", {
           method: "POST",
@@ -1220,7 +1081,6 @@ We’re not just painters — we’re business owners like you, and we know how 
             message
           })
         });
-
         if (response.ok) {
           const data = await response.json();
           alert(`Lead tagged as: ${data.category || 'General Inquiry'}`);
