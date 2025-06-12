@@ -793,7 +793,7 @@
     <a href="exterior-painting.html">Exterior Painting</a>
     <a href="cabinet-painting.html">Cabinet Painting</a>
   </div>
-  <a href="contact-form.html">Contact Us</a>
+  <a href="index.html#contact">Contact</a>
   <a href="index.html#gallery">Gallery</a>
   <a href="privacy.html">Privacy Policy</a>
 </nav>
@@ -992,7 +992,7 @@ We’re not just painters — we’re business owners like you, and we know how 
     <p style="max-width: 700px; margin: 0 auto 2.5rem; color: #ccc; font-size: 1.1rem; line-height: 1.6;">
       Ready to transform your space? Fill out the form below or contact us directly for a free, no-obligation estimate.
     </p>
-    <form id="contact-form" method="POST" action="#"
+    <form id="contact-form" method="POST" action="/contact"
       style="max-width: 600px; margin: 0 auto; background: #1a1a1a; padding: 2.5rem; border-radius: 15px; box-shadow: 0 10px 25px rgba(0,0,0,0.4); text-align: left;">
       <div style="margin-bottom: 1.5rem;">
         <label for="name"
@@ -1177,75 +1177,6 @@ We’re not just painters — we’re business owners like you, and we know how 
           body.classList.add('swipe-active');
         }
       }
-
-      // Contact form submission logic
-      const contactForm = document.getElementById("contact-form");
-
-      if (contactForm) {
-        contactForm.addEventListener("submit", async function (event) {
-          event.preventDefault();
-
-          const name = document.getElementById('name').value.trim();
-          const email = document.getElementById('email').value.trim();
-          const phone = document.getElementById('phone').value.trim();
-          const service = document.getElementById('service').value;
-          const message = document.getElementById('message').value.trim();
-
-          if (!name || !email || !message || !service) {
-            alert("Please fill out all required fields.");
-            return;
-          }
-
-          try {
-            const response = await fetch("https://contact.dependablepainting.work", {
-              method: "POST",
-              headers: {
-                "Content-Type": "application/json",
-                "Accept": "application/json"
-              },
-              body: JSON.stringify({
-                name,
-                email,
-                phone,
-                service,
-                message
-              })
-            });
-
-            const data = await response.json();
-
-            if (response.ok && data.success) {
-              alert(`Thanks! Your lead was tagged as: ${data.category || 'General Inquiry'}`);
-              contactForm.reset();
-
-              if (typeof gtag === "function") {
-                gtag('event', 'form_submit', {
-                  event_category: 'Contact',
-                  event_label: `Lead: ${data.category || 'Uncategorized'}`
-                });
-              }
-            } else {
-              alert(data.message || "Submission failed. Please try again.");
-              if (typeof gtag === "function") {
-                gtag('event', 'form_submit_error', {
-                  event_category: 'Contact',
-                  event_label: 'Worker Error',
-                  event_value: response.status
-                });
-              }
-            }
-          } catch (error) {
-            console.error("Submission error:", error);
-            alert("A network error occurred. Please check your connection.");
-            if (typeof gtag === "function") {
-              gtag('event', 'form_submit_network_error', {
-                event_category: 'Contact',
-                event_label: 'Network Error'
-              });
-            }
-          }
-        });
-      }
     });
 
     window.addEventListener('scroll', function () {
@@ -1256,5 +1187,67 @@ We’re not just painters — we’re business owners like you, and we know how 
         floatingCall.classList.remove('show');
       }
     });
+
+    document.addEventListener("DOMContentLoaded", function () {
+  const contactForm = document.getElementById("contact-form");
+  if (contactForm) {
+    contactForm.addEventListener("submit", async function (event) {
+      event.preventDefault();
+
+      const name = document.getElementById('name').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const phone = document.getElementById('phone').value.trim();
+      const service = document.getElementById('service').value;
+      const message = document.getElementById('message').value.trim();
+
+      if (!name || !email || !message || !service) {
+        alert("Please fill out all required fields.");
+        return;
+      }
+
+      try {
+        const response = await fetch("https://paint-worker.dependablepainting-site.workers.dev", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            "Accept": "application/json"
+          },
+          body: JSON.stringify({
+            name,
+            email,
+            phone,
+            service,
+            message
+          })
+        });
+
+        if (response.ok) {
+          const data = await response.json();
+          alert(`Lead tagged as: ${data.category || 'General Inquiry'}`);
+          contactForm.reset();
+          gtag('event', 'form_submit', {
+            event_category: 'Contact',
+            event_label: `Lead: ${data.category || 'Uncategorized'}`
+          });
+        } else {
+          alert("Submission failed. Please try again or give us a call.");
+          gtag('event', 'form_submit_error', {
+            event_category: 'Contact',
+            event_label: 'Worker Error',
+            event_value: response.status
+          });
+        }
+      } catch (error) {
+        console.error("Submission error:", error);
+        alert("A network error occurred. Please check your connection.");
+        gtag('event', 'form_submit_network_error', {
+          event_category: 'Contact',
+          event_label: 'Network Error'
+        });
+      }
+    });
+  }
+});
+  </script>
 </body>
 </html>
