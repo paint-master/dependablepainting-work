@@ -6,7 +6,6 @@
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-
   gtag('config', 'G-4199PGW8SW');
 </script>
   <meta charset="UTF-8" />
@@ -26,7 +25,6 @@
       color: #fff;
       line-height: 1.6;
     }
-
     /* Header styling - Consistent with index.html */
     header {
       background: #0a0a0a;
@@ -43,7 +41,6 @@
     .brand img { width: 40px; height: auto; }
     .brand span { font-weight: bold; font-size: 1.4rem; color: #ff3b3b; }
     .brand a { text-decoration: none; display: flex; align-items: center; }
-
     /* Navigation icons - Consistent with index.html */
     .nav-icons { display: flex; align-items: center; gap: 1.2rem; }
     .nav-icons a {
@@ -72,7 +69,6 @@
     }
     #hoursPopup strong { color: #ff3b3b; }
     #hoursPopup.visible { display: block; opacity: 1; transform: translateY(0); }
-
     /* Hamburger icon - Consistent with index.html */
     .hamburger {
       width: 30px;
@@ -146,33 +142,27 @@
       margin-left: 1rem;
       gap: 0.8rem;
     }
-
     nav.menu .submenu.open {
       display: flex;
     }
-
     section {
         padding: 5rem 2rem;
         text-align: center;
         background: #1a1a1a;
         color: #fff;
     }
-
     h1, h2 {
         color: white;
     }
-
     h1 {
         font-size: 2.7rem;
         max-width: 800px;
         margin: 0 auto 1.5rem;
     }
-
     h2 {
         font-size: 2.5rem;
         margin-bottom: 3rem;
     }
-
     p {
         color: #ccc;
         font-size: 1.2rem;
@@ -219,11 +209,9 @@
     #services {
         background: #0a0a0a;
     }
-
     #services h2 {
       color: #fff;
     }
-
     .service-card {
       background: linear-gradient(145deg, #111 0%, #1f1f1f 100%);
       padding: 2rem;
@@ -247,7 +235,6 @@
       max-width: 1000px;
       margin: 0 auto;
     }
-
     #gallery {
       padding: 3rem 1rem;
       background: #1a1a1a;
@@ -307,8 +294,6 @@
     .swiper-pagination-bullet-active {
       background-color: #ff3b3b !important;
     }
-
-
     #why-prep-matters {
       padding: 5rem 2rem;
       background: #0a0a0a;
@@ -467,7 +452,6 @@
       </div>
     </div>
   </header>
-
   <nav class="menu" id="mobileMenu" aria-hidden="true">
     <div class="close-btn" onclick="toggleMenu()" aria-label="Close menu">×</div>
     <a href="/">Home</a>
@@ -483,7 +467,6 @@
     <a href="index.html#gallery">Gallery</a>
     <a href="privacy.html">Privacy Policy</a>
   </nav>
-
   <section class="exterior-hero">
     <h1>Exterior Painting That Lasts and Looks Amazing</h1>
     <p>From siding and shutters to brick and trim, we prep, prime, and paint for maximum durability and lasting curb appeal.</p>
@@ -552,14 +535,12 @@
         <div class="swiper-button-prev"></div>
     </div>
   </section>
-
   <section id="why-prep-matters">
     <h2>Why Prep Matters More Than Paint</h2>
     <p>You can buy the best paint in the world — but without the right prep, it won't last. At Dependable Painting, every project starts with cleaning, patching, sanding, and priming the right way — no shortcuts.</p>
     <p>Pressure washing isn’t optional. Surface repairs aren’t optional. We treat your home or business like it’s our own — ensuring the finish coat bonds properly and stays beautiful for years.</p>
     <a href="#pressure-washing">See How We Prep</a>
   </section>
-  
   <section id="exterior-faq">
     <h2>Exterior Painting FAQs</h2>
     <div>
@@ -575,7 +556,6 @@
       <p>100%. Every exterior project is backed by a workmanship guarantee. We don’t leave until you’re fully satisfied.</p>
     </div>
   </section>
-
   <section id="map">
     <h2>Where We Work</h2>
     <p>Dependable Painting proudly serves homeowners and businesses throughout <strong>Baldwin County</strong> and <strong>Mobile County</strong> — including Fairhope, Daphne, Foley, Gulf Shores, Spanish Fort, Robertsdale, Bay Minette, and surrounding areas.</p>
@@ -584,11 +564,9 @@
       <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d878474.4639526487!2d-88.50364527369405!3d30.675054662867886!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x889a5d78a87e436f%3A0x211b14e27f6aea08!2sDependable%20Painting%20LLC!5e0!3m2!1sen!2sus!4v1747600478528!5m2!1sen!2sus" width="100%" height="450" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
     </div>
   </section>
-
   <footer>
     <p>© <span id="current-year"></span> Dependable Painting LLC • <a href="tel:2515254405">(251) 525-4405</a> • Bay Minette, AL</p>
   </footer>
-
   <script>
     document.addEventListener('DOMContentLoaded', () => {
         new Swiper('.swiper-container', {
@@ -607,12 +585,10 @@
                 prevEl: '.swiper-button-prev',
             },
         });
-
       const menu = document.getElementById('mobileMenu');
       const hamburger = document.querySelector('.hamburger');
       const hoursPopup = document.getElementById('hoursPopup');
       const body = document.body;
-
       window.toggleMenu = () => {
         if (!menu || !hamburger || !body) return;
         const isOpen = menu.classList.toggle('open');
@@ -620,7 +596,6 @@
         hamburger.setAttribute('aria-expanded', isOpen.toString());
         menu.setAttribute('aria-hidden', (!isOpen).toString());
         body.style.overflow = isOpen ? 'hidden' : '';
-
         if (isOpen) {
             const links = menu.querySelectorAll('a');
             links.forEach((link, i) => {
@@ -629,8 +604,7 @@
                 link.style.animation = `menuItemFadeIn 0.5s ease forwards ${i * 0.07 + 0.1}s`;
             });
         }
-      };
-      
+      };   
       window.toggleSubMenu = (e) => {
         e.preventDefault();
         const submenu = document.getElementById('submenu');
@@ -638,14 +612,12 @@
           submenu.classList.toggle('open');
         }
       };
-
       window.toggleHoursPopup = (e) => {
         if (!hoursPopup || !e || !e.currentTarget) return;
         e.stopPropagation();
         const isVisible = hoursPopup.classList.toggle('visible');
         e.currentTarget.setAttribute('aria-expanded', isVisible.toString());
       };
-
       document.addEventListener('click', (e) => {
         if (hoursPopup && hoursPopup.classList.contains('visible')) {
           if (e.target && !hoursPopup.contains(e.target) && !e.target.closest('.hours-toggle')) {
