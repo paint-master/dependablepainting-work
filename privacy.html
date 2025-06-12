@@ -1,13 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-4199PGW8SW"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-
   gtag('config', 'G-4199PGW8SW');
 </script>
   <meta charset="UTF-8" />
@@ -27,8 +25,6 @@
       line-height: 1.6;
       padding-bottom: 120px; /* Initial padding for sticky footer, JS will adjust it. */
     }
-
-    /* Header styling - Copied from index.html */
     header {
       background: #000000;
       padding: 1rem 2rem;
@@ -45,7 +41,6 @@
     .brand img { width: 40px; height: 40px; border-radius: 50%; object-fit: cover;}
     .brand span { font-weight: bold; font-size: 1.4rem; color: #e00000; }
     .brand a { text-decoration: none; display: flex; align-items: center; }
-
     /* Navigation icons - Copied from index.html */
     .nav-icons { display: flex; align-items: center; gap: 1.2rem; }
     .nav-icons a {
@@ -86,8 +81,6 @@
     }
     #hoursPopup strong { color: #e00000; }
     #hoursPopup.visible { display: block; opacity: 1; transform: translateY(0); }
-
-    /* Hamburger icon - Copied from index.html */
     .hamburger {
       width: 30px;
       height: 22px;
@@ -106,8 +99,6 @@
     .hamburger.active span:nth-child(1) { transform: translateY(9.5px) rotate(45deg); }
     .hamburger.active span:nth-child(2) { opacity: 0; }
     .hamburger.active span:nth-child(3) { transform: translateY(-9.5px) rotate(-45deg); }
-
-    /* Mobile menu - Copied from index.html */
     nav.menu {
       z-index: 10000;
       backdrop-filter: blur(4px);
@@ -181,25 +172,23 @@
       from { opacity: 0; transform: translateY(10px); }
       to { opacity: 1; transform: translateY(0); }
     }
-
-    /* Privacy Policy specific styles (adjusted for consistency) */
     .container {
       max-width: 800px;
-      margin: 2rem auto; /* Adjusted margin for better spacing */
-      padding: 0 1rem; /* Added padding for smaller screens */
+      margin: 2rem auto;
+      padding: 0 1rem;
     }
     h1 {
-      color: #e00000; /* Consistent with other pages */
+      color: #e00000;
       text-align: center;
-      margin-top: 2rem; /* Added margin for spacing below header */
+      margin-top: 2rem;
       margin-bottom: 1.5rem;
-      font-size: 2.8rem; /* Consistent with other page titles */
+      font-size: 2.8rem;
     }
     h2 {
-      color: #e00000; /* Consistent with other pages */
+      color: #e00000;
       margin-top: 2rem;
       margin-bottom: 1rem;
-      font-size: 2rem; /* Consistent with other section titles */
+      font-size: 2rem;
     }
     p, ul {
       font-size: 1.1rem;
@@ -207,14 +196,14 @@
       line-height: 1.6;
     }
     a {
-      color: #e00000; /* Consistent with other pages */
+      color: #e00000;
       text-decoration: none;
     }
     a:hover {
       text-decoration: underline;
     }
     strong {
-      color: #e00000; /* Consistent with other pages */
+      color: #e00000;
     }
     ul {
       list-style-type: disc;
@@ -226,8 +215,6 @@
       text-align: center;
       font-weight: bold;
     }
-
-    /* Sticky Footer Styles - Copied from index.html */
     .site-footer {
       position: fixed;
       bottom: 0;
@@ -275,8 +262,6 @@
       color: #ffffff;
       transform: translateY(-2px);
     }
-
-    /* Responsive adjustments - Copied from index.html */
     @media (max-width: 768px) {
       header { padding: 0.8rem 1rem; }
       .brand span { font-size: 1.1rem; }
@@ -292,7 +277,6 @@
       nav.menu a { font-size: 1.3rem; }
       #hoursPopup { font-size: 0.8rem; padding: 0.8rem; right: 5px; top: 120%; }
       .close-btn { top: 1rem; right: 1rem; font-size: 2rem; }
-
       .site-footer {
         flex-direction: column;
         text-align: center;
@@ -303,13 +287,10 @@
         justify-content: center;
       }
       .footer-links { margin-top: 0.5rem; }
-
       h1 { font-size: 2rem; }
       h2 { font-size: 1.6rem; }
       p, ul { font-size: 1rem; }
     }
-
-    /* Left-edge swipe cue for mobile menu - Copied from index.html */
     @media (max-width: 768px) {
       body.swipe-active::before {
         content: ""; position: fixed; top: 0; left: 0; width: 15px; height: 100vh;
@@ -320,7 +301,6 @@
     }
     @keyframes pulseEdge { 0% { opacity: 0.3; transform: scaleX(0.8); } 100% { opacity: 0.7; transform: scaleX(1); } }
 </style>
-  <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-4199PGW8SW"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -358,7 +338,6 @@
       </div>
     </div>
   </header>
-
   <nav class="menu" id="mobileMenu" aria-hidden="true">
     <div class="close-btn" onclick="toggleMenu()" aria-label="Close menu">×</div>
     <form action="https://www.google.com/search" method="GET" target="_blank" class="search-bar-container" onsubmit="this.q.value='site:dependablepaintingal.com ' + this.q.value.trim(); return !!this.q.value.replace('site:dependablepaintingal.com ', '').trim();">
@@ -372,11 +351,9 @@
     <a href="/gallery/">Gallery</a>
     <a href="/privacy.html">Privacy Policy</a>
   </nav>
-
   <div class="container">
     <h1>Privacy Policy</h1>
     <p>At Dependable Painting, your privacy is important to us. This Privacy Policy explains how we collect, use, and safeguard your information when you interact with us online or offline.</p>
-
     <h2>What We Collect</h2>
     <p>We may collect personal information including your name, phone number, email address, and service location when you:</p>
     <ul>
@@ -384,40 +361,29 @@
       <li>Request a quote</li>
       <li>Contact us through our website or social media</li>
     </ul>
-
     <h2>How We Use It</h2>
     <p>Your information is used strictly to respond to your inquiries, deliver services, and communicate about your project. We don’t sell, rent, or share your data with anyone.</p>
-
     <h2>Data Retention</h2>
     <p>We retain your personal information only for as long as necessary to fulfill the purposes for which it was collected, or as required by law. Once no longer needed, your data is securely deleted.</p>
-
     <h2>Cookies & Analytics</h2>
     <p>We may use cookies or third-party tools (like Google Analytics) to improve our website experience. You can disable cookies in your browser settings.</p>
-
     <h2>Third-Party Links</h2>
     <p>Our website may contain links to other sites that are not operated by us. If you click on a third-party link, you will be directed to that third party's site. We strongly advise you to review the Privacy Policy of every site you visit. We have no control over and assume no responsibility for the content, privacy policies, or practices of any third-party sites or services.</p>
-
     <h2>Children's Privacy</h2>
     <p>Our services are not intended for anyone under the age of 13. We do not knowingly collect personally identifiable information from children under 13. If you are a parent or guardian and you are aware that your child has provided us with personal data, please contact us. If we become aware that we have collected personal data from anyone under the age of 13 without verification of parental consent, we take steps to remove that information from our servers.</p>
-
     <h2>Security</h2>
     <p>We take your security seriously. All data is transmitted securely, and stored with restricted access.</p>
-
     <h2>Your Rights</h2>
     <p>You have the right to request access, corrections, or deletion of your personal data. To exercise these rights or for any privacy concerns, please contact us:</p>
     <ul>
       <li>Email: <a href="mailto:alexdimmler@dependablepainting.work">alexdimmler@dependablepainting.work</a></li>
       <li>Phone: <a href="tel:2515254405">251-525-4405</a></li>
     </ul>
-
     <h2>Changes</h2>
     <p>This Privacy Policy may be updated from time to time. All changes will be posted on this page with an updated revision date.</p>
-
     <p><strong>Last updated:</strong> May 2025</p>
-
     <p class="back-to-homepage"><a href="index.html">← Back to Homepage</a></p>
   </div>
-
   <footer class="site-footer">
     <div class="footer-brand">
       <img src="https://imagedelivery.net/VwxTcpKX2CusqbCCDB94Nw/0468e61a-5565-43fa-4026-fbc5801f1100/Logos" alt="Dependable Painting Logo">
@@ -441,14 +407,12 @@
             delay: 50,
         });
     }
-
     document.addEventListener('DOMContentLoaded', () => {
       const menu = document.getElementById('mobileMenu');
       const hamburger = document.querySelector('.hamburger');
       const hoursPopup = document.getElementById('hoursPopup');
       const body = document.body;
       const siteFooter = document.querySelector('.site-footer');
-
       window.toggleMenu = () => {
         if (!menu || !hamburger || !body) {
             return;
@@ -458,7 +422,6 @@
         hamburger.setAttribute('aria-expanded', isOpen.toString());
         menu.setAttribute('aria-hidden', (!isOpen).toString());
         body.style.overflow = isOpen ? 'hidden' : '';
-
         if (isOpen) {
             if(body) body.classList.remove('swipe-active');
             const links = menu.querySelectorAll('nav.menu a');
@@ -474,14 +437,12 @@
             }
         }
       };
-
       window.toggleHoursPopup = (e) => {
         if (!hoursPopup || !e || !e.currentTarget) return;
         e.stopPropagation();
         const isVisible = hoursPopup.classList.toggle('visible');
         e.currentTarget.setAttribute('aria-expanded', isVisible.toString());
       };
-
       document.addEventListener('click', (e) => {
         if (hoursPopup && hoursPopup.classList.contains('visible')) {
           if (e.target && !hoursPopup.contains(e.target) && !e.target.closest('.hours-toggle')) {
@@ -491,27 +452,22 @@
           }
         }
       });
-
       document.addEventListener('keydown', (e) => {
         if (e.key === 'Escape' && menu && menu.classList.contains('open')) {
           toggleMenu();
         }
       });
-
       let touchStartX = 0;
       let touchEndX = 0;
       const SWIPE_THRESHOLD = 50;
       const EDGE_THRESHOLD = 60;
-
       document.addEventListener('touchstart', (e) => {
         touchStartX = e.changedTouches[0].screenX;
       }, { passive: true });
-
       document.addEventListener('touchend', (e) => {
         if (!menu) return;
         touchEndX = e.changedTouches[0].screenX;
         const swipeDiff = touchEndX - touchStartX;
-
         if (menu.classList.contains('open') && swipeDiff < -SWIPE_THRESHOLD) {
           toggleMenu();
         }
@@ -519,14 +475,12 @@
           toggleMenu();
         }
       });
-
       function adjustFooterPadding() {
         if (siteFooter && body) {
             const footerHeight = siteFooter.offsetHeight;
             body.style.paddingBottom = `${footerHeight + 20}px`;
         }
       }
-
       if (body && menu) {
         if (window.innerWidth <= 768 && !menu.classList.contains('open')) {
           body.classList.add('swipe-active');
