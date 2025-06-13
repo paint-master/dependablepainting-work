@@ -520,6 +520,14 @@
                 event_category: 'Contact',
                 event_label: `Lead: ${result.category || 'General Inquiry'}`
               });
+              // Fire conversion event with Zaraz (unless debug)
+              if (!window.location.search.includes("debug")) {
+                if (typeof zaraz !== "undefined" && zaraz.track) {
+                  zaraz.track("form_submit");
+                }
+              }
+              // Redirect to thank-you page
+              window.location.href = "/thank-you";
             } else {
               responseDiv.textContent = "Submission failed. Please try again or give us a call.";
               // Track error in Google Analytics
