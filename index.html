@@ -945,11 +945,57 @@ We’re not just painters — we’re business owners like you, and we know how 
     const hamburger = document.querySelector('.hamburger');
     const hoursPopup = document.getElementById('hoursPopup');
     const body = document.body;
-    window.toggleMenu = () => { /* ... all toggleMenu code ... */ };
-    window.toggleSubMenu = (e) => { /* ... all toggleSubMenu code ... */ };
-    window.toggleHoursPopup = (e) => { /* ... all toggleHoursPopup code ... */ };
-    document.addEventListener('click', (e) => { /* ... document click logic ... */ });
-    document.addEventListener('keydown', (e) => { /* ... escape key logic ... */ });
+
+    // FULL, WORKING MENU FUNCTION
+    window.toggleMenu = () => {
+      if (!menu || !hamburger || !body) return;
+      const isOpen = menu.classList.toggle('open');
+      hamburger.classList.toggle('active', isOpen);
+      hamburger.setAttribute('aria-expanded', isOpen.toString());
+      menu.setAttribute('aria-hidden', (!isOpen).toString());
+      body.style.overflow = isOpen ? 'hidden' : '';
+      if (isOpen) {
+        const links = menu.querySelectorAll('a');
+        links.forEach((link, i) => {
+          link.style.animation = 'none';
+          link.offsetHeight; // Trigger reflow
+          link.style.animation = `menuItemFadeIn 0.5s ease forwards ${i * 0.07 + 0.1}s`;
+        });
+      }
+    };
+
+    // FULL, WORKING SUBMENU FUNCTION
+    window.toggleSubMenu = (e) => {
+      e.preventDefault();
+      const submenu = document.getElementById('submenu');
+      if (submenu) {
+        submenu.classList.toggle('open');
+      }
+    };
+    
+    // FULL, WORKING HOURS POPUP FUNCTION
+    window.toggleHoursPopup = (e) => {
+      e.stopPropagation();
+      if (!hoursPopup || !e || !e.currentTarget) return;
+      const isVisible = hoursPopup.classList.toggle('visible');
+      e.currentTarget.setAttribute('aria-expanded', isVisible.toString());
+    };
+
+    document.addEventListener('click', (e) => {
+      if (hoursPopup && hoursPopup.classList.contains('visible')) {
+        if (e.target && !hoursPopup.contains(e.target) && !e.target.closest('.hours-toggle')) {
+          hoursPopup.classList.remove('visible');
+          const hoursToggleAnchor = document.querySelector('.hours-toggle a');
+          if (hoursToggleAnchor) hoursToggleAnchor.setAttribute('aria-expanded', 'false');
+        }
+      }
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && menu && menu.classList.contains('open')) {
+        toggleMenu();
+      }
+    });
 
     // --- Floating Call Button ---
     const floatingCall = document.getElementById('floating-call');
