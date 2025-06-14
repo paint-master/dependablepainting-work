@@ -867,11 +867,35 @@ We’re not just painters — we’re business owners like you, and we know how 
   <section id="contact" style="padding: 4rem 2rem; background: #0a0a0a; color: white; text-align: center;">
     <h2 style="font-size: 2.5rem; margin-bottom: 2rem; color: #fff;">Get a Free Estimate</h2>
     <p style="max-width: 700px; margin: 0 auto 2.5rem; color: #ccc; font-size: 1.1rem; line-height: 1.6;">
-      Ready to transform your space? Click below to head to our dedicated contact form and request your free estimate.
+      Ready to transform your space? Fill out the quick form below to request your free estimate.
     </p>
-    <a href="/contact-form" style="background-color: #ff3b3b; color: white; padding: 1rem 2rem; border-radius: 8px; font-size: 1.2rem; font-weight: bold; text-decoration: none; transition: background-color 0.3s ease;">
-      Go to Contact Form
-    </a>
+
+    <form id="contact-form" style="max-width: 600px; margin: 0 auto; text-align: left;">
+      <label for="name" style="display: block; margin-bottom: 0.5rem;">Name *</label>
+      <input type="text" id="name" name="name" required style="width: 100%; padding: 0.75rem; margin-bottom: 1rem;">
+
+      <label for="email" style="display: block; margin-bottom: 0.5rem;">Email *</label>
+      <input type="email" id="email" name="email" required style="width: 100%; padding: 0.75rem; margin-bottom: 1rem;">
+
+      <label for="phone" style="display: block; margin-bottom: 0.5rem;">Phone (optional)</label>
+      <input type="text" id="phone" name="phone" style="width: 100%; padding: 0.75rem; margin-bottom: 1rem;">
+
+      <label for="service" style="display: block; margin-bottom: 0.5rem;">Service Needed *</label>
+      <select id="service" name="service" required style="width: 100%; padding: 0.75rem; margin-bottom: 1rem;">
+        <option value="Interior Painting">Interior Painting</option>
+        <option value="Exterior Painting">Exterior Painting</option>
+        <option value="Cabinet Painting">Cabinet Painting</option>
+        <option value="Commercial Painting">Commercial Painting</option>
+        <option value="Other">Other</option>
+      </select>
+
+      <label for="message" style="display: block; margin-bottom: 0.5rem;">Message *</label>
+      <textarea id="message" name="message" required style="width: 100%; padding: 0.75rem; height: 120px; margin-bottom: 1.5rem;"></textarea>
+
+      <button type="submit" style="background-color: #ff3b3b; color: white; padding: 1rem 2rem; border: none; border-radius: 6px; font-size: 1.1rem; cursor: pointer;">
+        Submit Request
+      </button>
+    </form>
   </section>
   <section style="padding: 4rem 2rem; background: #1a1a1a; color: #fff; text-align: center;">
     <h2 style="color: #ff3b3b; font-size: 2rem; margin-bottom: 2rem;">Where We Work</h2>
