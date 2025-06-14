@@ -1,0 +1,12 @@
+{
+  "private": true,
+  "name": "dependable-painting-website",
+  "version": "1.0.0",
+  "description": "Website for Dependable Painting with Cloudflare Functions",
+  "scripts": {
+    "deploy": "git push"
+  },
+  "dependencies": {
+    "google-auth-library": "^9.0.0"
+  }
+}
