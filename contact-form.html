@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-4199PGW8SW"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-4199PGW8SW');
+  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us | Dependable Painting</title>
+  <link rel="icon" type="image/png"
+    href="https://imagedelivery.net/VwxTcpKX2CusqbCCDB94Nw/0468e61a-5565-43fa-4026-fbc5801f1100/facicon"
+    sizes="512x512">
+  <link rel="mask-icon"
+    href="https://imagedelivery.net/VwxTcpKX2CusqbCCDB94Nw/0468e61a-5565-43fa-4026-fbc5801f1100/facicon"
+    color="#e00000">
+  <meta name="theme-color" content="#000000">
+  <link rel="preconnect" href="https://imagedelivery.net">
+  <link rel="preconnect" href="https://www.googletagmanager.com">
+  <style>
+    /* Reset & Base Styles */
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    html {
+      scroll-behavior: smooth;
+    }
+    body {
+      font-family: Arial, sans-serif;
+      background: #000;
+      color: #fff;
+    }
+    /* Header Styles */
+    header {
+      background: #0a0a0a;
+      padding: 1rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      z-index: 9999;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+    }
+    .brand img {
+      width: 40px;
+      height: auto;
+    }
+    .brand span {
+      font-weight: bold;
+      font-size: 1.4rem;
+      color: #ff3b3b;
+    }
+    .nav-icons {
+      display: flex;
+      align-items: center;
+      gap: 1.2rem;
+    }
+    .nav-icons a {
+      color: #ff3b3b;
+      font-size: 1.5rem;
+      transition: color 0.3s ease;
+    }
+    .nav-icons a:hover {
+      color: #fff;
+    }
+    /* Hamburger Menu */
+    .hamburger {
+      width: 30px;
+      height: 22px;
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      margin-left: 1rem;
+    }
+    .hamburger span {
+      height: 3px;
+      width: 100%;
+      background: #ff3b3b;
+      border-radius: 2px;
+      transition: 0.4s;
+    }
+    .hamburger.active span:nth-child(1) {
+      transform: translateY(9.5px) rotate(45deg);
+    }
+    .hamburger.active span:nth-child(2) {
+      opacity: 0;
+    }
+    .hamburger.active span:nth-child(3) {
+      transform: translateY(-9.5px) rotate(-45deg);
+    }
+    /* Mobile Menu */
+    nav.menu {
+      position: fixed;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100vh;
+      background: rgba(0, 0, 0, 0.95);
+      backdrop-filter: blur(4px);
+      color: #fff;
+      padding: 4rem 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.8rem;
+      transition: left 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      z-index: 9998;
+      overflow-y: auto;
+    }
+    nav.menu.open {
+      left: 0;
+      box-shadow: 5px 0 30px rgba(255, 59, 59, 0.2);
+    }
+    nav.menu a {
+      color: #ff3b3b;
+      font-size: 1.5rem;
+      font-weight: bold;
+      text-decoration: none;
+      display: block;
+      padding: 0.5rem 0;
+      transition: color 0.3s ease, transform 0.3s ease;
+      opacity: 0;
+      animation: menuItemFadeIn 0.5s ease forwards;
+    }
+    @keyframes menuItemFadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    nav.menu a:hover {
+      color: #fff;
+      transform: translateX(5px);
+    }
+    /* === NEW: Style for the active navigation link === */
+    nav.menu a.active-nav-link {
+        color: #fff; /* Use the hover color to show it's active */
+        cursor: default; /* Change cursor to show it's not clickable */
+    }
+    nav.menu a.active-nav-link:hover {
+        transform: none; /* Prevent the active link from moving on hover */
+    }
+    nav.menu .submenu {
+      display: none;
+      flex-direction: column;
+      margin-top: 0.5rem;
+      margin-left: 1rem;
+      gap: 0.8rem;
+    }
+    nav.menu .submenu.open {
+      display: flex;
+    }
+    .close-btn {
+      position: absolute;
+      top: 1.5rem;
+      right: 1.5rem;
+      font-size: 2.2rem;
+      cursor: pointer;
+      color: #ff3b3b;
+      transition: color 0.3s ease, transform 0.3s ease;
+    }
+
+    .close-btn:hover {
+      color: #ffffff;
+      transform: rotate(90deg);
+    }
+
+    /* Hours Toggle and Popup */
+    .hours-toggle {
+      position: relative;
+      display: inline-block;
+    }
+
+    #hoursPopup {
+      display: none;
+      position: absolute;
+      background-color: #000000;
+      color: #fff;
+      padding: 1rem;
+      border-radius: 6px;
+      box-shadow: 0 0 10px rgba(255, 59, 59, 0.5);
+      top: 130%;
+      right: 0;
+      white-space: nowrap;
+      z-index: 10000;
+      opacity: 0;
+      transition: opacity 0.3s ease, transform 0.3s ease;
+      transform: translateY(-10px);
+      border: 1px solid #333333;
+    }
+    #hoursPopup strong {
+      color: #ff3b3b;
+    }
+    #hoursPopup.visible {
+      display: block;
+      opacity: 1;
+      transform: translateY(0);
+    }
+    /* Main Content Sections */
+    section {
+      padding: 5rem 2rem;
+      text-align: center;
+    }
+    section:nth-of-type(even) {
+      background: #0a0a0a;
+    }
+    section:nth-of-type(odd) {
+      background: #1a1a1a;
+    }
+    h1, h2 {
+      color: white;
+      font-size: 2.7rem;
+      max-width: 800px;
+      margin: 0 auto 1.5rem;
+    }
+
+    p {
+      color: #ccc;
+      font-size: 1.2rem;
+      max-width: 700px;
+      margin: 0 auto 2rem;
+      line-height: 1.6;
+    }
+    iframe {
+      max-width: 100%;
+      overflow: hidden;
+      border: 0;
+      border-radius: 10px;
+    }
+    /* Contact Form Specific Styles */
+    #contact-form-section {
+        padding: 4rem 2rem;
+        background: #0a0a0a;
+    }
+    #contact-form {
+      max-width: 600px;
+      margin: 0 auto;
+      background: #1a1a1a;
+      padding: 2.5rem;
+      border-radius: 15px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+      text-align: left;
+    }
+    #contact-form label {
+      display: block;
+      color: #ff3b3b;
+      font-weight: bold;
+      margin-bottom: 0.5rem;
+    }
+    #contact-form input,
+    #contact-form select,
+    #contact-form textarea {
+      width: 100%;
+      padding: 0.8rem;
+      border-radius: 8px;
+      border: 1px solid #333;
+      background: #222;
+      color: #fff;
+      font-size: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    #contact-form button {
+      background-color: #ff3b3b;
+      color: white;
+      padding: 1rem 2rem;
+      border-radius: 8px;
+      border: none;
+      cursor: pointer;
+      font-size: 1.1rem;
+      font-weight: bold;
+      width: 100%;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+    }
+    #contact-form button:hover {
+        background-color: #d62828;
+        transform: scale(1.02);
+    }
+    #response {
+      margin-top: 1.5rem;
+      background: #333;
+      padding: 1rem;
+      border-radius: 4px;
+      min-height: 60px;
+      text-align: center;
+      color: #fff;
+    }
+    /* Responsive Adjustments */
+    @media (max-width: 768px) {
+      header {
+        padding: 1rem;
+      }
+      .brand span {
+        font-size: 1.2rem;
+      }
+      .brand img {
+        width: 35px;
+      }
+      nav.menu {
+        padding: 3.5rem 1.5rem;
+        gap: 1.5rem;
+      }
+      nav.menu a {
+        font-size: 1.3rem;
+      }
+      .close-btn {
+        font-size: 2rem;
+        top: 1rem;
+        right: 1rem;
+      }
+      section {
+        padding: 3rem 1rem;
+      }
+      h1, h2 {
+        font-size: 2rem;
+      }
+      p {
+        font-size: 1rem;
+      }
+    }
+    @media (max-width: 480px) {
+      header {
+          padding: 0.8rem;
+      }
+      .brand img {
+          width: 30px;
+      }
+      .brand span {
+          font-size: 1.1rem;
+      }
+      h1, h2 {
+          font-size: 1.8rem;
+      }
+    }
+  </style>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js" defer crossorigin="anonymous"></script>
+</head>
+<body>
+  <header>
+    <div class="brand">
+      <a href="/">
+        <img src="https://imagedelivery.net/VwxTcpKX2CusqbCCDB94Nw/0468e61a-5565-43fa-4026-fbc5801f1100/Logos" alt="Dependable Painting Logo">
+      </a>
+      <span>Dependable Painting</span>
+    </div>
+    <div class="nav-icons">
+      <div class="hours-toggle">
+        <a href="#" title="Business Hours" aria-label="Business Hours" onclick="toggleHoursPopup(event); return false;">
+          <i class="fas fa-clock"></i>
+        </a>
+        <div id="hoursPopup" role="tooltip">
+          <strong>Hours:</strong><br>
+          Mon–Fri: 8:00am – 5:30pm<br>
+          Saturday: By Appointment<br>
+          Sunday: Closed
+        </div>
+      </div>
+      <a href="tel:2515254405" title="Call Us" aria-label="Call Us"><i class="fas fa-phone"></i></a>
+      <a href="https://g.page/r/CQjqan_iFBshEAE" target="_blank" rel="noopener noreferrer" title="Find us on Google" aria-label="Find us on Google"><i class="fab fa-google"></i></a>
+      <div class="hamburger" onclick="toggleMenu()" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+  </header>
+  
+  <nav class="menu" id="mobileMenu" aria-hidden="true">
+    <div class="close-btn" onclick="toggleMenu()" aria-label="Close menu">×</div>
+    <a href="/">Home</a>
+    <a href="about.html">About Us</a>
+    <a href="#" onclick="toggleSubMenu(event)">Services ▾</a>
+    <div class="submenu" id="submenu">
+      <a href="services.html">Services Overview</a>
+      <a href="interior-painting.html">Interior Painting</a>
+      <a href="exterior-painting.html">Exterior Painting</a>
+      <a href="cabinet-painting.html">Cabinet Painting</a>
+    </div>
+    <a href="/#gallery">Gallery</a>
+    <a href="privacy.html">Privacy Policy</a>
+  </nav>
+  <section class="hero-section"
+    style="background-image: url('https://imagedelivery.net/VwxTcpKX2CusqbCCDB94Nw/86b51c5e-04c9-4673-f1e1-e94f114c0000/public'); background-size: cover; background-position: center; color: white; text-align: center; padding: 100px 20px; min-height: 40vh; display: flex; flex-direction: column; align-items: center; justify-content: center;">
+    <div class="hero-content">
+      <h1 style="font-size: 3rem; text-shadow: 2px 2px 4px rgba(0,0,0,0.7);">
+        Get in Touch
+      </h1>
+      <p style="font-size: 1.3rem; max-width: 650px; text-shadow: 1px 1px 3px rgba(0,0,0,0.7);">
+        Ready to start your project? Fill out the form below for a free, no-obligation estimate.
+      </p>
+    </div>
+  </section>
+  <section id="contact-form-section">
+    <h2>Request a Free Estimate</h2>
+    <p>
+      Fill out the form below or contact us directly. We're ready to answer your questions and get your project started.
+    </p>
+    <form id="contact-form">
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name" placeholder="Your Full Name" required>
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" placeholder="your.email@example.com" required>
+      <label for="phone">Phone (Optional):</label>
+      <input type="tel" id="phone" name="phone" placeholder="(555) 123-4567">
+      <label for="service">Service Needed:</label>
+      <select id="service" name="service" required>
+        <option value="">Select a Service</option>
+        <option value="Interior Painting">Interior Painting</option>
+        <option value="Exterior Painting">Exterior Painting</option>
+        <option value="Cabinet Painting">Cabinet Painting</option>
+        <option value="Commercial Painting">Commercial Painting</option>
+        <option value="Other">Other</option>
+      </select>
+      <label for="message">Message:</label>
+      <textarea id="message" name="message" rows="5" placeholder="Tell us about your project..." required></textarea>
+      <button type="submit">Get My Estimate</button>
+    </form>
+    <div id="response" aria-live="polite"></div>
+  </section>
+  <section>
+    <h2 style="color: #ff3b3b; font-size: 2rem; margin-bottom: 2rem;">Where We Work</h2>
+    <p style="color: #ccc; max-width: 700px; margin: 0 auto 2rem;">
+      We proudly serve homeowners and businesses throughout <strong>Baldwin County</strong> and
+      <strong>Mobile County</strong> — including Fairhope, Daphne, Spanish Fort, Foley, and Bay Minette.
+    </p>
+    <div style="max-width: 100%; overflow: hidden; border-radius: 10px;">
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d54922.632588480454!2d-87.91382869031587!3d30.64341048628297!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x889a5d78a87e436f%3A0x211b14e27f6aea08!2sDependable%20Painting%20LLC!5e0!3m2!1sen!2sus!4v1749439475494!5m2!1sen!2sus"
+        width="100%"
+        height="450"
+        style="border:0;"
+        allowfullscreen=""
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade">
+      </iframe>
+    </div>
+  </section>
+  <footer style="background: #0a0a0a; color: #ccc; padding: 1rem 2rem; text-align: center; font-size: 0.9rem;">
+    <p>© <span id="current-year"></span> Dependable Painting LLC • <a href="tel:2515254405" style="color: #ff3b3b; text-decoration: none;">(251) 525-4555</a> • Bay Minette, AL</p>
+  </footer>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    // Set current year in footer
+    document.getElementById('current-year').textContent = new Date().getFullYear();
+
+    // Mobile Menu and Hours Popup Logic
+    const menu = document.getElementById('mobileMenu');
+    const hamburger = document.querySelector('.hamburger');
+    const hoursPopup = document.getElementById('hoursPopup');
+    const body = document.body;
+    window.toggleMenu = () => {
+      if (!menu || !hamburger || !body) return;
+      const isOpen = menu.classList.toggle('open');
+      hamburger.classList.toggle('active', isOpen);
+      menu.setAttribute('aria-hidden', (!isOpen).toString());
+      body.style.overflow = isOpen ? 'hidden' : '';
+      if (isOpen) {
+        const links = menu.querySelectorAll('a');
+        links.forEach((link, i) => {
+          link.style.animation = 'none';
+          link.offsetHeight;
+          link.style.animation = `menuItemFadeIn 0.5s ease forwards ${i * 0.07 + 0.1}s`;
+        });
+      }
+    };
+    
+    // === NEW: JavaScript function for the services submenu ===
+    window.toggleSubMenu = (e) => {
+        e.preventDefault();
+        const submenu = document.getElementById('submenu');
+        if (submenu) {
+          submenu.classList.toggle('open');
+        }
+    };
+
+    window.toggleHoursPopup = (e) => {
+      e.stopPropagation();
+      const isVisible = hoursPopup.classList.toggle('visible');
+      e.currentTarget.setAttribute('aria-expanded', isVisible.toString());
+    };
+    document.addEventListener('click', (e) => {
+      if (hoursPopup && hoursPopup.classList.contains('visible') && !e.target.closest('.hours-toggle')) {
+        hoursPopup.classList.remove('visible');
+        document.querySelector('.hours-toggle a').setAttribute('aria-expanded', 'false');
+      }
+    });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && menu.classList.contains('open')) toggleMenu();
+    });
+
+    // Form Submission Logic
+    const contactForm = document.getElementById("contact-form");
+    const responseDiv = document.getElementById("response");
+    if (contactForm) {
+      contactForm.addEventListener("submit", async function (event) {
+        event.preventDefault();
+        const submitButton = contactForm.querySelector("button");
+        submitButton.disabled = true;
+        submitButton.textContent = "Sending...";
+        responseDiv.textContent = "";
+
+        const data = {
+          name: contactForm.name.value.trim(),
+          email: contactForm.email.value.trim(),
+          phone: contactForm.phone.value.trim(),
+          service: contactForm.service.value,
+          message: contactForm.message.value.trim()
+        };
+
+        try {
+          const response = await fetch("https://paint-worker.dependablepainting-site.workers.dev", { // Using the full worker URL
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+              "Accept": "application/json"
+            },
+            body: JSON.stringify(data)
+          });
+          
+          const result = await response.json(); // Get JSON response from worker
+
+          if (response.ok) {
+            // Use the category from the worker's response in the analytics event
+            gtag('event', 'form_submit', {
+                event_category: 'Contact',
+                event_label: `Lead: ${result.category || 'Uncategorized'}`
+            });
+            // Redirect to a thank-you page on success
+            window.location.href = "/thank-you.html"; 
+          } else {
+            responseDiv.textContent = "Submission failed. Please try again or give us a call.";
+            gtag('event', 'form_submit_error', { event_category: 'Contact', event_label: 'API Error', event_value: response.status });
+          }
+        } catch (error) {
+          console.error("Submission error:", error);
+          responseDiv.textContent = "A network error occurred. Please check your connection and try again.";
+          gtag('event', 'form_submit_network_error', { event_category: 'Contact', event_label: 'Network Error' });
+        } finally {
+          submitButton.disabled = false;
+          submitButton.textContent = "Get My Estimate";
+        }
+      });
+    }
+  });
+</script>
+</body>
+</html>
