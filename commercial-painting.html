@@ -10,13 +10,14 @@
 </script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Exterior Painting | Dependable Painting</title>
+  <title>Commercial Painting | Dependable Painting</title>
+  <meta name="description" content="Reliable commercial painting services for businesses across Baldwin and Mobile counties. Schedule a free walkthrough today.">
   <link rel="icon" href="https://imagedelivery.net/VwxTcpKX2CusqbCCDB94Nw/0468e61a-5565-43fa-4026-fbc5801f1100/facicon" />
   <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
   <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js" defer crossorigin="anonymous"></script>
   <style>
-    /* Reset and base styles */
+    /* Reset and base styles - Copied from exterior-painting.html */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
     body {
@@ -25,7 +26,7 @@
       color: #fff;
       line-height: 1.6;
     }
-    /* Header styling - Consistent with index.html */
+    /* Header styling - Consistent */
     header {
       background: #0a0a0a;
       padding: 1rem 2rem;
@@ -41,7 +42,7 @@
     .brand img { width: 40px; height: auto; }
     .brand span { font-weight: bold; font-size: 1.4rem; color: #ff3b3b; }
     .brand a { text-decoration: none; display: flex; align-items: center; }
-    /* Navigation icons - Consistent with index.html */
+    /* Navigation icons - Consistent */
     .nav-icons { display: flex; align-items: center; gap: 1.2rem; }
     .nav-icons a {
       color: #ff3b3b;
@@ -69,7 +70,7 @@
     }
     #hoursPopup strong { color: #ff3b3b; }
     #hoursPopup.visible { display: block; opacity: 1; transform: translateY(0); }
-    /* Hamburger icon - Consistent with index.html */
+    /* Hamburger icon - Consistent */
     .hamburger {
       width: 30px;
       height: 22px;
@@ -89,8 +90,7 @@
     .hamburger.active span:nth-child(1) { transform: translateY(9.5px) rotate(45deg); }
     .hamburger.active span:nth-child(2) { opacity: 0; }
     .hamburger.active span:nth-child(3) { transform: translateY(-9.5px) rotate(-45deg); }
-
-    /* Mobile menu - Consistent with index.html */
+    /* Mobile menu - Consistent */
     nav.menu {
       position: fixed;
       top: 0;
@@ -170,28 +170,29 @@
         margin: 0 auto 2rem;
     }
 
-    .exterior-hero {
+    /* Commercial Hero Section Styles */
+    .commercial-hero {
       padding: 5rem 2rem;
       text-align: center;
       background: #000000 !important;
       position: relative;
       overflow: hidden;
     }
-    .exterior-hero h1 {
+    .commercial-hero h1 {
       color: #ff3b3b !important;
       font-size: 2.8rem;
       animation: fadeInDown 1s ease-out;
     }
-    .exterior-hero p {
+    .commercial-hero p {
       color: #ffffff !important;
       animation: fadeIn 1.5s ease-out;
     }
-    .exterior-hero p:last-of-type {
+    .commercial-hero .subtitle {
       color: #cccccc !important;
       font-size: 1rem;
       animation: fadeIn 2s ease-out;
     }
-    .exterior-hero a {
+    .commercial-hero a {
       background: #ff3b3b !important;
       color: white;
       padding: 1rem 2rem;
@@ -201,15 +202,17 @@
       font-size: 1.1rem;
       transition: all 0.3s ease;
     }
-    .exterior-hero a:hover {
+    .commercial-hero a:hover {
       background: #e00000 !important;
       transform: translateY(-2px);
       box-shadow: 0 5px 15px rgba(255, 59, 59, 0.5);
     }
-    #services {
+    
+    /* Services Section Styles */
+    #commercial-services {
         background: #0a0a0a;
     }
-    #services h2 {
+    #commercial-services h2 {
       color: #fff;
     }
     .service-card {
@@ -228,13 +231,15 @@
       transform: translateY(-8px);
       box-shadow: 0 8px 20px rgba(255, 59, 59, 0.4);
     }
-     #services > div {
+     #commercial-services > div {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
       gap: 2rem;
       max-width: 1000px;
       margin: 0 auto;
     }
+
+    /* Gallery Section Styles */
     #gallery {
       padding: 3rem 1rem;
       background: #1a1a1a;
@@ -294,21 +299,23 @@
     .swiper-pagination-bullet-active {
       background-color: #ff3b3b !important;
     }
-    #why-prep-matters {
+
+    /* CTA Section Styles */
+    #cta-section {
       padding: 5rem 2rem;
       background: #0a0a0a;
     }
-    #why-prep-matters h2 {
+    #cta-section h2 {
       color: #ff3b3b;
       font-size: 2.7rem;
     }
-    #why-prep-matters p:last-of-type {
+    #cta-section p {
       color: #cccccc;
-      font-size: 1rem;
+      font-size: 1.1rem;
       max-width: 700px;
       margin: 0 auto 3rem;
     }
-    #why-prep-matters a {
+    #cta-section a {
       background: #ff3b3b;
       color: white;
       padding: 1rem 2rem;
@@ -319,37 +326,40 @@
       transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
       box-shadow: 0 4px 12px rgba(255, 59, 59, 0.25);
     }
-    #why-prep-matters a:hover {
+    #cta-section a:hover {
       background: #e00000;
       transform: translateY(-2px);
       box-shadow: 0 6px 18px rgba(255, 59, 59, 0.45);
     }
-    #exterior-faq {
+    
+    /* FAQ Section Styles */
+    #commercial-faq {
       padding: 4rem 2rem;
-      background: #0a0a0a;
+      background: #1a1a1a;
     }
-    #exterior-faq h2 {
+    #commercial-faq h2 {
       font-size: 2.2rem;
       color: #ff3b3b;
     }
-    #exterior-faq > div {
+    #commercial-faq > div {
       max-width: 800px;
       margin: 0 auto;
       text-align: left;
     }
-    #exterior-faq h3 {
+    #commercial-faq h3 {
       color: #ff3b3b;
       margin-bottom: 0.5rem;
       font-size: 1.4rem;
     }
-    #exterior-faq p {
+    #commercial-faq p {
       margin-bottom: 1.5rem;
       font-size: 1.1rem;
     }
 
+    /* Map Section Styles */
     #map {
       padding: 4rem 2rem;
-      background: #1a1a1a;
+      background: #0a0a0a;
     }
     #map h2 {
       color: #ff3b3b;
@@ -379,8 +389,10 @@
       border: 0;
       display: block;
     }
+
+    /* Footer Styles */
     footer {
-        background: #0a0a0a;
+        background: #000;
         color: #ccc;
         padding: 1rem 2rem;
         text-align: center;
@@ -391,6 +403,7 @@
         text-decoration: none;
     }
 
+    /* Media Queries for Responsiveness */
     @media (max-width: 768px) {
       .swiper-button-next, .swiper-button-prev {
           display: none;
@@ -406,9 +419,9 @@
       .close-btn { font-size: 2rem; top: 1rem; right: 1rem; }
       #hoursPopup { font-size: 0.8rem; padding: 0.8rem; right: 5px; top: 120%; }
       section { padding: 3rem 1rem; }
-      h1, .exterior-hero h1 { font-size: 2.2rem; }
-      p, .exterior-hero p { font-size: 1rem; }
-      h2, #services h2, #gallery h2, #why-prep-matters h2, #exterior-faq h2, #map h2 { font-size: 2rem; }
+      h1, .commercial-hero h1 { font-size: 2.2rem; }
+      p, .commercial-hero p { font-size: 1rem; }
+      h2, #commercial-services h2, #gallery h2, #cta-section h2, #commercial-faq h2, #map h2 { font-size: 2rem; }
       .service-card h3 { font-size: 1.2rem; }
       .service-card p { font-size: 0.95rem; }
     }
@@ -467,66 +480,62 @@
     <a href="index.html#gallery">Gallery</a>
     <a href="privacy.html">Privacy Policy</a>
   </nav>
-  <section class="exterior-hero">
-    <h1>Exterior Painting That Lasts and Looks Amazing</h1>
-    <p>From siding and shutters to brick and trim, we prep, prime, and paint for maximum durability and lasting curb appeal.</p>
-    <p>Our exterior crews are clean, careful, and committed to getting your home looking its best — and keeping it protected for years.</p>
-    <a href="index.html#contact">Get Your Free Quote</a>
+
+  <section class="commercial-hero">
+    <h1>Commercial Painting Services</h1>
+    <p>Professional coatings for businesses that demand quality, efficiency, and reliability. We keep your property looking sharp and protected.</p>
+    <p class="subtitle">Serving offices, retail, warehouses, and more across Baldwin and Mobile counties.</p>
+    <a href="index.html#contact">Schedule a Free Walkthrough</a>
   </section>
 
-  <section id="services">
-    <h2>What We Paint</h2>
+  <section id="commercial-services">
+    <h2>Our Commercial Capabilities</h2>
     <div>
       <div class="service-card">
-        <h3>Masonry Surfaces | Brick & Stucco</h3>
-        <p>Breathe new life into old brick and stucco. We restore, seal, and protect masonry with premium coatings designed to thrive in Alabama’s toughest conditions.</p>
+        <h3>Interior Commercial Painting</h3>
+        <p>From office refreshes to complete tenant build-outs, we deliver clean lines and durable finishes with minimal disruption to your operations.</p>
       </div>
       <div class="service-card">
-        <h3>Board and Batten</h3>
-        <p>Crisp lines, bold colors, lasting protection. We prime and paint board and batten siding to give your home that sharp, high-end finish that stands out.</p>
+        <h3>Exterior Commercial Painting</h3>
+        <p>Boost your curb appeal and protect your investment. We paint everything from storefronts and metal awnings to large-scale brick and concrete buildings.</p>
       </div>
       <div class="service-card">
-        <h3>Floors & Decks</h3>
-        <p>From porches to patios, we stain, seal, and protect wood and concrete — creating outdoor spaces that look better, last longer, and stand stronger.</p>
+        <h3>Specialty Coatings</h3>
+        <p>We apply high-performance coatings, including epoxy floor systems, concrete stains, and elastomeric paints for enhanced durability and protection.</p>
       </div>
       <div class="service-card">
-        <h3>Metal Surfaces</h3>
-        <p>Rust? Not on our watch. We prep and coat metal roofs, doors, and rails with specialty finishes that defend against weather and time.</p>
+        <h3>Flexible Scheduling</h3>
+        <p>We work when you can't. Our crews are available for night and weekend scheduling to ensure your business keeps running smoothly.</p>
       </div>
       <div class="service-card">
-        <h3>Wood Siding</h3>
-        <p>We sand, prime, and precision-paint wood siding to bring out rich color and deep protection — keeping your home beautiful for years to come.</p>
+        <h3>Drywall & Surface Repair</h3>
+        <p>Our service includes comprehensive prep work, including professional drywall patching and surface repairs for a flawless final coat.</p>
       </div>
       <div class="service-card">
-        <h3>Trim, Doors & Details</h3>
-        <p>It's the little things that make a big impact. We paint doors, shutters, columns, and trim with sharp, clean lines and a finish built to impress.</p>
+        <h3>Licensed & Insured</h3>
+        <p>Dependable Painting is fully licensed and insured for all commercial work, giving you peace of mind from start to finish.</p>
       </div>
     </div>
   </section>
+  
   <section id="gallery">
-    <h2 style="font-size: 2.5rem; margin-bottom: 2rem; color: #ff3b3b; font-weight: 700;">Exterior Project Gallery</h2>
-    <p style="max-width: 700px; margin: 0 auto 2.5rem; color: #ccc; font-size: 1.1rem; line-height: 1.6;">
-        Clean prep. Professional finishes. Lasting curb appeal. Here's a look at just a few of our exterior projects across Baldwin and Mobile Counties.
+    <h2>Commercial Project Gallery</h2>
+    <p>
+        A professional finish reflects a professional business. See how we've helped local companies enhance their properties inside and out.
     </p>
     <div class="swiper-container">
         <div class="swiper-wrapper">
             <div class="swiper-slide">
-                <img src="https://imagedelivery.net/VwxTcpKX2CusqbCCDB94Nw/1d414727-2c8d-40db-0e59-33a264582e00/1200x675" alt="Modern Board and Batten Exterior Painting" loading="lazy" />
+                <img src="https://imagedelivery.net/VwxTcpKX2CusqbCCDB94Nw/PLACEHOLDER-1/1200x675" alt="Interior Office Painting Project" loading="lazy" />
             </div>
             <div class="swiper-slide">
-                <img src="https://imagedelivery.net/VwxTcpKX2CusqbCCDB94Nw/a551556f-9978-4b61-7d44-64b02aa42e00/1200x675" alt="Classic Wood Siding Exterior Repaint" loading="lazy" />
+                <img src="https://imagedelivery.net/VwxTcpKX2CusqbCCDB94Nw/PLACEHOLDER-2/1200x675" alt="Retail Storefront Exterior Repaint" loading="lazy" />
             </div>
             <div class="swiper-slide">
-                <img src="https://imagedelivery.net/VwxTcpKX2CusqbCCDB94Nw/ea2b8a96-4cd9-42b6-b55e-1a528efedd00/1200x675" alt="Dark Themed Board and Batten Home Exterior" loading="lazy" />
+                <img src="https://imagedelivery.net/VwxTcpKX2CusqbCCDB94Nw/PLACEHOLDER-3/1200x675" alt="Warehouse Epoxy Floor Coating" loading="lazy" />
             </div>
             <div class="swiper-slide">
-                <img src="https://imagedelivery.net/VwxTcpKX2CusqbCCDB94Nw/e2bdc434-72dc-4da0-5e90-49404c370200/1200x675" alt="Inviting Front Porch Painting" loading="lazy" />
-            </div>
-            <div class="swiper-slide">
-                <img src="https://imagedelivery.net/VwxTcpKX2CusqbCCDB94Nw/87dc41e4-6dd5-403b-01d5-328666618700/1200x675" alt="Crisp White Brick Exterior Transformation" loading="lazy" />
-            </div>
-            <div class="swiper-slide">
-                <img src="https://imagedelivery.net/VwxTcpKX2CusqbCCDB94Nw/03a8b4cb-e1e5-41fb-0408-c4c096ed0800/1200x675" alt="Church Exterior Ceiling Repaint Project" loading="lazy" />
+                <img src="https://imagedelivery.net/VwxTcpKX2CusqbCCDB94Nw/PLACEHOLDER-4/1200x675" alt="Restaurant Interior Painting" loading="lazy" />
             </div>
         </div>
         <div class="swiper-pagination"></div>
@@ -534,38 +543,40 @@
         <div class="swiper-button-prev"></div>
     </div>
   </section>
-  <section id="why-prep-matters">
-    <h2>Why Prep Matters More Than Paint</h2>
-    <p>You can buy the best paint in the world — but without the right prep, it won't last. At Dependable Painting, every project starts with cleaning, patching, sanding, and priming the right way — no shortcuts.</p>
-    <p>Pressure washing isn’t optional. Surface repairs aren’t optional. We treat your home or business like it’s our own — ensuring the finish coat bonds properly and stays beautiful for years.</p>
-    <a href="#pressure-washing">See How We Prep</a>
+
+  <section id="cta-section">
+    <h2>Ready to Upgrade Your Business?</h2>
+    <p>A fresh coat of paint is one of the fastest ways to improve your commercial property's value and appeal. We're here to make it happen seamlessly.</p>
+    <a href="index.html#contact">Get Your Free Commercial Estimate</a>
   </section>
-  <section id="exterior-faq">
-    <h2>Exterior Painting FAQs</h2>
+
+  <section id="commercial-faq">
+    <h2>Commercial Painting FAQs</h2>
     <div>
-      <h3>How long does exterior painting usually take?</h3>
-      <p>Most residential repaints take 3–5 days depending on size, prep needs, and weather. We give clear timelines upfront and stay on schedule.</p>
-      <h3>Do you pressure wash every exterior before painting?</h3>
-      <p>Absolutely. Every project starts with a full pressure wash to remove dirt, mildew, and loose paint — essential for proper adhesion and lasting results.</p>
-      <h3>What kind of paint do you use?</h3>
-      <p>We primarily use Sherwin-Williams exterior coatings, designed for maximum durability against Alabama’s sun, humidity, and storms.</p>
-      <h3>Do you handle surface repairs before painting?</h3>
-      <p>Yes. We repair damaged trim, siding, fascia, and wood rot before any primer or paint is applied. Prep is everything.</p>
-      <h3>Is your work guaranteed?</h3>
-      <p>100%. Every exterior project is backed by a workmanship guarantee. We don’t leave until you’re fully satisfied.</p>
+      <h3>How do you work around business hours?</h3>
+      <p>We prioritize your business continuity. We offer flexible scheduling, including nights, weekends, and holiday periods, to minimize any disruption to your customers and staff.</p>
+      <h3>Are you licensed and insured for commercial jobs?</h3>
+      <p>Yes, absolutely. Dependable Painting is fully licensed and carries comprehensive general liability and workers' compensation insurance for all commercial projects.</p>
+      <h3>What types of commercial properties do you service?</h3>
+      <p>We service a wide range of properties, including retail stores, offices, medical facilities, restaurants, warehouses, and new construction projects.</p>
+      <h3>What kind of paint do you use for commercial projects?</h3>
+      <p>We use premium, low-VOC and zero-VOC commercial-grade paints from Sherwin-Williams and other top brands, selected for their durability, scuff-resistance, and professional finish.</p>
     </div>
   </section>
+
   <section id="map">
-    <h2>Where We Work</h2>
-    <p>Dependable Painting proudly serves homeowners and businesses throughout <strong>Baldwin County</strong> and <strong>Mobile County</strong> — including Fairhope, Daphne, Foley, Gulf Shores, Spanish Fort, Robertsdale, Bay Minette, and surrounding areas.</p>
-    <p>Not sure if we come to your neighborhood? Call us at <a href="tel:2515254405">(251) 525-4405</a> and we’ll let you know.</p>
+    <h2>Serving Businesses Across Two Counties</h2>
+    <p>Dependable Painting proudly serves businesses throughout <strong>Baldwin County</strong> and <strong>Mobile County</strong> — including Fairhope, Daphne, Foley, Gulf Shores, Spanish Fort, and all surrounding areas.</p>
+    <p>Call us at <a href="tel:2515254405">(251) 525-4405</a> to schedule a free, on-site walkthrough and estimate.</p>
     <div>
       <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d878474.4639526487!2d-88.50364527369405!3d30.675054662867886!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x889a5d78a87e436f%3A0x211b14e27f6aea08!2sDependable%20Painting%20LLC!5e0!3m2!1sen!2sus!4v1747600478528!5m2!1sen!2sus" width="100%" height="450" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
     </div>
   </section>
+
   <footer>
     <p>© <span id="current-year"></span> Dependable Painting LLC • <a href="tel:2515254405">(251) 525-4405</a> • Bay Minette, AL</p>
   </footer>
+
   <script>
     document.addEventListener('DOMContentLoaded', () => {
         new Swiper('.swiper-container', {
