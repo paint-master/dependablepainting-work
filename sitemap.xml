@@ -2,37 +2,62 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://dependablepainting.work/</loc>
-    <lastmod>2025-06-11</lastmod>
+    <lastmod>2025-06-15</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>1.00</priority>
   </url>
   <url>
     <loc>https://dependablepainting.work/about.html</loc>
-    <lastmod>2025-06-11</lastmod>
+    <lastmod>2025-06-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.80</priority>
+  </url>
+    <url>
+    <loc>https://dependablepainting.work/services.html</loc>
+    <lastmod>2025-06-15</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.80</priority>
   </url>
   <url>
-    <loc>https://dependablepainting.work/services.html</loc>
-    <lastmod>2025-06-11</lastmod>
+    <loc>https://dependablepainting.work/contact-form.html</loc>
+    <lastmod>2025-06-15</lastmod>
+    <changefreq>yearly</changefreq>
     <priority>0.80</priority>
   </url>
   <url>
     <loc>https://dependablepainting.work/interior-painting.html</loc>
-    <lastmod>2025-06-11</lastmod>
+    <lastmod>2025-06-15</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.80</priority>
   </url>
   <url>
     <loc>https://dependablepainting.work/exterior-painting.html</loc>
-    <lastmod>2025-06-11</lastmod>
+    <lastmod>2025-06-15</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.80</priority>
   </url>
   <url>
     <loc>https://dependablepainting.work/cabinet-painting.html</loc>
-    <lastmod>2025-06-11</lastmod>
+    <lastmod>2025-06-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.80</priority>
+  </url>
+    <url>
+    <loc>https://dependablepainting.work/commercial-painting.html</loc>
+    <lastmod>2025-06-15</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.80</priority>
   </url>
   <url>
+    <loc>https://dependablepainting.work/thank-you.html</loc>
+    <lastmod>2025-06-15</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.50</priority>
+  </url>
+  <url>
     <loc>https://dependablepainting.work/privacy.html</loc>
-    <lastmod>2025-06-11</lastmod>
+    <lastmod>2025-06-15</lastmod>
+    <changefreq>yearly</changefreq>
     <priority>0.50</priority>
   </url>
 </urlset>
