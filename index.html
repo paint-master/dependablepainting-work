@@ -1,13 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-4199PGW8SW"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-4199PGW8SW');
-</script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Dependable Painting</title>
@@ -19,9 +12,7 @@
     color="#e00000">
   <meta name="theme-color" content="#000000">
   <link rel="preconnect" href="https://imagedelivery.net">
-  <link rel="preconnect" href="https://www.googletagmanager.com">
   <style>
-    /* Reset & Base Styles */
     *,
     *::before,
     *::after {
@@ -61,7 +52,6 @@
       font-weight: bold;
       font-size: 1.4rem;
       color: #ff3b3b;
-      /* Standardized Red */
     }
     .nav-icons {
       display: flex;
@@ -70,14 +60,12 @@
     }
     .nav-icons a {
       color: #ff3b3b;
-      /* Standardized Red */
       font-size: 1.5rem;
       transition: color 0.3s ease;
     }
     .nav-icons a:hover {
       color: #fff;
     }
-    /* Hamburger Menu */
     .hamburger {
       width: 30px;
       height: 22px;
@@ -91,7 +79,6 @@
       height: 3px;
       width: 100%;
       background: #ff3b3b;
-      /* Standardized Red */
       border-radius: 2px;
       transition: 0.4s;
     }
@@ -104,7 +91,6 @@
     .hamburger.active span:nth-child(3) {
       transform: translateY(-9.5px) rotate(-45deg);
     }
-    /* Mobile Menu */
     nav.menu {
       position: fixed;
       top: 0;
@@ -112,25 +98,19 @@
       width: 100%;
       height: 100vh;
       background: rgba(0, 0, 0, 0.95);
-      /* Standardized from about.html */
       backdrop-filter: blur(4px);
-      /* Standardized from about.html */
       color: #fff;
       padding: 4rem 2rem;
       display: flex;
       flex-direction: column;
       gap: 1.8rem;
-      /* Standardized from about.html */
-      transition: left 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-      /* Standardized */
+      transition: left 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94); 
       z-index: 9998;
-      overflow-y: auto;
-      /* Standardized */
+      overflow-y: auto;  
     }
     nav.menu.open {
       left: 0;
       box-shadow: 5px 0 30px rgba(255, 59, 59, 0.2);
-      /* Standardized Red */
     }
     nav.menu .search-bar-container {
       display: flex;
@@ -152,15 +132,12 @@
     }
     nav.menu .search-bar:focus {
       border-color: #ff3b3b;
-      /* Standardized Red */
       box-shadow: 0 0 10px rgba(255, 59, 59, 0.6);
-      /* Standardized Red */
     }
     nav.menu .search-bar-container button {
       background: none;
       border: none;
       color: #ff3b3b;
-      /* Standardized Red */
       font-size: 1.4rem;
       cursor: pointer;
       padding: 0.5rem;
@@ -171,18 +148,15 @@
     }
     nav.menu a {
       color: #ff3b3b;
-      /* Standardized Red */
       font-size: 1.5rem;
       font-weight: bold;
       text-decoration: none;
       display: block;
       padding: 0.5rem 0;
       transition: color 0.3s ease, transform 0.3s ease;
-      /* Standardized */
       opacity: 0;
       /* For animation */
       animation: menuItemFadeIn 0.5s ease forwards;
-      /* Standardized */
     }
     @keyframes menuItemFadeIn {
       from {
@@ -197,7 +171,6 @@
     nav.menu a:hover {
       color: #fff;
       transform: translateX(5px);
-      /* Standardized */
     }
     nav.menu .submenu {
       display: none;
@@ -212,23 +185,17 @@
     .close-btn {
       position: absolute;
       top: 1.5rem;
-      /* Standardized */
       right: 1.5rem;
-      /* Standardized */
       font-size: 2.2rem;
-      /* Standardized */
       cursor: pointer;
       color: #ff3b3b;
-      /* Standardized Red */
       transition: color 0.3s ease, transform 0.3s ease;
-      /* Standardized */
     }
     .close-btn:hover {
       color: #ffffff;
       transform: rotate(90deg);
-      /* Standardized */
+  
     }
-    /* Hours Toggle and Popup */
     .hours-toggle {
       position: relative;
       display: inline-block;
@@ -236,44 +203,30 @@
     #hoursPopup {
       display: none;
       position: absolute;
-      background-color: #000000;
-      /* Standardized */
+      background-color: #000000; 
       color: #fff;
       padding: 1rem;
-      border-radius: 6px;
-      /* Standardized */
+      border-radius: 6px; 
       box-shadow: 0 0 10px rgba(255, 59, 59, 0.5);
-      /* Standardized Red */
       top: 130%;
-      /* Standardized */
       right: 0;
-      /* Standardized */
-      /* transform: translateX(-50%); */
-      /* Removed for right alignment */
       white-space: nowrap;
       z-index: 10000;
-      /* Standardized */
       margin-top: 0;
       /* Adjusted from 10px */
       opacity: 0;
-      /* Standardized */
       transition: opacity 0.3s ease, transform 0.3s ease;
-      /* Standardized */
       transform: translateY(-10px);
-      /* Standardized */
       border: 1px solid #333333;
-      /* Standardized */
     }
     #hoursPopup strong {
       color: #ff3b3b;
     }
-    /* Standardized Red */
     #hoursPopup.visible {
       display: block;
       opacity: 1;
       transform: translateY(0);
     }
-    /* Main Content Sections */
     section {
       padding: 5rem 2rem;
       text-align: center;
@@ -480,25 +433,25 @@
       }
       nav.menu {
         padding: 3.5rem 1.5rem;
-        /* Standardized */
+    
         gap: 1.5rem;
-        /* Standardized */
+    
       }
       nav.menu a {
         font-size: 1.3rem;
       }
       nav.menu .search-bar {
-        /* Standardized from about.html */
+  
         font-size: 0.95rem;
         padding: 0.5rem 0.8rem;
       }
       .close-btn {
         font-size: 2rem;
-        /* Standardized */
+    
         top: 1rem;
-        /* Standardized */
+    
         right: 1rem;
-        /* Standardized */
+    
       }
       #hoursPopup {
         /* Standardized for mobile */
@@ -545,7 +498,7 @@
         height: 50px;
         font-size: 1.2rem;
       }
-      /* Gallery Responsive */
+
       #gallery .prev,
       #gallery .next {
         font-size: 1.2rem;
@@ -567,7 +520,7 @@
         width: 15px;
         height: 100vh;
         background: radial-gradient(circle at left center, rgba(255, 59, 59, 0.15), transparent 70%);
-        /* Standardized Red */
+  
         z-index: 9998;
         pointer-events: none;
         opacity: 0.7;
@@ -622,7 +575,7 @@
       .service-card h3 {
         font-size: 1.3rem;
       }
-      /* Gallery Responsive */
+
       .text {
         font-size: 0.8rem;
         padding: 8px;
