@@ -20,6 +20,7 @@
     color="#e00000">
   <meta name="theme-color" content="#000000">
   <link rel="preconnect" href="https://imagedelivery.net">
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
   <style>
     *,
     *::before,
@@ -112,9 +113,9 @@
       display: flex;
       flex-direction: column;
       gap: 1.8rem;
-      transition: left 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94); 
+      transition: left 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
       z-index: 9998;
-      overflow-y: auto;  
+      overflow-y: auto;
     }
     nav.menu.open {
       left: 0;
@@ -202,7 +203,6 @@
     .close-btn:hover {
       color: #ffffff;
       transform: rotate(90deg);
-  
     }
     .hours-toggle {
       position: relative;
@@ -211,10 +211,10 @@
     #hoursPopup {
       display: none;
       position: absolute;
-      background-color: #000000; 
+      background-color: #000000;
       color: #fff;
       padding: 1rem;
-      border-radius: 6px; 
+      border-radius: 6px;
       box-shadow: 0 0 10px rgba(255, 59, 59, 0.5);
       top: 130%;
       right: 0;
@@ -371,57 +371,56 @@
       border: 0;
       border-radius: 10px;
     }
-#gallery {
-  padding: 3rem 1rem;
-}
-.swiper-container {
-  width: 100%;
-  max-width: 1200px;
-  margin: auto;
-  position: relative; 
-  overflow: hidden;
-  border-radius: 12px;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
-  aspect-ratio: 16 / 9; 
-}
-.swiper-slide {
-  background: #000;
-}
-.swiper-slide img {
-  display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: cover; 
-  border-radius: 12px;
-}
-.swiper-button-next,
-.swiper-button-prev {
-  color: #ff3b3b !important;
-  transition: background-color 0.3s ease;
-  background-color: rgba(0, 0, 0, 0.3);
-  border-radius: 50%;
-  width: 44px;
-  height: 44px;
-}
-.swiper-button-next:hover,
-.swiper-button-prev:hover {
-  background-color: rgba(255, 59, 59, 0.8);
-  color: #fff !important;
-}
-.swiper-button-next::after,
-.swiper-button-prev::after {
-  font-size: 1.5rem !important;
-  font-weight: bold;
-}
-.swiper-pagination-bullet-active {
-  background-color: #ff3b3b !important;
-}
-
-@media (max-width: 768px) {
-  .swiper-button-next, .swiper-button-prev { 
-    display: none; 
-  }
-}
+    #gallery {
+      padding: 3rem 1rem;
+    }
+    .swiper-container {
+      width: 100%;
+      max-width: 1200px;
+      margin: auto;
+      position: relative;
+      overflow: hidden;
+      border-radius: 12px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+      aspect-ratio: 16 / 9;
+    }
+    .swiper-slide {
+      background: #000;
+    }
+    .swiper-slide img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 12px;
+    }
+    .swiper-button-next,
+    .swiper-button-prev {
+      color: #ff3b3b !important;
+      transition: background-color 0.3s ease;
+      background-color: rgba(0, 0, 0, 0.3);
+      border-radius: 50%;
+      width: 44px;
+      height: 44px;
+    }
+    .swiper-button-next:hover,
+    .swiper-button-prev:hover {
+      background-color: rgba(255, 59, 59, 0.8);
+      color: #fff !important;
+    }
+    .swiper-button-next::after,
+    .swiper-button-prev::after {
+      font-size: 1.5rem !important;
+      font-weight: bold;
+    }
+    .swiper-pagination-bullet-active {
+      background-color: #ff3b3b !important;
+    }
+    @media (max-width: 768px) {
+      .swiper-button-next, .swiper-button-prev {
+        display: none;
+      }
+    }
     #floating-call {
       position: fixed;
       bottom: 20px;
@@ -452,6 +451,20 @@
       transform: scale(1.1);
       box-shadow: 0 0 15px #ff3b3b;
     }
+    .loader {
+      display: inline-block;
+      width: 20px;
+      height: 20px;
+      border: 3px solid rgba(255, 255, 255, 0.3);
+      border-radius: 50%;
+      border-top-color: #fff;
+      animation: spin 1s ease-in-out infinite;
+      margin-left: 10px;
+      vertical-align: middle;
+    }
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
     @media (max-width: 768px) {
       header {
         padding: 1rem;
@@ -474,25 +487,19 @@
       }
       nav.menu {
         padding: 3.5rem 1.5rem;
-    
         gap: 1.5rem;
-    
       }
       nav.menu a {
         font-size: 1.3rem;
       }
       nav.menu .search-bar {
-  
         font-size: 0.95rem;
         padding: 0.5rem 0.8rem;
       }
       .close-btn {
         font-size: 2rem;
-    
         top: 1rem;
-    
         right: 1rem;
-    
       }
       #hoursPopup {
         /* Standardized for mobile */
@@ -539,7 +546,6 @@
         height: 50px;
         font-size: 1.2rem;
       }
-
       #gallery .prev,
       #gallery .next {
         font-size: 1.2rem;
@@ -614,7 +620,6 @@
       .service-card h3 {
         font-size: 1.3rem;
       }
-
       .text {
         font-size: 0.8rem;
         padding: 8px;
@@ -625,7 +630,7 @@
 <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
 <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js" defer
-  crossorigin="anonymous"></script> </head>
+  crossorigin="anonymous"></script> 
 <body>
   <header>
   <div class="brand">
@@ -905,7 +910,8 @@ We’re not just painters — we’re business owners like you, and we know how 
   <footer style="background: #0a0a0a; color: #ccc; padding: 1rem 2rem; text-align: center; font-size: 0.9rem;">
   <p>© <span id="current-year"></span> Dependable Painting LLC • <a href="tel:2515254405" style="color: #ff3b3b; text-decoration: none;">(251) 525-4405</a> • Bay Minette, AL</p>
 </footer>
-  <script>
+
+<script>
   document.addEventListener('DOMContentLoaded', function () {
     // --- Gallery Initialization ---
     new Swiper('.swiper-container', {
@@ -982,6 +988,8 @@ We’re not just painters — we’re business owners like you, and we know how 
         floatingCall.classList.remove('show');
       }
     });
+    
+    // --- AI ASSISTANT SCRIPT ---
     const askAiButton = document.getElementById('ask-ai-button');
     const aiQuestionInput = document.getElementById('ai-question');
     const aiResponseDiv = document.getElementById('ai-response');
@@ -993,9 +1001,12 @@ We’re not just painters — we’re business owners like you, and we know how 
           alert('Please enter a question.');
           return;
         }
+        
+        // --- IMPROVED LOADING STATE ---
         askAiButton.disabled = true;
-        askAiButton.textContent = 'Thinking...';
-        aiResponseDiv.textContent = '...';
+        askAiButton.innerHTML = 'Thinking... <div class="loader"></div>'; // Add spinner
+        aiResponseDiv.innerHTML = ''; // Clear previous response
+
         try {
           const response = await fetch('/ask-ai', {
             method: 'POST',
@@ -1003,8 +1014,11 @@ We’re not just painters — we’re business owners like you, and we know how 
             body: JSON.stringify({ question: question })
           });
           const data = await response.json();
+          
           if (response.ok) {
-            aiResponseDiv.textContent = data.answer;
+            // --- IMPROVED RESPONSE RENDERING ---
+            // Use marked.js to parse Markdown into HTML for rich formatting
+            aiResponseDiv.innerHTML = marked.parse(data.answer);
           } else {
             aiResponseDiv.textContent = 'Sorry, I had trouble answering that. Please contact us directly.';
           }
@@ -1013,7 +1027,7 @@ We’re not just painters — we’re business owners like you, and we know how 
           aiResponseDiv.textContent = 'A network error occurred. Please check your connection.';
         } finally {
           askAiButton.disabled = false;
-          askAiButton.textContent = 'Get Answer';
+          askAiButton.innerHTML = 'Get Answer'; // Reset button text
         }
       });
     }
