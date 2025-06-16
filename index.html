@@ -6,7 +6,6 @@
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-
   gtag('config', 'G-4199PGW8SW');
   gtag('config', 'AW-16916132685');
 </script>
@@ -263,15 +262,49 @@
       color: #fff;
     }
     .service-card {
-      background: linear-gradient(145deg, #111 0%, #1f1f1f 100%);
+      background: linear-gradient(135deg, #0f0f0f 0%, #1a1a1a 100%);
       padding: 2rem;
-      border-radius: 20px;
-      box-shadow: 0 12px 25px rgba(255, 59, 59, 0.3);
-      transition: transform 0.4s, box-shadow 0.4s;
+      border-radius: 22px;
+      box-shadow:
+        0 12px 30px rgba(0, 0, 0, 0.65),
+        0 0 25px rgba(255, 59, 59, 0.15);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    /* Fade-in and slide-up animation for .service-card */
+    @keyframes fadeUp {
+      0% {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    .service-card {
+      animation: fadeUp 0.8s ease-out both;
+      animation-delay: calc(var(--i) * 0.15s);
     }
     .service-card:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 18px 35px rgba(255, 59, 59, 0.45);
+      transform: translateY(-8px);
+      box-shadow:
+        0 20px 45px rgba(0, 0, 0, 0.75),
+        0 0 40px rgba(255, 59, 59, 0.3);
+    }
+    .review-card {
+      background: linear-gradient(135deg, #0f0f0f 0%, #1a1a1a 100%);
+      padding: 2rem;
+      border-radius: 22px;
+      box-shadow:
+        0 10px 28px rgba(0, 0, 0, 0.5),
+        0 0 20px rgba(255, 59, 59, 0.12);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .review-card:hover {
+      transform: scale(1.02);
+      box-shadow:
+        0 18px 40px rgba(0, 0, 0, 0.6),
+        0 0 30px rgba(255, 59, 59, 0.22);
     }
     .service-card h3 {
       color: #ff3b3b;
@@ -419,7 +452,6 @@
       transform: scale(1.1);
       box-shadow: 0 0 15px #ff3b3b;
     }
-    /* Responsive Adjustments */
     @media (max-width: 768px) {
       header {
         padding: 1rem;
@@ -520,7 +552,6 @@
         height: 12px;
         width: 12px;
       }
-      /* Swipe cue for mobile menu */
       body.swipe-active::before {
         content: "";
         position: fixed;
@@ -529,7 +560,6 @@
         width: 15px;
         height: 100vh;
         background: radial-gradient(circle at left center, rgba(255, 59, 59, 0.15), transparent 70%);
-  
         z-index: 9998;
         pointer-events: none;
         opacity: 0.7;
@@ -659,8 +689,7 @@
   <section id="services-overview" style="padding: 4rem 2rem; text-align: center; background: #0a0a0a; color: white;">
     <h2 style="font-size: 2.5rem; margin-bottom: 3rem; color: #fff;">Our Services</h2>
     <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem;">
-      <div class="service-card"
-        style="background: linear-gradient(145deg, #111 0%, #1f1f1f 100%); padding: 2rem; border-radius: 20px; box-shadow: 0 12px 25px rgba(255, 59, 59, 0.3); transition: transform 0.4s, box-shadow 0.4s;">
+      <div class="service-card" style="--i:0">
         <h3 style="color: #ff3b3b; font-size: 1.8rem; margin-bottom: 1.2rem;">Interior Painting</h3>
         <p style="color: #e0e0e0; line-height: 1.6;">
           Transform your indoor spaces with fresh colors and flawless finishes. From single rooms to whole homes, we
@@ -670,8 +699,7 @@
           style="color: #fff; text-decoration: none; border: 1px solid #ff3b3b; padding: 0.7rem 1.5rem; border-radius: 5px; margin-top: 1.5rem; display: inline-block; transition: background-color 0.3s ease, color 0.3s ease;">Learn
           More</a>
       </div>
-      <div class="service-card"
-        style="background: linear-gradient(145deg, #111 0%, #1f1f1f 100%); padding: 2rem; border-radius: 20px; box-shadow: 0 12px 25px rgba(255, 59, 59, 0.3); transition: transform 0.4s, box-shadow 0.4s;">
+      <div class="service-card" style="--i:1">
         <h3 style="color: #ff3b3b; font-size: 1.8rem; margin-bottom: 1.2rem;">Exterior Painting</h3>
         <p style="color: #e0e0e0; line-height: 1.6;">
           Protect and beautify your home's exterior with durable, weather-resistant paints. Enhance curb appeal and
@@ -681,8 +709,7 @@
           style="color: #fff; text-decoration: none; border: 1px solid #ff3b3b; padding: 0.7rem 1.5rem; border-radius: 5px; margin-top: 1.5rem; display: inline-block; transition: background-color 0.3s ease, color 0.3s ease;">Learn
           More</a>
       </div>
-      <div class="service-card"
-        style="background: linear-gradient(145deg, #111 0%, #1f1f1f 100%); padding: 2rem; border-radius: 20px; box-shadow: 0 12px 25px rgba(255, 59, 59, 0.3); transition: transform 0.4s, box-shadow 0.4s;">
+      <div class="service-card" style="--i:2">
         <h3 style="color: #ff3b3b; font-size: 1.8rem; margin-bottom: 1.2rem;">Cabinet Painting</h3>
         <p style="color: #e0e0e0; line-height: 1.6;">
           Revitalize your kitchen or bathroom with stunning cabinet repainting. Achieve a factory-smooth finish that
@@ -692,8 +719,7 @@
           style="color: #fff; text-decoration: none; border: 1px solid #ff3b3b; padding: 0.7rem 1.5rem; border-radius: 5px; margin-top: 1.5rem; display: inline-block; transition: background-color 0.3s ease, color 0.3s ease;">Learn
           More</a>
       </div>
-      <div class="service-card"
-        style="background: linear-gradient(145deg, #111 0%, #1f1f1f 100%); padding: 2rem; border-radius: 20px; box-shadow: 0 12px 25px rgba(255, 59, 59, 0.3); transition: transform 0.4s, box-shadow 0.4s;">
+      <div class="service-card" style="--i:3">
         <h3 style="color: #ff3b3b; font-size: 1.8rem; margin-bottom: 1.2rem;">Commercial Painting</h3>
         <p style="color: #e0e0e0; line-height: 1.6;">
           Professional painting solutions for businesses and commercial properties. We deliver high-quality results with
@@ -736,24 +762,21 @@
   <section id="reviews" style="padding: 4rem 2rem; background: #0a0a0a; color: white; text-align: center;">
     <h2 style="font-size: 2.5rem; margin-bottom: 3rem; color: #fff;">What Our Clients Say</h2>
     <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
-      <div class="review-card"
-        style="background: linear-gradient(145deg, #111 0%, #1f1f1f 100%); padding: 2rem; border-radius: 20px; box-shadow: 0 8px 15px rgba(0,0,0,0.3);">
+      <div class="review-card">
         <p style="font-style: italic; color: #e0e0e0; margin-bottom: 1rem;">
           "Dependable Painting did an outstanding job on our exterior. Professional, efficient, and the results are
           amazing!"
         </p>
         <p style="font-weight: bold; color: #ff3b3b;">- John D.</p>
       </div>
-      <div class="review-card"
-        style="background: linear-gradient(145deg, #111 0%, #1f1f1f 100%); padding: 2rem; border-radius: 20px; box-shadow: 0 8px 15px rgba(0,0,0,0.3);">
+      <div class="review-card">
         <p style="font-style: italic; color: #e0e0e0; margin-bottom: 1rem;">
           "Our kitchen cabinets look brand new! The team was meticulous and delivered a flawless finish. Highly
           recommend!"
         </p>
         <p style="font-weight: bold; color: #ff3b3b;">- Sarah L.</p>
       </div>
-      <div class="review-card"
-        style="background: linear-gradient(145deg, #111 0%, #1f1f1f 100%); padding: 2rem; border-radius: 20px; box-shadow: 0 8px 15px rgba(0,0,0,0.3);">
+      <div class="review-card">
         <p style="font-style: italic; color: #e0e0e0; margin-bottom: 1rem;">
           "Great experience from start to finish. They were responsive, detailed, and the paint job exceeded our
           expectations."
@@ -901,15 +924,11 @@ We’re not just painters — we’re business owners like you, and we know how 
         prevEl: '.swiper-button-prev',
       },
     });
-
-    // --- Menu, Hours Popup, and Footer Year ---
     document.getElementById('current-year').textContent = new Date().getFullYear();
     const menu = document.getElementById('mobileMenu');
     const hamburger = document.querySelector('.hamburger');
     const hoursPopup = document.getElementById('hoursPopup');
     const body = document.body;
-
-    // FULL, WORKING MENU FUNCTION
     window.toggleMenu = () => {
       if (!menu || !hamburger || !body) return;
       const isOpen = menu.classList.toggle('open');
@@ -926,8 +945,6 @@ We’re not just painters — we’re business owners like you, and we know how 
         });
       }
     };
-
-    // FULL, WORKING SUBMENU FUNCTION
     window.toggleSubMenu = (e) => {
       e.preventDefault();
       const submenu = document.getElementById('submenu');
@@ -935,8 +952,6 @@ We’re not just painters — we’re business owners like you, and we know how 
         submenu.classList.toggle('open');
       }
     };
-    
-    // FULL, WORKING HOURS POPUP FUNCTION
     window.toggleHoursPopup = (e) => {
       e.stopPropagation();
       if (!hoursPopup || !e || !e.currentTarget) return;
@@ -959,8 +974,6 @@ We’re not just painters — we’re business owners like you, and we know how 
         toggleMenu();
       }
     });
-
-    // --- Floating Call Button ---
     const floatingCall = document.getElementById('floating-call');
     window.addEventListener('scroll', function () {
       if (window.scrollY > 200) {
@@ -969,8 +982,6 @@ We’re not just painters — we’re business owners like you, and we know how 
         floatingCall.classList.remove('show');
       }
     });
-
-    // --- AI Assistant Logic ---
     const askAiButton = document.getElementById('ask-ai-button');
     const aiQuestionInput = document.getElementById('ai-question');
     const aiResponseDiv = document.getElementById('ai-response');

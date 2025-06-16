@@ -12,7 +12,7 @@
 </script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Contact Us | Dependable Painting</title>
+  <title>Free Estimate | Dependable Painting</title>
   <link rel="icon" type="image/png"
     href="https://imagedelivery.net/VwxTcpKX2CusqbCCDB94Nw/0468e61a-5565-43fa-4026-fbc5801f1100/facicon"
     sizes="512x512">
@@ -397,22 +397,7 @@
     <a href="/#gallery">Gallery</a>
     <a href="privacy.html">Privacy Policy</a>
   </nav>
-  <section class="hero-section"
-    style="background-image: url('https://imagedelivery.net/VwxTcpKX2CusqbCCDB94Nw/86b51c5e-04c9-4673-f1e1-e94f114c0000/public'); background-size: cover; background-position: center; color: white; text-align: center; padding: 100px 20px; min-height: 40vh; display: flex; flex-direction: column; align-items: center; justify-content: center;">
-    <div class="hero-content">
-      <h1 style="font-size: 3rem; text-shadow: 2px 2px 4px rgba(0,0,0,0.7);">
-        Get in Touch
-      </h1>
-      <p style="font-size: 1.3rem; max-width: 650px; text-shadow: 1px 1px 3px rgba(0,0,0,0.7);">
-        Ready to start your project? Fill out the form below for a free, no-obligation estimate.
-      </p>
-    </div>
-  </section>
   <section id="contact-form-section">
-    <h2>Request a Free Estimate</h2>
-    <p>
-      Fill out the form below or contact us directly. We're ready to answer your questions and get your project started.
-    </p>
     <form id="contact-form">
       <label for="name">Name:</label>
       <input type="text" id="name" name="name" placeholder="Your Full Name" required>
@@ -435,27 +420,6 @@
     </form>
     <div id="response" aria-live="polite"></div>
   </section>
-  <section>
-    <h2 style="color: #ff3b3b; font-size: 2rem; margin-bottom: 2rem;">Where We Work</h2>
-    <p style="color: #ccc; max-width: 700px; margin: 0 auto 2rem;">
-      We proudly serve homeowners and businesses throughout <strong>Baldwin County</strong> and
-      <strong>Mobile County</strong> — including Fairhope, Daphne, Spanish Fort, Foley, and Bay Minette.
-    </p>
-    <div style="max-width: 100%; overflow: hidden; border-radius: 10px;">
-      <iframe
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d54922.632588480454!2d-87.91382869031587!3d30.64341048628297!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x889a5d78a87e436f%3A0x211b14e27f6aea08!2sDependable%20Painting%20LLC!5e0!3m2!1sen!2sus!4v1749439475494!5m2!1sen!2sus"
-        width="100%"
-        height="450"
-        style="border:0;"
-        allowfullscreen=""
-        loading="lazy"
-        referrerpolicy="no-referrer-when-downgrade">
-      </iframe>
-    </div>
-  </section>
-  <footer style="background: #0a0a0a; color: #ccc; padding: 1rem 2rem; text-align: center; font-size: 0.9rem;">
-    <p>© <span id="current-year"></span> Dependable Painting LLC • <a href="tel:2515254405" style="color: #ff3b3b; text-decoration: none;">(251) 525-4555</a> • Bay Minette, AL</p>
-  </footer>
 
 <script>
   document.addEventListener('DOMContentLoaded', function () {
@@ -511,6 +475,29 @@
     const contactForm = document.getElementById("contact-form");
     const responseDiv = document.getElementById("response");
     if (contactForm) {
+      // Personalize form if service is passed via URL
+      const params = new URLSearchParams(window.location.search);
+      const serviceParam = params.get("service");
+      if (serviceParam) {
+        const decodedService = decodeURIComponent(serviceParam);
+        const serviceSelect = document.getElementById("service");
+        const introHeader = document.querySelector("#contact-form-section h2");
+        const introParagraph = document.querySelector("#contact-form-section p");
+
+        // Update dropdown if match is found
+        for (let option of serviceSelect.options) {
+          if (option.value.toLowerCase() === decodedService.toLowerCase()) {
+            serviceSelect.value = option.value;
+            break;
+          }
+        }
+
+        // Update intro messaging
+        if (introHeader && introParagraph) {
+          introHeader.textContent = `Let’s Talk ${decodedService}`;
+          introParagraph.textContent = `Looks like you're interested in ${decodedService}. Fill out the form below and we’ll be in touch right away.`;
+        }
+      }
       contactForm.addEventListener("submit", async function (event) {
         event.preventDefault();
         const submitButton = contactForm.querySelector("button");
