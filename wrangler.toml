@@ -1,11 +1,7 @@
 name = "dependablepainting-work"
-pages_build_output_dir = "public"
+pages_build_output_dir = "Public"
 compatibility_date = "2025-06-16"
 
 [[services]]
 binding = "ask-ai"
 service = "ask-ai"
-
-[[routes]]
-pattern = "/ask-ai"
-zone_name = "dependablepainting.work"
