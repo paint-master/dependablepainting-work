@@ -1,8 +1,16 @@
+# macOS system files
 .DS_Store
-.AppleDouble
 .LSOverride
 Icon
-__MACOSX/
+
+# Log files
 *.log
+
+# Dependency directories
 node_modules/
 
+# Cloudflare Wrangler local development files
+# This is very important to add!
+.wrangler/
+
+# Environment variables file
