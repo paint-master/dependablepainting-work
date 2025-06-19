@@ -5,3 +5,4 @@ compatibility_date = "2025-06-16"
 [[services]]
 binding = "ask-ai"
 service = "ask-ai"
+
