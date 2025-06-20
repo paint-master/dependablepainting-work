@@ -1,7 +1,0 @@
-name = "dependablepainting-work"
-pages_build_output_dir = "Public"
-compatibility_date = "2025-06-19"
-
-[[services]]
-binding = "paintGuru"
-service = "paint-guru"
