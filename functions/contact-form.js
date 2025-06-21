@@ -1,7 +1,10 @@
 export async function onRequestPost(context) {
+  console.log("📩 Received contact form POST request");
   const { env, request } = context;
   try {
-    const { name, email, phone, service, message } = await request.json();
+    const raw = await request.clone().text();
+    console.log("📨 Raw request body:", raw);
+    const { name, email, phone, service, message } = JSON.parse(raw);
     if (!name || !email || !service || !message) {
       return new Response(JSON.stringify({ error: 'Missing required fields.' }), { status: 400 });
     }
