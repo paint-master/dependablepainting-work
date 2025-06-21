@@ -393,10 +393,9 @@
       <label for="name">Name:</label>
       <input type="text" id="name" name="name" placeholder="Your Full Name" required>
       <label for="email">Email:</label>
-      <input type="email" id="email" name="email" placeholder="your.email@example.com" required>
+      <input type="email" id="email" name="email" placeholder="Your Email" required>
       <label for="phone">Phone (Optional):</label>
-      <input type="tel" id="phone" name="phone" placeholder="(555) 123-4567">
-      <label for="service">Service Needed:</label>
+      <input type="tel" id="phone" name="phone" placeholder="111-123-4567" required>
       <select id="service" name="service" required>
         <option value="">Select a Service</option>
         <option value="Interior Painting">Interior Painting</option>
@@ -485,8 +484,8 @@
 
         // Update intro messaging
         if (introHeader && introParagraph) {
-          introHeader.textContent = `Let’s Talk ${decodedService}`;
-          introParagraph.textContent = `Looks like you're interested in ${decodedService}. Fill out the form below and we’ll be in touch right away.`;
+          introHeader.textContent = `Request an Estimate for ${decodedService}`;
+          introParagraph.textContent = `Thank you for your interest in our ${decodedService} services. Please complete the form below and a member of our team will follow up shortly.`;
         }
       }
       contactForm.addEventListener("submit", async function (event) {
