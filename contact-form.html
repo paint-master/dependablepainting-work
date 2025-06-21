@@ -391,7 +391,7 @@
   <section id="contact-form-section">
     <h2 id="contact-intro-header">Request a Free Estimate</h2>
     <p id="contact-intro-paragraph">Tell us a little about your project and a team member will reach out shortly.</p>
-    <form id="contact-form">
+    <form id="contact-form" action="/api/contact-form" method="POST">
       <label for="name">Name:</label>
       <input type="text" id="name" name="name" placeholder="Your Full Name" required>
       <label for="email">Email:</label>
@@ -506,7 +506,7 @@
         };
 
         try {
-         const response = await fetch("/contact-form", {
+         const response = await fetch("/api/contact-form", {
             method: "POST",
             headers: {
               "Content-Type": "application/json",
