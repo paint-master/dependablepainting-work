@@ -1,15 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-4199PGW8SW"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-4199PGW8SW');
-  gtag('config', 'AW-16916132685');
-</script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Free Estimate | Dependable Painting</title>
@@ -526,21 +517,14 @@
           const result = await response.json(); // Get JSON response from worker
 
           if (response.ok) {
-            // Use the category from the worker's response in the analytics event
-            gtag('event', 'form_submit', {
-                event_category: 'Contact',
-                event_label: `Lead: ${result.category || 'Uncategorized'}`
-            });
             // Redirect to a thank-you page on success
             window.location.href = "/thank-you.html"; 
           } else {
             responseDiv.textContent = "Submission failed. Please try again or give us a call.";
-            gtag('event', 'form_submit_error', { event_category: 'Contact', event_label: 'API Error', event_value: response.status });
           }
         } catch (error) {
           console.error("Submission error:", error);
           responseDiv.textContent = "A network error occurred. Please check your connection and try again.";
-          gtag('event', 'form_submit_network_error', { event_category: 'Contact', event_label: 'Network Error' });
         } finally {
           submitButton.disabled = false;
           submitButton.textContent = "Get My Estimate";
