@@ -389,6 +389,8 @@
     <a href="privacy.html">Privacy Policy</a>
   </nav>
   <section id="contact-form-section">
+    <h2 id="contact-intro-header">Request a Free Estimate</h2>
+    <p id="contact-intro-paragraph">Tell us a little about your project and a team member will reach out shortly.</p>
     <form id="contact-form">
       <label for="name">Name:</label>
       <input type="text" id="name" name="name" placeholder="Your Full Name" required>
@@ -471,8 +473,8 @@
       if (serviceParam) {
         const decodedService = decodeURIComponent(serviceParam);
         const serviceSelect = document.getElementById("service");
-        const introHeader = document.querySelector("#contact-form-section h2");
-        const introParagraph = document.querySelector("#contact-form-section p");
+        const introHeader = document.getElementById("contact-intro-header");
+        const introParagraph = document.getElementById("contact-intro-paragraph");
 
         // Update dropdown if match is found
         for (let option of serviceSelect.options) {
